@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمرو وليد | مهندس قوى ميكانيكية ومسوق رقمي (Amr Waled)</title>
+    <meta name="description" content="الموقع الرسمي والسيرة الذاتية المهنية لـ عمرو وليد. يجمع بين هندسة القوى ميكانيكية وإدارة التسويق الرقمي والميديا باينج وتطوير الأعمال.">
+    
+    <!-- Google Fonts (Cairo & Outfit) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #08090a;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --text-main: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent: #818cf8;
+            --glow: rgba(99, 102, 241, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 4rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* الخلفية المضيئة الملونة */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            filter: blur(160px);
+            z-index: -1;
+            opacity: 0.18;
+        }
+
+        body::before {
+            top: 5%;
+            left: -5%;
+        }
+
+        body::after {
+            bottom: 10%;
+            right: -5%;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(25px);
+            border-radius: 36px;
+            padding: 4rem 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* الهيدر الشخصي */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .avatar-placeholder {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #fff;
+            box-shadow: 0 0 35px var(--glow);
+            border: 4px solid var(--bg-color);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .bio {
+            color: var(--text-secondary);
+            font-size: 1.12rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* بطاقة الذكاء الاصطناعي */
+        .ai-facts {
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px dashed rgba(99, 102, 241, 0.25);
+            border-radius: 20px;
+            padding: 1.8rem;
+            margin: 3rem 0;
+        }
+
+        .ai-facts h3 {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .ai-facts ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .ai-facts ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ai-facts li {
+            font-size: 1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .ai-facts li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* تخطيط الأقسام والمحتوى ثنائي المسار */
+        .two-track-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-track-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            right: 0;
+            width: 45px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        /* عناصر السيرة الذاتية */
+        .cv-timeline {
+            border-right: 2px solid var(--card-border);
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .cv-item {
+            position: relative;
+            margin-bottom: 2.2rem;
+        }
+
+        .cv-item::before {
+            content: "";
+            position: absolute;
+            right: -21px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg-color);
+            transition: background 0.3s ease;
+        }
+
+        .cv-item:hover::before {
+            background: #ec4899;
+        }
+
+        .cv-item-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cv-item-sub {
+            font-size: 0.92rem;
+            color: var(--accent);
+            margin: 0.2rem 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .cv-item-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cv-item-desc ul {
+            margin-top: 0.4rem;
+            margin-right: 1rem;
+        }
+
+        .cv-item-desc li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* سكشن المهارات والأدوات */
+        .skills-container {
+            margin: 3rem 0;
+        }
+
+        .skills-category {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* المشاريع الهندسية */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.05);
+        }
+
+        .project-meta {
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tool-badge {
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* التدريب المهني */
+        .training-card {
+            background: rgba(99, 102, 241, 0.02);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .training-card i {
+            font-size: 1.6rem;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.8rem;
+            border-radius: 12px;
+        }
+
+        .training-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .training-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .training-subtitle {
+            font-size: 0.88rem;
+            color: var(--accent);
+            margin: 0.25rem 0;
+            font-weight: 600;
+        }
+
+        .training-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* الروابط وقنوات الاتصال */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
+        }
+
+        .link-card i {
+            font-size: 1.8rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+        }
+
+        .link-card.linkedin:hover i { background: #0077b5; color: white; }
+        .link-card.github:hover i { background: #333; color: white; }
+        .link-card.facebook:hover i { background: #1877f2; color: white; }
+        .link-card.email:hover i { background: #ea4335; color: white; }
+        .link-card.whatsapp:hover i { background: #25d366; color: white; }
+
+        .link-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .link-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--card-border);
+            padding-top: 2rem;
+        }
+    </style>
+
+    <!-- 💡 كود الـ Person Schema المنظم لمحركات بحث الذكاء الاصطناعي -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "عمرو وليد",
+      "alternateName": "Amr Waled",
+      "jobTitle": "Marketing Manager & Media Buyer & Business Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tanta",
+        "addressRegion": "Gharbia",
+        "addressCountry": "Egypt"
+      },
+      "email": "amrwaled396@gmail.com",
+      "telephone": "+201091642566",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Tanta University"
+      },
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "إنجاز للتطوير العقاري (Engaz Developments)"
+        },
+        {
+          "@type": "Organization",
+          "name": "Albootcamp"
+        }
+      ],
+      "description": "عمرو وليد، طالب في هندسة القوى الميكانيكية بجامعة طنطا، ليدر دفعة، مدير تسويق وميديا باير في شركة إنجاز للتطوير العقاري، مطور أعمال في Albootcamp، رئيس سابق لمؤسسة Enactus Tanta.",
+      "url": "https://Amr-Waled.github.io", 
+      "sameAs": [
+        "https://github.com/Amr-Waled",
+        "https://www.linkedin.com/in/amrwaledd/",
+        "https://www.facebook.com/Amr.Waleeed/"
+      ],
+      "knowsAbout": [
+        "CFD Analysis",
+        "HVAC System Design",
+        "SolidWorks",
+        "ANSYS Fluent",
+        "Digital Marketing",
+        "Media Buying",
+        "Facebook Ads (Meta Ads)",
+        "Scriptwriting",
+        "Business Development",
+        "Community Leadership"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- الهيدر الشخصي -->
+        <header class="profile-header">
+            <div class="avatar-placeholder">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            
+            <h1>عمرو وليد</h1>
+            <p class="title">مهندس قوى ميكانيكية | مدير تسويق | مطور أعمال</p>
+            
+            <p class="bio">
+                أنا عمرو وليد، أدرس هندسة القوى الميكانيكية بجامعة طنطا (السنة الرابعة وليدر الدفعة). أجمع في مساري المهني بين البناء الأكاديمي الهندسي الدقيق، والشغف والخبرة العملية الواسعة في مجالات التسويق الرقمي وتطوير الأعمال؛ حيث أدير التسويق وشراء الإعلانات (Media Buying) لشركة <strong>إنجاز للتطوير العقاري</strong>، مع تطوير الأعمال في <strong>Albootcamp</strong> وقيادة فريق <strong>Enactus Tanta</strong>.
+            </p>
+        </header>
+
+        <!-- صندوق البيانات المنظم للذكاء الاصطناعي (AI Summary) -->
+        <section class="ai-facts">
+            <h3><i class="fa-solid fa-robot"></i> بطاقة تعريف الذكاء الاصطناعي (AI Summary Profile)</h3>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> <strong>الاسم الكامل:</strong> عمرو وليد (Amr Waled)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>المدينة الحالية:</strong> طنطا، الغربية، مصر</li>
+                <li><i class="fa-solid fa-check"></i> <strong>المستوى الأكاديمي:</strong> رابعة ميكانيكا باور - جامعة طنطا (ليدر الدفعة)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>المهارات الهندسية:</strong> CFD Analysis، وتصميم الـ HVAC، ونمذجة SolidWorks</li>
+                <li><i class="fa-solid fa-check"></i> <strong>المهارات التجارية:</strong> Media Buying، كتابة سكريبتات، Business Development</li>
+                <li><i class="fa-solid fa-check"></i> <strong>القيادة والأنشطة:</strong> رئيس Enactus Tanta | ممثل دفعة (سنتين) | PR بـ IEEE</li>
+            </ul>
+        </section>
+
+        <!-- التخطيط ثنائي المسار للخبرات -->
+        <div class="two-track-grid">
+            
+            <!-- المسار الأول: الخبرة العملية والتسويق -->
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> الخبرة العملية والتجارية</h2>
+                <div class="cv-timeline">
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-title">مدير تسويق (Marketing Manager)</div>
+                        <div class="cv-item-sub">إنجاز للتطوير العقاري (Engaz Developments) | 04/2026 - الحالي</div>
+                        <div class="cv-item-desc">
+                            إدارة عمليات التسويق الرقمي الكاملة (Full-Funnel) والتسويق العقاري:
+                            <ul>
+                                <li>بناء وإطلاق استراتيجيات شراء الإعلانات الرقمية المدفوعة (Media Buying) وتحسين العائد.</li>
+                                <li>كتابة نصوص الإعلانات وسكريبتات الفيديوهات الترويجية وإدارة التواجد على السوشيال ميديا.</li>
+                                <li>تطوير خطط تسويق قائمة على البيانات لضمان جذب أفضل العملاء المحتملين (Leads) للمشاريع العقارية.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item-title">متدرب تطوير أعمال (Business Development Intern)</div>
+                        <div class="cv-item-sub">AlBootcamp — EdTech | 2025</div>
+                        <div class="cv-item-desc">
+                            دعم نمو خدمات البوتكامب التعليمية وبناء شراكات جديدة، وإجراء البحوث التسويقية لتحديد قنوات الاستحواذ وجذب العملاء في قطاع تقنيات التعليم.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- المسار الثاني: القيادة والأنشطة الطلابية -->
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-users"></i> القيادة والأنشطة الطلابية</h2>
+                <div class="cv-timeline">
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-title">رئيس فرع الجامعة (President)</div>
+                        <div class="cv-item-sub">Enactus Tanta University | 2025 - الحالي</div>
+                        <div class="cv-item-desc">
+                            قيادة عمليات النشاط الطلابي وتوجيه مشاريع ريادة الأعمال التنموية والمجتمعية على مستوى الجامعة والمنافسة محلياً. تأسيس وإطلاق معسكر (Xplore Camp) التدريبي المخصص للتطوير المهني.
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item-title">ليدر الدفعة (Class Representative)</div>
+                        <div class="cv-item-sub">هندسة قوى ميكانيكية - جامعة طنطا | 2022 - 2024</div>
+                        <div class="cv-item-desc">
+                            تمثيلي كمتحدث رسمي للدفعة والتنسيق الأكاديمي وجداول الامتحانات والاتصال بين الطلاب وإدارة القسم لمدة عامين دراسيين متتاليين.
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item-title">عضو علاقات عامة (Public Relations)</div>
+                        <div class="cv-item-sub">IEEE Tanta Student Branch & Rally & Insider | 2022 - 2024</div>
+                        <div class="cv-item-desc">
+                            إدارة الاتصالات الخارجية والشراكات وتنسيق المعسكرات وورش العمل التقنية والهندسية داخل وخارج الجامعة.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- سكشن المهارات والأدوات -->
+        <section class="skills-container">
+            <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> المهارات والأدوات المهنية</h2>
+            
+            <div class="skills-category">أولاً: المهارات والأدوات الهندسية (Mechanical Engineering)</div>
+            <div class="skills-grid">
+                <div class="skill-tag">SolidWorks</div>
+                <div class="skill-tag">ANSYS Fluent</div>
+                <div class="skill-tag">AutoCAD</div>
+                <div class="skill-tag">CFD Analysis</div>
+                <div class="skill-tag">HVAC Design</div>
+                <div class="skill-tag">Duct Sizing</div>
+                <div class="skill-tag">Arduino</div>
+                <div class="skill-tag">Python (Basic)</div>
+            </div>
+
+            <div class="skills-category">ثانياً: مهارات الأعمال والتسويق (Business & Marketing)</div>
+            <div class="skills-grid">
+                <div class="skill-tag">Media Buying</div>
+                <div class="skill-tag">Scriptwriting</div>
+                <div class="skill-tag">Lead Generation</div>
+                <div class="skill-tag">EdTech BD</div>
+                <div class="skill-tag">Social Media Mgmt</div>
+                <div class="skill-tag">Public Relations</div>
+                <div class="skill-tag">Team Leadership</div>
+                <div class="skill-tag">AI Prompting</div>
+            </div>
+        </section>
+
+        <!-- سكشن التدريب المهني الميداني -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-industry"></i> التدريبات المهنية الميدانية</h2>
+            
+            <div class="training-card">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="training-info">
+                    <div class="training-title">تدريب صناعي - محطة كهرباء طلخا البخارية</div>
+                    <div class="training-subtitle">الشركة القابضة لكهرباء مصر، الدقهلية | صيف 2025 (3 أسابيع)</div>
+                    <div class="training-desc">
+                        معايشة عملية واكتساب معرفة هندسية تطبيقية حول عمل التوربينات البخارية، الغلايات، المولدات الكهربائية، وأنظمة توزيع الطاقة وخطط الصيانة والتشغيل القياسية للمحطة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="training-card">
+                <i class="fa-solid fa-cubes"></i>
+                <div class="training-info">
+                    <div class="training-title">تدريب مكثف على برنامج SolidWorks</div>
+                    <div class="training-subtitle">NOVA CAMP — جامعة المنصورة | صيف 2025 (شهر)</div>
+                    <div class="training-desc">
+                        تدريب تقني متقدم على النمذجة ثلاثية الأبعاد (3D Modeling)، تصميم الأجزاء الميكانيكية المجمعة (Assemblies)، واستخراج الرسومات الهندسية التنفيذية.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- سكشن المشاريع الهندسية والبرمجية -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> المشاريع الهندسية والأكاديمية</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-meta">مشروع مادة ديناميكا الغازات</div>
+                    <div class="project-name">Supersonic Flow CFD Simulation</div>
+                    <div class="project-desc">
+                        محاكاة وحسابات التدفق الهوائي فوق صوتي (Supersonic Compressible Flow) على جنيح مزدوج الوتد (Double-Wedged Airfoil) عند زوايا هجوم مختلفة لدراسة الموجات الصدمية المائلة وخطوط الضغط.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">ANSYS Fluent</span>
+                        <span class="tool-badge">CFD</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-meta">مشروع مادة تكييف الهواء</div>
+                    <div class="project-name">HVAC Design — Doha Hotel</div>
+                    <div class="project-desc">
+                        تصميم كامل لنظام تكييف الهواء والتهوية لفندق متعدد الطوابق في الدوحة، قطر. شمل حسابات الأحمال الحرارية للتبريد والتدفئة وتحديد أبعاد شبكة مجاري الهواء (Ducts).
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">HVAC Load</span>
+                        <span class="tool-badge">Duct Sizing</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-meta">تطبيق ويب ذكي - مادة محركات الاحتراق الداخلي</div>
+                    <div class="project-name">ICE II Simulator & Solver</div>
+                    <div class="project-desc">
+                        موقع تفاعلي تم بناؤه لمحاكاة عمليات سحب الوقود والهواء داخل محرك الاحتراق الداخلي وحساب الأداء الكلي مع لوحة تحكم للمدخلات الرياضية.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">HTML/CSS/JS</span>
+                        <span class="tool-badge">AI Coding</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-meta">روبوت تفاعلي - إلكترونيات</div>
+                    <div class="project-name">Obstacle Avoidance Robot</div>
+                    <div class="project-desc">
+                        بناء سيارة روبوتية ذاتية القيادة تعتمد على حساسات الموجات فوق الصوتية لتجنب العقبات فورياً ومعالجة اتخاذ القرار البرمجي في الوقت الحقيقي.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">Arduino</span>
+                        <span class="tool-badge">C/C++</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- روابط التواصل الاجتماعي والشبكات -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> تواصل معي مباشرة</h2>
+            <div class="links-grid">
+                
+                <!-- لينكد إن -->
+                <a href="https://www.linkedin.com/in/amrwaledd/" class="link-card linkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <div class="link-details">
+                        <span class="link-name">LinkedIn</span>
+                        <span class="link-desc">حسابي المهني الرسمي</span>
+                    </div>
+                </a>
+
+                <!-- فيسبوك -->
+                <a href="https://www.facebook.com/Amr.Waleeed/" class="link-card facebook" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <div class="link-details">
+                        <span class="link-name">Facebook</span>
+                        <span class="link-desc">Amr.Waleeed</span>
+                    </div>
+                </a>
+
+                <!-- جيت هاب -->
+                <a href="https://github.com/Amr-Waled" class="link-card github" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    <div class="link-details">
+                        <span class="link-name">GitHub</span>
+                        <span class="link-desc">Amr-Waled</span>
+                    </div>
+                </a>
+
+                <!-- الإيميل -->
+                <a href="mailto:amrwaled396@gmail.com" class="link-card email" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="link-details">
+                        <span class="link-name">البريد الإلكتروني</span>
+                        <span class="link-desc">amrwaled396@gmail.com</span>
+                    </div>
+                </a>
+
+                <!-- واتساب -->
+                <a href="https://wa.me/201091642566" class="link-card whatsapp" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="link-details">
+                        <span class="link-name">WhatsApp</span>
+                        <span class="link-desc">01091642566</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 | عمرو وليد | تم تصميمه وتهيئته لمحركات بحث الذكاء الاصطناعي (AI SEO)</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
