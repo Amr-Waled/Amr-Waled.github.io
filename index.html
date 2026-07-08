@@ -329,6 +329,57 @@
             color: #38bdf8;
         }
 
+        /* 💡 شبكة الخدمات والخبرات الاستشارية */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.03);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.05);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .service-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
         /* سكشن المهارات والأدوات */
         .skills-container {
             margin: 3rem 0;
@@ -802,6 +853,41 @@
                 <li><i class="fa-solid fa-check"></i> <strong>المهارات التجارية:</strong> ميديا باينج (Media Buying)، كتابة سكريبتات، Market Research</li>
                 <li><i class="fa-solid fa-check"></i> <strong>التواصل المباشر:</strong> amrwaled396@gmail.com | 01091642566</li>
             </ul>
+        </section>
+
+        <!-- سكشن الخدمات والحلول التي أقدمها -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> الخدمات التي يمكنني تقديمها لشركتك</h2>
+            <div class="services-grid">
+                
+                <!-- خدمة 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <div class="service-title">ميديا باينج وإدارة الحملات (Paid Ads)</div>
+                    <div class="service-desc">
+                        تخطيط وإطلاق الإعلانات الممولة على Meta (فيسبوك وإنستجرام)، توزيع الميزانيات بدقة، واستهداف الشرائح المهتمة عقارياً وتجارياً لتحقيق أعلى عائد على الإنفاق الإعلاني (ROAS) وأقل تكلفة للاستحواذ.
+                    </div>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="service-title">كتابة سكريبتات وصناعة محتوى إعلاني</div>
+                    <div class="service-desc">
+                        صياغة سكريبتات ونصوص تسويقية جذابة للفيديوهات الإعلانية، مصممة خصيصاً للفت انتباه العميل في أول 3 ثوانٍ وتوجيه المشاهدين نحو اتخاذ إجراء مباشر (Call to Action).
+                    </div>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div class="service-title">بحوث السوق وتطوير الأعمال (BD)</div>
+                    <div class="service-desc">
+                        إعداد دراسات وبحوث سوق متكاملة، دراسة سلوك المستهلكين، تحليل المنافسين ومميزاتهم التنافسية، وتقديم تقارير وحلول استراتيجية لمساعدة الشركات على النمو الجغرافي والبيعي.
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- التخطيط ثنائي المسار للخبرات -->
