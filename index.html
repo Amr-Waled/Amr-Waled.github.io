@@ -137,7 +137,35 @@
             font-size: 1.12rem;
             line-height: 1.8;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* أزرار التحميل الرئيسية */
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-download {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
         }
 
         /* بطاقة الذكاء الاصطناعي */
@@ -277,6 +305,30 @@
             margin-bottom: 0.25rem;
         }
 
+        /* الإنجازات والأرقام المميزة */
+        .metrics-list {
+            margin-top: 0.8rem;
+            list-style: none !important;
+            padding-right: 0 !important;
+        }
+
+        .metrics-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.92rem;
+            color: #38bdf8 !important;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .metrics-list li i {
+            margin-top: 0.25rem;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
         /* سكشن المهارات والأدوات */
         .skills-container {
             margin: 3rem 0;
@@ -333,6 +385,8 @@
             border-radius: 20px;
             padding: 1.5rem;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -340,6 +394,16 @@
             border-color: var(--accent);
             background: rgba(255, 255, 255, 0.03);
             box-shadow: 0 15px 30px rgba(99, 102, 241, 0.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .project-meta {
@@ -360,6 +424,7 @@
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .project-tools {
@@ -483,6 +548,149 @@
             color: var(--text-secondary);
         }
 
+        /* 💡 الأزرار العائمة الثابتة على جوانب الشاشة */
+        .floating-social {
+            position: fixed;
+            bottom: 40px;
+            z-index: 999;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-social:hover {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .floating-social.whatsapp {
+            right: 40px;
+            background-color: #25d366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-social.linkedin {
+            left: 40px;
+            background-color: #0077b5;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.4);
+        }
+
+        /* 📱 التوافق الشامل مع الموبايل والشاشات المختلفة (Flawless Responsiveness) */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .container {
+                padding: 2.5rem 1.2rem;
+                border-radius: 24px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.05rem;
+                line-height: 1.4;
+            }
+
+            .bio {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+                margin: 2rem 0 1.2rem 0;
+            }
+
+            .cv-timeline {
+                padding-right: 1.1rem;
+            }
+
+            .cv-item::before {
+                right: -19px;
+            }
+
+            .cv-item-title {
+                font-size: 1.05rem;
+            }
+
+            .cv-item-sub {
+                font-size: 0.85rem;
+            }
+
+            .cv-item-desc {
+                font-size: 0.88rem;
+            }
+
+            .skill-tag {
+                padding: 0.6rem 0.4rem;
+                font-size: 0.8rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 0.6rem;
+            }
+
+            .floating-social {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+                bottom: 20px;
+            }
+
+            .floating-social.whatsapp {
+                right: 15px;
+            }
+
+            .floating-social.linkedin {
+                left: 15px;
+            }
+
+            .project-card {
+                padding: 1.2rem;
+            }
+
+            .project-image {
+                height: 120px;
+            }
+        }
+
+        /* شاشات الموبايل الصغيرة جداً */
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 0.8rem;
+                border-radius: 18px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .avatar-placeholder {
+                width: 110px;
+                height: 110px;
+            }
+
+            .btn-download {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.95rem;
+                padding: 0.75rem 1.2rem;
+            }
+        }
+
         footer {
             margin-top: 4rem;
             text-align: center;
@@ -540,6 +748,7 @@
         "Media Buying",
         "Facebook Ads (Meta Ads)",
         "Scriptwriting",
+        "Social Media Management",
         "Business Development",
         "Market Research",
         "Community Leadership"
@@ -549,11 +758,18 @@
 </head>
 <body>
 
+    <!-- 💡 الأزرار العائمة المثبتة (ميديا باينج & تواصل مهني) -->
+    <a href="https://wa.me/201091642566" class="floating-social whatsapp" target="_blank" rel="noopener noreferrer" title="تواصل عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/amrwaledd/" class="floating-social linkedin" target="_blank" rel="noopener noreferrer" title="تواصل عبر لينكد إن">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
     <div class="container">
         
         <!-- الهيدر الشخصي -->
         <header class="profile-header">
-            <!-- الدائرة البرمجية المهيأة لعرض صورتك الشخصية -->
             <div class="avatar-placeholder">
                 <img src="avatar.jpg" alt="عمرو وليد" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                 <i class="fa-solid fa-graduation-cap" style="display: none;"></i>
@@ -565,6 +781,14 @@
             <p class="bio">
                 أنا عمرو وليد، أدرس هندسة القوى الميكانيكية بجامعة طنطا (السنة الرابعة). أعمل في مجال التسويق والميديا باينج (Media Buying) وإعلانات فيسبوك وإنستجرام لصالح شركة <strong>إنجاز للتطوير العقاري</strong>، بالإضافة إلى عملي في تطوير الأعمال (Business Development) لدى <strong>Albootcamp</strong> ورئاستي السابقة لفريق <strong>Enactus Tanta</strong>.
             </p>
+
+            <!-- زر تنزيل السيرة الذاتية المهني في المقدمة -->
+            <div class="hero-actions">
+                <a href="Amr_Waled_CV.pdf" download="Amr_Waled_CV.pdf" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    تحميل السيرة الذاتية PDF
+                </a>
+            </div>
         </header>
 
         <!-- صندوق البيانات المنظم للذكاء الاصطناعي (AI Summary) -->
@@ -593,11 +817,18 @@
                         <div class="cv-item-title">مدير تسويق (Marketing Manager) & Media Buyer</div>
                         <div class="cv-item-sub">إنجاز للتطوير العقاري (Engaz Developments) | 04/2026 - الحالي</div>
                         <div class="cv-item-desc">
-                            إدارة عمليات التسويق الرقمي وبناء وتوجيه حملات الميديا باينج (Media Buying) وقنوات الاستحواذ:
+                            إدارة وتوجيه حملات الميديا باينج (Media Buying) وقنوات الاستحواذ والتواجد الرقمي:
                             <ul>
-                                <li>تخطيط وإطلاق الحملات الإعلانية المدفوعة على منصات التواصل الاجتماعي (فيسبوك وإنستجرام).</li>
-                                <li>كتابة نصوص الإعلانات والسكريبتات الإبداعية للترويج الرقمي والتنسيق مع فرق الإنتاج.</li>
-                                <li>إدارة صفحات السوشيال ميديا وتطوير خطط تسويقية مبنية على تحليل البيانات لجذب العملاء المحتملين (Leads).</li>
+                                <li>تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام، وتوزيع الميزانيات بدقة.</li>
+                                <li>كتابة المحتوى التسويقي والسكريبتات الإبداعية للفيديوهات الترويجية.</li>
+                                <li>إدارة وتطوير صفحات السوشيال ميديا للشركة، وتحليل البيانات لبناء حملات عالية الكفاءة.</li>
+                            </ul>
+                            <!-- 💡 إنجازات حقيقية مستخرجة بدقة من لوحة تحليلات عمرو وليد -->
+                            <ul class="metrics-list">
+                                <li><i class="fa-solid fa-chart-line"></i> **نمو قياسي للصفحة:** قيادة الصفحة لتحقيق **702,056 مشاهدة** بمعدل نمو **624%+**، وزيادة التفاعل إلى **14,156 تفاعل** (نمو **388%+**)، وزيادة المتابعين الصافية بمعدل **62%+** (196 متابع جديد).</li>
+                                <li><i class="fa-solid fa-comments"></i> **جذب العملاء والمحادثات:** زيادة الرسائل والمحادثات المباشرة بنسبة **152%+** لتصل إلى **262 محادثة مباشرة** (منها 215 جهة اتصال جديدة بالكامل و43 متكررة).</li>
+                                <li><i class="fa-solid fa-tags"></i> **كفاءة إعلانية استثنائية:** إطلاق حملات توليد عملاء (Leads) في قطاع العقارات الصعب بتكلفة إعلانية منافسة جداً، وصلت في بعض المجموعات الإعلانية إلى **13.38 جنيه مصري فقط للعميل الواحد**.</li>
+                                <li><i class="fa-solid fa-users"></i> **حملات التفاعل الكبرى:** إدارة وتوجيه حملة تفاعل كبرى (New Engagement) حققت **أكثر من 31,023 تفاعل مباشر** بتكلفة قياسية متدنية بلغت **0.04 جنيه مصري** للتفاعل الواحد.</li>
                             </ul>
                         </div>
                     </div>
@@ -631,7 +862,7 @@
                             قيادة عمليات النشاط الطلابي وإدارة مشاريع ريادة الأعمال ذات الأثر التنموي والمجتمعي.
                             <ul>
                                 <li>تأسيس وإطلاق معسكر (Xplore Camp) التدريبي المخصص للتطوير المهني للطلاب (كتابة السيرة الذاتية، بناء بروفايل LinkedIn، مهارات العرض، ريادة الأعمال).</li>
-                                <li>عقد شراكة استراتيجية ناجحة مع شركة <strong>V7</strong> لتقديم وتنظيم المعسكر بأفضل جودة ووصول.</li>
+                                <li>عقد شراكة استراتيجية ناجحة مع شركة <strong>V7</strong> لتقديم وتنظيم المعسكر بأعلى جودة ووصول.</li>
                             </ul>
                         </div>
                     </div>
@@ -727,6 +958,8 @@
             <div class="projects-grid">
                 
                 <div class="project-card">
+                    <!-- ستقوم بوضع صورتك الخاصة باسم cfd_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
+                    <img src="cfd_project.jpg" alt="Supersonic Flow CFD Simulation" class="project-image" onerror="this.style.display='none';" />
                     <div class="project-meta">مشروع مادة ديناميكا الغازات</div>
                     <div class="project-name">Supersonic Flow CFD Simulation</div>
                     <div class="project-desc">
@@ -739,6 +972,8 @@
                 </div>
 
                 <div class="project-card">
+                    <!-- ستقوم بوضع صورتك الخاصة باسم hvac_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
+                    <img src="hvac_project.jpg" alt="HVAC Design — Doha Hotel" class="project-image" onerror="this.style.display='none';" />
                     <div class="project-meta">مشروع مادة تكييف الهواء</div>
                     <div class="project-name">HVAC Design — Doha Hotel</div>
                     <div class="project-desc">
@@ -763,14 +998,16 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-meta">روبوت تفاعلي - إلكترونيات</div>
-                    <div class="project-name">Obstacle Avoidance Robot</div>
+                    <!-- ستقوم بوضع صورتك الخاصة باسم engine_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
+                    <img src="engine_project.jpg" alt="4-Cylinder Engine Model — SolidWorks" class="project-image" onerror="this.style.display='none';" />
+                    <div class="project-meta">مشروع مادة التصميم الميكانيكي</div>
+                    <div class="project-name">4-Cylinder Engine Model</div>
                     <div class="project-desc">
-                        بناء سيارة روبوتية ذاتية القيادة تعتمد على حساسات الموجات فوق الصوتية لتجنب العقبات فورياً ومعالجة اتخاذ القرار البرمجي في الوقت الحقيقي.
+                        تصميم ميكانيكي كامل وتجميعي لأجزاء محرك رباعي الأسطوانات يضم المكابس، عمود الكرنك، وعمود الكامات بواسطة برنامج SolidWorks.
                     </div>
                     <div class="project-tools">
-                        <span class="tool-badge">Arduino</span>
-                        <span class="tool-badge">C/C++</span>
+                        <span class="tool-badge">SolidWorks</span>
+                        <span class="tool-badge">3D Design</span>
                     </div>
                 </div>
 
