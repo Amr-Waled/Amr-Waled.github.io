@@ -22,3 +22,5 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+Sitemap: https://amr-waled.github.io/sitemap.xml

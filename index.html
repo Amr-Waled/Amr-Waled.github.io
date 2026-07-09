@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>عمرو وليد | مهندس قوى ميكانيكية ومسوق رقمي (Amr Waled)</title>
-    <meta name="description" content="الموقع الرسمي والسيرة الذاتية المهنية لـ عمرو وليد - مدير تسويق بشركة إنجاز للتطوير العقاري، مطور أعمال في Albootcamp، ورئيس Enactus Tanta السابق.">
+    <title>عمرو وليد | ميديا باير ومستشار تسويق رقمي في طنطا (Amr Waled)</title>
+    <meta name="description" content="الموقع الرسمي لـ عمرو وليد - ميديا باير ومستشار تسويق رقمي في طنطا والغربية. مدير تسويق بشركة إنجاز للتطوير العقاري، ومطور أعمال ورئيس Enactus Tanta السابق.">
     
+    <!-- 💡 وسم التحقق من Google Search Console (قم باستبدال PLACEHOLDER بالكود الخاص بك) -->
+    <meta name="google-site-verification" content="PLACEHOLDER_FOR_YOUR_GOOGLE_VERIFICATION_CODE" />
+
     <!-- Google Fonts (Cairo & Outfit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +51,7 @@
             padding: 4rem 1.5rem;
         }
 
-        /* الخلفية المضيئة الملونة (تعديل وضعها لمنع تمدد الشاشة) */
+        /* الخلفية المضيئة الملونة */
         body::before, body::after {
             content: "";
             position: absolute;
@@ -380,6 +383,52 @@
             line-height: 1.6;
         }
 
+        /* سكشن دراسات الحالة */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 3rem 0;
+        }
+        .case-card {
+            background: rgba(99, 102, 241, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.03);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
+        }
+        .case-stat {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+        .case-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
         /* سكشن المهارات والأدوات */
         .skills-container {
             margin: 3rem 0;
@@ -661,7 +710,7 @@
             }
 
             /* فرض العمود الواحد لمنع تمدد الشبكات أفقياً */
-            .two-track-grid, .projects-grid, .services-grid {
+            .two-track-grid, .projects-grid, .services-grid, .case-studies-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1.5rem;
             }
@@ -762,7 +811,7 @@
       "@type": "Person",
       "name": "عمرو وليد",
       "alternateName": "Amr Waled",
-      "jobTitle": "Marketing Manager & Media Buyer & Business Developer",
+      "jobTitle": "Marketing Manager & Lead Media Buyer in Tanta & Business Developer",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tanta",
@@ -785,7 +834,7 @@
           "name": "Albootcamp"
         }
       ],
-      "description": "عمرو وليد، طالب في هندسة القوى الميكانيكية بجامعة طنطا، مدير تسويق وميديا باير في شركة إنجاز للتطوير العقاري، مطور أعمال في Albootcamp، رئيس سابق لمؤسسة Enactus Tanta.",
+      "description": "عمرو وليد هو ميديا باير ومستشار تسويق رقمي في طنطا ومحافظة الغربية. يعمل كمدير تسويق لشركة إنجاز للتطوير العقاري، ومطور أعمال ورئيس سابق لمؤسسة Enactus Tanta.",
       "url": "https://Amr-Waled.github.io", 
       "image": "https://Amr-Waled.github.io/avatar.jpg",
       "sameAs": [
@@ -806,7 +855,49 @@
         "Business Development",
         "Market Research",
         "Community Leadership"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "الخدمات المهنية المقدمة في طنطا ومصر",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ميديا باينج وإدارة حملات إعلانية ممولة",
+              "description": "تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام، وتوزيع الميزانيات بدقة لزيادة المبيعات بأقل تكلفة استحواذ في طنطا وكافة محافظات مصر.",
+              "serviceArea": {
+                "@type": "AdministrativeArea",
+                "name": "Tanta, Gharbia, Egypt"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "كتابة سكريبتات إعلانية إبداعية وصناعة محتوى ترويجي",
+              "description": "إعداد نصوص وصياغة سكريبتات فيديو جذابة لزيادة المشاهدات ومعدلات التحويل للعملاء والشركات.",
+              "serviceArea": {
+                "@type": "AdministrativeArea",
+                "name": "Tanta, Gharbia, Egypt"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبحاث ودراسات السوق وتطوير الأعمال",
+              "description": "تحليل متكامل للمنافسين ودراسة سلوك المستهلكين وتقديم حلول نمو للمشاريع الناشئة والعقارية.",
+              "serviceArea": {
+                "@type": "AdministrativeArea",
+                "name": "Tanta, Gharbia, Egypt"
+              }
+            }
+          }
+        ]
+      }
     }
     </script>
 </head>
@@ -887,6 +978,32 @@
                     <div class="service-title">بحوث السوق وتطوير الأعمال (BD)</div>
                     <div class="service-desc">
                         إعداد دراسات وبحوث سوق متكاملة، دراسة سلوك المستهلكين، تحليل المنافسين ومميزاتهم التنافسية، وتقديم تقارير وحلول استراتيجية لمساعدة الشركات على النمو الجغرافي والبيعي.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- سكشن دراسات الحالة المميزة (Case Studies) -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> دراسات حالة من أعمالي التسويقية (Case Studies)</h2>
+            <div class="case-studies-grid">
+                
+                <!-- دراسة حالة 1 -->
+                <div class="case-card">
+                    <div class="case-stat">13.38 ج.م</div>
+                    <div class="case-title">خفض تكلفة العميل (CPL) في حملات العقارات الممولة</div>
+                    <div class="case-desc">
+                        تخطيط وإطلاق حملة إعلانات ممولة استهدفت المغتربين المصريين وأهالي الدلتا، وحققت تكلفة عميل محتمل (CPL) بلغت 13.38 جنيه مصري فقط لكل عميل، محققة كفاءة إنفاق عالية في قطاع العقارات الصعب.
+                    </div>
+                </div>
+
+                <!-- دراسة حالة 2 -->
+                <div class="case-card">
+                    <div class="case-stat">624%+</div>
+                    <div class="case-title">نمو التواجد الرقمي والزيارات العضوية لصفحات الشركة</div>
+                    <div class="case-desc">
+                        تصميم وتنفيذ خطة محتوى متكاملة وربطها بسلسلة فيديوهات ترويجية، مما أدى لنمو مشاهدات الصفحة لتتجاوز 702,000 مشاهدة، وزيادة التفاعل بنسبة 388%+ والمحادثات المباشرة بنسبة 152%+ خلال 3 أشهر فقط.
                     </div>
                 </div>
 
@@ -1078,7 +1195,7 @@
                     <div class="project-meta">تطبيق ويب ذكي - مادة محركات الاحتراق الداخلي</div>
                     <div class="project-name">ICE II Simulator & Solver</div>
                     <div class="project-desc">
-                        موقع تفاعلي تم بناؤه لمحاكاة عمليات سحب الوقول والهواء داخل محرك الاحتراق الداخلي وحساب الأداء الكلي مع لوحة تحكم للمدخلات الرياضية.
+                        موقع تفاعلي تم بناؤه لمحاكاة عمليات سحب الوقود والهواء داخل محرك الاحتراق الداخلي وحساب الأداء الكلي مع لوحة تحكم للمدخلات الرياضية.
                     </div>
                     <div class="project-tools">
                         <span class="tool-badge">HTML/CSS/JS</span>
