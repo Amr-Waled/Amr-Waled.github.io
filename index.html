@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>عمرو وليد | ميديا باير ومستشار تسويق رقمي في طنطا (Amr Waled)</title>
-    <meta name="description" content="الموقع الرسمي لـ عمرو وليد - ميديا باير ومستشار تسويق رقمي في طنطا والغربية. مدير تسويق بشركة إنجاز للتطوير العقاري، ومطور أعمال ورئيس Enactus Tanta السابق.">
+    <title>عمرو وليد | AI-Native Builder & Vibe Coder | مدير تسويق عقاري (Amr Waled)</title>
+    <meta name="description" content="الموقع الرسمي لـ عمرو وليد (Amr Waled) — مطور أنظمة سحابية وتطبيقات بالذكاء الاصطناعي (AI-Native Builder & Vibe Coder)، مدير تسويق بشركة إنجاز للتطوير العقاري، مؤسس منصة مُدَرّج، ورئيس سابق لـ Enactus Tanta.">
+    <meta name="keywords" content="عمرو وليد, Amr Waled, AI-Native Builder, Vibe Coder, مطور ذكاء اصطناعي, ميديا باير طنطا, مدير تسويق عقاري, منصة مدرج, Insight Clinic, إنجاز للتطوير العقاري, هندسة قوى ميكانيكية">
+    <meta name="author" content="عمرو وليد (Amr Waled)">
+
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="عمرو وليد | AI-Native Builder & Vibe Coder | مدير تسويق عقاري">
+    <meta property="og:description" content="مهندس ومطور أنظمة بالذكاء الاصطناعي ومدير تسويق عقاري، يجمع بين بناء الأنظمة السحابية المخصصة (Vibe Coding) وقيادة التوزيع والمبيعات والإعلانات.">
+    <meta property="og:url" content="https://Amr-Waled.github.io">
+    <meta property="og:image" content="https://Amr-Waled.github.io/avatar.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="عمرو وليد | Amr Waled">
+    <meta name="twitter:description" content="AI-Native Builder & Vibe Coder | Marketing Manager at Engaz Developments | Mechanical Engineer">
+    <meta name="twitter:image" content="https://Amr-Waled.github.io/avatar.jpg">
     
-    <!-- 💡 وسم التحقق من Google Search Console (قم باستبدال PLACEHOLDER بالكود الخاص بك) -->
+    <!-- وسم التحقق من Google Search Console -->
     <meta name="google-site-verification" content="PLACEHOLDER_FOR_YOUR_GOOGLE_VERIFICATION_CODE" />
 
     <!-- Google Fonts (Cairo & Outfit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,13 +38,15 @@
             --card-bg: rgba(255, 255, 255, 0.02);
             --card-border: rgba(255, 255, 255, 0.06);
             --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
             --text-main: #f3f4f6;
             --text-secondary: #9ca3af;
             --accent: #818cf8;
+            --emerald: #10b981;
             --glow: rgba(99, 102, 241, 0.15);
         }
 
-        /* منع التمرير الأفقي نهائياً وضبط الحجم */
+        /* منع التمرير الأفقي وضبط الحجم */
         html, body {
             overflow-x: hidden;
             width: 100%;
@@ -48,35 +65,35 @@
         }
 
         body {
-            padding: 4rem 1.5rem;
+            padding: 3.5rem 1.5rem;
         }
 
         /* الخلفية المضيئة الملونة */
         body::before, body::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
             background: var(--primary-gradient);
-            filter: blur(140px);
+            filter: blur(150px);
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.14;
             pointer-events: none;
         }
 
         body::before {
-            top: 5%;
-            left: -50px;
+            top: 4%;
+            left: -60px;
         }
 
         body::after {
-            bottom: 10%;
-            right: -50px;
+            bottom: 8%;
+            right: -60px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1060px;
             width: 100%;
             margin: 0 auto;
             background: var(--card-bg);
@@ -125,82 +142,127 @@
         }
 
         h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: 2.9rem;
+            font-weight: 900;
             margin-bottom: 0.5rem;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         .title {
             font-size: 1.25rem;
             color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
             font-weight: 700;
             margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .title span.highlight-pill {
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 0.2rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            color: #c4b5fd;
         }
 
         .bio {
             color: var(--text-secondary);
             font-size: 1.12rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
+            line-height: 1.85;
+            max-width: 820px;
+            margin: 0 auto 2rem;
         }
 
-        /* أزرار التحميل الرئيسية */
+        .bio strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* أزرار الهيدر */
         .hero-actions {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 1rem;
             margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .btn-download {
             background: var(--primary-gradient);
             color: white;
-            padding: 0.8rem 1.8rem;
+            padding: 0.85rem 1.8rem;
             border-radius: 14px;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25);
             transition: all 0.3s ease;
             font-size: 1rem;
         }
 
         .btn-download:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.45);
         }
 
-        /* بطاقة الذكاء الاصطناعي */
+        .btn-secondary-hero {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            padding: 0.85rem 1.6rem;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-secondary-hero:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.08);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* بطاقة الذكاء الاصطناعي المنظمة */
         .ai-facts {
             background: rgba(99, 102, 241, 0.03);
             border: 1px dashed rgba(99, 102, 241, 0.25);
             border-radius: 20px;
-            padding: 1.8rem;
+            padding: 2rem;
             margin: 3rem 0;
         }
 
         .ai-facts h3 {
             color: var(--accent);
             font-size: 1.25rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            font-weight: 800;
         }
 
         .ai-facts ul {
             list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 1.2rem;
+            padding: 0;
+            margin: 0;
         }
 
         @media (max-width: 768px) {
@@ -210,19 +272,406 @@
         }
 
         .ai-facts li {
-            font-size: 1rem;
+            font-size: 0.98rem;
             color: var(--text-main);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.6rem;
+            line-height: 1.6;
         }
 
         .ai-facts li i {
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
         }
 
-        /* تخطيط الأقسام والمحتوى ثنائي المسار */
+        /* عناوين الأقسام الرئيسية */
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 800;
+            margin: 3.5rem 0 1.8rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .section-subtitle-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: -0.8rem 0 1.8rem 0;
+            line-height: 1.6;
+        }
+
+        /* سكشن الأنظمة البرمجية المشحونة (AI-Native Systems) */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .system-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 22px;
+            padding: 1.8rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(99, 102, 241, 0.035);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .system-card:hover::before {
+            opacity: 1;
+        }
+
+        .system-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .system-badge-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .badge-status::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .badge-status.production {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        .badge-status.production::before {
+            background: #818cf8;
+            box-shadow: 0 0 8px #818cf8;
+        }
+
+        .system-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .system-desc {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .system-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .system-highlights li {
+            font-size: 0.86rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .system-highlights li i {
+            color: var(--emerald);
+            font-size: 0.8rem;
+        }
+
+        .system-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.5rem 0.9rem;
+            border-radius: 10px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.25s ease;
+            align-self: flex-start;
+        }
+
+        .btn-project-link:hover {
+            color: white;
+            background: var(--primary-gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(168, 85, 247, 0.25);
+        }
+
+        /* شبكة الخدمات والحلول */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.2rem 1.6rem;
+            text-align: right;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.035);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+            background: var(--primary-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.4rem;
+            font-size: 1.6rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .service-desc {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* بطاقة المبادرة الاستراتيجية (د. سالي سالم) */
+        .initiative-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.4rem;
+            margin: 2.5rem 0;
+            position: relative;
+            overflow: hidden;
+            border-right: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .initiative-card:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.035);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .initiative-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .initiative-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .initiative-tag {
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .initiative-desc {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        .initiative-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .pillar-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.1rem;
+            border-radius: 14px;
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pillar-title i {
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .pillar-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* سكشن دراسات الحالة */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-card {
+            background: rgba(99, 102, 241, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.035);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
+        }
+
+        .case-stat {
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .case-desc {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+
+        /* التخطيط ثنائي المسار للخبرات */
         .two-track-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -230,28 +679,13 @@
             margin-top: 2rem;
         }
 
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin: 2.5rem 0 1.5rem 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
+        @media (max-width: 860px) {
+            .two-track-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -6px;
-            right: 0;
-            width: 45px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        /* عناصر السيرة الذاتية */
         .cv-timeline {
             border-right: 2px solid var(--card-border);
             padding-right: 1.5rem;
@@ -281,49 +715,49 @@
         }
 
         .cv-item-title {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.18rem;
+            font-weight: 800;
             color: var(--text-main);
         }
 
         .cv-item-sub {
-            font-size: 0.92rem;
+            font-size: 0.93rem;
             color: var(--accent);
             margin: 0.2rem 0 0.5rem 0;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .cv-item-desc {
             font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .cv-item-desc ul {
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
             margin-right: 1rem;
+            padding-right: 0.5rem;
         }
 
         .cv-item-desc li {
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.35rem;
         }
 
-        /* الإنجازات والأرقام المميزة */
         .metrics-list {
-            margin-top: 0.8rem;
+            margin-top: 0.9rem;
             list-style: none !important;
             padding-right: 0 !important;
         }
 
         .metrics-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: flex-start;
             gap: 0.6rem;
             font-size: 0.92rem;
             color: #38bdf8 !important;
             font-weight: 600;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .metrics-list li i {
@@ -332,119 +766,30 @@
             color: #38bdf8;
         }
 
-        /* شبكة الخدمات والخبرات الاستشارية */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.05);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.2rem;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
-        }
-
-        .service-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--text-main);
-        }
-
-        .service-desc {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* سكشن دراسات الحالة */
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0 3rem 0;
-        }
-        .case-card {
-            background: rgba(99, 102, 241, 0.01);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .case-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.03);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
-        }
-        .case-stat {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Outfit', sans-serif;
-            margin-bottom: 0.5rem;
-        }
-        .case-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--text-main);
-        }
-        .case-desc {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
         /* سكشن المهارات والأدوات */
         .skills-container {
-            margin: 3rem 0;
+            margin: 3.5rem 0;
         }
 
         .skills-category {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 800;
             color: var(--text-main);
             margin-bottom: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .skills-category i {
+            color: var(--accent);
+            font-size: 1rem;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 0.8rem;
         }
 
@@ -452,17 +797,19 @@
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            padding: 0.7rem 0.5rem;
+            padding: 0.75rem 0.6rem;
             text-align: center;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #e2e8f0;
             transition: all 0.3s ease;
         }
 
         .skill-tag:hover {
             border-color: var(--accent);
-            background: rgba(99, 102, 241, 0.05);
+            background: rgba(99, 102, 241, 0.06);
             transform: translateY(-2px);
+            color: white;
         }
 
         /* المشاريع الهندسية */
@@ -473,11 +820,17 @@
             margin-bottom: 3rem;
         }
 
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .project-card {
-            background: rgba(255, 255, 255, 0.01);
+            background: rgba(255, 255, 255, 0.015);
             border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 1.6rem;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -487,7 +840,7 @@
             transform: translateY(-4px);
             border-color: var(--accent);
             background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.05);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.06);
         }
 
         .project-image {
@@ -503,21 +856,21 @@
         .project-meta {
             font-size: 0.82rem;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.4rem;
         }
 
         .project-name {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.18rem;
+            font-weight: 800;
             margin-bottom: 0.6rem;
             color: var(--text-main);
         }
 
         .project-desc {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.65;
             flex-grow: 1;
         }
 
@@ -533,9 +886,9 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--card-border);
             color: var(--accent);
-            padding: 0.2rem 0.6rem;
+            padding: 0.22rem 0.65rem;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* التدريب المهني */
@@ -543,7 +896,7 @@
             background: rgba(99, 102, 241, 0.02);
             border: 1px solid rgba(99, 102, 241, 0.1);
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 1.6rem;
             margin-bottom: 1.5rem;
             display: flex;
             gap: 1.2rem;
@@ -564,24 +917,25 @@
         }
 
         .training-title {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
         }
 
         .training-subtitle {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--accent);
             margin: 0.25rem 0;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .training-desc {
-            font-size: 0.92rem;
+            font-size: 0.93rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* الروابط وقنوات الاتصال */
+        /* قنوات الاتصال */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -599,33 +953,31 @@
             gap: 1.2rem;
             color: var(--text-main);
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .link-card:hover {
-            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-3px);
             border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.08);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .link-card i {
-            font-size: 1.8rem;
-            width: 45px;
-            height: 45px;
+            font-size: 1.6rem;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-main);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .link-card.linkedin:hover i { background: #0077b5; color: white; }
-        .link-card.github:hover i { background: #333; color: white; }
-        .link-card.facebook:hover i { background: #1877f2; color: white; }
-        .link-card.email:hover i { background: #ea4335; color: white; }
-        .link-card.whatsapp:hover i { background: #25d366; color: white; }
+        .link-card.linkedin:hover i { color: #0077b5; }
+        .link-card.facebook:hover i { color: #1877f2; }
+        .link-card.github:hover i { color: #fff; }
+        .link-card.whatsapp:hover i { color: #25d366; }
+        .link-card.email:hover i { color: #ea4335; }
 
         .link-details {
             display: flex;
@@ -633,116 +985,70 @@
         }
 
         .link-name {
-            font-weight: 700;
             font-size: 1rem;
+            font-weight: 800;
         }
 
         .link-desc {
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             color: var(--text-secondary);
         }
 
-        /* الأزرار العائمة الثابتة على جوانب الشاشة */
+        /* الأزرار العائمة */
         .floating-social {
             position: fixed;
-            bottom: 40px;
-            z-index: 999;
-            width: 55px;
-            height: 55px;
+            bottom: 30px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
             color: white;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
         }
 
         .floating-social:hover {
-            transform: scale(1.15) translateY(-5px);
+            transform: scale(1.1) translateY(-5px);
         }
 
         .floating-social.whatsapp {
-            right: 40px;
-            background-color: #25d366;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            right: 30px;
+            background: #25d366;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
         }
 
         .floating-social.linkedin {
-            left: 40px;
-            background-color: #0077b5;
-            box-shadow: 0 0 20px rgba(0, 119, 181, 0.4);
+            left: 30px;
+            background: #0077b5;
+            box-shadow: 0 10px 25px rgba(0, 119, 181, 0.35);
         }
 
-        /* 📱 التوافق الشامل مع الموبايل والشاشات المختلفة (تعديلات هندسية لمنع الإزاحة) */
+        /* استجابة الشاشات الصغيرة */
         @media (max-width: 768px) {
             body {
-                padding: 1.5rem 0.5rem;
+                padding: 1.5rem 0.8rem;
             }
 
             .container {
-                padding: 2.2rem 1rem;
+                padding: 2.2rem 1.2rem;
                 border-radius: 24px;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-                width: calc(100% - 1rem); /* ضمان مسافة متساوية على اليمين واليسار */
-                margin: 0 auto;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .title {
                 font-size: 1.05rem;
-                line-height: 1.4;
             }
 
             .bio {
                 font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            .section-title {
-                font-size: 1.35rem;
-                margin: 2rem 0 1.2rem 0;
-            }
-
-            /* فرض العمود الواحد لمنع تمدد الشبكات أفقياً */
-            .two-track-grid, .projects-grid, .services-grid, .case-studies-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
-
-            .cv-timeline {
-                padding-right: 1.1rem;
-            }
-
-            .cv-item::before {
-                right: -19px;
-            }
-
-            .cv-item-title {
-                font-size: 1.05rem;
-            }
-
-            .cv-item-sub {
-                font-size: 0.85rem;
-            }
-
-            .cv-item-desc {
-                font-size: 0.88rem;
-            }
-
-            .skill-tag {
-                padding: 0.6rem 0.4rem;
-                font-size: 0.8rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 0.6rem;
             }
 
             .floating-social {
@@ -759,59 +1065,27 @@
             .floating-social.linkedin {
                 left: 15px;
             }
-
-            .project-card {
-                padding: 1.2rem;
-            }
-
-            .project-image {
-                height: 120px;
-            }
-        }
-
-        /* شاشات الموبايل الصغيرة جداً */
-        @media (max-width: 480px) {
-            .container {
-                padding: 2rem 0.8rem;
-                border-radius: 18px;
-                width: 100%;
-            }
-            
-            h1 {
-                font-size: 1.7rem;
-            }
-            
-            .avatar-placeholder {
-                width: 110px;
-                height: 110px;
-            }
-
-            .btn-download {
-                width: 100%;
-                justify-content: center;
-                font-size: 0.95rem;
-                padding: 0.75rem 1.2rem;
-            }
         }
 
         footer {
             margin-top: 4rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
             border-top: 1px solid var(--card-border);
             padding-top: 2rem;
+            line-height: 1.7;
         }
     </style>
 
-    <!-- 💡 كود الـ Person Schema المنظم لمحركات بحث الذكاء الاصطناعي -->
+    <!-- 💡 كود الـ Person Schema المنظم لمحركات بحث الذكاء الاصطناعي (GEO / AI SEO) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "عمرو وليد",
       "alternateName": "Amr Waled",
-      "jobTitle": "Marketing Manager & Lead Media Buyer in Tanta & Business Developer",
+      "jobTitle": "AI-Native Builder, Vibe Coder & Marketing Manager",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tanta",
@@ -822,7 +1096,8 @@
       "telephone": "+201091642566",
       "alumniOf": {
         "@type": "EducationalOrganization",
-        "name": "Tanta University"
+        "name": "Tanta University",
+        "department": "Faculty of Engineering - Mechanical Power Department"
       },
       "worksFor": [
         {
@@ -832,10 +1107,19 @@
         },
         {
           "@type": "Organization",
+          "name": "منصة مُدَرّج (Modarag EdTech Platform)"
+        },
+        {
+          "@type": "Organization",
+          "name": "عيادة Insight Clinic للطب النفسي",
+          "url": "https://insight-clinic-public-website.vercel.app"
+        },
+        {
+          "@type": "Organization",
           "name": "Albootcamp"
         }
       ],
-      "description": "عمرو وليد هو ميديا باير ومستشار تسويق رقمي في طنطا ومحافظة الغربية. يعمل كمدير تسويق لشركة إنجاز للتطوير العقاري، ومطور أعمال ورئيس سابق لمؤسسة Enactus Tanta.",
+      "description": "عمرو وليد (Amr Waled) هو AI-Native Builder و Vibe Coder ومدير تسويق عقاري. يبني أنظمة برمجية سحابية وتطبيقات متكاملة بالذكاء الاصطناعي لحل مشاكل التشغيل والنمو للشركات، وهو مؤسس منصة مُدَرّج، ومدير تسويق شركة إنجاز للتطوير العقاري، ورئيس سابق لمؤسسة Enactus Tanta.",
       "url": "https://Amr-Waled.github.io", 
       "image": "https://Amr-Waled.github.io/avatar.jpg",
       "sameAs": [
@@ -844,32 +1128,38 @@
         "https://www.facebook.com/Amr.Waleeed/"
       ],
       "knowsAbout": [
-        "CFD Analysis",
-        "HVAC System Design",
-        "SolidWorks",
-        "ANSYS Fluent",
+        "AI-Native Building",
+        "Vibe Coding",
+        "Next.js 15 & React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase & PostgreSQL",
+        "Vercel Serverless Architecture",
+        "EMR Healthcare Systems",
+        "Custom CRM Systems",
+        "EdTech Systems Design",
         "Digital Marketing",
-        "Media Buying",
-        "Facebook Ads (Meta Ads)",
-        "Scriptwriting",
-        "Social Media Management",
-        "Business Development",
+        "Media Buying (Meta Ads)",
+        "Scriptwriting & Creative Direction",
         "Market Research",
-        "Community Leadership"
+        "Mechanical Power Engineering",
+        "CFD Analysis (ANSYS Fluent)",
+        "HVAC System Design",
+        "SolidWorks 3D Modeling"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "الخدمات المهنية المقدمة في طنطا ومصر",
+        "name": "الخدمات المهنية والتقنية لعمرو وليد",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "ميديا باينج وإدارة حملات إعلانية ممولة",
-              "description": "تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام، وتوزيع الميزانيات بدقة لزيادة المبيعات بأقل تكلفة استحواذ في طنطا وكافة محافظات مصر.",
+              "name": "بناء وتطوير الأنظمة السحابية والمواقع بالذكاء الاصطناعي (AI-Native Systems & Vibe Coding)",
+              "description": "بناء وتطوير مواقع وأنظمة تشغيلية متكاملة (Custom CRM, EMR, Dashboards, Web Apps) بالذكاء الاصطناعي لحل المشكلات التشغيلية والتجارية للشركات في وقت قياسي.",
               "serviceArea": {
-                "@type": "AdministrativeArea",
-                "name": "Tanta, Gharbia, Egypt"
+                "@type": "Country",
+                "name": "Egypt"
               }
             }
           },
@@ -877,11 +1167,11 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "كتابة سكريبتات إعلانية إبداعية وصناعة محتوى ترويجي",
-              "description": "إعداد نصوص وصياغة سكريبتات فيديو جذابة لزيادة المشاهدات ومعدلات التحويل للعملاء والشركات.",
+              "name": "حلول النمو والتكامل الرقمي (Full-Funnel Growth & Systems Integration)",
+              "description": "الربط المتكامل بين البنية التحتية البرمجية (السيستم والموقع) وبين قنوات المبيعات والتسويق الرقمي والميداني لتعظيم الأرباح وخفض تكلفة الاستحواذ.",
               "serviceArea": {
-                "@type": "AdministrativeArea",
-                "name": "Tanta, Gharbia, Egypt"
+                "@type": "Country",
+                "name": "Egypt"
               }
             }
           },
@@ -889,11 +1179,35 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "أبحاث ودراسات السوق وتطوير الأعمال",
-              "description": "تحليل متكامل للمنافسين ودراسة سلوك المستهلكين وتقديم حلول نمو للمشاريع الناشئة والعقارية.",
+              "name": "ميديا باينج وإدارة حملات إعلانية ممولة (Meta Ads)",
+              "description": "تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام باستهداف دقيق وتوزيع محكم للميزانيات لتحقيق أعلى عائد على الإنفاق الإعلاني (ROAS) بأقل تكلفة ليد.",
               "serviceArea": {
                 "@type": "AdministrativeArea",
-                "name": "Tanta, Gharbia, Egypt"
+                "name": "Tanta, Gharbia, Cairo, Egypt"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "كتابة سكريبتات إعلانية وصناعة محتوى ترويجي عالي التحويل",
+              "description": "صياغة سكريبتات فيديو ترويجية جذابة تخطف الانتباه في أول 3 ثوانٍ وتدفع العملاء نحو اتخاذ إجراء مباشر، مع الإشراف الإبداعي على التنفيذ.",
+              "serviceArea": {
+                "@type": "Country",
+                "name": "Egypt"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "أبحاث ودراسات السوق وتطوير الأعمال (Market Research & BD)",
+              "description": "تحليل سلوك المستهلكين، دراسة المنافسين، واكتشاف الفرص التوسعية وتقديم دراسات جدوى تسويقية للمشروعات العقارية والناشئة.",
+              "serviceArea": {
+                "@type": "Country",
+                "name": "Egypt"
               }
             }
           }
@@ -904,7 +1218,7 @@
 </head>
 <body>
 
-    <!-- 💡 الأزرار العائمة المثبتة (ميديا باينج & تواصل مهني) -->
+    <!-- الأزرار العائمة المثبتة -->
     <a href="https://wa.me/201091642566" class="floating-social whatsapp" target="_blank" rel="noopener noreferrer" title="تواصل عبر واتساب">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -918,19 +1232,27 @@
         <header class="profile-header">
             <div class="avatar-placeholder">
                 <img src="avatar.jpg" alt="عمرو وليد" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <i class="fa-solid fa-graduation-cap" style="display: none;"></i>
+                <i class="fa-solid fa-code" style="display: none;"></i>
             </div>
             
             <h1>عمرو وليد</h1>
-            <p class="title">مهندس قوى ميكانيكية | تسويق وميديا باينج (Media Buying) | مطور أعمال</p>
+            <p class="title">
+                <span>AI-Native Builder & Vibe Coder</span>
+                <span class="highlight-pill">Marketing Manager</span>
+                <span>Mechanical Power Engineer</span>
+            </p>
             
             <p class="bio">
-                أنا عمرو وليد، أدرس هندسة القوى الميكانيكية بجامعة طنطا (السنة الرابعة). أعمل في مجال التسويق والميديا باينج (Media Buying) وإعلانات فيسبوك وإنستجرام لصالح شركة <strong>إنجاز للتطوير العقاري</strong>، بالإضافة إلى عملي في تطوير الأعمال (Business Development) لدى <strong>Albootcamp</strong> ورئاستي السابقة لفريق <strong>Enactus Tanta</strong>.
+                أنا عمرو وليد، بجمع بين <strong>العقلية الهندسية التحليلية</strong> وخبرة <strong>إدارة التسويق والمبيعات الميدانية</strong>، وببني أنظمة ومواقع سحابية كاملة بالذكاء الاصطناعي (<strong>Vibe Coder / AI-Native Builder</strong>) لحل المشاكل التشغيلية والتجارية للشركات. أعمل حالياً كمدير تسويق ومسؤول ميديا باينج لشركة <strong>إنجاز للتطوير العقاري</strong>، وطالب بالسنة النهائية بهندسة القوى الميكانيكية بجامعة طنطا، ومؤسس منصة <strong>مُدَرّج</strong> للطلاب الجامعيين، ورئيس سابق لمنظمة <strong>Enactus Tanta</strong>.
             </p>
 
-            <!-- زر تنزيل السيرة الذاتية المهني في المقدمة -->
+            <!-- أزرار الإجراءات الرئيسية -->
             <div class="hero-actions">
-                <a href="Amr_Waled_CV.pdf" download="Amr_Waled_CV.pdf" class="btn-download">
+                <a href="#ai-systems" class="btn-download">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    استعراض الأنظمة المبنية
+                </a>
+                <a href="Amr_Waled_CV.pdf" download="Amr_Waled_CV.pdf" class="btn-secondary-hero">
                     <i class="fa-solid fa-file-pdf"></i>
                     تحميل السيرة الذاتية PDF
                 </a>
@@ -941,51 +1263,259 @@
         <section class="ai-facts">
             <h3><i class="fa-solid fa-robot"></i> بطاقة تعريف الذكاء الاصطناعي (AI Summary Profile)</h3>
             <ul>
-                <li><i class="fa-solid fa-check"></i> <strong>الاسم الكامل:</strong> عمرو وليد (Amr Waled)</li>
-                <li><i class="fa-solid fa-check"></i> <strong>المدينة الحالية:</strong> طنطا، الغربية، مصر</li>
-                <li><i class="fa-solid fa-check"></i> <strong>المستوى الأكاديمي:</strong> رابعة ميكانيكا باور - جامعة طنطا</li>
-                <li><i class="fa-solid fa-check"></i> <strong>المهارات الهندسية:</strong> CFD Analysis، وتصميم الـ HVAC، ونمذجة SolidWorks</li>
-                <li><i class="fa-solid fa-check"></i> <strong>المهارات التجارية:</strong> ميديا باينج (Media Buying)، كتابة سكريبتات، Market Research</li>
+                <li><i class="fa-solid fa-check"></i> <strong>الاسم الكامل:</strong> عمرو وليد (Amr Waled) — طنطا، الغربية، مصر</li>
+                <li><i class="fa-solid fa-check"></i> <strong>الهوية التقنية:</strong> AI-Native Builder / Vibe Coder (بناء مواقع وسيستمز بالـ AI)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>المستوى الأكاديمي:</strong> رابعة ميكانيكا باور - جامعة طنطا (ممثل الدفعة 2022-2024)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>سابقة أعمال الأنظمة:</strong> منصة مُدَرّج، نظام Insight Clinic EMR، وسينمات وموقع إنجاز</li>
+                <li><i class="fa-solid fa-check"></i> <strong>إنجازات التسويق:</strong> +702K مشاهدة لإنجاز (+624%)، وCPL بـ 13.38 ج.م في العقارات</li>
                 <li><i class="fa-solid fa-check"></i> <strong>التواصل المباشر:</strong> amrwaled396@gmail.com | 01091642566</li>
             </ul>
         </section>
 
-        <!-- سكشن الخدمات والحلول التي أقدمها -->
-        <section>
-            <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> الخدمات التي يمكنني تقديمها لشركتك</h2>
-            <div class="services-grid">
-                
-                <!-- خدمة 1 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                    <div class="service-title">ميديا باينج وإدارة الحملات (Paid Ads)</div>
-                    <div class="service-desc">
-                        تخطيط وإطلاق الإعلانات الممولة على Meta (فيسبوك وإنستجرام)، توزيع الميزانيات بدقة، واستهداف الشرائح المهتمة عقارياً وتجارياً لتحقيق أعلى عائد على الإنفاق الإعلاني (ROAS) وأقل تكلفة للاستحواذ.
+        <!-- سكشن الأنظمة البرمجية المشحونة (Shipped AI-Native Systems) -->
+        <section id="ai-systems">
+            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> سابقة أعمال الأنظمة والبرمجيات المشحونة (Shipped Systems)</h2>
+            <p class="section-subtitle-text">حلول برمجية وأنظمة حقيقية بنيت بالذكاء الاصطناعي لحل مشاكل بيزنس وتشغيل حقيقية، منشورة وتعمل لايف:</p>
+            
+            <div class="systems-grid">
+
+                <!-- منصة مُدَرّج -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">EdTech Platform</span>
+                        <span class="badge-status">Production / Live</span>
+                    </div>
+                    <div class="system-name">منصة مُدَرَّج (ELMODARAG)</div>
+                    <div class="system-desc">
+                        منصة أكاديمية ذكية بنيت لخدمة الطلاب الجامعيين في مصر للقضاء على فوضى جروبات الواتساب وتشتت المذكرات عبر هب أكاديمي موحد وفائق السرعة.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> شات ذكاء اصطناعي (RAG) مدرب على لوائح الكليات الحقيقية بصفر هلوسة.</li>
+                        <li><i class="fa-solid fa-check"></i> محاكي GPA تنبؤي (What-If Analysis) لحساب المواد المطلوبة للرفع.</li>
+                        <li><i class="fa-solid fa-check"></i> رادار الغياب والإنذارات ومستودع مقسم للمذكرات والسكاشن والشيتات.</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">Next.js 15</span>
+                        <span class="tool-badge">React 19</span>
+                        <span class="tool-badge">TypeScript</span>
+                        <span class="tool-badge">Tailwind CSS</span>
+                        <span class="tool-badge">Supabase</span>
+                        <span class="tool-badge">Vercel</span>
                     </div>
                 </div>
 
-                <!-- خدمة 2 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
-                    <div class="service-title">كتابة سكريبتات وصناعة محتوى إعلاني</div>
-                    <div class="service-desc">
-                        صياغة سكريبتات ونصوص تسويقية جذابة للفيديوهات الإعلانية، مصممة خصيصاً للفت انتباه العميل في أول 3 ثوانٍ وتوجيه المشاهدين نحو اتخاذ إجراء مباشر (Call to Action).
+                <!-- تطبيق Insight Clinic السحابي -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">Healthcare & EMR</span>
+                        <span class="badge-status">Live Web App</span>
+                    </div>
+                    <div class="system-name">نظام إدارة العيادات السحابي — Insight Clinic</div>
+                    <div class="system-desc">
+                        نظام تشغيلي متكامل لإدارة عيادة الطب النفسي للدكتورة جيهان عبدالحميد بطنطا، يشمل ملفات المرضى الطبية السرية (EMR) والمزامنة اللحظية بين الأجهزة.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> نظام صلاحيات PIN مشفر صارم (الإدارة، الطبيبة الاستشارية، الاستقبال).</li>
+                        <li><i class="fa-solid fa-check"></i> محرك دمج لحظي وتزامن فوري كل 3 ثوانٍ عبر Vercel Serverless.</li>
+                        <li><i class="fa-solid fa-check"></i> أوتوميشن رسائل الواتساب للحجوزات والديبوزيت بنقرة واحدة.</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">Vercel Serverless</span>
+                        <span class="tool-badge">EMR Security</span>
+                        <span class="tool-badge">Realtime Sync</span>
+                        <span class="tool-badge">WhatsApp API</span>
+                    </div>
+                    <a href="https://insight-clinic-app.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                        معاينة التطبيق السحابي <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <!-- الموقع التسويقي العام لعيادة Insight Clinic -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">Public Website & SEO</span>
+                        <span class="badge-status">Live Website</span>
+                    </div>
+                    <div class="system-name">الموقع التسويقي — Insight Clinic Public</div>
+                    <div class="system-desc">
+                        صفحة هبوط تسويقية للعيادة لتعريف المرضى بخدمات التحليل النفسي والعلاج الجذري، مهيأة بأكواد Schema محلية لتصدر نتائج البحث وجوجل مابس بطنطا.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> تهيئة متقدمة للـ Local Business Schema وGoogle Maps SEO.</li>
+                        <li><i class="fa-solid fa-check"></i> واجهة هادئة متوافقة مع معايير علم نفس الألوان للرعاية النفسية.</li>
+                        <li><i class="fa-solid fa-check"></i> مسار حجز سريع مباشر عبر الواتساب والهاتف.</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">Local SEO</span>
+                        <span class="tool-badge">Schema.org</span>
+                        <span class="tool-badge">HTML5/CSS3</span>
+                        <span class="tool-badge">Vercel</span>
+                    </div>
+                    <a href="https://insight-clinic-public-website.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                        زيارة الموقع العام <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <!-- سيستم CRM مخصص لشركة إنجاز -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">Custom CRM</span>
+                        <span class="badge-status production">Internal System</span>
+                    </div>
+                    <div class="system-name">نظام CRM لإدارة المبيعات — Engaz CRM</div>
+                    <div class="system-desc">
+                        نظام إدارة علاقات عملاء مخصص تم بناؤه بالذكاء الاصطناعي لشركة إنجاز للتطوير العقاري للربط المباشر بين إعلانات الميديا باينج وفريق المبيعات.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> إدارة خط سير الليدات (Pipeline) ومتابعة مكالمات فريق المبيعات.</li>
+                        <li><i class="fa-solid fa-check"></i> تقارير دقيقة لمعدلات التحويل وتكلفة الاستحواذ حسب كل مشروع.</li>
+                        <li><i class="fa-solid fa-check"></i> متاح كنسخة سحابية ويب وبرنامج مكتبي سريع (Electron Desktop App).</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">Node.js</span>
+                        <span class="tool-badge">Express</span>
+                        <span class="tool-badge">Electron</span>
+                        <span class="tool-badge">REST API</span>
+                        <span class="tool-badge">CRM Pipeline</span>
                     </div>
                 </div>
 
-                <!-- خدمة 3 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    <div class="service-title">بحوث السوق وتطوير الأعمال (BD)</div>
-                    <div class="service-desc">
-                        إعداد دراسات وبحوث سوق متكاملة، دراسة سلوك المستهلكين، تحليل المنافسين ومميزاتهم التنافسية، وتقديم تقارير وحلول استراتيجية لمساعدة الشركات على النمو الجغرافي والبيعي.
+                <!-- موقع شركة إنجاز للتطوير العقاري -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">Corporate Portal</span>
+                        <span class="badge-status">Live Portal</span>
+                    </div>
+                    <div class="system-name">الموقع الرسمي — شركة إنجاز للتطوير العقاري</div>
+                    <div class="system-desc">
+                        المنصة التفاعلية الرسمية للشركة لاستعراض مشروعات القاهرة الجديدة (بيت الوطن، النورث هاوس) ومشروعات الغربية (بسيون وطهو)، ونظام جمع الليدات.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> كتالوج مشروعات تفاعلي مدعوم بصور التنفيذ الميداني الفعلي.</li>
+                        <li><i class="fa-solid fa-check"></i> استمارة طلب أسعار ومعاودة اتصال مربوطة بقاعدة البيانات.</li>
+                        <li><i class="fa-solid fa-check"></i> مهيأ بالكامل ببروتوكول IndexNow وLLMs.txt لأرشفة الذكاء الاصطناعي.</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">Tailwind CSS</span>
+                        <span class="tool-badge">Vanilla JS</span>
+                        <span class="tool-badge">Lucide Icons</span>
+                        <span class="tool-badge">GitHub Pages</span>
+                    </div>
+                    <a href="https://amr-waled.github.io/engaz-developments/" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                        معاينة موقع إنجاز لايف <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <!-- متجر Nasa Shoes -->
+                <div class="system-card">
+                    <div class="system-card-top">
+                        <span class="system-badge-tag">E-Commerce</span>
+                        <span class="badge-status production">Vibe Coded Store</span>
+                    </div>
+                    <div class="system-name">متجر Nasa Shoes للأحذية الإلكتروني</div>
+                    <div class="system-desc">
+                        واجهة متجر إلكتروني تفاعلية متجاوبة تم بناؤها بالكامل كـ Vibe Coder لعرض وتصنيف الأحذية الرياضية وتسهيل تجربة الطلب والشراء السريع.
+                    </div>
+                    <ul class="system-highlights">
+                        <li><i class="fa-solid fa-check"></i> تصميم متجاوب للهواتف والشاشات المختلفة.</li>
+                        <li><i class="fa-solid fa-check"></i> فلاتر تصفية المنتجات وسلة مشتريات ديناميكية.</li>
+                    </ul>
+                    <div class="system-tools">
+                        <span class="tool-badge">E-Commerce UI</span>
+                        <span class="tool-badge">JavaScript</span>
+                        <span class="tool-badge">Vibe Coding</span>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- سكشن دراسات الحالة المميزة (Case Studies) -->
+        <!-- سكشن الخدمات والحلول المتكاملة -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> الحلول والخدمات التي أقدمها لشركتك</h2>
+            <p class="section-subtitle-text">حل مشاكل التشغيل والنمو للبيزنس عبر الدمج بين قوة بناء الأنظمة بالـ AI وحملات المبيعات الميدانية:</p>
+            
+            <div class="services-grid">
+                
+                <!-- خدمة 1: بناء الأنظمة بالـ AI -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="service-title">بناء الأنظمة والمواقع بالذكاء الاصطناعي (AI-Native Systems)</div>
+                    <div class="service-desc">
+                        تحويل الاحتياجات التشغيلية لشركتك إلى أنظمة سحابية سريعة ومتقنة (Custom CRM, EMR, Dashboards, Web Portals) مبنية بالـ AI في وقت قياسي وبأعلى معايير الأمان والكفاءة.
+                    </div>
+                </div>
+
+                <!-- خدمة 2: تكامل الأنظمة والنمو -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                    <div class="service-title">حلول النمو المتكامل (Full-Funnel Growth & Systems)</div>
+                    <div class="service-desc">
+                        سد الفجوة بين البنية التحتية البرمجية (الموقع والسيستم) وبين قنوات التوزيع والبيع؛ من أول كتابة الاسكريبتات وتدريب فريق المبيعات وحتى إطلاق الحملات الممولة والإشراف الإبداعي.
+                    </div>
+                </div>
+
+                <!-- خدمة 3: ميديا باينج -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <div class="service-title">ميديا باينج وإدارة الحملات (Meta Ads)</div>
+                    <div class="service-desc">
+                        تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام باستهداف دقيق لزيادة المبيعات والليدات في القطاع العقاري والتجاري بأقل تكلفة استحواذ (CPL) وأعلى عائد (ROAS).
+                    </div>
+                </div>
+
+                <!-- خدمة 4: كتابة الاسكريبتات -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="service-title">كتابة سكريبتات وصناعة محتوى إعلاني</div>
+                    <div class="service-desc">
+                        صياغة سكريبتات ونصوص تسويقية جذابة للفيديوهات الإعلانية تخطف انتباه المشاهد في أول 3 ثوانٍ وتدفعه نحو اتخاذ إجراء مباشر، بعيداً عن الكليشيهات المبتذلة.
+                    </div>
+                </div>
+
+                <!-- خدمة 5: بحوث السوق وتطوير الأعمال -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div class="service-title">بحوث السوق وتطوير الأعمال (Market Research & BD)</div>
+                    <div class="service-desc">
+                        إعداد دراسات وبحوث سوق متكاملة، دراسة سلوك المستهلكين والمنافسين، وتقديم حلول واستشارات استراتيجية لنمو المشروعات العقارية والتجارية (مثل أبحاث Paymob وBreadfast).
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- سكشن المبادرات الاستراتيجية وصناعة المحتوى التوعوي -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-bullhorn"></i> المبادرات الاستراتيجية وصناعة المحتوى المتخصص</h2>
+            
+            <div class="initiative-card">
+                <div class="initiative-header">
+                    <div class="initiative-title">مشروع دعم أمهات أطفال التوحد (د. سالي سالم / Colorblue & Nerdz)</div>
+                    <span class="initiative-tag">Healthcare Awareness & Community</span>
+                </div>
+                <div class="initiative-desc">
+                    صياغة وهندسة أكبر استراتيجية محتوى متخصصة لدعم أمهات أطفال طيف التوحد في مصر والوطن العربي، قائمة على محاكاة واقعية عميقة لمشاعر وتحديات الأم اليومية بعيداً عن الوعظ المصطنع واللغة المعلبة.
+                </div>
+                
+                <div class="initiative-pillars">
+                    <div class="pillar-item">
+                        <div class="pillar-title"><i class="fa-solid fa-video"></i> موسوعة الـ 50 سكريبت</div>
+                        <div class="pillar-desc">50 سكريبت فيديو مصور مقسم على 5 محاور تشمل صدمة البدايات، التحديات الحسية، الروتين المنزلي، جلسات التخاطب، والصحة النفسية للأم.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-title"><i class="fa-solid fa-images"></i> بنك الكاروسيل الفيروسي</div>
+                        <div class="pillar-desc">10 أفكار تفصيلية سلايد بسلايد مصممة لتوليد أقصى معدل حفظ ومشاركة (Save & Share) عبر إنستجرام وفيسبوك.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-title"><i class="fa-solid fa-book-bookmark"></i> بناء مجتمع Nerdz والكتاب الرقمي</div>
+                        <div class="pillar-desc">خطة إطلاق شهرية وتجهيز بيع الكتاب الرقمي وبناء مساحة تفاعلية آمنة تجمع الأمهات مع الخبراء.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- سكشن دراسات الحالة التسويقية (Case Studies) -->
         <section>
             <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> دراسات حالة من أعمالي التسويقية (Case Studies)</h2>
             <div class="case-studies-grid">
@@ -995,7 +1525,7 @@
                     <div class="case-stat">13.38 ج.م</div>
                     <div class="case-title">خفض تكلفة العميل (CPL) في حملات العقارات الممولة</div>
                     <div class="case-desc">
-                        تخطيط وإطلاق حملة إعلانات ممولة استهدفت المغتربين المصريين وأهالي الدلتا، وحققت تكلفة عميل محتمل (CPL) بلغت 13.38 جنيه مصري فقط لكل عميل، محققة كفاءة إنفاق عالية في قطاع العقارات الصعب.
+                        تخطيط وإطلاق حملة إعلانات ممولة استهدفت المغتربين المصريين وأهالي الدلتا لمشروعات التجمع وبسيون، وحققت تكلفة عميل محتمل (CPL) بلغت 13.38 جنيه مصري فقط للعميل، محققة كفاءة إنفاق عالية في قطاع العقارات الصعب.
                     </div>
                 </div>
 
@@ -1004,7 +1534,7 @@
                     <div class="case-stat">624%+</div>
                     <div class="case-title">نمو التواجد الرقمي والزيارات العضوية لصفحات الشركة</div>
                     <div class="case-desc">
-                        تصميم وتنفيذ خطة محتوى متكاملة وربطها بسلسلة فيديوهات ترويجية، مما أدى لنمو مشاهدات الصفحة لتتجاوز 702,000 مشاهدة، وزيادة التفاعل بنسبة 388%+ والمحادثات المباشرة بنسبة 152%+ خلال 3 أشهر فقط.
+                        تصميم وتنفيذ خطة محتوى متكاملة وربطها بسلسلة فيديوهات ترويجية وإشراف إبداعي، مما أدى لنمو مشاهدات الصفحة لتتجاوز 702,000 مشاهدة، وزيادة التفاعل بنسبة 388%+ والرسائل المباشرة بنسبة 152%+ خلال 3 أشهر فقط.
                     </div>
                 </div>
 
@@ -1019,36 +1549,36 @@
                 <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> الخبرة العملية والتجارية</h2>
                 <div class="cv-timeline">
                     
-                    <!-- الخبرة 1 -->
+                    <!-- الخبرة 1: إنجاز -->
                     <div class="cv-item">
-                        <div class="cv-item-title">مدير تسويق (Marketing Manager) & Media Buyer</div>
+                        <div class="cv-item-title">مدير تسويق (Marketing Manager) & Lead Media Buyer</div>
                         <div class="cv-item-sub">إنجاز للتطوير العقاري (Engaz Developments) | 04/2026 - الحالي</div>
                         <div class="cv-item-desc">
-                            إدارة وتوجيه حملات الميديا باينج (Media Buying) وقنوات الاستحواذ والتواجد الرقمي:
+                            إدارة العمليات التسويقية، حملات الميديا باينج، قنوات الاستحواذ، وبناء الأنظمة الرقمية للشركة:
                             <ul>
-                                <li>تخطيط وإطلاق الحملات الإعلانية المدفوعة على فيسبوك وإنستجرام، وتوزيع الميزانيات بدقة.</li>
-                                <li>كتابة المحتوى التسويقي والسكريبتات الإبداعية للفيديوهات الترويجية.</li>
-                                <li>إدارة وتطوير صفحات السوشيال ميديا للشركة، وتحليل البيانات لبناء حملات عالية الكفاءة.</li>
+                                <li>بناء الموقع الرسمي للشركة وسيستم الـ Custom CRM الداخلي لإدارة ليدات المبيعات.</li>
+                                <li>تخطيط وإطلاق الحملات الإعلانية المدفوعة على Meta، وتوزيع الميزانيات بدقة عبر مشروعات القاهرة الجديدة والدلتا.</li>
+                                <li>كتابة الإعلانات والسكريبتات الإبداعية (مثل حملات التوظيف الفيروسية: "مين يستحق كرسي حوت سوق العقارات؟").</li>
                             </ul>
-                            <!-- 💡 إنجازات حقيقية مستخرجة بدقة من لوحة تحليلات عمرو وليد -->
+                            <!-- إنجازات حقيقية موثقة بالأرقام -->
                             <ul class="metrics-list">
-                                <li><i class="fa-solid fa-chart-line"></i> **نمو قياسي للصفحة:** قيادة الصفحة لتحقيق **702,056 مشاهدة** بمعدل نمو **624%+**، وزيادة التفاعل إلى **14,156 تفاعل** (نمو **388%+**)، وزيادة المتابعين الصافية بمعدل **62%+** (196 متابع جديد).</li>
-                                <li><i class="fa-solid fa-comments"></i> **جذب العملاء والمحادثات:** زيادة الرسائل والمحادثات المباشرة بنسبة **152%+** لتصل إلى **262 محادثة مباشرة** (منها 215 جهة اتصال جديدة بالكامل و43 متكررة).</li>
-                                <li><i class="fa-solid fa-tags"></i> **كفاءة إعلانية استثنائية:** إطلاق حملات توليد عملاء (Leads) في قطاع العقارات الصعب بتكلفة إعلانية منافسة جداً، وصلت في بعض المجموعات الإعلانية إلى **13.38 جنيه مصري فقط للعميل الواحد**.</li>
-                                <li><i class="fa-solid fa-users"></i> **حملات التفاعل الكبرى:** إدارة وتوجيه حملة تفاعل كبرى (New Engagement) حققت **أكثر من 31,023 تفاعل مباشر** بتكلفة قياسية متدنية بلغت **0.04 جنيه مصري** للتفاعل الواحد.</li>
+                                <li><i class="fa-solid fa-chart-line"></i> **نمو قياسي للصفحة:** قيادة الصفحة لتحقيق **702,056 مشاهدة** بمعدل نمو **624%+**، وزيادة التفاعل إلى **14,156 تفاعل** (نمو **388%+**).</li>
+                                <li><i class="fa-solid fa-comments"></i> **جذب العملاء والمحادثات:** زيادة الرسائل والمحادثات المباشرة بنسبة **152%+** لتصل إلى **262 محادثة مباشرة**.</li>
+                                <li><i class="fa-solid fa-tags"></i> **كفاءة إعلانية استثنائية:** خفض تكلفة الحصول على العميل المحتمل (CPL) في بعض المجموعات إلى **13.38 جنيه مصري فقط**.</li>
+                                <li><i class="fa-solid fa-users"></i> **حملات التفاعل الكبرى:** إدارة حملة تفاعل كبرى حققت **أكثر من 31,023 تفاعل مباشر** بتكلفة بلغت **0.04 جنيه مصري** للتفاعل.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- الخبرة 2 -->
+                    <!-- الخبرة 2: Albootcamp -->
                     <div class="cv-item">
                         <div class="cv-item-title">متدرب تطوير أعمال (Business Development Intern)</div>
                         <div class="cv-item-sub">AlBootcamp — EdTech | 2025</div>
                         <div class="cv-item-desc">
-                            إدارة بحوث السوق والمساهمة في استراتيجيات النمو والشراكات، ويتضمن عملي إنجاز المشاريع التحليلية التالية:
+                            إدارة بحوث السوق والمساهمة في استراتيجيات النمو والشراكات، وإنجاز دراسات تحليلية معمقة:
                             <ul>
-                                <li><strong>دراسة وبحث سوق لصالح Paymob:</strong> تحليل متكامل لسلوك التجار العقاريين ومقدمي الخدمات في الدفع الإلكتروني بمصر، وتحديد التحديات لتسهيل تجربة الدفع الإلكتروني.</li>
-                                <li><strong>دراسة وبحث سوق لصالح Breadfast:</strong> دراسة سلوك المستهلكين وعادات التوصيل المنزلي لمنتجات FMCG، وتحليل المنافسين لوضع استراتيجيات نمو للمشروع.</li>
+                                <li><strong>دراسة وبحث سوق لصالح Paymob:</strong> تحليل متكامل لسلوك التجار العقاريين ومقدمي الخدمات في الدفع الإلكتروني بمصر وربطه بالقطاع العقاري.</li>
+                                <li><strong>دراسة وبحث سوق لصالح Breadfast:</strong> دراسة سلوك المستهلكين وعادات التوصيل المنزلي لمنتجات FMCG واقتصاديات التوسع.</li>
                             </ul>
                         </div>
                     </div>
@@ -1061,7 +1591,7 @@
                 <h2 class="section-title"><i class="fa-solid fa-users"></i> القيادة والأنشطة الطلابية</h2>
                 <div class="cv-timeline">
                     
-                    <!-- إيناكتس بالتفصيل -->
+                    <!-- إيناكتس -->
                     <div class="cv-item">
                         <div class="cv-item-title">رئيس فرع الجامعة (President)</div>
                         <div class="cv-item-sub">Enactus Tanta University | 2025 - الحالي</div>
@@ -1069,7 +1599,7 @@
                             قيادة عمليات النشاط الطلابي وإدارة مشاريع ريادة الأعمال ذات الأثر التنموي والمجتمعي.
                             <ul>
                                 <li>تأسيس وإطلاق معسكر (Xplore Camp) التدريبي المخصص للتطوير المهني للطلاب (كتابة السيرة الذاتية، بناء بروفايل LinkedIn، مهارات العرض، ريادة الأعمال).</li>
-                                <li>عقد شراكة استراتيجية ناجحة مع شركة <strong>V7</strong> لتقديم وتنظيم المعسكر بأعلى جودة ووصول.</li>
+                                <li>عقد شراكة استراتيجية ناجحة مع شركة <strong>V7</strong> لتنظيم وتقديم المعسكر بأعلى جودة.</li>
                             </ul>
                         </div>
                     </div>
@@ -1079,6 +1609,14 @@
                         <div class="cv-item-sub">هندسة قوى ميكانيكية - جامعة طنطا | 2022 - 2024</div>
                         <div class="cv-item-desc">
                             تم انتخابي لتمثيل وإدارة شؤون أكثر من 70 طالباً بالدفعة والتنسيق الأكاديمي وجداول الامتحانات والاتصال بين الطلاب وإدارة القسم لمدة عامين دراسيين متتاليين.
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item-title">متحدث ومحاضر رسمي (Official Speaker)</div>
+                        <div class="cv-item-sub">Hult Prize Tanta | 2026</div>
+                        <div class="cv-item-desc">
+                            إلقاء كلمة ومحاضرة رسمية حول مهارات القيادة وتكوين فرق العمل وبناء المشروعات الريادية.
                         </div>
                     </div>
 
@@ -1095,11 +1633,41 @@
 
         </div>
 
-        <!-- سكشن المهارات والأدوات -->
+        <!-- سكشن المهارات والأدوات المتكاملة -->
         <section class="skills-container">
-            <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> المهارات والأدوات المهنية</h2>
+            <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> المهارات والأدوات المهنية والتقنية</h2>
             
-            <div class="skills-category">أولاً: المهارات والأدوات الهندسية (Mechanical Engineering)</div>
+            <div class="skills-category"><i class="fa-solid fa-laptop-code"></i> أولاً: أدوات الذكاء الاصطناعي وبناء الأنظمة (AI-Native & Tech Stack)</div>
+            <div class="skills-grid">
+                <div class="skill-tag">Claude & Gemini</div>
+                <div class="skill-tag">Antigravity SDK</div>
+                <div class="skill-tag">Next.js 15</div>
+                <div class="skill-tag">React 19</div>
+                <div class="skill-tag">TypeScript</div>
+                <div class="skill-tag">Tailwind CSS</div>
+                <div class="skill-tag">Supabase</div>
+                <div class="skill-tag">Vercel Serverless</div>
+                <div class="skill-tag">Node.js & Express</div>
+                <div class="skill-tag">Electron</div>
+                <div class="skill-tag">Python (Basic)</div>
+                <div class="skill-tag">Git & GitHub</div>
+            </div>
+
+            <div class="skills-category"><i class="fa-solid fa-chart-line"></i> ثانياً: التسويق وتطوير الأعمال (Marketing & Business Growth)</div>
+            <div class="skills-grid">
+                <div class="skill-tag">Media Buying</div>
+                <div class="skill-tag">Meta Ads Manager</div>
+                <div class="skill-tag">CPL & ROAS Opt.</div>
+                <div class="skill-tag">كتابة سكريبتات</div>
+                <div class="skill-tag">الإشراف الإبداعي</div>
+                <div class="skill-tag">Market Research</div>
+                <div class="skill-tag">دراسات الجدوى</div>
+                <div class="skill-tag">تدريب التيم والـ Sales</div>
+                <div class="skill-tag">Local SEO</div>
+                <div class="skill-tag">AI SEO & Schema</div>
+            </div>
+
+            <div class="skills-category"><i class="fa-solid fa-gear"></i> ثالثاً: المهارات والأدوات الهندسية (Mechanical Power Engineering)</div>
             <div class="skills-grid">
                 <div class="skill-tag">SolidWorks</div>
                 <div class="skill-tag">ANSYS Fluent</div>
@@ -1108,27 +1676,78 @@
                 <div class="skill-tag">HVAC Design</div>
                 <div class="skill-tag">Duct Sizing</div>
                 <div class="skill-tag">Arduino</div>
-                <div class="skill-tag">Python (Basic)</div>
+                <div class="skill-tag">Solar Simulator</div>
             </div>
 
-            <div class="skills-category">ثانياً: مهارات الأعمال والتسويق (Business & Marketing)</div>
+            <div class="skills-category"><i class="fa-solid fa-user-group"></i> رابعاً: القيادة والمهارات الإدارية (Leadership & Soft Skills)</div>
             <div class="skills-grid">
-                <div class="skill-tag">Media Buying</div>
-                <div class="skill-tag">إعلانات فيسبوك</div>
-                <div class="skill-tag">إعلانات إنستغرام</div>
-                <div class="skill-tag">كتابة سكريبتات</div>
-                <div class="skill-tag">Market Research</div>
-                <div class="skill-tag">Business Dev</div>
-                <div class="skill-tag">Public Relations</div>
-                <div class="skill-tag">القيادة الطلابية</div>
-            </div>
-
-            <div class="skills-category">ثالثاً: المهارات الشخصية والقيادية (Soft Skills)</div>
-            <div class="skills-grid">
-                <div class="skill-tag">إدارة فرق العمل</div>
+                <div class="skill-tag">قيادة فرق العمل</div>
                 <div class="skill-tag">التفاوض والشراكات</div>
                 <div class="skill-tag">التفكير التحليلي</div>
-                <div class="skill-tag">العروض التقديمية</div>
+                <div class="skill-tag">الخطابة والعروض</div>
+                <div class="skill-tag">إدارة الأزمات</div>
+                <div class="skill-tag">حل مشكلات التشغيل</div>
+            </div>
+        </section>
+
+        <!-- سكشن المشاريع الهندسية والأكاديمية -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> المشاريع الهندسية والأكاديمية</h2>
+            <p class="section-subtitle-text">مشاريع هندسية متقدمة تعكس العقلية الرياضية التحليلية الصارمة والقدرة على حل المشكلات المعقدة:</p>
+            
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <img src="cfd_project.jpg" alt="Supersonic Flow CFD Simulation" class="project-image" onerror="this.style.display='none';" />
+                    <div class="project-meta">مشروع مادة ديناميكا الغازات</div>
+                    <div class="project-name">Supersonic Flow CFD Simulation</div>
+                    <div class="project-desc">
+                        محاكاة وحسابات التدفق الهوائي فوق صوتي (Supersonic Compressible Flow) على جنيح مزدوج الوتد (Double-Wedged Airfoil) عند زوايا هجوم مختلفة لدراسة الموجات الصدمية المائلة وخطوط الضغط.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">ANSYS Fluent</span>
+                        <span class="tool-badge">CFD Analysis</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="hvac_project.jpg" alt="HVAC Design — Doha Hotel" class="project-image" onerror="this.style.display='none';" />
+                    <div class="project-meta">مشروع مادة تكييف الهواء</div>
+                    <div class="project-name">HVAC Design — Doha Hotel</div>
+                    <div class="project-desc">
+                        تصميم كامل لنظام تكييف الهواء والتهوية لفندق متعدد الطوابق في الدوحة، قطر. شمل حسابات الأحمال الحرارية للتبريد والتدفئة وتحديد أبعاد شبكة مجاري الهواء (Duct Sizing).
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">HVAC Load</span>
+                        <span class="tool-badge">Duct Sizing</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-meta">تطبيق ويب ذكي - مادة محركات الاحتراق الداخلي</div>
+                    <div class="project-name">ICE II Simulator & Solver</div>
+                    <div class="project-desc">
+                        موقع تفاعلي تم بناؤه لمحاكاة عمليات سحب الوقود والهواء داخل محرك الاحتراق الداخلي وحساب الأداء الكلي مع لوحة تحكم للمدخلات الرياضية.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">HTML/CSS/JS</span>
+                        <span class="tool-badge">AI Coding</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="engine_project.jpg" alt="4-Cylinder Engine Model — SolidWorks" class="project-image" onerror="this.style.display='none';" />
+                    <div class="project-meta">مشروع مادة التصميم الميكانيكي</div>
+                    <div class="project-name">4-Cylinder Engine Model</div>
+                    <div class="project-desc">
+                        تصميم ميكانيكي كامل وتجميعي لأجزاء محرك رباعي الأسطوانات يضم المكابس، عمود الكرنك، وعمود الكامات بواسطة برنامج SolidWorks.
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-badge">SolidWorks</span>
+                        <span class="tool-badge">3D Assembly</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1156,68 +1775,6 @@
                         تدريب تقني متقدم على النمذجة ثلاثية الأبعاد (3D Modeling)، تصميم الأجزاء الميكانيكية المجمعة (Assemblies)، واستخراج الرسومات الهندسية التنفيذية.
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- سكشن المشاريع الهندسية والبرمجية -->
-        <section>
-            <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> المشاريع الهندسية والأكاديمية</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <!-- ستقوم بوضع صورتك الخاصة باسم cfd_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
-                    <img src="cfd_project.jpg" alt="Supersonic Flow CFD Simulation" class="project-image" onerror="this.style.display='none';" />
-                    <div class="project-meta">مشروع مادة ديناميكا الغازات</div>
-                    <div class="project-name">Supersonic Flow CFD Simulation</div>
-                    <div class="project-desc">
-                        محاكاة وحسابات التدفق الهوائي فوق صوتي (Supersonic Compressible Flow) على جنيح مزدوج الوتد (Double-Wedged Airfoil) عند زوايا هجوم مختلفة لدراسة الموجات الصدمية المائلة وخطوط الضغط.
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-badge">ANSYS Fluent</span>
-                        <span class="tool-badge">CFD</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <!-- ستقوم بوضع صورتك الخاصة باسم hvac_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
-                    <img src="hvac_project.jpg" alt="HVAC Design — Doha Hotel" class="project-image" onerror="this.style.display='none';" />
-                    <div class="project-meta">مشروع مادة تكييف الهواء</div>
-                    <div class="project-name">HVAC Design — Doha Hotel</div>
-                    <div class="project-desc">
-                        تصميم كامل لنظام تكييف الهواء والتهوية لفندق متعدد الطوابق في الدوحة، قطر. شمل حسابات الأحمال الحرارية للتبريد والتدفئة وتحديد أبعاد شبكة مجاري الهواء (Ducts).
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-badge">HVAC Load</span>
-                        <span class="tool-badge">Duct Sizing</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-meta">تطبيق ويب ذكي - مادة محركات الاحتراق الداخلي</div>
-                    <div class="project-name">ICE II Simulator & Solver</div>
-                    <div class="project-desc">
-                        موقع تفاعلي تم بناؤه لمحاكاة عمليات سحب الوقود والهواء داخل محرك الاحتراق الداخلي وحساب الأداء الكلي مع لوحة تحكم للمدخلات الرياضية.
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-badge">HTML/CSS/JS</span>
-                        <span class="tool-badge">AI Coding</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <!-- ستقوم بوضع صورتك الخاصة باسم engine_project.jpg بجوار الكود لتظهر هنا تلقائياً -->
-                    <img src="engine_project.jpg" alt="4-Cylinder Engine Model — SolidWorks" class="project-image" onerror="this.style.display='none';" />
-                    <div class="project-meta">مشروع مادة التصميم الميكانيكي</div>
-                    <div class="project-name">4-Cylinder Engine Model</div>
-                    <div class="project-desc">
-                        تصميم ميكانيكي كامل وتجميعي لأجزاء محرك رباعي الأسطوانات يضم المكابس، عمود الكرنك، وعمود الكامات بواسطة برنامج SolidWorks.
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-badge">SolidWorks</span>
-                        <span class="tool-badge">3D Design</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -1275,7 +1832,7 @@
         </section>
 
         <footer>
-            <p>جميع الحقوق محفوظة © 2026 | عمرو وليد | تم تصميمه وتهيئته لمحركات بحث الذكاء الاصطناعي (AI SEO)</p>
+            <p>جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled) | تم تصميمه وتهيئته لمحركات بحث الذكاء الاصطناعي (AI SEO & GEO)</p>
         </footer>
 
     </div>
