@@ -1,39 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Primary Domain: GitHub Pages -->
     <url>
         <loc>https://amr-waled.github.io/</loc>
-        <lastmod>2026-09-18</lastmod>
+        <lastmod>2026-09-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/engaz-case-study.html</loc>
-        <lastmod>2026-09-18</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/systems.html</loc>
-        <lastmod>2026-09-18</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/solutions.html</loc>
-        <lastmod>2026-09-18</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/about.html</loc>
-        <lastmod>2026-09-18</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/llms.txt</loc>
-        <lastmod>2026-09-18</lastmod>
+        <lastmod>2026-09-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
+
+    <!-- Alternate Domain: Vercel -->
+    <url>
+        <loc>https://amrwaled.vercel.app/</loc>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/engaz-case-study</loc>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/systems</loc>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/solutions</loc>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/about</loc>
+        <lastmod>2026-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
 </urlset>
