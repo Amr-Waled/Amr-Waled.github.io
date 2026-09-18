@@ -2,615 +2,465 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عمرو وليد | Marketing Manager & AI-Native Systems Builder</title>
     <meta name="description" content="الموقع الرسمي لـ عمرو وليد (Amr Waled) — Marketing Manager بشركة Engaz Developments ومطور أنظمة بالذكاء الاصطناعي. بوابتك لدراسات الحالة، الأنظمة المشحونة، واستشارات نمو الشركات.">
     <meta name="keywords" content="عمرو وليد, Amr Waled, Engaz Developments, EngazDevelopments.com, Marketing Manager, Real Estate Marketing, AI Systems Builder, ميديا باير, طنطا, استشارات تسويق">
     <meta name="author" content="عمرو وليد (Amr Waled)">
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="عمرو وليد | Marketing Manager & AI-Native Systems Builder">
     <meta property="og:description" content="مدير تسويق بشركة إنجاز للتطوير العقاري، ومطور أنظمة سحابية بالذكاء الاصطناعي لحل مشاكل البيزنس والتشغيل.">
     <meta property="og:url" content="https://amr-waled.github.io">
     <meta property="og:image" content="https://amr-waled.github.io/avatar.jpg">
 
-    <!-- Fonts: Cairo & Plus Jakarta Sans -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --bg: #090a0f;
-            --surface: #10121a;
-            --surface-hover: #161a26;
-            --surface-card: rgba(16, 18, 26, 0.75);
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.18);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --text-subtle: #64748b;
-            --accent-blue: #3b82f6;
-            --accent-blue-subtle: rgba(59, 130, 246, 0.12);
-            --accent-emerald: #10b981;
-            --accent-emerald-subtle: rgba(16, 185, 129, 0.12);
-        }
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#060b18',
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#283548',
+                        }
+                    }
+                }
+            }
         }
+    </script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Cairo', -apple-system, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            font-family: 'Cairo', sans-serif;
             min-height: 100vh;
-            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Subtle luxury background gradient */
-        .bg-mesh {
+        /* Layered gradient background */
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, rgba(37, 99, 235, 0.09) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 85% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 55%),
+                #0f172a;
+        }
+
+        /* Subtle top border glow */
+        .top-glow {
             position: fixed;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 500px;
-            background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.07) 0%, rgba(16, 185, 129, 0.03) 40%, transparent 70%);
-            filter: blur(100px);
-            z-index: -1;
-            pointer-events: none;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(99, 102, 241, 0.4), transparent);
+            z-index: 50;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 5rem;
+        /* Navigation */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
-        /* Top Minimal Bar */
-        .top-nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 3.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
+        /* Status dot pulse */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+        }
+        .pulse-dot {
+            animation: pulse-dot 2s infinite;
         }
 
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent-emerald);
-            background: var(--accent-emerald-subtle);
-            padding: 0.35rem 0.9rem;
-            border-radius: 999px;
-            border: 1px solid rgba(16, 185, 129, 0.25);
+        /* Stat number counter */
+        .stat-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            line-height: 1;
+            color: #ffffff;
+            direction: ltr;
+            display: inline-block;
         }
 
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent-emerald);
-            box-shadow: 0 0 8px var(--accent-emerald);
+        /* Card hover lift */
+        .card-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover {
-            color: var(--text-main);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .avatar-wrap {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
+        /* Avatar ring */
+        .avatar-ring {
+            background: linear-gradient(145deg, rgba(99, 102, 241, 0.6), rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.5));
             padding: 3px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.03) 100%);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
         }
-
-        .avatar-wrap img {
+        .avatar-ring img {
+            border-radius: 50%;
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
-            background: var(--surface);
-            display: block;
         }
 
-        .hero-name {
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.4rem;
-            color: #ffffff;
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            margin: 0;
         }
 
-        .hero-roles {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.4rem;
-        }
-
-        .role-pill {
-            font-size: 0.88rem;
-            font-weight: 700;
-            padding: 0.3rem 0.85rem;
-            border-radius: 8px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        .role-pill.primary {
-            color: #93c5fd;
-            background: var(--accent-blue-subtle);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-
-        .hero-bio {
-            max-width: 720px;
-            margin: 0 auto 2rem;
-            font-size: 1.12rem;
-            color: var(--text-muted);
-            line-height: 1.85;
-        }
-
-        .hero-bio strong {
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        .hero-ctas {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.6rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #ffffff;
-            color: #090a0f;
-        }
-
-        .btn-primary:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Stats Strip */
-        .stats-strip {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 4rem;
-            padding: 1.8rem;
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            backdrop-filter: blur(12px);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item:not(:last-child) {
-            border-left: 1px solid var(--border);
-        }
-
-        .stat-val {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 0.3rem;
-            direction: ltr;
-        }
-
-        .stat-label {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        /* Gateway Cards Section */
-        .section-header-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: #ffffff;
-        }
-
-        .gateway-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 4.5rem;
-        }
-
-        .gateway-card {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2.2rem;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Shimmer on cards */
+        .card-shimmer {
             position: relative;
-            backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+        .card-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0; right: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.025) 50%, transparent 70%);
+            transition: right 0.6s ease;
+            pointer-events: none;
+        }
+        .card-shimmer:hover::before {
+            right: 150%;
         }
 
-        .gateway-card:hover {
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .card-tag {
-            font-size: 0.78rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-blue);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+        .fade-up {
+            animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.35s; }
+        .delay-4 { animation-delay: 0.5s; }
 
-        .card-tag.emerald {
-            color: var(--accent-emerald);
-        }
-
-        .gateway-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 0.75rem;
-            line-height: 1.35;
-        }
-
-        .gateway-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1.8rem;
-            flex-grow: 1;
-        }
-
-        .gateway-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.92rem;
-            font-weight: 800;
-            color: #ffffff;
-            transition: transform 0.2s;
-        }
-
-        .gateway-card:hover .gateway-action {
-            transform: translateX(-5px);
-            color: var(--accent-blue);
-        }
-
-        /* Direct Contact Footer */
-        .footer-section {
-            border-top: 1px solid var(--border);
-            padding-top: 3.5rem;
-            text-align: center;
-        }
-
-        .footer-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .contact-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 1.4rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.92rem;
-            transition: all 0.2s;
-        }
-
-        .contact-btn:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .contact-btn.wa:hover {
-            color: var(--accent-emerald);
-            border-color: var(--accent-emerald);
-        }
-
-        .contact-btn.li:hover {
-            color: var(--accent-blue);
-            border-color: var(--accent-blue);
-        }
-
-        .copyright {
-            font-size: 0.85rem;
-            color: var(--text-subtle);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 3rem 1.1rem 4rem;
-            }
-            .hero-name {
-                font-size: 2.2rem;
-            }
-            .stats-strip {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.2rem;
-                padding: 1.4rem;
-            }
-            .stat-item:nth-child(2) {
-                border-left: none;
-            }
-            .gateway-grid {
-                grid-template-columns: 1fr;
-            }
-            .top-nav {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
+        @media (max-width: 640px) {
+            .stat-num { font-size: 1.5rem; }
+            .mobile-grid-1 { grid-template-columns: 1fr !important; }
+            .mobile-stats { grid-template-columns: 1fr 1fr !important; }
         }
     </style>
 </head>
 <body>
+    <div class="page-bg"></div>
+    <div class="top-glow"></div>
 
-    <div class="bg-mesh"></div>
-
-    <div class="container">
-        
-        <!-- Top Navigation -->
-        <nav class="top-nav">
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>متاح للشراكات الاستراتيجية واستشارات الشركات</span>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
+            <!-- Status badge -->
+            <div class="flex items-center gap-2 text-emerald-400 text-sm font-bold bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot flex-shrink-0"></span>
+                <span class="hidden sm:inline">متاح للشراكات الاستراتيجية</span>
+                <span class="sm:hidden">متاح</span>
             </div>
-            <div class="nav-links">
-                <a href="engaz-case-study.html" class="nav-link">دراسة إنجاز</a>
-                <a href="systems.html" class="nav-link">الأنظمة المشحونة</a>
-                <a href="solutions.html" class="nav-link">حلول الشركات</a>
-                <a href="about.html" class="nav-link">عن عمرو</a>
+            <!-- Nav links -->
+            <div class="flex items-center gap-4">
+                <a href="engaz-case-study.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors duration-200">دراسة إنجاز</a>
+                <a href="systems.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors duration-200 hidden sm:block">الأنظمة</a>
+                <a href="solutions.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors duration-200 hidden sm:block">الحلول</a>
+                <a href="about.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors duration-200">عن عمرو</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Hero Section -->
-        <header class="hero">
-            <div class="avatar-wrap">
-                <img src="avatar.jpg" alt="عمرو وليد" onerror="this.src='https://ui-avatars.com/api/?name=Amr+Waled&background=1e293b&color=fff&size=200';" />
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-5 py-16">
+
+        <!-- ======= HERO ======= -->
+        <section class="text-center mb-16">
+            <!-- Avatar -->
+            <div class="fade-up flex justify-center mb-6">
+                <div class="avatar-ring w-28 h-28 sm:w-32 sm:h-32">
+                    <img
+                        src="avatar.jpg"
+                        alt="عمرو وليد"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Amr+Waled&background=1e293b&color=60a5fa&size=200';"
+                    >
+                </div>
             </div>
 
-            <h1 class="hero-name">عمرو وليد</h1>
-            
-            <div class="hero-roles">
-                <span class="role-pill primary"><i class="fa-solid fa-briefcase"></i> Marketing Manager @ Engaz Developments</span>
-                <span class="role-pill"><i class="fa-solid fa-layer-group"></i> AI-Native Systems Builder</span>
-                <span class="role-pill"><i class="fa-solid fa-gear"></i> Mechanical Engineer</span>
+            <!-- Name -->
+            <h1 class="fade-up delay-1 text-4xl sm:text-5xl font-black text-white mb-3 leading-tight tracking-tight">
+                عمرو وليد
+            </h1>
+
+            <!-- Role pills -->
+            <div class="fade-up delay-2 flex flex-wrap items-center justify-center gap-2 mb-6">
+                <span class="flex items-center gap-1.5 text-sm font-bold text-blue-300 bg-blue-500/10 border border-blue-500/25 px-3 py-1.5 rounded-lg">
+                    <i class="fa-solid fa-briefcase text-xs"></i>
+                    Marketing Manager @ Engaz Developments
+                </span>
+                <span class="flex items-center gap-1.5 text-sm font-bold text-slate-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                    <i class="fa-solid fa-layer-group text-xs"></i>
+                    AI-Native Builder
+                </span>
+                <span class="flex items-center gap-1.5 text-sm font-bold text-slate-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    Mechanical Engineer
+                </span>
             </div>
 
-            <p class="hero-bio">
-                أدير قطاع التسويق والميديا باينج بشركة <strong>إنجاز للتطوير العقاري</strong>، وأصمم وأبني <strong>أنظمة برمجية سحابية بالذكاء الاصطناعي</strong> لحل أزمات التشغيل والنمو.
-                أجمع بين <strong>لغة أرقام المبيعات الحقيقية</strong>، والقدرة التقنية على <strong>هندسة وبناء المنصات والمواقع المخصصة</strong>.
+            <!-- Bio -->
+            <p class="fade-up delay-3 text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+                أدير قطاع التسويق والميديا باينج بشركة <strong class="text-slate-200 font-bold">إنجاز للتطوير العقاري</strong>،
+                وأصمم وأبني <strong class="text-slate-200 font-bold">أنظمة برمجية سحابية بالذكاء الاصطناعي</strong>
+                لحل أزمات التشغيل والنمو في الشركات.
+                أجمع بين <strong class="text-slate-200 font-bold">لغة أرقام المبيعات الحقيقية</strong>
+                والقدرة على <strong class="text-slate-200 font-bold">هندسة وبناء المنصات</strong>.
             </p>
 
-            <div class="hero-ctas">
-                <a href="https://wa.me/201091642566" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <i class="fa-brands fa-whatsapp"></i> تواصل مباشر عبر واتساب
+            <!-- CTAs -->
+            <div class="fade-up delay-4 flex flex-wrap items-center justify-center gap-3">
+                <a
+                    href="https://wa.me/201091642566"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-slate-100 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-brands fa-whatsapp text-green-600 text-base"></i>
+                    تواصل مباشر عبر واتساب
                 </a>
-                <a href="Amr_Waled_CV.pdf" download="Amr_Waled_CV.pdf" class="btn btn-secondary">
-                    <i class="fa-solid fa-file-pdf"></i> تحميل السيرة الذاتية (CV)
+                <a
+                    href="Amr_Waled_CV.pdf"
+                    download="Amr_Waled_CV.pdf"
+                    class="inline-flex items-center gap-2 px-5 py-3 bg-white/5 border border-white/12 text-slate-200 font-bold text-sm rounded-xl hover:bg-white/10 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-solid fa-file-pdf text-slate-400 text-base"></i>
+                    تحميل السيرة الذاتية
                 </a>
-            </div>
-        </header>
-
-        <!-- Real Track Record Stats -->
-        <section class="stats-strip">
-            <div class="stat-item">
-                <div class="stat-val">+1,000,000</div>
-                <div class="stat-label">مشاهدة وتواجد رقمي لشركة إنجاز (+1M Views)</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-val">1,000 ج.م</div>
-                <div class="stat-label">صرف إعلاني لكل بيعة فعلية (+2.5M ج.م) في بسيون</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-val">5.0 ★</div>
-                <div class="stat-label">تصدر Google وخرائط طنطا وتوصيات الـ AI</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-val">+60,000 ج.م</div>
-                <div class="stat-label">ميزانيات إعلانية مُدارة بكفاءة CPL وصلت لـ 11.7 ج.م</div>
             </div>
         </section>
 
-        <!-- Gateway Cards to Dedicated Subpages -->
-        <section>
-            <h2 class="section-header-title"><i class="fa-solid fa-compass"></i> بوابات الأعمال والمشاريع</h2>
-            
-            <div class="gateway-grid">
-                
-                <!-- Gateway 1: Engaz Turnaround Case Study -->
-                <a href="engaz-case-study.html" class="gateway-card">
-                    <div>
-                        <span class="card-tag"><i class="fa-solid fa-chart-line"></i> Turnaround Case Study</span>
-                        <h3 class="gateway-title">طفرة إنجاز للتطوير العقاري ( بالأرقام والوثائق )</h3>
-                        <p class="gateway-desc">
-                            توثيق تفصيلي للتحول الجذري لشركة إنجاز من وسيط لمطور عقاري، وبناء موقع الشركة وسيستم CRM الداخلي، وكتابة سلسلة الاسكريبتات الـ 9، ومبيعات مشروعات بسيون الخارقة.
-                        </p>
+        <div class="section-divider mb-14"></div>
+
+        <!-- ======= STATS ======= -->
+        <section class="mb-16" data-aos="fade-up" data-aos-duration="700">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/6 rounded-2xl overflow-hidden border border-white/8">
+                <div class="bg-slate-900/80 backdrop-blur-md px-5 py-6 text-center">
+                    <div class="stat-num mb-1.5">+1,000,000</div>
+                    <div class="text-slate-400 text-sm font-semibold leading-snug">مشاهدة رقمية لشركة إنجاز</div>
+                </div>
+                <div class="bg-slate-900/80 backdrop-blur-md px-5 py-6 text-center">
+                    <div class="stat-num mb-1.5 text-emerald-400">×2,500</div>
+                    <div class="text-slate-400 text-sm font-semibold leading-snug">عائد كل 1,000 ج.م إعلانات → بيعة +2.5M ج.م</div>
+                </div>
+                <div class="bg-slate-900/80 backdrop-blur-md px-5 py-6 text-center">
+                    <div class="stat-num mb-1.5 text-amber-300">5.0 ★</div>
+                    <div class="text-slate-400 text-sm font-semibold leading-snug">تصدر Google وتوصيات الـ AI</div>
+                </div>
+                <div class="bg-slate-900/80 backdrop-blur-md px-5 py-6 text-center">
+                    <div class="stat-num mb-1.5 text-blue-400">+60K</div>
+                    <div class="text-slate-400 text-sm font-semibold leading-snug">ج.م ميزانيات مُدارة — CPL وصل 11.7 ج.م</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= GATEWAY CARDS ======= -->
+        <section class="mb-16">
+            <div class="flex items-center gap-2.5 mb-8" data-aos="fade-up" data-aos-duration="600">
+                <div class="w-1 h-6 bg-blue-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-white">بوابات الأعمال والمشاريع</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                <!-- Card 1: Engaz Case Study -->
+                <a
+                    href="engaz-case-study.html"
+                    class="group card-lift card-shimmer block bg-slate-800/50 border border-white/8 rounded-2xl p-7 no-underline text-inherit"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-delay="0"
+                >
+                    <div class="flex items-center gap-1.5 text-blue-400 text-xs font-black uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Turnaround Case Study</span>
                     </div>
-                    <div class="gateway-action">
-                        قراءة دراسة الحالة المفصلة <i class="fa-solid fa-arrow-left"></i>
+                    <h3 class="text-xl font-black text-white mb-3 leading-snug group-hover:text-blue-300 transition-colors duration-200">
+                        طفرة إنجاز للتطوير العقاري<br>
+                        <span class="text-slate-400 font-semibold text-base">( بالأرقام والوثائق )</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        توثيق تفصيلي للتحول الجذري لشركة إنجاز من وسيط لمطور عقاري، بناء الموقع، سيستم CRM، سلسلة الاسكريبتات الـ 9، ومبيعات بسيون الخارقة.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-blue-400 group-hover:gap-3 transition-all duration-300">
+                        <span>قراءة دراسة الحالة المفصلة</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
                     </div>
                 </a>
 
-                <!-- Gateway 2: Shipped Platforms & Systems -->
-                <a href="systems.html" class="gateway-card">
-                    <div>
-                        <span class="card-tag emerald"><i class="fa-solid fa-code"></i> Shipped Platforms</span>
-                        <h3 class="gateway-title">الأنظمة والمواقع المشحونة (Live Production)</h3>
-                        <p class="gateway-desc">
-                            استعراض تفصيلي للمنصات والتطبيقات السحابية التي تم بناؤها وإطلاقها لايف: موقع EngazDevelopments.com، تطبيق Insight Clinic الطبي، منصة مُدَرّج، وسيستم مبيعات إنجاز.
-                        </p>
+                <!-- Card 2: Shipped Systems -->
+                <a
+                    href="systems.html"
+                    class="group card-lift card-shimmer block bg-slate-800/50 border border-white/8 rounded-2xl p-7 no-underline text-inherit"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-delay="80"
+                >
+                    <div class="flex items-center gap-1.5 text-emerald-400 text-xs font-black uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Shipped Platforms</span>
                     </div>
-                    <div class="gateway-action">
-                        استعراض الأنظمة والمشاريع <i class="fa-solid fa-arrow-left"></i>
-                    </div>
-                </a>
-
-                <!-- Gateway 3: Strategic Solutions & Advisory -->
-                <a href="solutions.html" class="gateway-card">
-                    <div>
-                        <span class="card-tag"><i class="fa-solid fa-lightbulb"></i> Business Advisory</span>
-                        <h3 class="gateway-title">حلول واستشارات نمو الشركات (Founders & Owners)</h3>
-                        <p class="gateway-desc">
-                            كيف أتعاون مع المؤسسين وأصحاب الشركات كشريك نمو: هندسة أنظمة الـ CRM، تخفيض تكلفة الاستحواذ على العملاء، وتطوير مواقع الويب عالية التحويل بدون إهدار للميزانيات.
-                        </p>
-                    </div>
-                    <div class="gateway-action">
-                        استكشاف حلول ومجالات التعاون <i class="fa-solid fa-arrow-left"></i>
+                    <h3 class="text-xl font-black text-white mb-3 leading-snug group-hover:text-emerald-300 transition-colors duration-200">
+                        الأنظمة والمواقع المشحونة<br>
+                        <span class="text-slate-400 font-semibold text-base">( Live Production )</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        استعراض تفصيلي للمنصات والتطبيقات السحابية: موقع EngazDevelopments.com، تطبيق Insight Clinic الطبي، منصة مُدَرَّج الجامعية، وسيستم مبيعات إنجاز.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-emerald-400 group-hover:gap-3 transition-all duration-300">
+                        <span>استعراض الأنظمة والمشاريع</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
                     </div>
                 </a>
 
-                <!-- Gateway 4: About Amr & Career -->
-                <a href="about.html" class="gateway-card">
-                    <div>
-                        <span class="card-tag emerald"><i class="fa-solid fa-user-tie"></i> Biography & Background</span>
-                        <h3 class="gateway-title">المسار المهني والخلفية الهندسية (About Amr)</h3>
-                        <p class="gateway-desc">
-                            السيرة المهنية الكاملة: دراسة هندسة القوى الميكانيكية بجامعة طنطا، قيادة ورئاسة Enactus Tanta، وأبحاث ودراسات السوق لشركات رائدة مثل Paymob و Breadfast.
-                        </p>
+                <!-- Card 3: Business Advisory -->
+                <a
+                    href="solutions.html"
+                    class="group card-lift card-shimmer block bg-slate-800/50 border border-white/8 rounded-2xl p-7 no-underline text-inherit"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-delay="160"
+                >
+                    <div class="flex items-center gap-1.5 text-violet-400 text-xs font-black uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Business Advisory</span>
                     </div>
-                    <div class="gateway-action">
-                        الاطلاع على السيرة والخلفية <i class="fa-solid fa-arrow-left"></i>
+                    <h3 class="text-xl font-black text-white mb-3 leading-snug group-hover:text-violet-300 transition-colors duration-200">
+                        حلول واستشارات نمو الشركات<br>
+                        <span class="text-slate-400 font-semibold text-base">( Founders & Owners )</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        كيف أتعاون مع المؤسسين وأصحاب الشركات كشريك نمو: هندسة أنظمة الـ CRM، تخفيض تكلفة الاستحواذ على العملاء، وتطوير مواقع عالية التحويل.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-violet-400 group-hover:gap-3 transition-all duration-300">
+                        <span>استكشاف حلول التعاون</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </div>
+                </a>
+
+                <!-- Card 4: About -->
+                <a
+                    href="about.html"
+                    class="group card-lift card-shimmer block bg-slate-800/50 border border-white/8 rounded-2xl p-7 no-underline text-inherit"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-delay="240"
+                >
+                    <div class="flex items-center gap-1.5 text-amber-400 text-xs font-black uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span>Biography & Background</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 leading-snug group-hover:text-amber-300 transition-colors duration-200">
+                        المسار المهني والخلفية الهندسية<br>
+                        <span class="text-slate-400 font-semibold text-base">( About Amr )</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        السيرة المهنية الكاملة: هندسة القوى الميكانيكية بجامعة طنطا، قيادة Enactus Tanta، وأبحاث السوق لشركات رائدة مثل Paymob و Breadfast.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-amber-400 group-hover:gap-3 transition-all duration-300">
+                        <span>الاطلاع على السيرة والخلفية</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
                     </div>
                 </a>
 
             </div>
         </section>
 
-        <!-- Direct Contact Section -->
-        <footer class="footer-section">
-            <h3 class="footer-title">جاهز لبناء شيء استثنائي؟</h3>
-            <p class="footer-subtitle">يسعدني دائماً التواصل مع أصحاب الأعمال، المؤسسين، ورواد التطوير العقاري والتقني.</p>
-            
-            <div class="contact-row">
-                <a href="https://wa.me/201091642566" target="_blank" rel="noopener noreferrer" class="contact-btn wa">
-                    <i class="fa-brands fa-whatsapp"></i> واتساب (01091642566)
+        <div class="section-divider mb-14"></div>
+
+        <!-- ======= CONTACT FOOTER ======= -->
+        <footer class="text-center pb-8" data-aos="fade-up" data-aos-duration="700">
+            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">جاهز لبناء شيء استثنائي؟</h3>
+            <p class="text-slate-400 mb-8 text-base">يسعدني التواصل مع أصحاب الأعمال، المؤسسين، ورواد التطوير العقاري والتقني.</p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <a
+                    href="https://wa.me/201091642566"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-slate-200 hover:text-emerald-400 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                    واتساب — 01091642566
                 </a>
-                <a href="https://www.linkedin.com/in/amrwaledd/" target="_blank" rel="noopener noreferrer" class="contact-btn li">
-                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn (Amr Waled)
+                <a
+                    href="https://www.linkedin.com/in/amrwaledd/"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-slate-200 hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-brands fa-linkedin-in text-blue-400"></i>
+                    LinkedIn
                 </a>
-                <a href="https://github.com/Amr-Waled" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                    <i class="fa-brands fa-github"></i> GitHub (Amr-Waled)
+                <a
+                    href="https://github.com/Amr-Waled"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-slate-200 hover:text-white hover:border-white/30 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
                 </a>
-                <a href="mailto:amrwaled396@gmail.com" class="contact-btn">
-                    <i class="fa-solid fa-envelope"></i> amrwaled396@gmail.com
+                <a
+                    href="mailto:amrwaled396@gmail.com"
+                    class="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-slate-200 hover:text-slate-100 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5"
+                >
+                    <i class="fa-solid fa-envelope text-slate-400"></i>
+                    amrwaled396@gmail.com
                 </a>
             </div>
 
-            <p class="copyright">جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled)</p>
+            <p class="text-slate-600 text-sm">جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled)</p>
         </footer>
 
-    </div>
+    </main>
 
+    <!-- AOS Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 60,
+            easing: 'ease-out-cubic',
+        });
+    </script>
 </body>
 </html>

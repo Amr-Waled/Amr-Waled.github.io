@@ -2,372 +2,221 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المسار المهني والخلفية | عمرو وليد (About Amr Waled)</title>
     <meta name="description" content="السيرة المهنية الكاملة لـ عمرو وليد: دراسة الهندسة الميكانيكية بجامعة طنطا، رئاسة Enactus Tanta، وخبرات التسويق وإدارة الأنظمة.">
-    
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="المسار المهني والخلفية | عمرو وليد">
-    <meta property="og:description" content="الخلفية الهندسية، قيادة ريادة الأعمال، والمسار المهني لـ عمرو وليد.">
     <meta property="og:url" content="https://amr-waled.github.io/about.html">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            --bg: #090a0f;
-            --surface: #10121a;
-            --surface-hover: #161a26;
-            --surface-card: rgba(16, 18, 26, 0.75);
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.18);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --text-subtle: #64748b;
-            --accent-blue: #3b82f6;
-            --accent-emerald: #10b981;
-        }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
+            background-color: #0f172a;
+            color: #f1f5f9;
             font-family: 'Cairo', sans-serif;
             min-height: 100vh;
-            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-
-        .bg-mesh {
+        .page-bg {
             position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 900px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
-            filter: blur(100px);
+            inset: 0;
             z-index: -1;
-            pointer-events: none;
+            background:
+                radial-gradient(ellipse 70% 40% at 50% -10%, rgba(245, 158, 11, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse 50% 30% at 80% 100%, rgba(37, 99, 235, 0.04) 0%, transparent 55%),
+                #0f172a;
         }
-
-        .container {
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
+        .top-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), rgba(59, 130, 246, 0.3), transparent);
+            z-index: 50;
         }
-
-        .nav-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.92rem;
-            margin-bottom: 2.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            transition: all 0.2s ease;
+        .nav-bar {
+            position: sticky;
+            top: 0; z-index: 40;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-
-        .nav-back:hover {
-            color: #ffffff;
-            border-color: var(--border-hover);
-            transform: translateX(3px);
+        .card-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
         }
-
-        .page-header {
-            margin-bottom: 3.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
+        .card-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
-        .page-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-blue);
-            margin-bottom: 0.8rem;
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
         }
-
-        .page-title {
-            font-size: 2.4rem;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1.25;
-            margin-bottom: 0.8rem;
-        }
-
-        .page-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 720px;
-            line-height: 1.8;
-        }
-
-        /* Timeline Stack */
-        .timeline-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-            margin-bottom: 4rem;
-        }
-
-        .timeline-card {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(12px);
-            transition: all 0.25s ease;
-        }
-
-        .timeline-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-        }
-
-        .timeline-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .timeline-role {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .timeline-period {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-            background: rgba(59, 130, 246, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            border: 1px solid rgba(59, 130, 246, 0.25);
+        .font-jakarta {
             font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .timeline-org {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-text {
-            font-size: 0.98rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-        }
-
-        .timeline-text strong {
-            color: #ffffff;
-        }
-
-        .timeline-text ul {
-            padding-right: 1.2rem;
-            margin-top: 0.6rem;
-        }
-
-        .timeline-text li {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Download Section Box */
-        .cv-box {
-            background: linear-gradient(180deg, rgba(22, 26, 38, 0.8) 0%, rgba(16, 18, 26, 0.9) 100%);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-align: center;
-            backdrop-filter: blur(14px);
-        }
-
-        .cv-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 0.6rem;
-        }
-
-        .cv-desc {
-            font-size: 1rem;
-            color: var(--text-muted);
-            max-width: 580px;
-            margin: 0 auto 1.8rem;
-            line-height: 1.75;
-        }
-
-        .btn-download-cv {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.85rem 2rem;
-            border-radius: 12px;
-            background: #ffffff;
-            color: #090a0f;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
-            transition: all 0.25s ease;
-        }
-
-        .btn-download-cv:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-        }
-
-        footer {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-subtle);
-            font-size: 0.88rem;
-        }
-
-        @media (max-width: 640px) {
-            .container { padding: 2rem 1.1rem 3rem; }
-            .page-title { font-size: 1.9rem; }
-            .timeline-card { padding: 1.5rem; }
-            .cv-box { padding: 2rem 1.2rem; }
         }
     </style>
 </head>
 <body>
+    <div class="page-bg"></div>
+    <div class="top-glow"></div>
 
-    <div class="bg-mesh"></div>
+    <nav class="nav-bar">
+        <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
+            <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm font-bold transition-colors duration-200">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>الرئيسية</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="engaz-case-study.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors">دراسة إنجاز</a>
+                <a href="systems.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors hidden sm:block">الأنظمة</a>
+                <a href="solutions.html" class="text-slate-400 hover:text-white text-sm font-bold transition-colors hidden sm:block">الحلول</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="container">
-        
-        <a href="index.html" class="nav-back">
-            <i class="fa-solid fa-arrow-right"></i> العودة للرئيسية
-        </a>
+    <main class="max-w-5xl mx-auto px-5 py-14">
 
-        <header class="page-header">
-            <span class="page-badge"><i class="fa-solid fa-user-tie"></i> Biography & Track Record</span>
-            <h1 class="page-title">المسار المهني والخلفية (About Amr Waled)</h1>
-            <p class="page-desc">
-                أجمع بين التفكير الهندسي التحليلي في حل المشكلات، والخبرة العملية في قيادة التسويق والميديا باينج، والقدرة البرمجية على بناء الأنظمة السحابية بالذكاء الاصطناعي (Vibe Coder). أؤمن بأن التسويق دون بنية تشغيل قوية هو حرق للأموال، والأنظمة دون فهم لاحتياج العميل هي كود ميت.
+        <!-- Page Header -->
+        <header class="mb-14" data-aos="fade-up" data-aos-duration="700">
+            <div class="flex items-center gap-2 text-amber-400 text-xs font-black uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Biography & Track Record</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+                المسار المهني والخلفية
+                <span class="block text-slate-400 font-semibold text-xl mt-1">About Amr Waled</span>
+            </h1>
+            <p class="text-slate-400 text-lg leading-relaxed max-w-3xl">
+                أجمع بين التفكير الهندسي التحليلي في حل المشكلات، والخبرة العملية في قيادة التسويق والميديا باينج، والقدرة البرمجية على بناء الأنظمة السحابية. أؤمن بأن التسويق دون بنية تشغيل قوية هو حرق للأموال، والأنظمة دون فهم لاحتياج العميل هي كود ميت.
             </p>
         </header>
 
-        <div class="timeline-stack">
+        <div class="section-divider mb-12"></div>
 
-            <!-- Role 1: Marketing Manager at Engaz -->
-            <div class="timeline-card">
-                <div class="timeline-top">
-                    <h2 class="timeline-role">Marketing Manager & Lead Media Buyer</h2>
-                    <span class="timeline-period">04/2026 — الحالي</span>
+        <!-- Timeline -->
+        <div class="flex flex-col gap-6 mb-14">
+
+            <!-- Role 1: Engaz -->
+            <div class="card-lift bg-slate-800/50 border border-white/8 rounded-2xl p-7 sm:p-8" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h2 class="text-xl font-black text-white">Marketing Manager & Lead Media Buyer</h2>
+                    <span class="font-jakarta text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full whitespace-nowrap">04/2026 — الحالي</span>
                 </div>
-                <div class="timeline-org">شركة إنجاز للتطوير العقاري (Engaz Developments) | طنطا والتجمع الخامس</div>
-                <div class="timeline-text">
+                <p class="text-slate-300 font-bold text-sm mb-4">شركة إنجاز للتطوير العقاري (Engaz Developments) | طنطا والتجمع الخامس</p>
+                <div class="text-slate-400 text-sm leading-relaxed">
                     قيادة قطاع التسويق والميديا باينج والهندسة الرقمية للشركة:
-                    <ul>
-                        <li>إدارة حملات ممولة بميزانيات تخطت <strong>60 ألف جنيه</strong> محققة أعلى عائد إعلاني (ROAS)، وخاصة في مشاريع بسيون حيث حققت كل <strong>1,000 جنيه إعلانات صفقة بيع فعلية بـ +2.5 مليون جنيه</strong>.</li>
-                        <li>تصميم وتطوير ونشر الموقع الرسمي للشركة <strong><a href="https://engazdevelopments.com" target="_blank" style="color: #60a5fa; text-decoration: underline;">EngazDevelopments.com</a></strong>.</li>
-                        <li>برمجة سيستم CRM داخلي مخصص يربط 5 إدارات (الإدارة العليا، الحسابات، مدير المبيعات، السيلز، والتسويق).</li>
-                        <li>إعادة تصحيح التموضع من وسيط لمطور عقاري ورفع المشاهدات لأكثر من <strong>مليون مشاهدة (+1M Views)</strong> وتصدر Google Business بتقييم <strong>5.0/5 نجوم</strong> وتوصيات محركات الـ AI.</li>
+                    <ul class="mt-3 space-y-2 pr-5">
+                        <li class="list-disc">إدارة حملات ممولة بميزانيات تخطت <strong class="text-slate-200">60 ألف جنيه</strong> محققة أعلى عائد إعلاني (ROAS)، وخاصة في بسيون حيث حققت كل <strong class="text-slate-200">1,000 جنيه إعلانات صفقة بيع بـ +2.5 مليون جنيه</strong>.</li>
+                        <li class="list-disc">تصميم وتطوير ونشر الموقع الرسمي <strong class="text-slate-200"><a href="https://engazdevelopments.com" target="_blank" class="text-blue-400 hover:underline">EngazDevelopments.com</a></strong>.</li>
+                        <li class="list-disc">برمجة سيستم CRM داخلي مخصص يربط 5 إدارات (الإدارة العليا، الحسابات، مدير المبيعات، السيلز، التسويق).</li>
+                        <li class="list-disc">إعادة تصحيح التموضع من وسيط لمطور عقاري، رفع المشاهدات لأكثر من <strong class="text-slate-200">مليون مشاهدة (+1M Views)</strong> وتصدر Google Business بتقييم <strong class="text-slate-200">5.0/5 نجوم</strong> وتوصيات محركات الـ AI.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Role 2: AlBootcamp Intern -->
-            <div class="timeline-card">
-                <div class="timeline-top">
-                    <h2 class="timeline-role">Business Development & Market Research Intern</h2>
-                    <span class="timeline-period">2025</span>
+            <!-- Role 2: AlBootcamp -->
+            <div class="card-lift bg-slate-800/50 border border-white/8 rounded-2xl p-7 sm:p-8" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h2 class="text-xl font-black text-white">Business Development & Market Research Intern</h2>
+                    <span class="font-jakarta text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full whitespace-nowrap">2025</span>
                 </div>
-                <div class="timeline-org">AlBootcamp — EdTech & Venture Acceleration</div>
-                <div class="timeline-text">
+                <p class="text-slate-300 font-bold text-sm mb-4">AlBootcamp — EdTech & Venture Acceleration</p>
+                <div class="text-slate-400 text-sm leading-relaxed">
                     إعداد أبحاث سوق ودراسات جدوى تحليلية معتمدة لشركات رائدة في السوق المصري:
-                    <ul>
-                        <li>دراسة سوقية لشركة <strong>Paymob</strong> لتحليل فرص التوسع في قطاع المدفوعات والتحصيل العقاري.</li>
-                        <li>أبحاث سلوك المستهلك وسرعة التوصيل وقنوات الطلب لصالح <strong>Breadfast</strong>.</li>
+                    <ul class="mt-3 space-y-2 pr-5">
+                        <li class="list-disc">دراسة سوقية لشركة <strong class="text-slate-200">Paymob</strong> لتحليل فرص التوسع في قطاع المدفوعات والتحصيل العقاري.</li>
+                        <li class="list-disc">أبحاث سلوك المستهلك وسرعة التوصيل وقنوات الطلب لصالح <strong class="text-slate-200">Breadfast</strong>.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Role 3: President Enactus -->
-            <div class="timeline-card">
-                <div class="timeline-top">
-                    <h2 class="timeline-role">رئيس المنظمة (President)</h2>
-                    <span class="timeline-period">2025 — 2026</span>
+            <!-- Role 3: Enactus -->
+            <div class="card-lift bg-slate-800/50 border border-white/8 rounded-2xl p-7 sm:p-8" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h2 class="text-xl font-black text-white">رئيس المنظمة (President)</h2>
+                    <span class="font-jakarta text-xs font-bold text-violet-400 bg-violet-500/10 border border-violet-500/20 px-3 py-1 rounded-full whitespace-nowrap">2025 — 2026</span>
                 </div>
-                <div class="timeline-org">Enactus Tanta University (ريادة الأعمال المجتمعية)</div>
-                <div class="timeline-text">
-                    قيادة الفريق الطلابي لريادة الأعمال وتأسيس وإدارة معسكر <strong>Xplore Camp</strong> بالشراكة مع شركة <strong>V7</strong> لتدريب وتأهيل مئات الطلاب على المهارات المهنية والتقنية وسوق العمل الحر.
-                </div>
+                <p class="text-slate-300 font-bold text-sm mb-4">Enactus Tanta University (ريادة الأعمال المجتمعية)</p>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    قيادة الفريق الطلابي لريادة الأعمال وتأسيس وإدارة معسكر <strong class="text-slate-200">Xplore Camp</strong> بالشراكة مع شركة <strong class="text-slate-200">V7</strong> لتدريب وتأهيل مئات الطلاب على المهارات المهنية والتقنية وسوق العمل الحر.
+                </p>
             </div>
 
-            <!-- Role 4: Mechanical Engineering -->
-            <div class="timeline-card">
-                <div class="timeline-top">
-                    <h2 class="timeline-role">طالب بهندسة القوى الميكانيكية وممثل الدفعة السابق</h2>
-                    <span class="timeline-period">جامعة طنطا — كلية الهندسة</span>
+            <!-- Role 4: Engineering -->
+            <div class="card-lift bg-slate-800/50 border border-white/8 rounded-2xl p-7 sm:p-8" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h2 class="text-xl font-black text-white">طالب بهندسة القوى الميكانيكية وممثل الدفعة السابق</h2>
+                    <span class="font-jakarta text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full whitespace-nowrap">جامعة طنطا</span>
                 </div>
-                <div class="timeline-org">الخلفية الأكاديمية والنمذجة الهندسية المتقدمة</div>
-                <div class="timeline-text">
+                <p class="text-slate-300 font-bold text-sm mb-4">كلية الهندسة — الخلفية الأكاديمية والنمذجة الهندسية المتقدمة</p>
+                <div class="text-slate-400 text-sm leading-relaxed">
                     المشاريع الهندسية الأكاديمية التي عززت التفكير المنطقي والرياضي:
-                    <ul>
-                        <li><strong>Supersonic Flow CFD Simulation:</strong> محاكاة ديناميكا الموائع فوق الصوتية على جنيح مزدوج الوتد عبر ANSYS Fluent.</li>
-                        <li><strong>HVAC Design (Doha Hotel):</strong> حسابات الأحمال الحرارية وشبكات توزيع الهواء لفندق متعدد الطوابق في الدوحة.</li>
-                        <li><strong>4-Cylinder Engine Assembly:</strong> نمذجة وتجميع أجزاء محرك احتراق داخلي رباعي الأسطوانات على SolidWorks.</li>
+                    <ul class="mt-3 space-y-2 pr-5">
+                        <li class="list-disc"><strong class="text-slate-200">Supersonic Flow CFD Simulation:</strong> محاكاة ديناميكا الموائع فوق الصوتية على جنيح مزدوج الوتد عبر ANSYS Fluent.</li>
+                        <li class="list-disc"><strong class="text-slate-200">HVAC Design (Doha Hotel):</strong> حسابات الأحمال الحرارية وشبكات توزيع الهواء لفندق متعدد الطوابق في الدوحة.</li>
+                        <li class="list-disc"><strong class="text-slate-200">4-Cylinder Engine Assembly:</strong> نمذجة وتجميع محرك احتراق داخلي رباعي الأسطوانات على SolidWorks.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Initiative: Autism -->
-            <div class="timeline-card">
-                <div class="timeline-top">
-                    <h2 class="timeline-role">مبادرة موسوعة الـ 50 سكريبت لدعم التوحد</h2>
-                    <span class="timeline-period">مبادرة مجتمعية رقمية</span>
+            <div class="card-lift bg-slate-800/50 border border-white/8 rounded-2xl p-7 sm:p-8" data-aos="fade-up" data-aos-duration="700" data-aos-delay="320">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h2 class="text-xl font-black text-white">مبادرة موسوعة الـ 50 سكريبت لدعم التوحد</h2>
+                    <span class="font-jakarta text-xs font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 px-3 py-1 rounded-full whitespace-nowrap">مبادرة مجتمعية</span>
                 </div>
-                <div class="timeline-org">بالتعاون مع د. سالي سالم / مجتمع Nerdz</div>
-                <div class="timeline-text">
+                <p class="text-slate-300 font-bold text-sm mb-4">بالتعاون مع د. سالي سالم / مجتمع Nerdz</p>
+                <p class="text-slate-400 text-sm leading-relaxed">
                     صياغة أضخم بنك محتوى متخصص لأمهات أطفال طيف التوحد في مصر؛ 50 سكريبت فيديو مصور مبني على لهجة واقعية تعكس مشاعر وتحديات الأمهات المحاربات بدون وعظ مصطنع، لدعم بناء مجتمع Nerdz التوعوي.
-                </div>
+                </p>
             </div>
 
         </div>
 
         <!-- CV Download Box -->
-        <div class="cv-box">
-            <h3 class="cv-title">السيرة الذاتية الرسمية (Official Resume)</h3>
-            <p class="cv-desc">
+        <div class="text-center bg-slate-800/40 border border-white/8 rounded-2xl p-10 sm:p-12 mb-14" data-aos="fade-up" data-aos-duration="700">
+            <h3 class="text-2xl font-black text-white mb-3">السيرة الذاتية الرسمية</h3>
+            <p class="text-slate-400 text-base max-w-lg mx-auto mb-8 leading-relaxed">
                 يمكنك تحميل النسخة الأحدث من السيرة الذاتية بصيغة PDF للاطلاع على التفاصيل الأكاديمية والمهنية وشهادات التدريب.
             </p>
-            <a href="Amr_Waled_CV.pdf" download="Amr_Waled_CV.pdf" class="btn-download-cv">
-                <i class="fa-solid fa-file-pdf"></i> تحميل السيرة الذاتية (CV PDF)
+            <a
+                href="Amr_Waled_CV.pdf"
+                download="Amr_Waled_CV.pdf"
+                class="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white text-slate-900 font-black text-base rounded-xl hover:bg-slate-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+                <i class="fa-solid fa-file-pdf text-red-500 text-lg"></i>
+                تحميل السيرة الذاتية (CV PDF)
             </a>
         </div>
 
-        <footer>
+        <footer class="text-center pt-8 border-t border-white/6 text-slate-500 text-sm">
             <p>جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled)</p>
         </footer>
 
-    </div>
+    </main>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 60, easing: 'ease-out-cubic' });</script>
 </body>
 </html>
