@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>حلول واستشارات نمو الشركات | عمرو وليد (Strategic Advisory)</title>
+    <meta name="description" content="محاور التعاون الاستراتيجي مع المؤسسين وأصحاب الشركات: هندسة أنظمة المبيعات، تخفيض تكلفة الاستحواذ، وبناء مواقع سريعة عالية التحويل.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="حلول واستشارات نمو الشركات | عمرو وليد">
+    <meta property="og:description" content="كيف أتعاون مع المؤسسين وأصحاب الشركات كشريك نمو وهندسة أنظمة.">
+    <meta property="og:url" content="https://amr-waled.github.io/solutions.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #090a0f;
+            --surface: #10121a;
+            --surface-hover: #161a26;
+            --surface-card: rgba(16, 18, 26, 0.75);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin-bottom: 2.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: #ffffff;
+            border-color: var(--border-hover);
+            transform: translateX(3px);
+        }
+
+        .page-header {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .page-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 740px;
+            line-height: 1.8;
+        }
+
+        /* Pillars Stack */
+        .pillars-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pillar-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.2rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        .pillar-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .pillar-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .pillar-challenge {
+            font-size: 0.94rem;
+            color: #cbd5e1;
+            background: rgba(0, 0, 0, 0.25);
+            border-right: 3px solid #64748b;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            line-height: 1.65;
+        }
+
+        .pillar-solution {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        .pillar-solution strong {
+            color: #ffffff;
+        }
+
+        /* Consultation CTA Box */
+        .cta-advisory-box {
+            background: linear-gradient(180deg, rgba(22, 26, 38, 0.8) 0%, rgba(16, 18, 26, 0.9) 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem 2.2rem;
+            text-align: center;
+            backdrop-filter: blur(14px);
+        }
+
+        .cta-advisory-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-advisory-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-wa-advisory {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #090a0f;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+        }
+
+        .btn-wa-advisory:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-subtle);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 2rem 1.1rem 3rem; }
+            .page-title { font-size: 1.9rem; }
+            .pillar-card { padding: 1.5rem; }
+            .cta-advisory-box { padding: 2rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-mesh"></div>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-right"></i> العودة للرئيسية
+        </a>
+
+        <header class="page-header">
+            <span class="page-badge"><i class="fa-solid fa-handshake"></i> Executive Partnerships & Advisory</span>
+            <h1 class="page-title">حلول واستشارات نمو الشركات (Strategic Advisory)</h1>
+            <p class="page-desc">
+                كيف أتعاون مع المؤسسين وأصحاب الشركات كشريك نمو وهندسة أنظمة: لا أقدم خدمات مفرغة أو حلولاً سطحية، بل أتدخل في عمق البنية التحتية للمبيعات، تخفيض تكلفة الاستحواذ الإعلاني، وبناء المنصات البرمجية التي تضمن تحويل الإنفاق إلى عوائد مالية مباشرة.
+            </p>
+        </header>
+
+        <div class="pillars-stack">
+
+            <!-- Pillar 1: CRM & Sales Pipeline -->
+            <div class="pillar-card">
+                <div class="pillar-icon-row">
+                    <div class="pillar-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h2 class="pillar-title">1. هندسة أنظمة المبيعات والـ Custom CRM</h2>
+                </div>
+                <div class="pillar-challenge">
+                    <strong>تحدي الشركات الشائع:</strong> تراكم الليدات في شيتات إكسيل مبعثرة، بطء استجابة فريق المبيعات، وعدم قدرة الإدارة على معرفة في أي مرحلة بيعية توقف العميل أو سبب ضياع الصفقات.
+                </div>
+                <p class="pillar-solution">
+                    <strong>القيمة المقدمة:</strong> تصميم وبرمجة <strong>سيستم CRM سحابي مخصص</strong> مفصل على طبيعة دورتك البيعية بالظبط. يربط ليدات الحملات الإعلانية لحظياً بالسيلز، يوفر لوحة تحكم للإدارة العليا لمراقبة سرعة الرد ونسب التحويل، ويمنع تسريب أي فرصة بيعية.
+                </p>
+            </div>
+
+            <!-- Pillar 2: Media Buying & CPL -->
+            <div class="pillar-card">
+                <div class="pillar-icon-row">
+                    <div class="pillar-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h2 class="pillar-title">2. تحسين حملات الميديا باينج وخفض تكلفة العميل (CPL)</h2>
+                </div>
+                <div class="pillar-challenge">
+                    <strong>تحدي الشركات الشائع:</strong> استنزاف ميزانيات إعلانية مرتفعة على منصات ميتا دون تحقيق صفقات بيع فعلية، مع تكرار تسجيل ليدات غير جادة أو غير مناسبة للقوة الشرائية للمشروع.
+                </div>
+                <p class="pillar-solution">
+                    <strong>القيمة المقدمة:</strong> إعادة هندسة الحملات الإعلانية من واقع إدارة ميزانيات تخطت <strong>60 ألف جنيه</strong> في القطاع العقاري والتجاري. نركز على استراتيجيات فلترة مسبقة للمشتري، استهداف المغتربين والمستثمرين، وحملات واتساب شديدة الدقة حققت صفقة بيع مؤكدة بقيمة <strong>+2.5 مليون جنيه لكل 1,000 جنيه إعلانات</strong> في مشاريع بسيون.
+                </p>
+            </div>
+
+            <!-- Pillar 3: Web & Tech Architecture -->
+            <div class="pillar-card">
+                <div class="pillar-icon-row">
+                    <div class="pillar-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h2 class="pillar-title">3. تطوير واجهات ومواقع سريعة مخصصة للمبيعات</h2>
+                </div>
+                <div class="pillar-challenge">
+                    <strong>تحدي الشركات الشائع:</strong> اللجوء لشركات برمجة تقليدية تطلب تكاليف باهظة وتستغرق شهوراً لتسليم مواقع بطيئة وغير مهيأة لجمع الليدات أو بناء الثقة الفورية.
+                </div>
+                <p class="pillar-solution">
+                    <strong>القيمة المقدمة:</strong> بناء <strong>مواقع وLanding Pages فائقة السرعة</strong> بالذكاء الاصطناعي الحديث (مثل موقع <a href="https://engazdevelopments.com" target="_blank" style="color: #60a5fa; text-decoration: underline;">EngazDevelopments.com</a>). مواقع تجمع بين الأناقة البصرية، الأرشفة اللحظية على محركات البحث، وتجربة مستخدم مدروسة تحفز الزائر على تسجيل بياناته وحجز المعاينة.
+                </p>
+            </div>
+
+            <!-- Pillar 4: Content & Scripts -->
+            <div class="pillar-card">
+                <div class="pillar-icon-row">
+                    <div class="pillar-icon"><i class="fa-solid fa-film"></i></div>
+                    <h2 class="pillar-title">4. استراتيجيات الاسكريبتات والإشراف الإبداعي</h2>
+                </div>
+                <div class="pillar-challenge">
+                    <strong>تحدي الشركات الشائع:</strong> دفع تكاليف تصوير ومونتاج عالية لمقاطع فيديو تقليدية يتجاوزها المشاهد في أول ثانيتين بسبب ضعف الخطاف الإعلاني (Hook) وغياب البيرسونا المحددة.
+                </div>
+                <p class="pillar-solution">
+                    <strong>القيمة المقدمة:</strong> كتابة اسكريبتات إعلانية وتوعوية غير تقليدية تلامس مخاوف ودوافع المشتري الحقيقية (مثل سلسلة فيديوهات المغتربين لإنجاز، وموسوعة الـ 50 سكريبت لدعم التوحد). اسكريبتات مصاغة بلغة مصرية واقعية وخطافات قوية ترفع معدلات المشاهدة والتحويل.
+                </p>
+            </div>
+
+            <!-- Pillar 5: Market Research -->
+            <div class="pillar-card">
+                <div class="pillar-icon-row">
+                    <div class="pillar-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h2 class="pillar-title">5. أبحاث السوق ودراسات قرارات التوسع</h2>
+                </div>
+                <div class="pillar-challenge">
+                    <strong>تحدي الشركات الشائع:</strong> إطلاق مشاريع أو افتتاح فروع جديدة اعتماداً على التخمين والانطباعات الشخصية دون تحليل علمي لحجم الطلب ونقاط ضعف المنافسين.
+                </div>
+                <p class="pillar-solution">
+                    <strong>القيمة المقدمة:</strong> إعداد دراسات جدوى وأبحاث سوق ميدانية وتحليلية عميقة (كما قدمت لشركات مثل <strong>Paymob</strong> في قطاع المدفوعات العقارية، و<strong>Breadfast</strong> في سلوك المستهلك وسرعة التوصيل) لتوفير قرارات نمو آمنة ومدروسة بالأرقام.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Strategic Consultation CTA -->
+        <div class="cta-advisory-box">
+            <h3 class="cta-advisory-title">هل ترغب في مناقشة تحدي نمو أو بناء نظام لشركتك؟</h3>
+            <p class="cta-advisory-desc">
+                أرحب دائماً بالحديث مع المؤسسين والمديرين التنفيذيين لمناقشة فرص التعاون الاستراتيجي، تدقيق الأداء الإعلاني، أو بناء حلول تشغيل برمجية مخصصة.
+            </p>
+            <a href="https://wa.me/201091642566?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%8A%D8%A7%20%D8%B9%D9%85%D8%B1%D9%88%D8%8C%20%D8%A7%D8%B7%D9%84%D8%B9%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%AD%D9%84%D9%88%D9%84%20%D9%88%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20%D9%88%D8%AD%D8%A7%D8%A8%D8%A8%20%D9%86%D8%B1%D8%AA%D8%A8%20%D9%86%D9%82%D8%A7%D8%B4%20%D8%B9%D9%85%D9%84%20%D8%B9%D9%86%20%D9%81%D8%B1%D8%B5%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86." target="_blank" rel="noopener noreferrer" class="btn-wa-advisory">
+                <i class="fa-brands fa-whatsapp"></i> ترتيب نقاش عمل عبر واتساب
+            </a>
+        </div>
+
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled)</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

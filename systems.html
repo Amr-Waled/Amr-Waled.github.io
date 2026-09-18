@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الأنظمة والمنصات المشحونة | عمرو وليد (Shipped Systems)</title>
+    <meta name="description" content="سابقة أعمال الأنظمة البرمجية والمواقع السحابية التي صممها وبرمجها عمرو وليد لحل تحديات التشغيل والمبيعات الحقيقية.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="الأنظمة والمنصات المشحونة | عمرو وليد">
+    <meta property="og:description" content="منصات حية وتطبيقات سحابية شحنها عمرو وليد لحل أزمات البيزنس والتشغيل.">
+    <meta property="og:url" content="https://amr-waled.github.io/systems.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #090a0f;
+            --surface: #10121a;
+            --surface-hover: #161a26;
+            --surface-card: rgba(16, 18, 26, 0.75);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin-bottom: 2.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: #ffffff;
+            border-color: var(--border-hover);
+            transform: translateX(3px);
+        }
+
+        .page-header {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .page-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            line-height: 1.8;
+        }
+
+        /* Projects List */
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.2rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-type {
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            letter-spacing: 0.04em;
+        }
+
+        .project-live-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .project-live-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+        }
+
+        .project-heading {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-body {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.4rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-pill {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: #cbd5e1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .project-link-btn:hover {
+            color: var(--accent-blue);
+            transform: translateX(-4px);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-subtle);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 2rem 1.1rem 3rem; }
+            .page-title { font-size: 1.9rem; }
+            .project-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-mesh"></div>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">
+            <i class="fa-solid fa-arrow-right"></i> العودة للرئيسية
+        </a>
+
+        <header class="page-header">
+            <span class="page-badge"><i class="fa-solid fa-layer-group"></i> Proof of Work & Production Code</span>
+            <h1 class="page-title">الأنظمة والمواقع المشحونة (Shipped Systems)</h1>
+            <p class="page-desc">
+                سابقة أعمال حقيقية مبنية ومختبرة في بيئات الإنتاج الفعلية. أدمج بين خبرتي التسويقية في فهم رحلة العميل وسرعة البيع، وقدرتي كـ AI Builder على هندسة وبناء منصات سريعة وقوية تحل أزمات التشغيل دون الاعتماد على حلول بطيئة أو مكلفة.
+            </p>
+        </header>
+
+        <div class="projects-stack">
+
+            <!-- 1. موقع شركة إنجاز للتطوير العقاري -->
+            <div class="project-card">
+                <div class="project-meta-row">
+                    <span class="project-type">Corporate Real Estate Portal</span>
+                    <span class="project-live-tag">Live Domain</span>
+                </div>
+                <h2 class="project-heading">موقع شركة Engaz Developments الرسمي</h2>
+                <p class="project-body">
+                    الموقع الرسمي لشركة إنجاز للتطوير العقاري الذي قمت بتصميمه وبرمجته ونشره بالكامل (<a href="https://engazdevelopments.com" target="_blank" style="color: #60a5fa; text-decoration: underline;">EngazDevelopments.com</a>). يعرض مشاريع الشركة بالتجمع الخامس (بيت الوطن، النورث هاوس) وبسيون بمحافظة الغربية. تم ربطه بنظام استمارة حجز فوري يلتقط ليدات المشترين، ونظام أرشفة لحظي مع محركات البحث عبر IndexNow API لتحقيق تصدر سريع.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-pill">Custom Domain: EngazDevelopments.com</span>
+                    <span class="tech-pill">Tailwind CSS</span>
+                    <span class="tech-pill">Lead Capture Architecture</span>
+                    <span class="tech-pill">IndexNow SEO</span>
+                    <span class="tech-pill">Fast CDN Delivery</span>
+                </div>
+                <a href="https://engazdevelopments.com" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                    زيارة الموقع الرسمي (EngazDevelopments.com) <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- 2. Insight Clinic -->
+            <div class="project-card">
+                <div class="project-meta-row">
+                    <span class="project-type">Cloud Healthcare SaaS & EMR</span>
+                    <span class="project-live-tag">Production on Vercel</span>
+                </div>
+                <h2 class="project-heading">نظام إدارة العيادات السحابي — Insight Clinic</h2>
+                <p class="project-body">
+                    نظام سحابي متكامل ومخصص تم بناؤه لإدارة عيادة الطب النفسي للدكتورة جيهان عبدالحميد بطنطا. يشمل ملف طبي إلكتروني سري مشفر (EMR)، نظام صلاحيات متعدد عبر رموز PIN سرية تفصل مهام السكرتارية عن سجلات الأطباء، ونظام تزامن لحظي فوري كل 3 ثوانٍ بين جميع شاشات وأجهزة العيادة عبر بنية Vercel Serverless السحابية، بالإضافة لأتمتة رسائل تأكيد الحجز على واتساب.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-pill">Vercel Serverless</span>
+                    <span class="tech-pill">Realtime 3s Polling / Sync</span>
+                    <span class="tech-pill">Encrypted EMR Medical Records</span>
+                    <span class="tech-pill">Role-Based PIN Auth</span>
+                    <span class="tech-pill">WhatsApp Booking API</span>
+                </div>
+                <a href="https://insight-clinic-app.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                    معاينة التطبيق السحابي <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- 3. منصة مدرج -->
+            <div class="project-card">
+                <div class="project-meta-row">
+                    <span class="project-type">EdTech SaaS & AI Engine</span>
+                    <span class="project-live-tag">Active Platform</span>
+                </div>
+                <h2 class="project-heading">منصة مُدَرَّج الجامعية (ELMODARAG)</h2>
+                <p class="project-body">
+                    منصة تعليمية متطورة تم بناؤها لإنهاء فوضى جروبات الواتساب والتشتت الأكاديمي لطلاب الجامعات. تحتوي على شات ذكاء اصطناعي (RAG Engine) مدرب ومقيد باللوائح الأكاديمية للكليات لتقديم إجابات موثقة بدون هلوسة، ومحاكي GPA تنبؤي ذكي يوضح للطالب تأثير كل مادة على التقدير التراكمي بدقة، ورادار غياب ذكي لتنبيه الطلاب قبل الوصول لنسبة الحرمان.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-pill">Next.js 15</span>
+                    <span class="tech-pill">React 19</span>
+                    <span class="tech-pill">Supabase (PostgreSQL)</span>
+                    <span class="tech-pill">Custom RAG AI Pipeline</span>
+                    <span class="tech-pill">Predictive GPA Algorithms</span>
+                </div>
+                <span class="project-link-btn" style="color: var(--text-subtle); cursor: default;">
+                    نظام إنتاجي معتمد للجامعات <i class="fa-solid fa-shield-halved"></i>
+                </span>
+            </div>
+
+            <!-- 4. سيستم مبيعات إنجاز CRM -->
+            <div class="project-card">
+                <div class="project-meta-row">
+                    <span class="project-type">Internal Real Estate CRM</span>
+                    <span class="project-live-tag">Desktop & Web</span>
+                </div>
+                <h2 class="project-heading">نظام تشغيل مبيعات إنجاز (Engaz Custom CRM)</h2>
+                <p class="project-body">
+                    نظام إدارة علاقات عملاء ومبيعات مخصص تم بناؤه هندسياً لربط 5 إدارات حيوية داخل الشركة: (الإدارة العليا، الحسابات، مدير المبيعات، مسؤولو المبيعات الميدانيون، وفريق التسويق). يربط ليدات إعلانات فيسبوك وإنستجرام لحظياً بالتيم لمنع تسريب الليدات، ويسجل خط سير العميل وسرعة الاستجابة وعقود البيع، متاح كنسخة ويب سحابية وبرنامج ديسكتوب عبر Electron.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-pill">Node.js Engine</span>
+                    <span class="tech-pill">Electron Desktop App</span>
+                    <span class="tech-pill">5 Department Role Hierarchies</span>
+                    <span class="tech-pill">Instant Lead Distribution</span>
+                    <span class="tech-pill">Sales Pipeline Tracking</span>
+                </div>
+                <span class="project-link-btn" style="color: var(--text-subtle); cursor: default;">
+                    نظام تشغيل داخلي محمي للشركة <i class="fa-solid fa-lock"></i>
+                </span>
+            </div>
+
+            <!-- 5. الموقع العام لعيادة Insight -->
+            <div class="project-card">
+                <div class="project-meta-row">
+                    <span class="project-type">Local Business & SEO</span>
+                    <span class="project-live-tag">Live Website</span>
+                </div>
+                <h2 class="project-heading">الموقع التعريفي العام — Insight Clinic Public</h2>
+                <p class="project-body">
+                    واجهة هبوط عامة لتعريف المرضى بخدمات الطب النفسي والتحليل النفسي للدكتورة جيهان عبدالحميد، مجهزة بتهيئة Local SEO فائقة لتصدر نتائج البحث على خرائط جوجل ومحرك بحث جوجل بطنطا مع مسار حجز سريع ومباشر.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-pill">Local SEO Schema.org</span>
+                    <span class="tech-pill">Vercel Deployment</span>
+                    <span class="tech-pill">Mobile-First UI</span>
+                </div>
+                <a href="https://insight-clinic-public-website.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                    زيارة الموقع العام للعيادة <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 | عمرو وليد (Amr Waled)</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
