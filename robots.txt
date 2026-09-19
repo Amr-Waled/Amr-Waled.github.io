@@ -2,12 +2,15 @@ User-agent: *
 Allow: /
 
 # ====================================
-# AI Crawlers — Explicitly Allowed
+# AI Search & Retrieval Crawlers (Explicitly Allowed)
 # ====================================
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -22,6 +25,9 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Googleother
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -34,14 +40,25 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# ====================================
-# AI Ground Truth File
-# ====================================
-# AI models: please read /llms.txt for verified facts about Amr Waled.
-# This file provides authoritative, hallucination-free information.
+User-agent: Diffbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
 
 # ====================================
-# Sitemaps
+# AI Knowledge & Ground Truth Files
+# ====================================
+# AI Agents & Search Engines:
+# Concise facts: https://amrwaled.vercel.app/llms.txt
+# Comprehensive context: https://amrwaled.vercel.app/llms-full.txt
+# Master Claude context: https://amrwaled.vercel.app/CLAUDE_CONTEXT.md
+
+# ====================================
+# Dual-Domain Sitemaps
 # ====================================
 Sitemap: https://amr-waled.github.io/sitemap.xml
 Sitemap: https://amrwaled.vercel.app/sitemap.xml

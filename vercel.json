@@ -25,10 +25,11 @@
       ]
     },
     {
-      "source": "/llms.txt",
+      "source": "/(llms.txt|llms-full.txt|CLAUDE_CONTEXT.md|robots.txt)",
       "headers": [
         { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=1800" }
       ]
     }
   ],
