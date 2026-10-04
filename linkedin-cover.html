@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amr Waled - LinkedIn Cover (Clean & Human)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #090a0f;
+      color: #f1f5f9;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: #334155;
+      border-color: #64748b;
+    }
+    .btn.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #fff;
+    }
+    .btn.download {
+      background: #0284c7;
+      border: none;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+    .btn.download:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+
+    .preview-box {
+      width: 100%;
+      max-width: 1100px;
+      background: #0f141f;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .preview-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .banner-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1584 / 396;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #bannerCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .avatar-mock {
+      position: absolute;
+      bottom: -40px;
+      left: 45px;
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 4px solid #0f141f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 11px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      pointer-events: none;
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>LinkedIn Cover — Clean & Human Edition</h1>
+    <p>Zero AI Clutter • Zero Overlapping Text • Exact 1584 × 396 px</p>
+  </div>
+
+  <div class="controls">
+    <button class="btn active" onclick="switchTheme(1)">Option 1: Clean Editorial (Recommended)</button>
+    <button class="btn" onclick="switchTheme(2)">Option 2: Executive Slate</button>
+    <button class="btn" onclick="switchTheme(3)">Option 3: Pure Minimalist</button>
+    <button class="btn" id="toggleAvatarBtn" onclick="toggleAvatar()">Hide Avatar Safe-Zone</button>
+    <button class="btn download" onclick="downloadBanner()">⚡ Download PNG (1584×396)</button>
+  </div>
+
+  <div class="preview-box">
+    <div class="preview-label">
+      <span>Live Profile Preview</span>
+      <span>Official 1584 × 396 Resolution</span>
+    </div>
+
+    <div class="banner-wrapper">
+      <canvas id="bannerCanvas" width="1584" height="396"></canvas>
+      <div class="avatar-mock" id="avatarMock">
+        Profile<br>Picture<br>Area
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    ✓ تصميم بشري نظيف: الخطوط منسقة عمودياً بمسافات واضحة، بدون كروت أو صناديق أو كلام داخل في بعضه.
+  </div>
+
+  <script>
+    const canvas = document.getElementById('bannerCanvas');
+    const ctx = canvas.getContext('2d');
+    let currentTheme = 1;
+    let showAvatar = true;
+
+    function drawTheme1() {
+      // Background: Deep Matte Charcoal / Obsidian
+      ctx.fillStyle = '#0a0d14';
+      ctx.fillRect(0, 0, 1584, 396);
+
+      // Subtle warm/cyan ambient glow on the right
+      const glow = ctx.createRadialGradient(1350, 198, 10, 1350, 198, 450);
+      glow.addColorStop(0, 'rgba(56, 189, 248, 0.08)');
+      glow.addColorStop(1, 'transparent');
+      ctx.fillStyle = glow;
+      ctx.fillRect(800, 0, 784, 396);
+
+      // Subtle fine divider line between Left and Right
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(920, 60);
+      ctx.lineTo(920, 336);
+      ctx.stroke();
+
+      // LEFT SIDE (Amr Waled identity)
+      const leftX = 390;
+
+      // Small Clean Overline
+      ctx.font = '600 13px "Space Grotesk", sans-serif';
+      ctx.letterSpacing = '2px';
+      ctx.fillStyle = '#38bdf8';
+      ctx.fillText('PORTFOLIO & EXPERTISE', leftX, 120);
+
+      // Main Name
+      ctx.font = '800 52px "Space Grotesk", sans-serif';
+      ctx.letterSpacing = '0px';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('AMR WALED', leftX, 185);
+
+      // One clear, grounded human tagline
+      ctx.font = '500 20px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText('Paid Ads bringing the leads.', leftX, 230);
+
+      ctx.font = '500 20px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Custom CRMs closing them.', leftX, 260);
+
+      // RIGHT SIDE (The 2 exact roles, stacked cleanly with zero overlap)
+      const rightX = 990;
+
+      // Role 1
+      ctx.font = '700 24px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Marketing Manager', rightX, 130);
+
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#38bdf8';
+      ctx.fillText('T-Shaped Media Buyer', rightX, 162);
+
+      ctx.font = '400 14px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('Meta Ads • Campaign Architecture • Real Estate & Clinics', rightX, 188);
+
+      // Thin separator
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+      ctx.beginPath();
+      ctx.moveTo(rightX, 218);
+      ctx.lineTo(1500, 218);
+      ctx.stroke();
+
+      // Role 2
+      ctx.font = '700 24px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Custom CRM Developer', rightX, 262);
+
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#10b981';
+      ctx.fillText('Sales Systems & Lead Management', rightX, 294);
+
+      ctx.font = '400 14px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('Replacing chaotic sheets & WhatsApp with real pipelines', rightX, 320);
+
+      // Subtle bottom line
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+      ctx.fillRect(0, 394, 1584, 2);
+    }
+
+    function drawTheme2() {
+      // Executive Slate (Minimalist Navy/Slate)
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, 1584, 396);
+
+      const leftX = 390;
+
+      ctx.font = '800 50px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillText('Amr Waled', leftX, 160);
+
+      ctx.font = '600 22px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Marketing Infrastructure & Growth', leftX, 202);
+
+      ctx.font = '400 17px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('Helping companies stop losing leads after the ad click.', leftX, 242);
+
+      // Vertical line
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(920, 60);
+      ctx.lineTo(920, 336);
+      ctx.stroke();
+
+      const rightX = 990;
+
+      // Role 1
+      ctx.font = '700 23px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Marketing Manager', rightX, 135);
+
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#60a5fa';
+      ctx.fillText('T-Shaped Media Buyer', rightX, 168);
+
+      // Role 2
+      ctx.font = '700 23px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Custom CRM Developer', rightX, 250);
+
+      ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#34d399';
+      ctx.fillText('Full Sales Tracking Systems', rightX, 283);
+    }
+
+    function drawTheme3() {
+      // Pure Minimalist (Dark Mono)
+      ctx.fillStyle = '#050608';
+      ctx.fillRect(0, 0, 1584, 396);
+
+      const leftX = 390;
+
+      ctx.font = '800 56px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('AMR WALED', leftX, 175);
+
+      ctx.font = '500 22px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#a1a1aa';
+      ctx.fillText('Performance Media & Custom CRMs', leftX, 222);
+
+      ctx.font = '400 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#52525b';
+      ctx.fillText('End-to-end acquisition & conversion systems.', leftX, 256);
+
+      // Vertical line
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(940, 70);
+      ctx.lineTo(940, 326);
+      ctx.stroke();
+
+      const rightX = 1010;
+
+      ctx.font = '700 24px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Marketing Manager', rightX, 140);
+      ctx.font = '500 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#e4e4e7';
+      ctx.fillText('T-Shaped Media Buyer', rightX, 172);
+
+      ctx.font = '700 24px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Custom CRM Developer', rightX, 250);
+      ctx.font = '500 16px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#e4e4e7';
+      ctx.fillText('Internal Systems & Automation', rightX, 282);
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, 1584, 396);
+      if (currentTheme === 1) drawTheme1();
+      else if (currentTheme === 2) drawTheme2();
+      else if (currentTheme === 3) drawTheme3();
+    }
+
+    function switchTheme(num) {
+      currentTheme = num;
+      document.querySelectorAll('.controls .btn').forEach((b, i) => {
+        if (i < 3) b.classList.remove('active');
+      });
+      document.querySelectorAll('.controls .btn')[num - 1].classList.add('active');
+      render();
+    }
+
+    function toggleAvatar() {
+      showAvatar = !showAvatar;
+      document.getElementById('avatarMock').style.display = showAvatar ? 'flex' : 'none';
+      document.getElementById('toggleAvatarBtn').innerText = showAvatar ? 'Hide Avatar Safe-Zone' : 'Show Avatar Safe-Zone';
+    }
+
+    function downloadBanner() {
+      const link = document.createElement('a');
+      link.download = `amr-waled-linkedin-cover.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    }
+
+    document.fonts.ready.then(() => {
+      render();
+    });
+  </script>
+</body>
+</html>

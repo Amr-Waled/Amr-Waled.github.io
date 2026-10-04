@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استراتيجية البيرسونال براندينج — عمرو وليد</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3e;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --green: #10b981;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.8;
+    padding: 40px 20px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border: 1px solid #4338ca;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; color: #e0e7ff; margin-bottom: 8px; }
+  .header p { color: #a5b4fc; font-size: 14px; }
+  .header .badge {
+    display: inline-block;
+    background: #312e81;
+    border: 1px solid #4338ca;
+    color: #a5b4fc;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+
+  /* Alert box */
+  .alert {
+    background: #1c1917;
+    border-right: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .alert.green { border-color: var(--green); }
+  .alert.yellow { border-color: var(--yellow); }
+  .alert h3 { font-size: 14px; font-weight: 600; color: var(--red); margin-bottom: 8px; }
+  .alert.green h3 { color: var(--green); }
+  .alert.yellow h3 { color: var(--yellow); }
+
+  /* Section */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon { font-size: 20px; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th {
+    background: #1e1b4b;
+    color: #a5b4fc;
+    padding: 10px 14px;
+    text-align: right;
+    font-weight: 600;
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(99, 102, 241, 0.05); }
+
+  /* Editable block */
+  .editable-block {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    font-size: 15px;
+    line-height: 1.9;
+    outline: none;
+    transition: border-color 0.2s;
+    white-space: pre-wrap;
+    font-family: var(--font);
+    color: var(--text);
+    min-height: 60px;
+    cursor: text;
+  }
+  .editable-block:focus {
+    border-color: var(--accent);
+    background: #0f1117;
+  }
+  .editable-block:hover { border-color: #4a4d6e; }
+  .editable-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .editable-label::before {
+    content: '✎';
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  /* Pill tags */
+  .tag {
+    display: inline-block;
+    background: #1e1b4b;
+    color: #a5b4fc;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 2px;
+    border: 1px solid #3730a3;
+  }
+  .tag.green { background: #052e16; color: #6ee7b7; border-color: #065f46; }
+  .tag.red { background: #450a0a; color: #fca5a5; border-color: #7f1d1d; }
+  .tag.yellow { background: #451a03; color: #fcd34d; border-color: #78350f; }
+
+  /* Progress bar */
+  .progress-section { margin: 12px 0; }
+  .progress-label { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+
+  /* Code block */
+  .code-block {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #a5f3fc;
+    white-space: pre-wrap;
+    direction: ltr;
+    text-align: left;
+    margin: 12px 0;
+  }
+
+  /* Save indicator */
+  .save-indicator {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: var(--green);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .save-indicator.show { opacity: 1; }
+
+  /* Nav */
+  .nav {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    z-index: 100;
+    font-size: 12px;
+  }
+  .nav a { display: block; color: var(--text-muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; margin: 2px 0; }
+  .nav a:hover { background: var(--border); color: var(--text); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  h2 { font-size: 16px; color: var(--text-muted); margin: 16px 0 8px; font-weight: 600; }
+  p { margin: 8px 0; color: var(--text); }
+  ul { padding-right: 20px; margin: 8px 0; }
+  li { margin: 4px 0; color: var(--text); font-size: 14px; }
+  strong { color: var(--accent-light); }
+
+  @media (max-width: 700px) { .nav { display: none; } .container { padding: 0; } .section { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="#positioning">الـ Positioning</a>
+  <a href="#voice">Brand Voice</a>
+  <a href="#platforms">المنصات</a>
+  <a href="#pillars">ركائز المحتوى</a>
+  <a href="#schedule">جدول العمل</a>
+  <a href="#kpis">KPIs</a>
+</div>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🎯 استراتيجية البيرسونال براندينج</h1>
+    <p>عمرو وليد — Marketing Manager & Systems Builder</p>
+    <div class="badge">📅 سبتمبر 2026 | الأفق الزمني: 6 شهور</div>
+  </div>
+
+  <!-- Critical Decisions -->
+  <div class="alert">
+    <h3>⚠️ قرارات استراتيجية صريحة</h3>
+    <p style="color:#fca5a5; font-size:14px;">
+      مش هتكون "معروف في كل حاجة" في 6 شهور. هدف الـ 6 شهور هو: إنك تبقى الاسم الأول اللي يطلع في دماغ أصحاب البيزنس في الغربية لما يحتاجوا نظام أو ميديا باير يفهم، وتحقق أول 3-5 عملاء inbound.
+    </p>
+  </div>
+
+  <!-- Positioning -->
+  <div class="section" id="positioning">
+    <div class="section-title"><span class="icon">🎯</span> الـ Positioning (Category of One)</div>
+
+    <div class="editable-label">موقفك التنافسي — اضغط لتعديله</div>
+    <div class="editable-block" contenteditable="true" data-key="positioning">
+"عمرو وليد — بابني الأنظمة الرقمية للشركات (CRM + مواقع + سيستمز) وبدير تسويقها في نفس الوقت."
+    </div>
+
+    <h2>ليه ده مختلف؟</h2>
+    <table>
+      <tr><th>النوع</th><th>القصر</th><th>عمرو وليد</th></tr>
+      <tr><td>مسوق عادي</td><td>بيشغّل الإعلانات، مش بيقدر يبني السيستم</td><td>بيعمل الاتنين ✅</td></tr>
+      <tr><td>مطور عادي</td><td>بيبني السيستم، مش بيفهم في CPL أو Conversion</td><td>بيعمل الاتنين ✅</td></tr>
+    </table>
+  </div>
+
+  <!-- Brand Voice -->
+  <div class="section" id="voice">
+    <div class="section-title"><span class="icon">🎤</span> Brand Voice — صوت البراند</div>
+
+    <table>
+      <tr><th>الصفة</th><th>✅ تعمل</th><th>❌ ما تعملش</th></tr>
+      <tr><td><strong>واثق، مش متعجرف</strong></td><td>بنيت CRM في أقل من شهر</td><td>أنا أحسن واحد في مصر</td></tr>
+      <tr><td><strong>عملي، مش أكاديمي</strong></td><td>إوعى تصرف على إعلانات وعندكش سيستم</td><td>وفقاً لدراسة McKinsey...</td></tr>
+      <tr><td><strong>مباشر، مش مدّيح</strong></td><td>الشيتات هتخسّرك ليدات</td><td>كل الطرق صح بس...</td></tr>
+    </table>
+  </div>
+
+  <!-- Platforms -->
+  <div class="section" id="platforms">
+    <div class="section-title"><span class="icon">📱</span> المنصات والأولويات</div>
+
+    <table>
+      <tr><th>المرحلة</th><th>الرئيسية</th><th>المرافقة</th><th>معلقة</th></tr>
+      <tr><td>شهر 1-3</td><td><span class="tag">LinkedIn</span></td><td><span class="tag green">Instagram Reels</span></td><td><span class="tag red">Facebook / TikTok</span></td></tr>
+      <tr><td>شهر 4-6</td><td><span class="tag">LinkedIn</span></td><td><span class="tag green">Facebook</span></td><td><span class="tag red">TikTok</span></td></tr>
+    </table>
+
+    <div class="alert yellow" style="margin-top:16px;">
+      <h3>⚡ السبب الحقيقي لـ LinkedIn أولاً</h3>
+      <p style="color:#fcd34d; font-size:13px;">الـ Organic Reach على LinkedIn = 8-15% مقارنة بـ Facebook اللي وصل لـ 2%. صاحب الشركة اللي هيدفع 20-50 ألف جنيه على نظام أو موقع موجود على LinkedIn أكتر.</p>
+    </div>
+  </div>
+
+  <!-- Content Pillars -->
+  <div class="section" id="pillars">
+    <div class="section-title"><span class="icon">📊</span> ركائز المحتوى الـ 3</div>
+
+    <div class="progress-section">
+      <div class="progress-label"><span>Proof of Work (إنجازات) — بوستات نص</span><span>35%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+    </div>
+    <div class="progress-section">
+      <div class="progress-label"><span>تعليم عملي (فيديوهات شرح)</span><span>40%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:40%; background: linear-gradient(90deg, #10b981, #6ee7b7);"></div></div>
+    </div>
+    <div class="progress-section">
+      <div class="progress-label"><span>رأي + وراء الكواليس + قيادة</span><span>25%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:25%; background: linear-gradient(90deg, #f59e0b, #fcd34d);"></div></div>
+    </div>
+
+    <div class="alert green" style="margin-top:16px;">
+      <h3>✅ القاعدة الذهبية في كل بوست</h3>
+      <p style="color:#6ee7b7; font-size:13px;">كل بوست لازم يجاوب: "وأنا مالي؟" — مش بتتكلم عن نفسك، بتتكلم عن مشكلة الشخص اللي بيقرأ.</p>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div class="section" id="schedule">
+    <div class="section-title"><span class="icon">⏱️</span> نموذج العمل — الارتجال الممنهج</div>
+
+    <div class="alert yellow">
+      <h3>⚡ القاعدة الوحيدة غير القابلة للتفاوض</h3>
+      <p style="color:#fcd34d; font-size:14px;">بوست واحد أسبوعياً على LinkedIn — ثابت مهما حصل. الـ Algorithm بيعاقب الانقطاع.</p>
+    </div>
+
+    <div class="code-block">لما تلاقي وقت (حتى 20 دقيقة):
+→ اكتب بوست واحد وارفعه
+
+لما تلاقي ساعة هادية:
+→ صوّر فيديو تعليمي + مونتاج بـ CapCut
+
+الحد الأدنى الأسبوعي: بوست واحد
+المثالي: بوست + فيديو</div>
+
+    <table style="margin-top:16px;">
+      <tr><th>الأدنى/شهر</th><th>المثالي/شهر</th></tr>
+      <tr><td>4 بوستات</td><td>4 بوستات + 2-4 فيديوهات</td></tr>
+    </table>
+  </div>
+
+  <!-- Not Doing -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🚫</span> Not Doing List — وليه</div>
+    <table>
+      <tr><th>الحاجة</th><th>السبب</th></tr>
+      <tr><td>TikTok دلوقتي</td><td>جمهوره مختلف، مش أصحاب البيزنس</td></tr>
+      <tr><td>Facebook دلوقتي</td><td>هيبدأ بعد شهر 3 بنفس المحتوى</td></tr>
+      <tr><td>Newsletter دلوقتي</td><td>محتاج أولاً تبني جمهور على المنصات</td></tr>
+      <tr><td>YouTube دلوقتي</td><td>محتاج commitment أكبر من وقتك الحالي</td></tr>
+      <tr><td>Carousel / Infographic</td><td>وقتها بيروح في التصميم، الكتابة أفضل استثمار دلوقتي</td></tr>
+    </table>
+  </div>
+
+  <!-- KPIs -->
+  <div class="section" id="kpis">
+    <div class="section-title"><span class="icon">📈</span> مقاييس النجاح بعد 90 يوم</div>
+    <table>
+      <tr><th>المقياس</th><th>الهدف الواقعي</th></tr>
+      <tr><td>LinkedIn Followers</td><td>+300 متابع حقيقي</td></tr>
+      <tr><td>Profile Views / أسبوع</td><td>+100 زيارة</td></tr>
+      <tr><td>Post Impressions / بوست</td><td>+500 average</td></tr>
+      <tr><td>DMs من عملاء محتملين</td><td>3-5 رسالة / شهر</td></tr>
+      <tr><td>عروض مشاريع (inbound)</td><td>1-2 عرض على الأقل</td></tr>
+    </table>
+  </div>
+
+  <!-- Notes area -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📝</span> ملاحظاتك وأفكارك الجديدة</div>
+    <div class="editable-label">اكتب هنا أي فكرة جديدة أو تعديل في التفكير</div>
+    <div class="editable-block" contenteditable="true" data-key="notes" style="min-height: 120px;">
+اكتب هنا...
+    </div>
+  </div>
+
+</div>
+
+<div class="save-indicator" id="saveIndicator">✅ اتحفظ</div>
+
+<script>
+  // Auto-save to localStorage
+  const editables = document.querySelectorAll('[contenteditable]');
+  const indicator = document.getElementById('saveIndicator');
+  let saveTimer;
+
+  // Load saved content
+  editables.forEach(el => {
+    const key = el.dataset.key;
+    if (key && localStorage.getItem('amr_plan_' + key)) {
+      el.textContent = localStorage.getItem('amr_plan_' + key);
+    }
+  });
+
+  // Save on input
+  editables.forEach(el => {
+    el.addEventListener('input', () => {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        const key = el.dataset.key;
+        if (key) localStorage.setItem('amr_plan_' + key, el.textContent);
+        indicator.classList.add('show');
+        setTimeout(() => indicator.classList.remove('show'), 2000);
+      }, 800);
+    });
+  });
+
+  // Track edits for analysis
+  editables.forEach(el => {
+    el.addEventListener('blur', () => {
+      const key = el.dataset.key;
+      if (key) {
+        const allEdits = JSON.parse(localStorage.getItem('amr_edits_log') || '[]');
+        allEdits.push({ key, value: el.textContent, time: new Date().toISOString() });
+        localStorage.setItem('amr_edits_log', JSON.stringify(allEdits));
+      }
+    });
+  });
+</script>
+</body>
+</html>

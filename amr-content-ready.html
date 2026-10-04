@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحتوى الجاهز — عمرو وليد</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3e;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --green: #10b981;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --linkedin: #0077b5;
+    --insta: #e1306c;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.8;
+    padding: 40px 20px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border: 1px solid #0369a1;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: #e0f2fe; margin-bottom: 8px; }
+  .header p { color: #7dd3fc; font-size: 14px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--font);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .tab .count { background: rgba(255,255,255,0.2); padding: 1px 7px; border-radius: 10px; font-size: 11px; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Post Card */
+  .post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .post-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .post-header-left { display: flex; align-items: center; gap: 10px; }
+  .post-number {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: white;
+  }
+  .post-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .post-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .badge.story { background: #1e1b4b; color: #a5b4fc; border-color: #3730a3; }
+  .badge.case { background: #052e16; color: #6ee7b7; border-color: #065f46; }
+  .badge.opinion { background: #450a0a; color: #fca5a5; border-color: #7f1d1d; }
+  .badge.howto { background: #451a03; color: #fcd34d; border-color: #78350f; }
+  .badge.bts { background: #1a1a2e; color: #c4b5fd; border-color: #5b21b6; }
+  .badge.edu { background: #042f2e; color: #5eead4; border-color: #0d9488; }
+
+  /* Editable text area */
+  .post-body { padding: 24px; }
+  .editable-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .editable-label::before { content: '✎'; color: var(--accent); font-size: 13px; }
+
+  .post-text {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 15px;
+    line-height: 2;
+    outline: none;
+    white-space: pre-wrap;
+    font-family: var(--font);
+    color: var(--text);
+    min-height: 80px;
+    cursor: text;
+    transition: border-color 0.2s;
+  }
+  .post-text:focus { border-color: var(--accent); }
+  .post-text:hover { border-color: #4a4d6e; }
+
+  /* Script sections */
+  .script-section {
+    margin-top: 12px;
+    background: #0d1117;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .script-section-header {
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  .script-section-header.hook { background: #450a0a; color: #fca5a5; }
+  .script-section-header.body { background: #052e16; color: #6ee7b7; }
+  .script-section-header.cta { background: #1e1b4b; color: #a5b4fc; }
+  .script-text {
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    white-space: pre-wrap;
+    outline: none;
+    min-height: 50px;
+    cursor: text;
+    font-family: var(--font);
+  }
+  .script-text:focus { background: #111827; }
+
+  /* Meta info */
+  .post-meta {
+    padding: 12px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .meta-item { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+  .meta-item strong { color: var(--accent-light); }
+
+  /* Copy button */
+  .copy-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: auto;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+  .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+  /* Schedule table */
+  .schedule-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .schedule-title { font-size: 16px; font-weight: 700; color: var(--accent-light); margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: #1e1b4b; color: #a5b4fc; padding: 10px 14px; text-align: right; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(99, 102, 241, 0.04); }
+
+  /* Save */
+  .save-indicator {
+    position: fixed; bottom: 24px; left: 24px;
+    background: var(--green); color: white;
+    padding: 8px 16px; border-radius: 8px;
+    font-size: 13px; opacity: 0; transition: opacity 0.3s; z-index: 100;
+  }
+  .save-indicator.show { opacity: 1; }
+
+  /* Platform badge */
+  .platform-li { background: #003554; color: #7dd3fc; border-color: #0369a1; }
+  .platform-ig { background: #3b0764; color: #d8b4fe; border-color: #7c3aed; }
+
+  @media (max-width: 600px) { .post-header { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>📦 المحتوى الجاهز للنشر</h1>
+    <p>5 بوستات LinkedIn + 5 سكريبتات Instagram Reels | اضغط على أي نص لتعديله</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('linkedin')">
+      💼 LinkedIn <span class="count">5</span>
+    </button>
+    <button class="tab" onclick="showTab('instagram')">
+      📸 Instagram Reels <span class="count">5</span>
+    </button>
+    <button class="tab" onclick="showTab('schedule')">
+      📅 جدول النشر
+    </button>
+  </div>
+
+  <!-- LinkedIn Posts -->
+  <div id="tab-linkedin" class="tab-content active">
+
+    <!-- Post 1 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number">1</div>
+          <div>
+            <div class="post-title">البوست التأسيسي — من أنا وفلسفتي</div>
+            <div class="post-subtitle">الأسبوع الأول</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge story">Story Post</span>
+          <span class="badge platform-li">LinkedIn</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="editable-label">النص الكامل — اضغط لتعديله بأسلوبك</div>
+        <div class="post-text" contenteditable="true" data-key="post1">طالب هندسة في طنطا.
+
+بيدير 4 حسابات تسويق في نفس الوقت.
+وبيبني أنظمة وسيستمز بنفسه.
+
+مش تباهي — ده تفسير.
+
+اللي بيشغّل المعادلتين مع بعض
+(التسويق + النظام اللي بيستقبل الليدات)
+مش بيشوف الليدات وهي بتتضيع.
+
+أنا عمرو وليد.
+مدير تسويق في شركات عقارية وعيادات.
+وبابني الأنظمة الداخلية اللي بتشتغل عليها.
+
+هتلاقيني هنا بتكلم في حاجتين بس:
+
+— إزاي الشركات تبني أنظمة بتشتغل فعلاً
+— وإزاي الشباب يدخل سوق التسويق من الباب الصح
+
+فولو لو الموضوع ده بيخصك.</div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الهدف:</strong> تعريف الجمهور بك وفلسفتك</div>
+        <div class="meta-item">⏱️ <strong>متى:</strong> أول بوست تنزله</div>
+        <button class="copy-btn" onclick="copyPost(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number">2</div>
+          <div>
+            <div class="post-title">Case Study إنجاز — الـ 400 دولار</div>
+            <div class="post-subtitle">الأسبوع الثاني</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge case">Case Study</span>
+          <span class="badge platform-li">LinkedIn</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="editable-label">النص الكامل — اضغط لتعديله بأسلوبك</div>
+        <div class="post-text" contenteditable="true" data-key="post2">قالولي: "هنشترك في CRM بعدين."
+
+لما عرفت إن "بعدين" دي = 400 دولار شهرياً—
+قررت أبني النظام بنفسي.
+
+المشكلة اللي كانت موجودة:
+× السيلز بيتابع على واتساب بس
+× الليدات بتتضيع أو بتتنسى
+× الإدارة مش شايفة أداء الفريق خالص
+× مفيش رابط بين الإعلانات والمبيعات
+
+اللي عملناه:
+↳ CRM مخصص 100% للشركة
+↳ كل ليد جاي من الإعلان بييجي للسيستم مباشرة
+↳ كل سيلز عنده لوحة تحكم بعملائه بس
+↳ تنبيهات متابعة تلقائية — ما فيش ليد بينتسى
+↳ تقارير كاملة للإدارة عن أداء الفريق
+
+النتيجة:
+✓ فريق السيلز كله شغال عليه دلوقتي فعلاً
+✓ الإدارة بتشوف أداء كل فرد لأول مرة
+✓ أي تعديل في وقته من غير ما نستأذن SaaS خارجي
+
+الوقت؟
+أقل من شهر.
+
+لو شركتك بتدفع اشتراكات على أنظمة جاهزة أكبر منها—
+أو بتتابع على واتساب—
+تعالَ نتكلم.</div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الهدف:</strong> ثقة أصحاب الشركات</div>
+        <div class="meta-item">💡 <strong>الـ Hook:</strong> رقم حقيقي (400 دولار)</div>
+        <button class="copy-btn" onclick="copyPost(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number">3</div>
+          <div>
+            <div class="post-title">رأي جريء — الإعلانات مش هي المشكلة</div>
+            <div class="post-subtitle">الأسبوع الثالث</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge opinion">Contrarian</span>
+          <span class="badge platform-li">LinkedIn</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="editable-label">النص الكامل — اضغط لتعديله بأسلوبك</div>
+        <div class="post-text" contenteditable="true" data-key="post3">الإعلانات مش مشكلتك.
+
+قولتها.
+
+90% من الشركات في مصر اللي بتشكي
+إن الإعلانات مش بترجع—
+
+المشكلة مش في الإعلان.
+المشكلة في اللي بيحصل بعد ما الليد بييجي.
+
+واتساب ⟶ يتضيع في الرسايل.
+شيت إكسيل ⟶ ما فيش حد بيفتحه.
+سيلز بيتابع بدماغه ⟶ بيتنسى.
+
+الإعلانات بترجع.
+السيستم اللي بعدها هو المشكلة.
+
+قبل ما تزود الميزانية الإعلانية—
+اسأل نفسك:
+إيه اللي بيحصل للليد بعد ما بييجيلك؟</div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الهدف:</strong> تمييز موقفك وخلق نقاش</div>
+        <div class="meta-item">🔥 <strong>التوقع:</strong> أعلى engagement</div>
+        <button class="copy-btn" onclick="copyPost(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number">4</div>
+          <div>
+            <div class="post-title">5 أسئلة قبل ما تعمل موقع</div>
+            <div class="post-subtitle">الأسبوع الرابع</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge howto">How-To List</span>
+          <span class="badge platform-li">LinkedIn</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="editable-label">النص الكامل — اضغط لتعديله بأسلوبك</div>
+        <div class="post-text" contenteditable="true" data-key="post4">5 أسئلة لازم تسألها قبل ما تعمل موقع لشركتك:
+
+1. مين هيدخله؟
+↳ مش "الكل" — فكّر في شخص واحد بعينه.
+
+2. إيه اللي هيعمله بعد ما يدخل؟
+↳ لو مش عارف الإجابة، الزائر مش هيعرفها.
+
+3. فيه CTA واحدة واضحة ولا 10؟
+↳ كل ما زادت الخيارات، قل التحويل.
+
+4. الموقع بيخدم الإعلانات ولا بيعوقها؟
+↳ الـ Landing Page والإعلان لازم يكملوا بعض.
+
+5. بيشتغل كويس على الموبايل؟
+↳ 70%+ من الليدات بييجوا من موبايل.
+↳ لو بطيء أو بايظ — خسرت نص ميزانيتك قبل ما يكلموك.
+
+الموقع الكويس مش الأجمل.
+الأسرع في تحويل الزائر لليد.</div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الهدف:</strong> تثبيت الـ Authority</div>
+        <div class="meta-item">💾 <strong>التوقع:</strong> أعلى saves</div>
+        <button class="copy-btn" onclick="copyPost(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+    <!-- Post 5 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number">5</div>
+          <div>
+            <div class="post-title">Xplore Camp + 80 طالب</div>
+            <div class="post-subtitle">الأسبوع الخامس</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge bts">Behind The Scenes</span>
+          <span class="badge platform-li">LinkedIn</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="editable-label">النص الكامل — اضغط لتعديله بأسلوبك</div>
+        <div class="post-text" contenteditable="true" data-key="post5">دربت 80 طالب وطالبة في Xplore Camp.
+
+أكتر سؤال اتسألته:
+"من أين أبدأ؟"
+
+الإجابة الصادقة اللي مش حد بيقولها:
+
+1. ابدأ من المشكلة مش من الـ Title.
+↳ "عايز أبقى ماركتر" مش هدف.
+↳ "عايز أساعد محل في طنطا يجيب عملاء أونلاين" — ده هدف.
+
+2. اشتغل مجاناً لشركة حقيقية — مرة واحدة بس.
+↳ التجربة بتفرق أكتر من أي كورس.
+
+3. الـ Portfolio قبل الـ CV.
+↳ الحد مش بيستأجر CV — بيستأجر نتائج.
+
+أنا لسه طالب.
+وبدير تسويق 4 شركات في نفس الوقت.
+
+الفرق؟
+بدأت قبل ما "أكون جاهز."</div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الهدف:</strong> الارتباط الإنساني + إفادة الشباب</div>
+        <div class="meta-item">💬 <strong>التوقع:</strong> أعلى comments</div>
+        <button class="copy-btn" onclick="copyPost(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+  </div><!-- end linkedin -->
+
+  <!-- Instagram Videos -->
+  <div id="tab-instagram" class="tab-content">
+
+    <!-- Video cards template -->
+    <!-- Video 1 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number" style="background:linear-gradient(135deg,#e1306c,#833ab4);">1</div>
+          <div>
+            <div class="post-title">إيه هو Media Buying وإزاي تبدأ</div>
+            <div class="post-subtitle">60 ثانية | Talking Head</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge edu">تعليمي</span>
+          <span class="badge platform-ig">Instagram</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="script-section">
+          <div class="script-section-header hook">🎬 Hook — أول 3 ثواني</div>
+          <div class="script-text" contenteditable="true" data-key="v1_hook">"الـ Media Buying مش معناه إنك بتدفع فلوس على إعلانات.
+معناه إنك بتشتري انتباه الناس بأرخص سعر ممكن."</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header body">📖 الجسم — 3-50 ثانية</div>
+          <div class="script-text" contenteditable="true" data-key="v1_body">إيه الـ Media Buyer بيعمل بالظبط؟
+بيختار الجمهور الصح.
+بيكتب الإعلان اللي بيوقّف الناس.
+وبيحكم على النتايج بالأرقام مش بالإحساس.
+
+3 خطوات لو مبتدئ:
+
+1. اشتغل على حساب إعلاني حقيقي — حتى لو مجاناً.
+   التجربة بتفرق عن أي كورس.
+
+2. تعلم تقرأ 3 أرقام بس في الأول:
+   CPM — CTR — CPL.
+   الباقي بييجي مع الوقت.
+
+3. اشتغل على niche واحد أول 6 شهور.
+   خبير في عيادات أكتر من عام في خدمتك
+   من واحد بيعمل كل حاجة.</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header cta">📣 CTA — آخر 10 ثواني</div>
+          <div class="script-text" contenteditable="true" data-key="v1_cta">"لو عايز أشرح أي حاجة من دول أكتر—
+كومنت 'باير' وهجاوبك."</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>للمبتدئ اللي مش عارف يبدأ منين</strong></div>
+        <button class="copy-btn" onclick="copyScript(this)">📋 نسخ الكامل</button>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number" style="background:linear-gradient(135deg,#e1306c,#833ab4);">2</div>
+          <div>
+            <div class="post-title">فرق التسويق عن المبيعات</div>
+            <div class="post-subtitle">50 ثانية | Talking Head</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge edu">تعليمي</span>
+          <span class="badge platform-ig">Instagram</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="script-section">
+          <div class="script-section-header hook">🎬 Hook</div>
+          <div class="script-text" contenteditable="true" data-key="v2_hook">"التسويق والمبيعات مش نفس الحاجة.
+وخلطهم مع بعض بيدمر الشركات."</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header body">📖 الجسم</div>
+          <div class="script-text" contenteditable="true" data-key="v2_body">التسويق = بيخلق الاهتمام.
+المبيعات = بيحوّل الاهتمام لفلوس.
+
+مثال واضح:
+الإعلان اللي بتشوفه على Facebook = تسويق.
+السيلز اللي بيكلمك ويقنعك = مبيعات.
+
+المشكلة اللي بتحصل في الشركات الصغيرة:
+بيحطوا المسوّق يبيع.
+أو يحطوا السيلز يكتب إعلانات.
+
+النتيجة؟
+لا التسويق شغّال ولا المبيعات.</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header cta">📣 CTA</div>
+          <div class="script-text" contenteditable="true" data-key="v2_cta">"كل شخص لازم يعرف دوره بالظبط.
+لو مبتدئ — حدد أنت في إنهي جانب الأول."</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>الغلطة الكلاسيكية اللي الكل بيقع فيها</strong></div>
+        <button class="copy-btn" onclick="copyScript(this)">📋 نسخ الكامل</button>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number" style="background:linear-gradient(135deg,#e1306c,#833ab4);">3</div>
+          <div>
+            <div class="post-title">إزاي تقرأ نتائج Meta صح</div>
+            <div class="post-subtitle">75 ثانية | Screen Recording أو Talking Head</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge edu">تعليمي</span>
+          <span class="badge platform-ig">Instagram</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="script-section">
+          <div class="script-section-header hook">🎬 Hook</div>
+          <div class="script-text" contenteditable="true" data-key="v3_hook">"أغلب الناس بتفتح Ads Manager
+وبتشوف أرقام كتير ومش عارفة تقرأ إيه."</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header body">📖 الجسم</div>
+          <div class="script-text" contenteditable="true" data-key="v3_body">فيه أكتر من 50 Metric في Ads Manager.
+لو بتتفرج فيهم كلهم — هتتلخبط وتاخد قرار غلط.
+
+ركّز على 3 أرقام بس في الأول:
+
+1. CPM (تكلفة الألف ظهور):
+↳ لو عالي = جمهورك مزدحم أو الإعلان ضعيف.
+↳ المعتاد في مصر: 10-40 جنيه.
+
+2. CTR (نسبة الضغط):
+↳ لو أقل من 1% = الكريتيف مش بيوقّف الناس.
+↳ كويس = 2-4%.
+
+3. CPL (تكلفة الليد):
+↳ ده أهمهم.
+↳ بيقولك كل ليد بييجيلك كلفك كام بالظبط.</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header cta">📣 CTA</div>
+          <div class="script-text" contenteditable="true" data-key="v3_cta">"لو الـ CPL عندك عالي—
+في الغالب المشكلة في الجمهور أو الكريتيف مش الميزانية.
+
+حطّ الـ CPL بتاعك في الكومنت وأقولك إيه الأسباب."</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>عملي جداً — أعلى saves متوقعة</strong></div>
+        <button class="copy-btn" onclick="copyScript(this)">📋 نسخ الكامل</button>
+      </div>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number" style="background:linear-gradient(135deg,#e1306c,#833ab4);">4</div>
+          <div>
+            <div class="post-title">فرق الإعلان الناجح عن الفاشل</div>
+            <div class="post-subtitle">60 ثانية | Talking Head</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge edu">تعليمي</span>
+          <span class="badge platform-ig">Instagram</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="script-section">
+          <div class="script-section-header hook">🎬 Hook</div>
+          <div class="script-text" contenteditable="true" data-key="v4_hook">"إيه الفرق بين إعلان بـ 11 جنيه الليد
+وإعلان بـ 200 جنيه الليد؟"</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header body">📖 الجسم</div>
+          <div class="script-text" contenteditable="true" data-key="v4_body">مش الميزانية.
+مش الجمهور بالضرورة.
+في الغالب: الـ Hook.
+
+الإعلان الفاشل:
+بيبدأ بلوجو الشركة.
+أو بجملة عامة زي "أفضل عروض خريف 2024".
+الناس بتعدّي من غير ما تحس بأي حاجة.
+
+الإعلان الناجح:
+بيبدأ بمشكلة الناس مش بمنتجك.
+"محتاج تسجل مواعيد عيادتك من غير تضييع وقت؟"
+ده بيوقّف اللي عنده نفس المشكلة فوراً.
+
+الفرق = الـ 3 ثواني الأولى.</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header cta">📣 CTA</div>
+          <div class="script-text" contenteditable="true" data-key="v4_cta">"لو عندك إعلان مش شغّال —
+شاركه في الكومنت وأقولك رأيي فيه."</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">🎯 <strong>Hook بيخلق فضول فوري</strong></div>
+        <button class="copy-btn" onclick="copyScript(this)">📋 نسخ الكامل</button>
+      </div>
+    </div>
+
+    <!-- Video 5 -->
+    <div class="post-card">
+      <div class="post-header">
+        <div class="post-header-left">
+          <div class="post-number" style="background:linear-gradient(135deg,#e1306c,#833ab4);">5</div>
+          <div>
+            <div class="post-title">Media Buying مع شغل تاني</div>
+            <div class="post-subtitle">60 ثانية | Talking Head — الأكثر authentic</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span class="badge edu">تعليمي</span>
+          <span class="badge platform-ig">Instagram</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="script-section">
+          <div class="script-section-header hook">🎬 Hook</div>
+          <div class="script-text" contenteditable="true" data-key="v5_hook">"أنا بشتغل في 4 جهات في نفس الوقت
+وبادرس هندسة.
+هقولك إزاي."</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header body">📖 الجسم</div>
+          <div class="script-text" contenteditable="true" data-key="v5_body">مش هقولك إنه سهل.
+بس فيه 3 حاجات خلّت الموضوع يمشي:
+
+1. كل حساب إعلاني عنده وقت محدد في يومي.
+↳ مش "لما أفضى" — وقت مكتوب.
+
+2. اشتغلت على كل حساب لوحده أول فترة.
+↳ ما حاولتش أبدأ 4 في نفس الوقت.
+
+3. كل شغل بيعلمني حاجة أجيبها للتاني.
+↳ ما فيش تعارض — في تكامل.</div>
+        </div>
+        <div class="script-section">
+          <div class="script-section-header cta">📣 CTA</div>
+          <div class="script-text" contenteditable="true" data-key="v5_cta">"الـ Media Buying ممكن يبدأ كـ Side Income.
+بس لازم تضبط وقتك قبل ما تضبط الإعلانات.
+
+لو عندك سؤال — الكومنت مفتوح."</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-item">⭐ <strong>ابدأ بيه — الأكثر authenticity لأنه قصتك</strong></div>
+        <button class="copy-btn" onclick="copyScript(this)">📋 نسخ الكامل</button>
+      </div>
+    </div>
+
+  </div><!-- end instagram -->
+
+  <!-- Schedule -->
+  <div id="tab-schedule" class="tab-content">
+    <div class="schedule-section">
+      <div class="schedule-title">📅 جدول النشر المقترح — 5 أسابيع</div>
+      <table>
+        <tr>
+          <th>الأسبوع</th>
+          <th>LinkedIn (بوست)</th>
+          <th>Instagram (فيديو)</th>
+        </tr>
+        <tr>
+          <td>أسبوع 1</td>
+          <td>بوست 1 — التأسيسي (من أنا)</td>
+          <td>فيديو 5 — Media Buying مع شغل تاني ⭐</td>
+        </tr>
+        <tr>
+          <td>أسبوع 2</td>
+          <td>بوست 2 — Case Study إنجاز</td>
+          <td>فيديو 1 — إيه هو Media Buying</td>
+        </tr>
+        <tr>
+          <td>أسبوع 3</td>
+          <td>بوست 3 — الإعلانات مش المشكلة</td>
+          <td>فيديو 4 — إعلان ناجح vs فاشل</td>
+        </tr>
+        <tr>
+          <td>أسبوع 4</td>
+          <td>بوست 4 — 5 أسئلة قبل الموقع</td>
+          <td>فيديو 3 — قراءة نتائج Meta</td>
+        </tr>
+        <tr>
+          <td>أسبوع 5</td>
+          <td>بوست 5 — Xplore Camp</td>
+          <td>فيديو 2 — فرق التسويق عن المبيعات</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="schedule-section">
+      <div class="schedule-title">🎬 ملاحظات الإنتاج</div>
+      <table>
+        <tr><th>الأداة</th><th>الغرض</th><th>الأولوية</th></tr>
+        <tr><td>DJI Mic 2 / Rode Wireless ME</td><td>صوت نظيف — الأهم على الإطلاق</td><td>🔴 اشتريه قبل أي تصوير</td></tr>
+        <tr><td>Tripod / Gorilla Pod</td><td>ثبات الصورة</td><td>🟡 مهم</td></tr>
+        <tr><td>CapCut (على الأيفون)</td><td>مونتاج + كابشن تلقائي عربي</td><td>✅ مجاناً</td></tr>
+        <tr><td>Buffer / Later</td><td>جدولة البوستات مسبقاً</td><td>✅ مجاناً</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<div class="save-indicator" id="saveIndicator">✅ اتحفظ</div>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // Auto-save
+  const indicator = document.getElementById('saveIndicator');
+  let saveTimer;
+
+  document.querySelectorAll('[contenteditable]').forEach(el => {
+    const key = el.dataset.key;
+    if (key && localStorage.getItem('amr_content_' + key)) {
+      el.textContent = localStorage.getItem('amr_content_' + key);
+    }
+    el.addEventListener('input', () => {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        if (key) localStorage.setItem('amr_content_' + key, el.textContent);
+        indicator.classList.add('show');
+        setTimeout(() => indicator.classList.remove('show'), 2000);
+      }, 800);
+    });
+    el.addEventListener('blur', () => {
+      if (key) {
+        const log = JSON.parse(localStorage.getItem('amr_edits') || '[]');
+        log.push({ key, text: el.textContent.slice(0, 100), time: new Date().toISOString() });
+        localStorage.setItem('amr_edits', JSON.stringify(log));
+      }
+    });
+  });
+
+  // Copy post text
+  function copyPost(btn) {
+    const text = btn.closest('.post-card').querySelector('.post-text').textContent;
+    navigator.clipboard.writeText(text.trim()).then(() => {
+      btn.textContent = '✅ اتنسخ';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '📋 نسخ'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  // Copy full script
+  function copyScript(btn) {
+    const card = btn.closest('.post-card');
+    const hook = card.querySelector('[data-key$="_hook"]')?.textContent || '';
+    const body = card.querySelector('[data-key$="_body"]')?.textContent || '';
+    const cta = card.querySelector('[data-key$="_cta"]')?.textContent || '';
+    const full = `[Hook]\n${hook}\n\n[الجسم]\n${body}\n\n[CTA]\n${cta}`;
+    navigator.clipboard.writeText(full.trim()).then(() => {
+      btn.textContent = '✅ اتنسخ';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '📋 نسخ الكامل'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

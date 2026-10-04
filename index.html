@@ -231,23 +231,83 @@
             box-shadow: 0 7px 24px rgba(0,0,0,0.28);
         }
 
-        /* Portrait overlay */
-        .hero-portrait {
+        /* Portrait Composition */
+        .hero-composition {
             position: absolute;
             inset: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             pointer-events: none;
             z-index: 1;
+            padding-bottom: 120px; /* Offset above text */
         }
-        .hero-portrait img {
-            height: 95%;
+
+        .photo-card {
+            position: absolute;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+            border: 3px solid rgba(255, 255, 255, 0.08);
+            background: #111;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto; /* Allow hover */
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: top center;
-            filter: contrast(1.12) brightness(0.96) saturate(1.05);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 92%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 92%);
+            filter: grayscale(15%) contrast(1.1) brightness(0.85);
+            transition: all 0.4s ease;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.1) translateY(-15px) !important;
+            z-index: 10 !important;
+            border-color: rgba(234, 88, 12, 0.6);
+            box-shadow: 0 25px 50px rgba(234, 88, 12, 0.25);
+        }
+        
+        .photo-card:hover img {
+            filter: grayscale(0%) contrast(1) brightness(1);
+        }
+
+        .p-left {
+            width: 170px;
+            height: 230px;
+            margin-right: 210px;
+            margin-top: 30px;
+            transform: rotate(-7deg);
+            z-index: 1;
+        }
+        .p-left img { object-position: center 10%; }
+
+        .p-right {
+            width: 160px;
+            height: 220px;
+            margin-left: 230px;
+            margin-top: 50px;
+            transform: rotate(6deg);
+            z-index: 2;
+        }
+
+        .p-main {
+            width: 210px;
+            height: 270px;
+            margin-top: -30px;
+            transform: rotate(2deg);
+            z-index: 3;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Crop tight to face to remove the shisha background */
+        .p-main img {
+            object-position: center 25%;
+            transform: scale(1.35);
+        }
+        .photo-card.p-main:hover img {
+            transform: scale(1.4);
         }
 
         /* White fog at bottom */
@@ -866,7 +926,10 @@
             body { padding: 12px 8px; }
             .page-card { border-radius: 22px; }
             .hero { margin: 8px; border-radius: 18px; min-height: 520px; }
-            .hero-portrait img { height: 80%; }
+            .hero-composition { padding-bottom: 80px; }
+            .p-left { width: 110px; height: 150px; margin-right: 140px; margin-top: 10px; }
+            .p-right { width: 100px; height: 140px; margin-left: 150px; margin-top: 20px; }
+            .p-main { width: 140px; height: 190px; margin-top: -20px; }
         }
     </style>
 </head>
@@ -909,9 +972,17 @@
             </div>
         </nav>
 
-        <!-- PORTRAIT -->
-        <div class="hero-portrait">
-            <img src="avatar.jpg" alt="عمرو وليد" onerror="this.style.display='none'">
+        <!-- PORTRAIT COMPOSITION -->
+        <div class="hero-composition">
+            <div class="photo-card p-left">
+                <img src="amr-2.png" alt="Amr Waled - Sadat" loading="lazy">
+            </div>
+            <div class="photo-card p-right">
+                <img src="amr-5.jpg" alt="Amr Waled - Street" loading="lazy">
+            </div>
+            <div class="photo-card p-main">
+                <img src="amr-1.jpg" alt="Amr Waled - Cafe">
+            </div>
         </div>
 
         <!-- WHITE FOG -->
