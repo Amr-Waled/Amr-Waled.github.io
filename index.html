@@ -243,6 +243,38 @@
             padding-bottom: 120px; /* Offset above text */
         }
 
+        /* Abstract glowing ring background */
+        .hero-composition::before {
+            content: '';
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(234,88,12,0.12) 0%, rgba(234,88,12,0) 70%);
+            border: 2px dashed rgba(255,255,255,0.08);
+            border-radius: 50%;
+            z-index: 0;
+            margin-bottom: 120px;
+            animation: spinBg 30s linear infinite;
+        }
+
+        /* Outer subtle geometric circle */
+        .hero-composition::after {
+            content: '';
+            position: absolute;
+            width: 440px;
+            height: 440px;
+            border: 1px solid rgba(234,88,12,0.15);
+            border-radius: 50%;
+            z-index: 0;
+            margin-bottom: 120px;
+            box-shadow: inset 0 0 40px rgba(234,88,12,0.05);
+        }
+
+        @keyframes spinBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .photo-card {
             position: absolute;
             border-radius: 18px;
@@ -975,13 +1007,13 @@
         <!-- PORTRAIT COMPOSITION -->
         <div class="hero-composition">
             <div class="photo-card p-left">
-                <img src="amr-2.png" alt="Amr Waled - Sadat" loading="lazy">
+                <img src="amr-2-opt.jpg" alt="Amr Waled - Sadat" loading="lazy">
             </div>
             <div class="photo-card p-right">
-                <img src="amr-5.jpg" alt="Amr Waled - Street" loading="lazy">
+                <img src="amr-5-opt.jpg" alt="Amr Waled - Street" loading="lazy">
             </div>
             <div class="photo-card p-main">
-                <img src="amr-1.jpg" alt="Amr Waled - Cafe">
+                <img src="amr-1-opt.jpg" alt="Amr Waled - Cafe">
             </div>
         </div>
 
