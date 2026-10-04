@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amr Waled — Marketing Manager & Custom CRM Developer</title>
-    <meta name="description" content="Amr Waled is a Marketing Manager and Custom CRM Developer in Tanta & Egypt. Combining performance Media Buying with in-house sales infrastructure to turn ad spend into predictable revenue.">
-    
-    <!-- Open Graph & Social Cards -->
+    <title>عمرو وليد — مدير تسويق ومطور CRM مخصص</title>
+    <meta name="description" content="عمرو وليد — مدير تسويق ومطور CRM مخصص في طنطا، مصر. أجمع بين إعلانات ميتا عالية الأداء وأنظمة متابعة مبيعات داخلية لتحويل ميزانية الإعلانات إلى مبيعات حقيقية.">
+    <meta name="keywords" content="عمرو وليد, تسويق طنطا, مدير تسويق, ميديا باينج, CRM مخصص, تسويق رقمي مصر, Amr Waled, Marketing Manager Tanta">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Amr Waled — Marketing Manager & Custom CRM Developer">
-    <meta property="og:description" content="Turning ad spend into revenue with precision Meta Ads and custom in-house CRMs. Featured work with Engaz Developments and Insight Clinic.">
+    <meta property="og:title" content="عمرو وليد — مدير تسويق ومطور CRM مخصص">
+    <meta property="og:description" content="تحويل ميزانية الإعلانات إلى مبيعات حقيقية. إعلانات ميتا + أنظمة CRM داخلية.">
     <meta property="og:url" content="https://amr-waled.github.io/">
     <meta property="og:image" content="https://amr-waled.github.io/avatar.jpg">
-
     <link rel="canonical" href="https://amr-waled.github.io/">
-    <link rel="alternate" href="https://amrwaled.vercel.app/">
 
-    <!-- Schema.org JSON-LD (Preserving full SEO & GEO authority) -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,355 +50,468 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* ===================================================
+           ROOT VARIABLES
+        =================================================== */
         :root {
-            --bg-page: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #090a0f;
-            --text-muted: #64748b;
-            --accent-red: #ea580c;
-            --accent-red-hover: #c2410c;
-            --border-subtle: #e2e8f0;
-            --border-grid: #edf2f7;
-            --hero-bg: radial-gradient(circle at 50% 38%, #f97316 0%, #ea580c 35%, #9a3412 70%, #1e0902 100%);
+            --accent:        #ea580c;
+            --accent-dark:   #c2410c;
+            --bg-page:       #0d0f16;
+            --bg-card:       #ffffff;
+            --text-dark:     #07090f;
+            --text-mid:      #374151;
+            --text-muted:    #6b7280;
+            --border:        #e5e7eb;
+            --hero-gradient: radial-gradient(ellipse at 52% 40%, #f97316 0%, #ea580c 30%, #9a3412 65%, #140500 100%);
+            --font-en:       'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+            --font-ar:       'Cairo', 'Plus Jakarta Sans', sans-serif;
+            --radius-card:   36px;
+            --radius-inner:  28px;
+            --shadow-page:   0 32px 90px rgba(0,0,0,0.55);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* ===================================================
+           RESET & BASE
+        =================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0c0e14;
-            color: var(--text-main);
+            background-color: var(--bg-page);
+            color: var(--text-dark);
             min-height: 100vh;
-            padding: 24px 16px;
+            padding: 28px 16px;
             display: flex;
             justify-content: center;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Outer Frame Container matching the Dribbble design showcase */
-        .page-container {
+        /* Language: Arabic (default) */
+        body[lang="ar"] { font-family: var(--font-ar); }
+        body[lang="en"] { font-family: var(--font-en); }
+
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        ul { list-style: none; }
+
+        /* ===================================================
+           PAGE WRAPPER (White rounded card on dark bg)
+        =================================================== */
+        .page-card {
             width: 100%;
-            max-width: 1140px;
-            background: #ffffff;
-            border-radius: 36px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            max-width: 1160px;
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-page);
         }
 
-        /* ==================== 1. HERO SECTION (Image 1) ==================== */
-        .hero-wrapper {
+        /* ===================================================
+           LANGUAGE TOGGLE (inside hero nav)
+        =================================================== */
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.18);
+            border: 1.5px solid rgba(255,255,255,0.35);
+            border-radius: 999px;
+            padding: 4px;
+            gap: 2px;
+            backdrop-filter: blur(6px);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 5px 13px;
+            border-radius: 999px;
+            transition: all 0.22s ease;
+            letter-spacing: 0.3px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .lang-toggle button.active {
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        /* ===================================================
+           1. HERO SECTION
+        =================================================== */
+        .hero {
             position: relative;
-            background: var(--hero-bg);
-            border-radius: 30px;
-            margin: 16px;
-            min-height: 580px;
+            background: var(--hero-gradient);
+            border-radius: var(--radius-inner);
+            margin: 14px;
+            min-height: 600px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             overflow: hidden;
-            color: #ffffff;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.25);
+            color: #fff;
         }
 
-        /* Navigation Bar */
+        /* Nav */
         .hero-nav {
+            position: relative;
+            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 28px 36px;
-            position: relative;
-            z-index: 10;
+            padding: 30px 40px;
         }
 
         .brand-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
+            gap: 9px;
+            font-size: 19px;
             font-weight: 800;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: -0.5px;
+            color: #fff;
+            letter-spacing: -0.4px;
         }
+        body[lang="en"] .brand-logo { font-family: var(--font-en); }
+        body[lang="ar"] .brand-logo { font-family: var(--font-ar); }
 
-        .brand-logo .dot-icon {
-            width: 10px;
-            height: 10px;
+        .logo-gem {
+            width: 24px;
+            height: 24px;
             background: #ffffff;
-            border-radius: 2px;
+            border-radius: 5px;
             transform: rotate(45deg);
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 28px;
-            list-style: none;
+            gap: 26px;
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
+            color: rgba(255,255,255,0.82);
             font-size: 14px;
             font-weight: 600;
-            transition: color 0.2s ease;
+            letter-spacing: 0.1px;
+            transition: color 0.18s;
         }
+        .nav-links a:hover { color: #fff; }
 
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .btn-nav-contact {
+        .btn-contact {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             background: #ffffff;
             color: #0f172a;
             padding: 10px 22px;
             border-radius: 999px;
             font-size: 13.5px;
             font-weight: 700;
-            text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
-
-        .btn-nav-contact:hover {
+        .btn-contact:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            background: #f8fafc;
+            box-shadow: 0 7px 24px rgba(0,0,0,0.28);
         }
 
-        /* Hero Center Portrait Backdrop */
-        .hero-portrait-container {
+        /* Portrait overlay */
+        .hero-portrait {
             position: absolute;
             inset: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             pointer-events: none;
             z-index: 1;
         }
-
-        .hero-portrait-img {
-            height: 92%;
+        .hero-portrait img {
+            height: 95%;
             object-fit: cover;
-            object-position: center top;
-            filter: contrast(1.15) brightness(0.95);
-            opacity: 0.92;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+            object-position: top center;
+            filter: contrast(1.12) brightness(0.96) saturate(1.05);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 92%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 92%);
         }
 
-        /* Bottom White Fog Fade (Exact to Reference Image 1) */
-        .hero-fog-overlay {
+        /* White fog at bottom */
+        .hero-fog {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 220px;
-            background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.95) 20%, rgba(255, 255, 255, 0.6) 55%, transparent 100%);
+            bottom: 0; left: 0; right: 0;
+            height: 210px;
+            background: linear-gradient(to top, #fff 0%, rgba(255,255,255,0.88) 22%, rgba(255,255,255,0.4) 60%, transparent 100%);
             z-index: 2;
             pointer-events: none;
         }
 
-        /* Hero Bottom Content Row */
-        .hero-bottom-content {
+        /* Hero bottom text row */
+        .hero-bottom {
             position: relative;
             z-index: 5;
-            padding: 0 40px 45px;
+            margin-top: auto;
+            padding: 0 44px 50px;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            gap: 30px;
+            gap: 24px;
         }
 
         .hero-headline {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 52px;
+            font-family: var(--font-en);
+            font-size: 54px;
             font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -1.5px;
+            line-height: 1.07;
+            letter-spacing: -1.8px;
             color: #ffffff;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-            max-width: 580px;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.32);
+            max-width: 560px;
+        }
+        body[lang="ar"] .hero-headline {
+            font-family: var(--font-ar);
+            font-size: 44px;
+            letter-spacing: 0;
+            line-height: 1.2;
         }
 
-        .hero-subtext {
-            font-size: 15px;
-            line-height: 1.6;
+        .hero-tagline {
+            font-size: 14.5px;
+            line-height: 1.7;
             color: #1e293b;
             font-weight: 600;
-            max-width: 320px;
+            max-width: 300px;
             text-align: left;
         }
+        body[lang="ar"] .hero-tagline { text-align: right; }
 
-        /* ==================== 2-COLUMN SECTION LAYOUT (Images 2, 3, 4, 5) ==================== */
-        .section-block {
+        /* ===================================================
+           2. SHARED 2-COLUMN SECTION LAYOUT
+        =================================================== */
+        .section-row {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            border-bottom: 1px solid var(--border-grid);
-            position: relative;
+            grid-template-columns: 190px 1fr;
+            border-bottom: 1px solid var(--border);
         }
+        .section-row:last-child { border-bottom: none; }
 
-        .section-block:last-of-type {
-            border-bottom: none;
-        }
-
-        /* Left Indicator Column */
+        /* Sidebar */
         .section-sidebar {
-            padding: 48px 24px;
-            border-right: 1px solid var(--border-grid);
+            padding: 52px 26px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+        }
+        body[lang="ar"] .section-sidebar {
+            border-right: none;
+            border-left: 1px solid var(--border);
         }
 
         .sidebar-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 800;
-            letter-spacing: 0.8px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             color: #0f172a;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+        body[lang="ar"] .sidebar-badge {
+            writing-mode: vertical-rl;
+            transform: rotate(0deg);
         }
 
         .sidebar-badge .dot {
             width: 7px;
             height: 7px;
-            background: var(--accent-red);
             border-radius: 50%;
-            display: inline-block;
+            background: var(--accent);
+            flex-shrink: 0;
         }
 
-        /* Right Content Area */
+        /* Main content */
         .section-main {
-            padding: 48px 48px 60px;
+            padding: 52px 52px 64px;
         }
 
-        .section-header-row {
+        .section-heading-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
+            gap: 16px;
         }
 
         .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
+            font-family: var(--font-en);
+            font-size: 34px;
             font-weight: 800;
-            color: #090a0f;
-            letter-spacing: -0.8px;
-            line-height: 1.2;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+        body[lang="ar"] .section-title {
+            font-family: var(--font-ar);
+            font-size: 28px;
+            letter-spacing: 0;
         }
 
         .btn-view-all {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: var(--accent-red);
-            color: #ffffff;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
             padding: 8px 18px;
             border-radius: 999px;
-            font-size: 12.5px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s ease;
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
-
         .btn-view-all:hover {
-            background: var(--accent-red-hover);
-            transform: translateX(2px);
+            background: var(--accent);
+            color: #fff;
         }
+        .btn-view-all svg { width: 14px; height: 14px; }
 
-        /* ==================== SECTION 2: WORK SHOWCASE (Image 2) ==================== */
-        .work-card {
-            background: #ffffff;
-            margin-bottom: 40px;
-        }
-
-        .work-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .work-mockup-frame {
-            width: 100%;
-            height: 380px;
-            background: #0f172a;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-subtle);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .work-mockup-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .work-card:hover .work-mockup-frame img {
-            transform: scale(1.02);
-        }
-
-        .work-info-row {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding-top: 18px;
+        /* ===================================================
+           3. WORK SHOWCASE CARDS
+        =================================================== */
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .work-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #090a0f;
-            margin-bottom: 4px;
+        .work-card {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, transform 0.25s;
         }
+        .work-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .work-mockup {
+            background: #0d1117;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .work-mockup::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 60% 40%, rgba(234,88,12,0.12) 0%, transparent 65%);
+        }
+
+        .work-mockup-inner {
+            background: #161b22;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 14px;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mockup-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.08);
+        }
+        .mockup-bar.accent { background: rgba(234,88,12,0.5); width: 55%; }
+        .mockup-bar.short { width: 38%; }
+        .mockup-bar.full { width: 90%; }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            flex: 1;
+        }
+        .mockup-cell {
+            background: rgba(255,255,255,0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .mockup-cell.accent-cell { background: rgba(234,88,12,0.12); border-color: rgba(234,88,12,0.2); }
+
+        .work-info {
+            padding: 20px 22px 22px;
+        }
+
+        .work-tag {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .work-title {
+            font-family: var(--font-en);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 7px;
+            line-height: 1.3;
+        }
+        body[lang="ar"] .work-title { font-family: var(--font-ar); font-size: 15px; }
 
         .work-desc {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--text-muted);
-            line-height: 1.5;
-            max-width: 580px;
+            line-height: 1.65;
+            margin-bottom: 16px;
         }
 
-        .btn-view-work {
+        .btn-work {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: #090a0f;
-            color: #ffffff;
-            padding: 8px 18px;
-            border-radius: 999px;
+            gap: 6px;
             font-size: 12.5px;
             font-weight: 700;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.2s ease;
+            color: var(--text-dark);
+            background: #f3f4f6;
+            padding: 7px 16px;
+            border-radius: 999px;
+            transition: all 0.2s;
+        }
+        .btn-work:hover {
+            background: var(--accent);
+            color: #fff;
         }
 
-        .btn-view-work:hover {
-            background: #334155;
-            transform: translateX(2px);
-        }
-
-        /* ==================== SECTION 3: BLOGS & NOTES (Image 3) ==================== */
+        /* ===================================================
+           4. BLOGS GRID
+        =================================================== */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -407,514 +519,864 @@
         }
 
         .blog-card {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            group: 1;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .blog-card:hover {
+            box-shadow: 0 10px 34px rgba(0,0,0,0.09);
+            transform: translateY(-2px);
         }
 
         .blog-thumb {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: #090a0f;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
+            height: 170px;
+            background: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
             position: relative;
         }
-
         .blog-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
-
-        .blog-card:hover .blog-thumb img {
-            transform: scale(1.05);
-        }
-
-        .blog-date {
-            font-size: 12px;
-            color: #94a3b8;
-            font-weight: 600;
-        }
-
-        .blog-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #090a0f;
-            line-height: 1.35;
-            transition: color 0.2s ease;
-        }
-
-        .blog-card:hover .blog-title {
-            color: var(--accent-red);
-        }
-
-        /* ==================== SECTION 4: SERVICES (Image 4) ==================== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px 30px;
-        }
-
-        .service-card {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .service-icon-box {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 18px;
+        .blog-thumb-placeholder {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 36px;
         }
 
-        .service-icon-box svg {
-            width: 100%;
-            height: 100%;
-            stroke: #090a0f;
-            stroke-width: 1.3;
-            fill: none;
+        .blog-meta {
+            padding: 16px 18px 20px;
         }
-
-        .service-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 19px;
+        .blog-date {
+            font-size: 11px;
             font-weight: 700;
-            color: #090a0f;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             margin-bottom: 6px;
         }
-
-        .service-desc {
+        .blog-title {
             font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.45;
+        }
+        body[lang="ar"] .blog-title { font-family: var(--font-ar); }
+        .blog-excerpt {
+            font-size: 12.5px;
             color: var(--text-muted);
-            line-height: 1.6;
+            margin-top: 6px;
+            line-height: 1.55;
         }
 
-        /* ==================== SECTION 5: TRACK RECORD (Image 5) ==================== */
-        .records-list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .record-row {
+        /* ===================================================
+           5. SERVICES GRID
+        =================================================== */
+        .services-grid {
             display: grid;
-            grid-template-columns: 240px 1fr 60px;
-            align-items: center;
-            gap: 24px;
-            padding: 22px 0;
-            border-bottom: 1px solid var(--border-grid);
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
-        .record-row:first-child {
-            padding-top: 0;
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px 28px;
+            transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(234,88,12,0.1);
+            transform: translateY(-2px);
         }
 
-        .record-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 18px;
         }
 
-        .record-title {
-            font-family: 'Space Grotesk', sans-serif;
+        .service-name {
+            font-family: var(--font-en);
             font-size: 17px;
             font-weight: 700;
-            color: #090a0f;
+            color: var(--text-dark);
+            margin-bottom: 9px;
         }
+        body[lang="ar"] .service-name { font-family: var(--font-ar); font-size: 15px; }
+
+        .service-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===================================================
+           6. TRACK RECORD / AWARDS
+        =================================================== */
+        .record-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .record-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .record-item:last-child { border-bottom: none; }
+
+        .record-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        body[lang="ar"] .record-title { font-family: var(--font-ar); }
 
         .record-desc {
             font-size: 13.5px;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.55;
         }
+        body[lang="ar"] .record-desc { font-family: var(--font-ar); }
 
         .record-year {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 15px;
-            font-weight: 800;
-            color: #090a0f;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
             text-align: right;
+            white-space: nowrap;
         }
 
-        /* ==================== FOOTER ==================== */
-        .page-footer {
-            padding: 40px;
-            border-top: 1px solid var(--border-grid);
+        /* ===================================================
+           7. CASE STUDIES SECTION
+        =================================================== */
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .case-card {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .case-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .case-visual {
+            background: #0d1117;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+        }
+        .case-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(234,88,12,0.18) 0%, transparent 70%);
+        }
+
+        .case-emoji {
+            font-size: 52px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-body {
+            padding: 28px 30px;
+        }
+
+        .case-tag {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 9px;
+        }
+
+        .case-title {
+            font-family: var(--font-en);
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        body[lang="ar"] .case-title { font-family: var(--font-ar); font-size: 17px; }
+
+        .case-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .case-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .case-stat-value {
+            font-family: var(--font-en);
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .case-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        body[lang="ar"] .case-stat-label { font-family: var(--font-ar); }
+
+        .btn-case {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+            background: #f3f4f6;
+            padding: 9px 18px;
+            border-radius: 999px;
+            transition: all 0.2s;
+        }
+        .btn-case:hover { background: var(--accent); color: #fff; }
+
+        /* ===================================================
+           8. FOOTER
+        =================================================== */
+        .site-footer {
+            padding: 36px 52px;
+            border-top: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 13.5px;
-            color: var(--text-muted);
-            background: #fafbfc;
+            gap: 20px;
+            flex-wrap: wrap;
         }
+
+        .footer-brand {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        body[lang="ar"] .footer-brand { font-family: var(--font-ar); }
 
         .footer-socials {
             display: flex;
-            gap: 18px;
+            gap: 12px;
+            align-items: center;
         }
 
-        .footer-socials a {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
+        .footer-social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .footer-social-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        .footer-socials a:hover {
-            color: var(--accent-red);
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-muted);
         }
+        body[lang="ar"] .footer-copy { font-family: var(--font-ar); }
 
-        /* ==================== RESPONSIVE DESIGN ==================== */
+        /* ===================================================
+           RESPONSIVE
+        =================================================== */
         @media (max-width: 900px) {
-            .section-block {
-                grid-template-columns: 1fr;
-            }
+            .hero-nav { padding: 22px 24px; }
+            .hero-bottom { padding: 0 28px 38px; flex-direction: column; align-items: flex-start; gap: 14px; }
+            .hero-headline { font-size: 36px; }
+            body[lang="ar"] .hero-headline { font-size: 30px; }
+            .nav-links { display: none; }
+
+            .section-row { grid-template-columns: 1fr; }
             .section-sidebar {
+                padding: 24px 26px 0;
                 border-right: none;
-                border-bottom: 1px solid var(--border-grid);
-                padding: 24px 32px 16px;
+                border-bottom: 1px solid var(--border);
             }
-            .section-main {
-                padding: 32px;
-            }
-            .hero-headline {
-                font-size: 38px;
-            }
-            .hero-bottom-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .record-row {
-                grid-template-columns: 1fr auto;
-                gap: 8px;
-            }
-            .record-desc {
-                grid-column: 1 / -1;
-            }
-            .nav-links {
-                display: none;
-            }
+            body[lang="ar"] .section-sidebar { border-left: none; border-bottom: 1px solid var(--border); }
+            .sidebar-badge { writing-mode: horizontal-tb; transform: none; }
+            body[lang="ar"] .sidebar-badge { transform: none; }
+            .section-main { padding: 28px 26px 40px; }
+
+            .work-grid, .services-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .case-card { grid-template-columns: 1fr; }
+            .case-visual { height: 160px; }
+            .record-item { grid-template-columns: 1fr auto; }
+            .record-desc { display: none; }
+
+            .site-footer { padding: 24px 26px; flex-direction: column; align-items: flex-start; gap: 14px; }
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 12px 8px; }
+            .page-card { border-radius: 22px; }
+            .hero { margin: 8px; border-radius: 18px; min-height: 520px; }
+            .hero-portrait img { height: 80%; }
         }
     </style>
 </head>
-<body>
 
-    <div class="page-container">
+<body lang="ar">
 
-        <!-- ==================== 1. HERO SECTION (Image 1) ==================== -->
-        <header class="hero-wrapper">
-            <!-- Navigation -->
-            <nav class="hero-nav">
-                <a href="index.html" class="brand-logo">
-                    <span class="dot-icon"></span>
-                    Amr Waled.
+<div class="page-card">
+
+    <!-- ===================================================
+         1. HERO
+    =================================================== -->
+    <section class="hero" id="home">
+
+        <!-- NAV -->
+        <nav class="hero-nav">
+            <a href="#home" class="brand-logo">
+                <span class="logo-gem"></span>
+                <span data-ar="عمرو وليد" data-en="Amr Waled">عمرو وليد</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#work" data-ar="أعمالي" data-en="Work">أعمالي</a></li>
+                <li><a href="#case-studies" data-ar="دراسات حالة" data-en="Case Studies">دراسات حالة</a></li>
+                <li><a href="#services" data-ar="خدماتي" data-en="Services">خدماتي</a></li>
+                <li><a href="#track-record" data-ar="نتائج" data-en="Results">نتائج</a></li>
+                <li><a href="#blog" data-ar="مقالات" data-en="Blog">مقالات</a></li>
+            </ul>
+
+            <div style="display:flex;align-items:center;gap:14px;">
+                <!-- Language Toggle -->
+                <div class="lang-toggle" onclick="toggleLang()">
+                    <button id="btn-ar" class="active">AR</button>
+                    <button id="btn-en">EN</button>
+                </div>
+
+                <a href="https://wa.me/201091642566" target="_blank" class="btn-contact" data-ar="تواصل معي" data-en="Contact Me">
+                    تواصل معي
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="14" height="14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h12M10 4l6 6-6 6"/></svg>
                 </a>
+            </div>
+        </nav>
 
-                <ul class="nav-links">
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#case-studies">Articles</a></li>
-                    <li><a href="#track-record">Track Record</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
+        <!-- PORTRAIT -->
+        <div class="hero-portrait">
+            <img src="avatar.jpg" alt="عمرو وليد" onerror="this.style.display='none'">
+        </div>
 
-                <a href="https://wa.me/201091642566" target="_blank" rel="noopener noreferrer" class="btn-nav-contact">
-                    <i class="fa-solid fa-arrow-right text-xs"></i> Contact Me
+        <!-- WHITE FOG -->
+        <div class="hero-fog"></div>
+
+        <!-- BOTTOM TEXT -->
+        <div class="hero-bottom">
+            <h1 class="hero-headline" data-ar="تحويل ميزانية الإعلانات<br>إلى مبيعات حقيقية." data-en="Turning Ad Spend<br>Into Real Revenue.">
+                تحويل ميزانية الإعلانات<br>إلى مبيعات حقيقية.
+            </h1>
+            <p class="hero-tagline" data-ar="مدير تسويق ومطور CRM مخصص في طنطا. أجمع بين إعلانات ميتا عالية الأداء وأنظمة متابعة مبيعات داخلية لمنع تسريب الليدات." data-en="Marketing Manager & Custom CRM Developer in Tanta, Egypt. I combine high-performance Meta Ads with in-house lead tracking systems to stop lead leakage.">
+                مدير تسويق ومطور CRM مخصص في طنطا. أجمع بين إعلانات ميتا عالية الأداء وأنظمة متابعة مبيعات داخلية لمنع تسريب الليدات.
+            </p>
+        </div>
+
+    </section>
+    <!-- END HERO -->
+
+
+    <!-- ===================================================
+         2. WORK SHOWCASE
+    =================================================== -->
+    <div class="section-row" id="work">
+        <div class="section-sidebar">
+            <span class="sidebar-badge">
+                <span class="dot"></span>
+                <span data-ar="أبرز الأعمال" data-en="WORK SHOWCASE">أبرز الأعمال</span>
+            </span>
+        </div>
+        <div class="section-main">
+            <div class="section-heading-row">
+                <h2 class="section-title" data-ar="مشاريع اشتغلت عليها." data-en="Projects I Built.">مشاريع اشتغلت عليها.</h2>
+                <a href="#case-studies" class="btn-view-all" data-ar="كل الأعمال" data-en="All Work">
+                    <span data-ar="كل الأعمال" data-en="All Work">كل الأعمال</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h12M10 4l6 6-6 6"/></svg>
                 </a>
-            </nav>
-
-            <!-- Center Portrait Integration -->
-            <div class="hero-portrait-container">
-                <img src="avatar.jpg" alt="Amr Waled" class="hero-portrait-img">
             </div>
 
-            <!-- Soft Bottom Fog Fade (Exact to Reference) -->
-            <div class="hero-fog-overlay"></div>
+            <div class="work-grid">
 
-            <!-- Bottom Content Bar -->
-            <div class="hero-bottom-content">
-                <h1 class="hero-headline">
-                    Turning Ad Spend<br>Into Revenue.
-                </h1>
-                <p class="hero-subtext">
-                    Marketing Manager & Custom CRM Developer. Bridging performance Meta Ads with in-house sales infrastructure to eliminate lead bleeding.
-                </p>
-            </div>
-        </header>
-
-        <!-- ==================== 2. WORK SHOWCASE (Image 2) ==================== -->
-        <section id="work" class="section-block">
-            <div class="section-sidebar">
-                <div class="sidebar-badge">
-                    <span class="dot"></span>
-                    Work Showcase
-                </div>
-            </div>
-
-            <div class="section-main">
-                <div class="section-header-row">
-                    <h2 class="section-title">A Selection of My<br>Best Work.</h2>
-                    <a href="engaz-case-study.html" class="btn-view-all">
-                        <i class="fa-solid fa-arrow-right text-xs"></i> View All
-                    </a>
-                </div>
-
-                <!-- Project 1: Engaz Developments CRM -->
-                <article class="work-card">
-                    <div class="work-mockup-frame">
-                        <img src="Screenshot 2026-10-03 230621.png" alt="Engaz Developments Custom CRM" onerror="this.src='amr-waled-linkedin-cover.png';">
-                    </div>
-                    <div class="work-info-row">
-                        <div>
-                            <h3 class="work-title">Engaz Developments — In-House CRM Architecture.</h3>
-                            <p class="work-desc">
-                                Replaced chaotic WhatsApp groups and static spreadsheets with a custom CRM. Built in under 1 month, saving $400/mo SaaS fees, linking Meta Ads to live sales, and achieving +2.5M EGP sales per 1,000 EGP ad spend.
-                            </p>
+                <!-- Card 1: Engaz CRM -->
+                <div class="work-card">
+                    <div class="work-mockup">
+                        <div class="work-mockup-inner">
+                            <div class="mockup-bar accent"></div>
+                            <div class="mockup-bar short" style="margin-bottom:6px;"></div>
+                            <div class="mockup-grid">
+                                <div class="mockup-cell accent-cell"></div>
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell accent-cell"></div>
+                            </div>
+                            <div class="mockup-bar full" style="margin-top:6px;"></div>
                         </div>
-                        <a href="engaz-case-study.html" class="btn-view-work">
-                            <i class="fa-solid fa-arrow-right text-xs"></i> View Work
-                        </a>
                     </div>
-                </article>
+                    <div class="work-info">
+                        <span class="work-tag" data-ar="CRM مخصص" data-en="Custom CRM">CRM مخصص</span>
+                        <h3 class="work-title" data-ar="نظام CRM لإنجاز للتطوير العقاري" data-en="Engaz Developments CRM System">نظام CRM لإنجاز للتطوير العقاري</h3>
+                        <p class="work-desc" data-ar="نظام متابعة ليدات مخصص من الصفر — استبدل اشتراكاً شهرياً بقيمة 400 دولار وأُنجز في أقل من شهر." data-en="Custom lead-tracking system built from scratch — replaced a $400/month SaaS subscription, shipped in under 1 month.">نظام متابعة ليدات مخصص من الصفر — استبدل اشتراكاً شهرياً بقيمة 400 دولار وأُنجز في أقل من شهر.</p>
+                        <a href="engaz-case-study.html" class="btn-work" data-ar="اقرأ الدراسة" data-en="Read Case Study">اقرأ الدراسة →</a>
+                    </div>
+                </div>
 
-                <!-- Project 2: Insight Clinic Cloud App -->
-                <article class="work-card" style="margin-top: 36px;">
-                    <div class="work-mockup-frame">
-                        <img src="Screenshot 2026-10-03 230919.png" alt="Insight Clinic EMR App" onerror="this.src='amr-waled-linkedin-cover.png';">
-                    </div>
-                    <div class="work-info-row">
-                        <div>
-                            <h3 class="work-title">Insight Clinic — Medical EMR & Acquisition Engine.</h3>
-                            <p class="work-desc">
-                                Custom cloud clinic operations app in Tanta with full patient record encryption, combined with Meta Ads and 5.0 Google Search optimization.
-                            </p>
+                <!-- Card 2: Insight Clinic -->
+                <div class="work-card">
+                    <div class="work-mockup">
+                        <div class="work-mockup-inner">
+                            <div class="mockup-bar accent" style="width:70%;"></div>
+                            <div class="mockup-bar short" style="margin-bottom:6px;"></div>
+                            <div class="mockup-grid" style="grid-template-columns:1fr 1fr 1fr;">
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell accent-cell"></div>
+                                <div class="mockup-cell"></div>
+                            </div>
+                            <div class="mockup-bar full" style="margin-top:6px;"></div>
+                            <div class="mockup-bar" style="width:60%;margin-top:4px;"></div>
                         </div>
-                        <a href="https://insight-clinic-app.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view-work">
-                            <i class="fa-solid fa-arrow-right text-xs"></i> View App
-                        </a>
                     </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- ==================== 3. BLOGS & CASE STUDIES (Image 3) ==================== -->
-        <section id="case-studies" class="section-block">
-            <div class="section-sidebar">
-                <div class="sidebar-badge">
-                    <span class="dot"></span>
-                    Blogs
-                </div>
-            </div>
-
-            <div class="section-main">
-                <div class="section-header-row">
-                    <h2 class="section-title">From My Desk: Blogs<br>& Creative Notes.</h2>
-                    <a href="engaz-case-study.html" class="btn-view-all">
-                        <i class="fa-solid fa-arrow-right text-xs"></i> View All
-                    </a>
+                    <div class="work-info">
+                        <span class="work-tag" data-ar="نظام سحابي طبي" data-en="Medical Cloud System">نظام سحابي طبي</span>
+                        <h3 class="work-title" data-ar="تطبيق عيادة إنسايت — د. جيهان عبد الحميد" data-en="Insight Clinic App — Dr. Gihan Abdelhamid">تطبيق عيادة إنسايت — د. جيهان عبد الحميد</h3>
+                        <p class="work-desc" data-ar="نظام سحابي لإدارة العيادة مع استراتيجية اكتساب عملاء رقمية. بُني ونُشر بالكامل على الويب." data-en="Cloud-based clinic management system with a full digital patient acquisition strategy. Built and deployed entirely on the web.">نظام سحابي لإدارة العيادة مع استراتيجية اكتساب عملاء رقمية. بُني ونُشر بالكامل على الويب.</p>
+                        <a href="https://insight-clinic-app.vercel.app" target="_blank" class="btn-work" data-ar="شوف المشروع" data-en="View Project">شوف المشروع →</a>
+                    </div>
                 </div>
 
-                <div class="blog-grid">
-                    <!-- Note 1 -->
-                    <a href="engaz-case-study.html" class="blog-card">
-                        <div class="blog-thumb">
-                            <img src="ليه الشركة بتخسر العملا بتوعها ؟؟.png" alt="Real Estate CRM Loss" onerror="this.src='amr-waled-linkedin-cover.png';">
+                <!-- Card 3: Delta City Mall -->
+                <div class="work-card">
+                    <div class="work-mockup">
+                        <div class="work-mockup-inner">
+                            <div style="display:flex;gap:6px;margin-bottom:8px;">
+                                <div class="mockup-bar accent" style="width:30%;height:10px;border-radius:3px;"></div>
+                                <div class="mockup-bar" style="width:20%;height:10px;border-radius:3px;"></div>
+                            </div>
+                            <div class="mockup-grid">
+                                <div class="mockup-cell" style="grid-column:1/3;height:70px;background:rgba(234,88,12,0.08);border-color:rgba(234,88,12,0.15);"></div>
+                            </div>
+                            <div style="display:flex;gap:6px;margin-top:6px;">
+                                <div class="mockup-bar" style="width:45%;height:8px;border-radius:3px;"></div>
+                                <div class="mockup-bar accent" style="width:25%;height:8px;border-radius:3px;"></div>
+                            </div>
                         </div>
-                        <span class="blog-date">Oct 4, 2026</span>
-                        <h4 class="blog-title">Why Real Estate Firms in Tanta Bleed Leads on WhatsApp.</h4>
-                    </a>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-tag" data-ar="إعلانات ميتا" data-en="Meta Ads">إعلانات ميتا</span>
+                        <h3 class="work-title" data-ar="حملات Delta City Mall — طنطا" data-en="Delta City Mall Campaigns — Tanta">حملات Delta City Mall — طنطا</h3>
+                        <p class="work-desc" data-ar="إعلانات ميتا بـ CPL 11.7 جنيه على واتساب. مليون+ مشاهدة على قنوات إنجاز." data-en="Meta Ads achieving 11.7 EGP CPL on WhatsApp. 1M+ views across Engaz channels.">إعلانات ميتا بـ CPL 11.7 جنيه على واتساب. مليون+ مشاهدة على قنوات إنجاز.</p>
+                        <a href="engaz-case-study.html" class="btn-work" data-ar="اقرأ الدراسة" data-en="Read Case Study">اقرأ الدراسة →</a>
+                    </div>
+                </div>
 
-                    <!-- Note 2 -->
-                    <a href="engaz-case-study.html" class="blog-card">
-                        <div class="blog-thumb">
-                            <img src="ليه الشركة بتخسر العملا بتوعها ؟؟ (1).png" alt="The 5-Minute CRM Test" onerror="this.src='amr-waled-linkedin-cover.png';">
+                <!-- Card 4: Maqam / Sally Selim -->
+                <div class="work-card">
+                    <div class="work-mockup">
+                        <div class="work-mockup-inner">
+                            <div class="mockup-bar accent" style="width:50%;"></div>
+                            <div class="mockup-grid" style="grid-template-rows:1fr 1fr;height:100%;">
+                                <div class="mockup-cell" style="grid-column:1/3;"></div>
+                                <div class="mockup-cell accent-cell"></div>
+                                <div class="mockup-cell"></div>
+                            </div>
                         </div>
-                        <span class="blog-date">Sep 28, 2026</span>
-                        <h4 class="blog-title">The 5-Minute CRM Test: Segmenting High-Ticket Buyers.</h4>
-                    </a>
-
-                    <!-- Note 3 -->
-                    <a href="engaz-case-study.html" class="blog-card">
-                        <div class="blog-thumb">
-                            <img src="ليه الشركة بتخسر العملا بتوعها ؟؟ (2).png" alt="Custom CRM vs SaaS" onerror="this.src='amr-waled-linkedin-cover.png';">
-                        </div>
-                        <span class="blog-date">Sep 15, 2026</span>
-                        <h4 class="blog-title">Replacing a $400/mo SaaS with Code in Under a Month.</h4>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 4. SERVICES / SOLUTIONS (Image 4) ==================== -->
-        <section id="services" class="section-block">
-            <div class="section-sidebar">
-                <div class="sidebar-badge">
-                    <span class="dot"></span>
-                    Services
-                </div>
-            </div>
-
-            <div class="section-main">
-                <div class="section-header-row">
-                    <h2 class="section-title">Creative Solutions<br>That Work.</h2>
-                </div>
-
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="service-card">
-                        <div class="service-icon-box">
-                            <!-- Geometric Hexagon SVG -->
-                            <svg viewBox="0 0 100 100">
-                                <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" />
-                                <polygon points="50,20 78,35 78,65 50,80 22,65 22,35" />
-                                <polygon points="50,35 65,43 65,57 50,65 35,57 35,43" />
-                            </svg>
-                        </div>
-                        <h3 class="service-title">T-Shaped Media Buying.</h3>
-                        <p class="service-desc">
-                            High-converting Meta Ads audience architecture, creative strategy, and direct lead generation tailored for Real Estate & Clinics.
-                        </p>
                     </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-card">
-                        <div class="service-icon-box">
-                            <!-- Concentric Arc Geometry SVG -->
-                            <svg viewBox="0 0 100 100">
-                                <path d="M 10 90 A 80 80 0 0 1 90 10" />
-                                <path d="M 25 90 A 65 65 0 0 1 90 25" />
-                                <path d="M 40 90 A 50 50 0 0 1 90 40" />
-                                <path d="M 55 90 A 35 35 0 0 1 90 55" />
-                                <path d="M 70 90 A 20 20 0 0 1 90 70" />
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Custom CRM Development.</h3>
-                        <p class="service-desc">
-                            Tailor-made sales tracking platforms replacing expensive $400/mo SaaS with zero lead bleeding and instant team adoption.
-                        </p>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-card">
-                        <div class="service-icon-box">
-                            <!-- Torus Wave Geometry SVG -->
-                            <svg viewBox="0 0 100 100">
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(0 50 50)" />
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(30 50 50)" />
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(60 50 50)" />
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(90 50 50)" />
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(120 50 50)" />
-                                <ellipse cx="50" cy="50" rx="45" ry="20" transform="rotate(150 50 50)" />
-                            </svg>
-                        </div>
-                        <h3 class="service-title">High-Converting Web Portals.</h3>
-                        <p class="service-desc">
-                            Fast, responsive web applications engineered for speed, technical SEO, and Generative Engine Optimization (GEO).
-                        </p>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-card">
-                        <div class="service-icon-box">
-                            <!-- Fluid Flower Wave Geometry SVG -->
-                            <svg viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="42" />
-                                <circle cx="50" cy="50" r="30" />
-                                <circle cx="50" cy="50" r="18" />
-                                <line x1="50" y1="8" x2="50" y2="92" />
-                                <line x1="8" y1="50" x2="92" y2="50" />
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Sales Attribution & Analytics.</h3>
-                        <p class="service-desc">
-                            Real-time executive dashboards connecting every ad spend directly to closed revenue, giving management instant team visibility.
-                        </p>
+                    <div class="work-info">
+                        <span class="work-tag" data-ar="ميديا باينج" data-en="Media Buying">ميديا باينج</span>
+                        <h3 class="work-title" data-ar="ميديا باينج — مقام + سالي سليم" data-en="Media Buying — Maqam + Sally Selim">ميديا باينج — مقام + سالي سليم</h3>
+                        <p class="work-desc" data-ar="إدارة حسابات إعلانية متعددة بشكل متوازٍ عن بُعد. T-Shaped Media Buyer: Meta + Google + Analytics." data-en="Managing multiple ad accounts simultaneously in remote setups. T-Shaped Media Buyer: Meta + Google + Analytics.">إدارة حسابات إعلانية متعددة بشكل متوازٍ عن بُعد. T-Shaped Media Buyer: Meta + Google + Analytics.</p>
+                        <a href="#case-studies" class="btn-work" data-ar="المزيد" data-en="More Details">المزيد →</a>
                     </div>
                 </div>
+
             </div>
-        </section>
-
-        <!-- ==================== 5. TRACK RECORD & AWARDS (Image 5) ==================== -->
-        <section id="track-record" class="section-block">
-            <div class="section-sidebar">
-                <div class="sidebar-badge">
-                    <span class="dot"></span>
-                    Awards
-                </div>
-            </div>
-
-            <div class="section-main">
-                <div class="section-header-row">
-                    <h2 class="section-title">Awards & Industry<br>Recognition.</h2>
-                </div>
-
-                <div class="records-list">
-                    <div class="record-row">
-                        <h4 class="record-title">+2.5M EGP per 1k Ad Spend</h4>
-                        <p class="record-desc">Generated direct closed deals in Basyoun projects through precision WhatsApp campaigns.</p>
-                        <span class="record-year">2026</span>
-                    </div>
-
-                    <div class="record-row">
-                        <h4 class="record-title">+1,000,000+ Digital Views</h4>
-                        <p class="record-desc">Scaled digital presence and video reach across Engaz Developments channels.</p>
-                        <span class="record-year">2026</span>
-                    </div>
-
-                    <div class="record-row">
-                        <h4 class="record-title">5.0 ★ Google & GEO Rating</h4>
-                        <p class="record-desc">Ranked #1 on Google Search & AI engine recommendations for Engaz in Tanta.</p>
-                        <span class="record-year">2026</span>
-                    </div>
-
-                    <div class="record-row">
-                        <h4 class="record-title">Custom CRM Architecture</h4>
-                        <p class="record-desc">Built & deployed in under 30 days, serving daily sales operations and saving $400/mo.</p>
-                        <span class="record-year">2026</span>
-                    </div>
-
-                    <div class="record-row">
-                        <h4 class="record-title">President @ Enactus Tanta</h4>
-                        <p class="record-desc">Led university chapter and founded Xplore Camp, training +80 students on business.</p>
-                        <span class="record-year">2025</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== FOOTER ==================== -->
-        <footer class="page-footer">
-            <div>
-                © 2026 Amr Waled. All Rights Reserved. Tanta, Egypt.
-            </div>
-
-            <div class="footer-socials">
-                <a href="https://www.linkedin.com/in/amrwaledd/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://wa.me/201091642566" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="https://github.com/Amr-Waled" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="engaz-case-study.html">Case Study</a>
-            </div>
-        </footer>
-
+        </div>
     </div>
+
+
+    <!-- ===================================================
+         3. CASE STUDIES
+    =================================================== -->
+    <div class="section-row" id="case-studies">
+        <div class="section-sidebar">
+            <span class="sidebar-badge">
+                <span class="dot"></span>
+                <span data-ar="دراسات حالة" data-en="CASE STUDIES">دراسات حالة</span>
+            </span>
+        </div>
+        <div class="section-main">
+            <div class="section-heading-row">
+                <h2 class="section-title" data-ar="نتائج حقيقية، أرقام موثقة." data-en="Real Results, Documented Numbers.">نتائج حقيقية، أرقام موثقة.</h2>
+            </div>
+
+            <div class="case-grid">
+
+                <!-- Case 1 -->
+                <div class="case-card">
+                    <div class="case-visual">
+                        <span class="case-emoji">🏗️</span>
+                    </div>
+                    <div class="case-body">
+                        <span class="case-tag" data-ar="عقارات | CRM | إعلانات" data-en="Real Estate | CRM | Ads">عقارات | CRM | إعلانات</span>
+                        <h3 class="case-title" data-ar="إنجاز للتطوير العقاري — من فوضى الواتساب إلى نظام مبيعات حقيقي" data-en="Engaz Developments — From WhatsApp Chaos to Real Sales System">إنجاز للتطوير العقاري — من فوضى الواتساب إلى نظام مبيعات حقيقي</h3>
+                        <p class="case-desc" data-ar="كنا بنستلم ليدات على واتساب ومفيش نظام بيتابعها. الليد ييجي وييضيع. بنيت CRM مخصص من الصفر بدل ما ندفع اشتراك شهري." data-en="Leads were coming via WhatsApp with no tracking system. A lead would come in and disappear. I built a custom CRM from scratch instead of paying for a monthly SaaS subscription.">كنا بنستلم ليدات على واتساب ومفيش نظام بيتابعها. الليد ييجي وييضيع. بنيت CRM مخصص من الصفر بدل ما ندفع اشتراك شهري.</p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">+2.5M</span>
+                                <span class="case-stat-label" data-ar="جنيه مبيعات / 1000 جنيه إنفاق" data-en="EGP Sales per 1k EGP Spend">جنيه مبيعات / 1000 جنيه إنفاق</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">11.7</span>
+                                <span class="case-stat-label" data-ar="جنيه تكلفة الليد" data-en="EGP Cost Per Lead">جنيه تكلفة الليد</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">1M+</span>
+                                <span class="case-stat-label" data-ar="مشاهدة" data-en="Views">مشاهدة</span>
+                            </div>
+                        </div>
+                        <a href="engaz-case-study.html" class="btn-case" data-ar="اقرأ الدراسة كاملة" data-en="Read Full Case Study">اقرأ الدراسة كاملة →</a>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card">
+                    <div class="case-visual">
+                        <span class="case-emoji">🏥</span>
+                    </div>
+                    <div class="case-body">
+                        <span class="case-tag" data-ar="طب | تقنية | اكتساب عملاء" data-en="Medical | Tech | Acquisition">طب | تقنية | اكتساب عملاء</span>
+                        <h3 class="case-title" data-ar="عيادة إنسايت — نظام سحابي + استراتيجية تسويق طبي" data-en="Insight Clinic — Cloud System + Medical Marketing Strategy">عيادة إنسايت — نظام سحابي + استراتيجية تسويق طبي</h3>
+                        <p class="case-desc" data-ar="بنيت نظام سحابي كامل للعيادة وصممت معه استراتيجية اكتساب عملاء رقمية تناسب طبيعة الجمهور الطبي في طنطا." data-en="I built a complete cloud system for the clinic and designed alongside it a digital patient acquisition strategy tailored to Tanta's medical audience.">بنيت نظام سحابي كامل للعيادة وصممت معه استراتيجية اكتساب عملاء رقمية تناسب طبيعة الجمهور الطبي في طنطا.</p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">5.0★</span>
+                                <span class="case-stat-label" data-ar="Google Business" data-en="Google Business">Google Business</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">100%</span>
+                                <span class="case-stat-label" data-ar="Cloud-based" data-en="Cloud-based">Cloud-based</span>
+                            </div>
+                        </div>
+                        <a href="https://insight-clinic-app.vercel.app" target="_blank" class="btn-case" data-ar="شوف التطبيق" data-en="View App">شوف التطبيق →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         4. SERVICES
+    =================================================== -->
+    <div class="section-row" id="services">
+        <div class="section-sidebar">
+            <span class="sidebar-badge">
+                <span class="dot"></span>
+                <span data-ar="خدماتي" data-en="SERVICES">خدماتي</span>
+            </span>
+        </div>
+        <div class="section-main">
+            <div class="section-heading-row">
+                <h2 class="section-title" data-ar="حلول تسويقية وتقنية تشتغل فعلاً." data-en="Marketing & Tech Solutions That Actually Work.">حلول تسويقية وتقنية تشتغل فعلاً.</h2>
+            </div>
+            <div class="services-grid">
+
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="40" height="40" rx="8" stroke="#ea580c" stroke-width="2"/>
+                        <path d="M14 26h8M22 18v16M30 22v12M38 14v20" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3 class="service-name" data-ar="إعلانات ميتا عالية الأداء" data-en="High-Performance Meta Ads">إعلانات ميتا عالية الأداء</h3>
+                    <p class="service-desc" data-ar="حملات مدفوعة على Meta بتركيز كامل على تكلفة الليد وجودته. مش مجرد إعلان — ده نظام بيحول الإنفاق لمبيعات." data-en="Paid Meta campaigns with full focus on lead cost and quality. Not just ads — a system that converts spend into sales.">حملات مدفوعة على Meta بتركيز كامل على تكلفة الليد وجودته. مش مجرد إعلان — ده نظام بيحول الإنفاق لمبيعات.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="12" width="40" height="28" rx="6" stroke="#ea580c" stroke-width="2"/>
+                        <circle cx="16" cy="26" r="3" stroke="#ea580c" stroke-width="2"/>
+                        <circle cx="26" cy="26" r="3" stroke="#ea580c" stroke-width="2"/>
+                        <circle cx="36" cy="26" r="3" stroke="#ea580c" stroke-width="2"/>
+                        <path d="M16 29v5M26 29v5M36 29v5" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3 class="service-name" data-ar="تطوير CRM مخصص" data-en="Custom CRM Development">تطوير CRM مخصص</h3>
+                    <p class="service-desc" data-ar="بناء نظام متابعة ليدات مصمم خصيصاً لبيزنسك — بدون اشتراكات شهرية وبدون تعقيد. شغال فعلاً في الميدان." data-en="Building a lead tracking system designed specifically for your business — no monthly subscriptions, no complexity. Tested in the field.">بناء نظام متابعة ليدات مصمم خصيصاً لبيزنسك — بدون اشتراكات شهرية وبدون تعقيد. شغال فعلاً في الميدان.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 36L20 24l8 8 8-10 6 6" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="6" y="6" width="40" height="40" rx="8" stroke="#ea580c" stroke-width="2"/>
+                        <circle cx="42" cy="10" r="4" fill="#ea580c"/>
+                    </svg>
+                    <h3 class="service-name" data-ar="تدقيق نظام مبيعاتك" data-en="Sales System Audit">تدقيق نظام مبيعاتك</h3>
+                    <p class="service-desc" data-ar="تحليل شامل لرحلة الليد من الإعلان لحد ما يشتري. بحدد فين بتخسر عملاء وإيه الحل." data-en="A complete analysis of the lead journey from ad to purchase. I identify exactly where you're losing customers and what the fix is.">تحليل شامل لرحلة الليد من الإعلان لحد ما يشتري. بحدد فين بتخسر عملاء وإيه الحل.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="36" height="36" rx="8" stroke="#ea580c" stroke-width="2"/>
+                        <path d="M18 26h16M26 18v16" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <h3 class="service-name" data-ar="بناء المواقع والأنظمة" data-en="Websites & Systems Development">بناء المواقع والأنظمة</h3>
+                    <p class="service-desc" data-ar="مواقع ويب احترافية وأنظمة سحابية تناسب بيزنسك — بدون مصطلحات تقنية معقدة، وبتتسلم شغالة." data-en="Professional websites and cloud systems that fit your business — no complex tech jargon, delivered ready to use.">مواقع ويب احترافية وأنظمة سحابية تناسب بيزنسك — بدون مصطلحات تقنية معقدة، وبتتسلم شغالة.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         5. TRACK RECORD
+    =================================================== -->
+    <div class="section-row" id="track-record">
+        <div class="section-sidebar">
+            <span class="sidebar-badge">
+                <span class="dot"></span>
+                <span data-ar="نتائج موثقة" data-en="TRACK RECORD">نتائج موثقة</span>
+            </span>
+        </div>
+        <div class="section-main">
+            <div class="section-heading-row">
+                <h2 class="section-title" data-ar="أرقام حقيقية من الميدان." data-en="Real Numbers From The Field.">أرقام حقيقية من الميدان.</h2>
+            </div>
+
+            <div class="record-list">
+                <div class="record-item">
+                    <span class="record-title" data-ar="مبيعات إنجاز — البسيون" data-en="Engaz Sales — Basyoun">مبيعات إنجاز — البسيون</span>
+                    <span class="record-desc" data-ar="+2.5 مليون جنيه مبيعات لكل 1000 جنيه إنفاق إعلاني. حملة عقارية في الغربية." data-en="+2.5M EGP sales per 1,000 EGP ad spend. Real estate campaign in Gharbia Governorate.">+2.5 مليون جنيه مبيعات لكل 1000 جنيه إنفاق إعلاني. حملة عقارية في الغربية.</span>
+                    <span class="record-year">2026</span>
+                </div>
+                <div class="record-item">
+                    <span class="record-title" data-ar="تكلفة الليد على واتساب" data-en="WhatsApp Lead Cost">تكلفة الليد على واتساب</span>
+                    <span class="record-desc" data-ar="11.7 جنيه CPL على حملة واتساب لمشروع عقاري في طنطا." data-en="11.7 EGP CPL on a WhatsApp campaign for a real estate project in Tanta.">11.7 جنيه CPL على حملة واتساب لمشروع عقاري في طنطا.</span>
+                    <span class="record-year">2026</span>
+                </div>
+                <div class="record-item">
+                    <span class="record-title" data-ar="CRM مخصص في أقل من شهر" data-en="Custom CRM in Under 1 Month">CRM مخصص في أقل من شهر</span>
+                    <span class="record-desc" data-ar="بناء نظام CRM كامل بديل عن SaaS بقيمة 400 دولار شهرياً — أُنجز في أقل من 30 يوم." data-en="Built a full CRM replacing a $400/month SaaS — delivered in under 30 days.">بناء نظام CRM كامل بديل عن SaaS بقيمة 400 دولار شهرياً — أُنجز في أقل من 30 يوم.</span>
+                    <span class="record-year">2025</span>
+                </div>
+                <div class="record-item">
+                    <span class="record-title" data-ar="مليون+ مشاهدة" data-en="1M+ Views">مليون+ مشاهدة</span>
+                    <span class="record-desc" data-ar="مليون مشاهدة عضوية ومدفوعة عبر قنوات إنجاز." data-en="1 million organic and paid views across Engaz channels.">مليون مشاهدة عضوية ومدفوعة عبر قنوات إنجاز.</span>
+                    <span class="record-year">2025–2026</span>
+                </div>
+                <div class="record-item">
+                    <span class="record-title" data-ar="Google Business — 5.0 نجوم" data-en="Google Business — 5.0 Stars">Google Business — 5.0 نجوم</span>
+                    <span class="record-desc" data-ar="تحقيق تقييم مثالي 5.0 لعيادة إنسايت في طنطا عبر استراتيجية سمعة رقمية." data-en="Achieved a perfect 5.0 rating for Insight Clinic in Tanta through a digital reputation strategy.">تحقيق تقييم مثالي 5.0 لعيادة إنسايت في طنطا عبر استراتيجية سمعة رقمية.</span>
+                    <span class="record-year">2025</span>
+                </div>
+                <div class="record-item">
+                    <span class="record-title" data-ar="Xplore Camp — إيناكتوس طنطا" data-en="Xplore Camp — Enactus Tanta">Xplore Camp — إيناكتوس طنطا</span>
+                    <span class="record-desc" data-ar="تأسيس برنامج تدريبي أكثر من 80 طالب. رئيس إيناكتوس جامعة طنطا 2025–2026." data-en="Founded a training program with 80+ students. President of Enactus Tanta University 2025–2026.">تأسيس برنامج تدريبي أكثر من 80 طالب. رئيس إيناكتوس جامعة طنطا 2025–2026.</span>
+                    <span class="record-year">2025–2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         6. BLOG / ARTICLES
+    =================================================== -->
+    <div class="section-row" id="blog">
+        <div class="section-sidebar">
+            <span class="sidebar-badge">
+                <span class="dot"></span>
+                <span data-ar="مقالات" data-en="BLOG">مقالات</span>
+            </span>
+        </div>
+        <div class="section-main">
+            <div class="section-heading-row">
+                <h2 class="section-title" data-ar="من مكتبي: أفكار وتحليلات." data-en="From My Desk: Thoughts & Analysis.">من مكتبي: أفكار وتحليلات.</h2>
+                <a href="https://www.linkedin.com/in/amrwaledd/" target="_blank" class="btn-view-all" data-ar="LinkedIn" data-en="LinkedIn">
+                    LinkedIn
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="14" height="14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h12M10 4l6 6-6 6"/></svg>
+                </a>
+            </div>
+
+            <div class="blog-grid">
+
+                <a href="https://www.linkedin.com/in/amrwaledd/" target="_blank" class="blog-card">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#0d1117,#1e293b);">
+                        <div class="blog-thumb-placeholder" style="flex-direction:column;gap:8px;color:#ea580c;">
+                            <span>📱</span>
+                            <span style="font-size:10px;color:#6b7280;font-weight:600;">LINKEDIN ARTICLE</span>
+                        </div>
+                    </div>
+                    <div class="blog-meta">
+                        <p class="blog-date">أكتوبر 2026</p>
+                        <h3 class="blog-title" data-ar="ليه شركات العقارات في طنطا بتصرف على الإعلانات وبتخسر ليداتها على الواتساب" data-en="Why Real Estate Companies in Tanta Spend on Ads but Lose Their Leads on WhatsApp">ليه شركات العقارات في طنطا بتصرف على الإعلانات وبتخسر ليداتها على الواتساب</h3>
+                        <p class="blog-excerpt" data-ar="المشكلة مش في الإعلان — المشكلة في اللي بيحصل بعده." data-en="The problem isn't the ad — it's what happens after it.">المشكلة مش في الإعلان — المشكلة في اللي بيحصل بعده.</p>
+                    </div>
+                </a>
+
+                <a href="engaz-case-study.html" class="blog-card">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#1e0902,#4c0519);">
+                        <div class="blog-thumb-placeholder" style="color:#ea580c;">🏗️</div>
+                    </div>
+                    <div class="blog-meta">
+                        <p class="blog-date">2025–2026</p>
+                        <h3 class="blog-title" data-ar="دراسة حالة إنجاز: كيف بنيت CRM من الصفر وغيّر طريقة الشركة" data-en="Engaz Case Study: How I Built a CRM From Scratch That Changed the Company">دراسة حالة إنجاز: كيف بنيت CRM من الصفر وغيّر طريقة الشركة</h3>
+                        <p class="blog-excerpt" data-ar="من فوضى الواتساب لنظام بيتابع كل ليد." data-en="From WhatsApp chaos to a system that tracks every lead.">من فوضى الواتساب لنظام بيتابع كل ليد.</p>
+                    </div>
+                </a>
+
+                <a href="https://insight-clinic-app.vercel.app" target="_blank" class="blog-card">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+                        <div class="blog-thumb-placeholder" style="color:#3b82f6;">🏥</div>
+                    </div>
+                    <div class="blog-meta">
+                        <p class="blog-date">2025</p>
+                        <h3 class="blog-title" data-ar="كيف حوّلت عيادة طبية لبيزنس رقمي متكامل في طنطا" data-en="How I Turned a Medical Clinic Into a Full Digital Business in Tanta">كيف حوّلت عيادة طبية لبيزنس رقمي متكامل في طنطا</h3>
+                        <p class="blog-excerpt" data-ar="نظام سحابي + Google 5 نجوم + حملة اكتساب عملاء." data-en="Cloud system + Google 5 stars + patient acquisition campaign.">نظام سحابي + Google 5 نجوم + حملة اكتساب عملاء.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         FOOTER
+    =================================================== -->
+    <footer class="site-footer">
+        <p class="footer-brand">
+            <span data-ar="عمرو وليد — طنطا، مصر" data-en="Amr Waled — Tanta, Egypt">عمرو وليد — طنطا، مصر</span>
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/amrwaledd/" target="_blank" class="footer-social-link" title="LinkedIn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/Amr-Waled" target="_blank" class="footer-social-link" title="GitHub">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://wa.me/201091642566" target="_blank" class="footer-social-link" title="WhatsApp">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+        </div>
+        <p class="footer-copy">
+            <span data-ar="© 2026 — مصمم وطُوِّر بالكامل من Amr Waled" data-en="© 2026 — Fully designed & developed by Amr Waled">© 2026 — مصمم وطُوِّر بالكامل من Amr Waled</span>
+        </p>
+    </footer>
+
+</div><!-- end .page-card -->
+
+
+<!-- ===================================================
+     LANGUAGE TOGGLE SCRIPT
+=================================================== -->
+<script>
+(function () {
+    'use strict';
+
+    const htmlEl = document.documentElement;
+    const bodyEl = document.body;
+    const btnAr  = document.getElementById('btn-ar');
+    const btnEn  = document.getElementById('btn-en');
+
+    // All nodes with data-ar / data-en attributes
+    function applyLang(lang) {
+        // Set lang attributes
+        htmlEl.setAttribute('lang', lang);
+        bodyEl.setAttribute('lang', lang);
+        htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+        // Switch all text content
+        document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (text !== null) {
+                // Use innerHTML to support <br> tags in hero headline
+                if (el.tagName === 'H1' || el.classList.contains('hero-headline')) {
+                    el.innerHTML = text;
+                } else {
+                    el.textContent = text;
+                }
+            }
+        });
+
+        // Toggle button styles
+        if (lang === 'ar') {
+            btnAr.classList.add('active');
+            btnEn.classList.remove('active');
+        } else {
+            btnEn.classList.add('active');
+            btnAr.classList.remove('active');
+        }
+
+        // Persist preference
+        try { localStorage.setItem('amr-lang', lang); } catch(e) {}
+    }
+
+    function toggleLang() {
+        const current = bodyEl.getAttribute('lang') || 'ar';
+        applyLang(current === 'ar' ? 'en' : 'ar');
+    }
+
+    // Expose for inline onclick
+    window.toggleLang = toggleLang;
+
+    // Load saved preference
+    let saved = 'ar';
+    try { saved = localStorage.getItem('amr-lang') || 'ar'; } catch(e) {}
+    applyLang(saved);
+})();
+</script>
 
 </body>
 </html>
