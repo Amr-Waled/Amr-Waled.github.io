@@ -38,6 +38,8 @@
     { "source": "/systems", "destination": "/systems.html" },
     { "source": "/solutions", "destination": "/solutions.html" },
     { "source": "/engaz", "destination": "/engaz-case-study.html" },
-    { "source": "/case-study", "destination": "/engaz-case-study.html" }
+    { "source": "/case-study", "destination": "/engaz-case-study.html" },
+    { "source": "/geo", "destination": "/geo-2026.html" },
+    { "source": "/geo-2026", "destination": "/geo-2026.html" }
   ]
 }
