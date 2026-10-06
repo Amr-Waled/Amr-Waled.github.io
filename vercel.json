@@ -40,6 +40,8 @@
     { "source": "/engaz", "destination": "/engaz-case-study.html" },
     { "source": "/case-study", "destination": "/engaz-case-study.html" },
     { "source": "/geo", "destination": "/geo-2026.html" },
-    { "source": "/geo-2026", "destination": "/geo-2026.html" }
+    { "source": "/geo-2026", "destination": "/geo-2026.html" },
+    { "source": "/playbook", "destination": "/GEO_Amr_waled.html" },
+    { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled.html" }
   ]
 }
