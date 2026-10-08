@@ -239,6 +239,60 @@
         }
         .nav-links a:hover { color: #fff; }
 
+        /* Dropdown & Shake Animation */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 10px;
+            min-width: 240px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            z-index: 1000;
+            flex-direction: column;
+            gap: 10px;
+        }
+        body[lang="en"] .dropdown-menu { right: auto; left: 0; }
+        .nav-dropdown:hover .dropdown-menu {
+            display: flex;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        .dropdown-menu li { list-style: none; }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.03);
+            transition: all 0.2s;
+        }
+        .dropdown-menu a:hover {
+            background: rgba(234,88,12,0.1);
+            color: #ea580c;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .shake-link {
+            animation: shake 2.5s infinite;
+            display: inline-flex;
+            align-items: center;
+        }
+        @keyframes shake {
+            0%, 80% { transform: rotate(0deg); }
+            85% { transform: rotate(-5deg); }
+            90% { transform: rotate(5deg); }
+            95% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
         .btn-contact {
             display: inline-flex;
             align-items: center;
@@ -1015,8 +1069,16 @@
                 <li><a href="#services" data-ar="خدماتي" data-en="Services">خدماتي</a></li>
                 <li><a href="#track-record" data-ar="نتائج" data-en="Results">نتائج</a></li>
                 <li><a href="#blog" data-ar="مقالات" data-en="Blog">مقالات</a></li>
-                <li><a href="GEO_Amr_waled.html" style="color:#f97316;font-weight:800;" data-ar="بلاي بوك الـ GEO 🔥" data-en="GEO Playbook 🔥">بلاي بوك الـ GEO 🔥</a></li>
-                <li><a href="vibe-coding-playbook.html" style="color:#f97316;font-weight:800;" data-ar="بلاي بوك الـ Vibecoding 🚀" data-en="Vibecoding Playbook 🚀">بلاي بوك الـ Vibecoding 🚀</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="shake-link" style="color:#f97316;font-weight:800;">
+                        <span data-ar="Playbooks 🔥" data-en="Playbooks 🔥">Playbooks 🔥</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-right: 4px; margin-left: 4px;"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="GEO_Amr_waled.html" style="color:#f97316;font-weight:800;" data-ar="بلاي بوك الـ GEO ⚡" data-en="GEO Playbook ⚡">بلاي بوك الـ GEO ⚡</a></li>
+                        <li><a href="vibe-coding-playbook.html" style="color:#f97316;font-weight:800;" data-ar="بلاي بوك الـ Vibecoding 🚀" data-en="Vibecoding Playbook 🚀">بلاي بوك الـ Vibecoding 🚀</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <div style="display:flex;align-items:center;gap:14px;">
@@ -1656,7 +1718,7 @@
     <span class="wa-badge">1</span>
   </div>
   <div class="wa-toast-content">
-    <h4 data-en="New Message" data-ar="رسالة جديدة من واتساب">رسالة جديدة من واتساب</h4>
+    <h4 data-en="Amr Waled" data-ar="Amr Waled">Amr Waled</h4>
     <p data-en="Need a marketing expert? Let's chat!" data-ar="يلا بينا نتكلم على الواتساب وندردش في البيزنس بتاعك.">يلا بينا نتكلم على الواتساب وندردش في البيزنس بتاعك.</p>
   </div>
 </a>
