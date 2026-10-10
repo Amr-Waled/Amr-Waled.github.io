@@ -843,13 +843,13 @@
         =================================================== */
         .case-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
         .case-card {
-            display: grid;
-            grid-template-columns: 260px 1fr;
+            display: flex;
+            flex-direction: column;
             border: 1px solid var(--border);
             border-radius: 20px;
             overflow: hidden;
@@ -862,10 +862,11 @@
 
         .case-visual {
             background: #0d1117;
+            height: 200px;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px;
             position: relative;
         }
         .case-visual::before {
@@ -1026,7 +1027,7 @@
 
             .work-grid, .services-grid { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
-            .case-card { grid-template-columns: 1fr; }
+            /* removed case-card grid-template-columns */
             .case-visual { height: 160px; }
             .record-item { grid-template-columns: 1fr auto; }
             .record-desc { display: none; }
@@ -1098,13 +1099,13 @@
         <!-- PORTRAIT COMPOSITION -->
         <div class="hero-composition">
             <div class="photo-card p-left">
-                <img src="amr-2-opt.jpg" alt="Amr Waled - Sadat" loading="lazy">
+                <img src="amr-2-opt.jpg" alt="Amr Waled - عمرو وليد خبير تسويق رقمي وإدارة حملات إعلانية" title="Amr Waled - Digital Marketing Expert عمرو وليد" loading="lazy">
             </div>
             <div class="photo-card p-right">
-                <img src="amr-5-opt.jpg" alt="Amr Waled - Street" loading="lazy">
+                <img src="amr-5-opt.jpg" alt="عمرو وليد مستشار تسويق رقمي - Amr Waled Digital Marketing Consultant" title="عمرو وليد مستشار تسويق رقمي" loading="lazy">
             </div>
             <div class="photo-card p-main">
-                <img src="amr-1-opt.jpg" alt="Amr Waled - Cafe">
+                <img src="amr-1-opt.jpg" alt="Amr Waled - أفضل مسوق رقمي في مصر عمرو وليد" title="Amr Waled - Best Digital Marketer in Egypt">
             </div>
         </div>
 
@@ -1358,7 +1359,7 @@
                         </div>
                         <div style="display: flex; gap: 10px; margin-top: 15px;">
                             <a href="https://www.tiktok.com/@colorbluess" target="_blank" class="btn-case" style="flex:1; text-align:center; padding: 0.5rem;" data-ar="Ø­Ø³Ø§Ø¨ ØªÙŠÙƒ ØªÙˆÙƒ" data-en="View TikTok">Ø­Ø³Ø§Ø¨ ØªÙŠÙƒ ØªÙˆÙƒ &rarr;</a>
-                            <a href="https://www.instagram.com/colorbluesallymohamed" target="_blank" class="btn-case" style="flex:1; text-align:center; padding: 0.5rem; background:#E1306C; color:white; border-color:#E1306C;" data-ar="Ø­Ø³Ø§Ø¨ Ø§Ù†Ø³ØªØ¬Ø±Ø§Ù…" data-en="View Instagram">Ø­Ø³Ø§Ø¨ Ø§Ù†Ø³ØªØ¬Ø±Ø§Ù… &rarr;</a>
+                            <a href="https://www.facebook.com/colorbluesallymohamed" target="_blank" class="btn-case" style="flex:1; text-align:center; padding: 0.5rem; background:#1877F2; color:white; border-color:#1877F2;" data-ar="حساب فيسبوك" data-en="View Facebook">حساب فيسبوك &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -1774,3 +1775,5 @@
 
 </body>
 </html>
+
+
