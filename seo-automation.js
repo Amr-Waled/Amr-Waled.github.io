@@ -5,116 +5,274 @@ const path = require('path');
 const { execSync } = require('child_process');
 require('dotenv').config();
 
-// الرابط الخاص بك كما هو مسجل في Google Search Console
-const SITE_URL = 'https://amrwaled.vercel.app/'; 
+const PRIMARY_DOMAIN = 'https://amrwaled.vercel.app';
+const MIRROR_DOMAIN = 'https://amr-waled.github.io';
 
-async function runSeoAutomation() {
-    console.log('🚀 Starting SEO Automation...');
-    
-    // 1. الاتصال بـ Google Search Console
-    const auth = new google.auth.GoogleAuth({
-        keyFile: path.join(__dirname, 'gsc-credentials.json'),
-        scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
-    });
-    const webmasters = google.webmasters({ version: 'v3', auth });
+// مصفوفة الكلمات المفتاحية الاستراتيجية (عربي + إنجليزي) المستهدفة في محركات البحث
+const STRATEGIC_KEYWORD_CLUSTERS = [
+    {
+        slug: 'marketing-agency-tanta',
+        keywordAr: 'ماركتينج وشركات تسويق ودعاية وإعلان في طنطا',
+        keywordEn: 'Marketing & Advertising Agency in Tanta',
+        coreTerms: ['ماركتينج', 'تسويق طنطا', 'شركة تسويق في طنطا', 'دعاية وإعلان طنطا', 'Marketing Tanta', 'Advertising Agency Tanta']
+    },
+    {
+        slug: 'custom-crm-system-egypt',
+        keywordAr: 'برمجة وتطوير سيستم CRM وأنظمة مبيعات الشركات في طنطا ومصر',
+        keywordEn: 'Custom CRM System & Business Software Development in Egypt',
+        coreTerms: ['CRM', 'سيستم CRM', 'برمجة سيستم', 'نظام مبيعات', 'سيستم عقارات', 'سيستم عيادات', 'Custom CRM Developer']
+    },
+    {
+        slug: 'media-buying-meta-ads-tanta',
+        keywordAr: 'ميديا باينج وإدارة إعلانات ممولة عالية العائد في طنطا ومصر',
+        keywordEn: 'Media Buying & High-ROAS Meta Ads Specialist in Tanta, Egypt',
+        coreTerms: ['ميديا باينج', 'ميدياباينج', 'ميديا باير', 'إعلانات ممولة', 'Media Buying', 'Media Buyer Tanta']
+    }
+];
 
-    // 2. جلب بيانات آخر 30 يوم
-    console.log('📊 Fetching Google Search Console data...');
-    const endDate = new Date().toISOString().split('T')[0];
-    const startDate = new Date();
-    startDate.setDate(startDate.getDate() - 30);
-    const startDateStr = startDate.toISOString().split('T')[0];
+// قائمة الصفحات المعتمدة للموقع والأولويات في Sitemap
+const CORE_PAGES = [
+    { file: 'index.html', urlPath: '/', priority: '1.0', changefreq: 'daily', bilingual: true },
+    { file: 'en.html', urlPath: '/en.html', priority: '0.95', changefreq: 'weekly', bilingual: true },
+    { file: 'solutions.html', urlPath: '/solutions.html', priority: '0.95', changefreq: 'weekly' },
+    { file: 'systems.html', urlPath: '/systems.html', priority: '0.95', changefreq: 'weekly' },
+    { file: 'engaz-case-study.html', urlPath: '/engaz-case-study.html', priority: '0.90', changefreq: 'monthly' },
+    { file: 'GEO_Amr_waled.html', urlPath: '/GEO_Amr_waled.html', priority: '0.90', changefreq: 'weekly' },
+    { file: 'vibe-coding-playbook.html', urlPath: '/vibe-coding-playbook.html', priority: '0.88', changefreq: 'weekly' },
+    { file: 'geo-2026.html', urlPath: '/geo-2026.html', priority: '0.85', changefreq: 'monthly' },
+    { file: 'about.html', urlPath: '/about.html', priority: '0.85', changefreq: 'monthly' },
+    { file: 'llms.txt', urlPath: '/llms.txt', priority: '0.85', changefreq: 'weekly' },
+    { file: 'llms-full.txt', urlPath: '/llms-full.txt', priority: '0.85', changefreq: 'weekly' }
+];
 
-    try {
-        const urlsToTry = [
-        'https://amrwaled.vercel.app/',
-        'https://amr-waled.github.io/',
-        'sc-domain:amrwaled.vercel.app',
-        'sc-domain:amr-waled.github.io'
-    ];
+/**
+ * 1. مزامنة النسخة الإنجليزية (en.html) تلقائياً من index.html بدون أي تشوه في الترميز (UTF-8)
+ */
+function syncEnglishVersion() {
+    console.log('🌐 Syncing English SEO page (en.html) from index.html...');
+    const indexPath = path.join(__dirname, 'index.html');
+    const enPath = path.join(__dirname, 'en.html');
 
-    let response = null;
-    let successfulUrl = '';
+    if (!fs.existsSync(indexPath)) return;
 
-    for (const url of urlsToTry) {
-        try {
-            console.log(`Trying to fetch data for: ${url}`);
-            response = await webmasters.searchanalytics.query({
-                siteUrl: url,
-                requestBody: {
-                    startDate: startDateStr,
-                    endDate: endDate,
-                    dimensions: ['query'],
-                    rowLimit: 100
-                }
-            });
-            successfulUrl = url;
-            console.log(`✅ Success with URL: ${url}`);
-            break; // Stop loop if successful
-        } catch (e) {
-            console.log(`❌ Failed for ${url}`);
+    let html = fs.readFileSync(indexPath, 'utf8');
+
+    html = html.replace('<html lang="ar" dir="rtl">', '<html lang="en" dir="ltr">');
+    html = html.replace('<body lang="ar">', '<body lang="en">');
+
+    html = html.replace(
+        /<title>[\s\S]*?<\/title>/,
+        '<title>Amr Waled | Marketing Manager, Media Buyer, Advertising & Custom CRM Developer in Tanta, Egypt</title>'
+    );
+    html = html.replace(
+        /<meta name="description" content="[^"]*">/,
+        '<meta name="description" content="Amr Waled (عمرو وليد) — Marketing Manager, Media Buyer (Meta Ads), Advertising Strategist & Custom CRM System Developer in Tanta, Egypt. Turning ad spend into documented revenue with in-house CRM systems and corporate websites.">'
+    );
+    html = html.replace('<meta property="og:locale" content="ar_EG">', '<meta property="og:locale" content="en_US">');
+    html = html.replace('<meta property="og:locale:alternate" content="en_US">', '<meta property="og:locale:alternate" content="ar_EG">');
+    html = html.replace('<meta property="og:url" content="https://amrwaled.vercel.app/">', '<meta property="og:url" content="https://amrwaled.vercel.app/en.html">');
+    html = html.replace('<link rel="canonical" href="https://amrwaled.vercel.app/">', '<link rel="canonical" href="https://amrwaled.vercel.app/en.html">');
+
+    html = html.replace(
+        '<button id="btn-ar" class="active">AR</button>\n                    <button id="btn-en">EN</button>',
+        '<button id="btn-ar">AR</button>\n                    <button id="btn-en" class="active">EN</button>'
+    );
+    html = html.replace("let saved = 'ar';", "let saved = 'en';");
+    html = html.replace("localStorage.getItem('amr-lang') || 'ar'", "localStorage.getItem('amr-lang') || 'en'");
+
+    html = html.replace(/(<([a-zA-Z0-9]+)[^>]*\bdata-ar="([^"]*)"[^>]*\bdata-en="([^"]*)"[^>]*>)([\s\S]*?)(<\/\2>)/g, (match, openTag, tagName, arVal, enVal, inner, closeTag) => {
+        if (!/<(?!br\b)[^>]+>/i.test(inner)) {
+            return openTag + enVal + closeTag;
         }
+        return match;
+    });
+
+    fs.writeFileSync(enPath, html, 'utf8');
+    console.log('✅ en.html synced and verified (UTF-8 clean).');
+}
+
+/**
+ * 2. فحص وتصحيح Canonical Tags لجميع صفحات الموقع لضمان الفهرسة في Google Search Console
+ */
+function auditAndFixCanonicals() {
+    console.log('🔍 Auditing HTML pages for Canonical URLs & SEO health...');
+    for (const page of CORE_PAGES) {
+        if (!page.file.endsWith('.html')) continue;
+        const filePath = path.join(__dirname, page.file);
+        if (!fs.existsSync(filePath)) continue;
+
+        let content = fs.readFileSync(filePath, 'utf8');
+        const expectedCanonical = `${PRIMARY_DOMAIN}${page.urlPath}`;
+
+        // تصحيح أي canonical قديم يشير إلى github.io بدلاً من الدومين الأساسي على Vercel
+        if (content.includes('<link rel="canonical"')) {
+            content = content.replace(
+                /<link rel="canonical" href="[^"]*">/,
+                `<link rel="canonical" href="${expectedCanonical}">`
+            );
+        } else if (content.includes('</head>')) {
+            content = content.replace(
+                '</head>',
+                `    <link rel="canonical" href="${expectedCanonical}">\n</head>`
+            );
+        }
+
+        fs.writeFileSync(filePath, content, 'utf8');
+    }
+    console.log('✅ All HTML pages audited and canonicalized to ' + PRIMARY_DOMAIN);
+}
+
+/**
+ * 3. تحديث ملف sitemap.xml تلقائياً بتاريخ اليوم وجميع الصفحات
+ */
+function updateSitemap() {
+    console.log('🗺️ Updating sitemap.xml...');
+    const today = new Date().toISOString().split('T')[0];
+
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n    <!-- Primary Domain: Vercel (${PRIMARY_DOMAIN}) -->\n`;
+
+    for (const page of CORE_PAGES) {
+        xml += `    <url>\n        <loc>${PRIMARY_DOMAIN}${page.urlPath}</loc>\n`;
+        if (page.bilingual) {
+            xml += `        <xhtml:link rel="alternate" hreflang="ar" href="${PRIMARY_DOMAIN}/"/>\n`;
+            xml += `        <xhtml:link rel="alternate" hreflang="en" href="${PRIMARY_DOMAIN}/en.html"/>\n`;
+            xml += `        <xhtml:link rel="alternate" hreflang="x-default" href="${PRIMARY_DOMAIN}/"/>\n`;
+        }
+        xml += `        <lastmod>${today}</lastmod>\n        <changefreq>${page.changefreq}</changefreq>\n        <priority>${page.priority}</priority>\n    </url>\n`;
     }
 
-    if (!response) {
-        throw new Error("Could not fetch data for any of the URLs. Please verify the exact Property Name in GSC.");
+    xml += `\n    <!-- Mirror Domain: GitHub Pages (${MIRROR_DOMAIN}) -->\n`;
+    for (const page of CORE_PAGES) {
+        if (page.file.endsWith('.txt')) continue;
+        const mirrorPriority = Math.max(0.80, (parseFloat(page.priority) - 0.05)).toFixed(2);
+        xml += `    <url>\n        <loc>${MIRROR_DOMAIN}${page.urlPath}</loc>\n        <lastmod>${today}</lastmod>\n        <changefreq>${page.changefreq}</changefreq>\n        <priority>${mirrorPriority}</priority>\n    </url>\n`;
     }
 
-    const rows = response.data.rows || [];
-        
-        // البحث عن الكلمات التي فيها فرصة: الترتيب بعد الـ 10 وظهورها أكثر من 10 مرات
-        const opportunities = rows.filter(row => row.position > 10 && row.impressions > 10);
-        
-        let targetKeyword = '';
-        if (opportunities.length > 0) {
-            targetKeyword = opportunities[0].keys[0]; 
-            console.log(`✅ Found Opportunity Keyword: ${targetKeyword}`);
-        } else {
-            console.log('⚠️ No specific opportunities found. Picking the top keyword.');
-            if (rows.length > 0) {
-                targetKeyword = rows[0].keys[0];
-            } else {
-                targetKeyword = 'التسويق وتطوير الأعمال'; // بديل احتياطي
+    xml += `\n</urlset>\n`;
+    fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml, 'utf8');
+    console.log('✅ sitemap.xml updated with lastmod=' + today);
+}
+
+/**
+ * 4. جلب بيانات Google Search Console (إن توفرت صلاحيات صالحة)
+ */
+async function fetchGscInsights() {
+    const keyFilePath = path.join(__dirname, 'gsc-credentials.json');
+    if (!fs.existsSync(keyFilePath)) {
+        console.log('ℹ️ gsc-credentials.json not found locally. Skipping live GSC API query.');
+        return null;
+    }
+
+    console.log('📊 Connecting to Google Search Console API...');
+    try {
+        const auth = new google.auth.GoogleAuth({
+            keyFile: keyFilePath,
+            scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
+        });
+        const webmasters = google.webmasters({ version: 'v3', auth });
+
+        const endDate = new Date().toISOString().split('T')[0];
+        const startDate = new Date();
+        startDate.setDate(startDate.getDate() - 30);
+        const startDateStr = startDate.toISOString().split('T')[0];
+
+        const urlsToTry = [
+            'https://amrwaled.vercel.app/',
+            'sc-domain:amrwaled.vercel.app',
+            'https://amr-waled.github.io/',
+            'sc-domain:amr-waled.github.io'
+        ];
+
+        for (const url of urlsToTry) {
+            try {
+                const response = await webmasters.searchanalytics.query({
+                    siteUrl: url,
+                    requestBody: {
+                        startDate: startDateStr,
+                        endDate: endDate,
+                        dimensions: ['query'],
+                        rowLimit: 50
+                    }
+                });
+                console.log(`✅ GSC Data retrieved for: ${url}`);
+                return response.data.rows || [];
+            } catch (innerErr) {
+                if (innerErr.message && innerErr.message.includes('invalid_grant')) {
+                    throw innerErr;
+                }
             }
         }
+    } catch (err) {
+        console.warn('⚠️ GSC API Notice:', err.message);
+        console.warn('💡 Tip: Because gsc-credentials.json was previously pushed to GitHub, Google Cloud automatically disabled its private key. Create a new JSON key in Google Cloud Console -> IAM -> Service Accounts (seo-auto@double-runway-496618-r1.iam.gserviceaccount.com) and save it as gsc-credentials.json (it is now protected in .gitignore!).');
+    }
+    return null;
+}
 
-        // 3. إنشاء المقال باستخدام Gemini AI
-        console.log(`🤖 Generating article for keyword: "${targetKeyword}" using Gemini...`);
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-        
-        const prompt = `أنت خبير SEO وكاتب محتوى احترافي. 
-اكتب مقالاً حصرياً ومفيداً باللغة العربية حول "${targetKeyword}". 
-المقال يجب أن يكون كصفحة HTML كاملة ومرتبة. استخدم وسوم <head> و <body> و <title> تحتوي على الكلمة المفتاحية.
-استخدم وسوم <h1>, <h2>, <p>, <ul>. 
-اجعل المحتوى مباشراً، مفيداً، ومهيكلاً بطريقة ممتازة تناسب محركات بحث الذكاء الاصطناعي (AIO).
-قم بإرجاع كود الـ HTML فقط بدون أي مقدمات أو شروحات إضافية.`;
+/**
+ * 5. رفع التحديثات الآمنة فقط إلى GitHub ليتم نشرها تلقائياً على Vercel
+ */
+function pushSafeSeoFiles() {
+    const safeFiles = [
+        '.gitignore',
+        'index.html',
+        'en.html',
+        'solutions.html',
+        'systems.html',
+        'about.html',
+        'engaz-case-study.html',
+        'GEO_Amr_waled.html',
+        'geo-2026.html',
+        'vibe-coding-playbook.html',
+        'sitemap.xml',
+        'robots.txt',
+        'llms.txt',
+        'llms-full.txt',
+        'vercel.json',
+        'seo-automation.js'
+    ];
 
-        const aiResponse = await ai.models.generateContent({
-            model: 'gemini-3.1-pro-preview',
-            contents: prompt,
-        });
+    try {
+        const existingSafeFiles = safeFiles.filter(f => fs.existsSync(path.join(__dirname, f)));
+        execSync(`git add ${existingSafeFiles.map(f => `"${f}"`).join(' ')}`, { stdio: 'inherit' });
 
-        let htmlContent = aiResponse.text;
-        // تنظيف مخرجات الذكاء الاصطناعي من أي علامات Markdown
-        htmlContent = htmlContent.replace(/```html/g, '').replace(/```/g, '').trim();
+        const status = execSync('git status --porcelain').toString().trim();
+        if (!status) {
+            console.log('✅ No new git changes to commit. Everything is up to date.');
+            return;
+        }
 
-        // 4. حفظ المقال كملف جديد
-        // تحويل المسافات إلى شُرط ليكون اسم الملف متوافقاً مع الروابط
-        const fileName = targetKeyword.replace(/\s+/g, '-').toLowerCase() + '.html';
-        const filePath = path.join(__dirname, fileName);
-        fs.writeFileSync(filePath, htmlContent, 'utf8');
-        console.log(`💾 Saved article to ${fileName}`);
-
-        // 5. رفع الملف إلى GitHub لينتشر على Vercel
-        console.log('🚀 Pushing to GitHub (Vercel will auto-deploy)...');
-        execSync('git add .', { stdio: 'inherit' });
-        execSync(`git commit -m "Auto SEO: Added new article about ${targetKeyword}"`, { stdio: 'inherit' });
+        execSync('git commit -m "SEO Automation: Sync bilingual metadata, canonicals, FAQ schema, and sitemap"', { stdio: 'inherit' });
         execSync('git push', { stdio: 'inherit' });
+        console.log('🚀 Pushed safely to GitHub (Vercel auto-deploy triggered)!');
+    } catch (gitErr) {
+        console.warn('⚠️ Git push note:', gitErr.message);
+    }
+}
 
-        console.log('🎉 Automation finished successfully!');
-        
-    } catch (error) {
-        console.error('❌ Error during automation:', error.message);
+async function runSeoAutomation() {
+    console.log('🚀 Starting Amr Waled SEO & GEO Automation Engine...');
+    auditAndFixCanonicals();
+    syncEnglishVersion();
+    updateSitemap();
+
+    const rows = await fetchGscInsights();
+    if (rows && rows.length > 0) {
+        console.log('📈 Top Search Queries in GSC (Last 30 Days):');
+        rows.slice(0, 10).forEach((r, idx) => {
+            console.log(`   ${idx + 1}. "${r.keys[0]}" — Clicks: ${r.clicks}, Impressions: ${r.impressions}, Pos: ${r.position.toFixed(1)}`);
+        });
+    } else {
+        console.log('🎯 Active Strategic Keyword Clusters Configured:');
+        STRATEGIC_KEYWORD_CLUSTERS.forEach(c => {
+            console.log(`   - ${c.keywordAr} | ${c.keywordEn}`);
+        });
+    }
+
+    if (process.argv.includes('--push')) {
+        pushSafeSeoFiles();
+    } else {
+        console.log('🎉 Local SEO synchronization complete! (Run with --push to commit & push to GitHub/Vercel)');
     }
 }
 

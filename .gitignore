@@ -1,1 +1,41 @@
 .vercel
+.env
+.env.*
+gsc-credentials.json
+node_modules/
+venv/
+.kilo/
+.playwright-mcp/
+analytics_extracted/
+analytics_temp.zip
+lighthouse-report.json
+index.backup.html
+live.html
+vercel.html
+github.html
+*.csv
+Invoice-*.pdf
+Receipt-*.pdf
+claude.pdf
+plugin.pdf
+search.pdf
+الصورة المعتمدة*
+عملت موقع بال*
+ليه الشركة بتخسر العملا بتوعها*
+Screenshot*.png
+fix_*.js
+fix_*.py
+inject*.py
+generate_*.py
+apply_fixes*.js
+add_stats*.js
+remove_*.js
+remove_*.py
+scrape_*.py
+recreate_leads.py
+Elite_Lead_Generator.py
+audit_100_restaurants.py
+check_dom.py
+optimize.ps1
+parse_excel.ps1
+read_excel.ps1

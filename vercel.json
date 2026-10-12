@@ -25,6 +25,13 @@
       ]
     },
     {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=1800" }
+      ]
+    },
+    {
       "source": "/(llms.txt|llms-full.txt|CLAUDE_CONTEXT.md|robots.txt)",
       "headers": [
         { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
@@ -34,14 +41,17 @@
     }
   ],
   "rewrites": [
+    { "source": "/en", "destination": "/en.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/systems", "destination": "/systems.html" },
     { "source": "/solutions", "destination": "/solutions.html" },
     { "source": "/engaz", "destination": "/engaz-case-study.html" },
     { "source": "/case-study", "destination": "/engaz-case-study.html" },
+    { "source": "/engaz-case-study", "destination": "/engaz-case-study.html" },
     { "source": "/geo", "destination": "/geo-2026.html" },
     { "source": "/geo-2026", "destination": "/geo-2026.html" },
     { "source": "/playbook", "destination": "/GEO_Amr_waled.html" },
-    { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled.html" }
+    { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled.html" },
+    { "source": "/vibe-coding-playbook", "destination": "/vibe-coding-playbook.html" }
   ]
 }
