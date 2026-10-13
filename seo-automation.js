@@ -129,7 +129,7 @@ function updateSitemap() {
     console.log('🗺️ Updating sitemap.xml...');
     const today = new Date().toISOString().split('T')[0];
 
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n    <!-- Primary Domain: Vercel (${PRIMARY_DOMAIN}) -->\n`;
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n\n    <!-- Primary Domain: Vercel (${PRIMARY_DOMAIN}) -->\n`;
 
     for (const page of CORE_PAGES) {
         xml += `    <url>\n        <loc>${PRIMARY_DOMAIN}${page.urlPath}</loc>\n`;
@@ -137,6 +137,12 @@ function updateSitemap() {
             xml += `        <xhtml:link rel="alternate" hreflang="ar" href="${PRIMARY_DOMAIN}/"/>\n`;
             xml += `        <xhtml:link rel="alternate" hreflang="en" href="${PRIMARY_DOMAIN}/en.html"/>\n`;
             xml += `        <xhtml:link rel="alternate" hreflang="x-default" href="${PRIMARY_DOMAIN}/"/>\n`;
+        }
+        if (page.urlPath === '/' || page.urlPath === '/en.html') {
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled.jpg</image:loc>\n            <image:title>عمرو وليد Amr Waled</image:title>\n            <image:caption>عمرو وليد Amr Waled — مدير تسويق ومطور سيستم CRM وأنظمة مبيعات الشركات في طنطا ومصر</image:caption>\n        </image:image>\n`;
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-crm-developer.jpg</image:loc>\n            <image:title>عمرو وليد — مطور سيستم CRM</image:title>\n            <image:caption>عمرو وليد Amr Waled — Custom CRM Developer in Tanta</image:caption>\n        </image:image>\n`;
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-marketing-manager.jpg</image:loc>\n            <image:title>عمرو وليد — مدير تسويق طنطا</image:title>\n            <image:caption>عمرو وليد Amr Waled — Marketing Manager &amp; Digital Marketing in Tanta</image:caption>\n        </image:image>\n`;
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-media-buyer.jpg</image:loc>\n            <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>\n            <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>\n        </image:image>\n`;
         }
         xml += `        <lastmod>${today}</lastmod>\n        <changefreq>${page.changefreq}</changefreq>\n        <priority>${page.priority}</priority>\n    </url>\n`;
     }
@@ -229,7 +235,11 @@ function pushSafeSeoFiles() {
         'llms.txt',
         'llms-full.txt',
         'vercel.json',
-        'seo-automation.js'
+        'seo-automation.js',
+        'amr-waled.jpg',
+        'amr-waled-crm-developer.jpg',
+        'amr-waled-marketing-manager.jpg',
+        'amr-waled-media-buyer.jpg'
     ];
 
     try {
