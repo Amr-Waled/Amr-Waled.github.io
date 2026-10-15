@@ -52,6 +52,12 @@
     { "source": "/geo-2026", "destination": "/geo-2026.html" },
     { "source": "/playbook", "destination": "/GEO_Amr_waled.html" },
     { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled.html" },
-    { "source": "/vibe-coding-playbook", "destination": "/vibe-coding-playbook.html" }
+    { "source": "/vibe-coding-playbook", "destination": "/vibe-coding-playbook.html" },
+    { "source": "/crm", "destination": "/crm-systems.html" },
+    { "source": "/crm-systems", "destination": "/crm-systems.html" },
+    { "source": "/clinic", "destination": "/insight-clinic-case-study.html" },
+    { "source": "/insight-clinic", "destination": "/insight-clinic-case-study.html" },
+    { "source": "/marketing-tanta", "destination": "/marketing-tanta.html" },
+    { "source": "/tanta", "destination": "/marketing-tanta.html" }
   ]
 }

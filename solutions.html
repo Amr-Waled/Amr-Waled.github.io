@@ -16,18 +16,53 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Digital Marketing, Media Buying, Advertising & Custom CRM Systems Development",
-      "name": "خدمات التسويق الرقمي، الميديا باينج، وبناء أنظمة CRM — عمرو وليد (Amr Waled)",
-      "provider": {
-        "@type": "Person",
-        "name": "Amr Waled",
-        "alternateName": "عمرو وليد",
-        "telephone": "+201091642566",
-        "url": "https://amrwaled.vercel.app/"
-      },
-      "areaServed": ["Tanta", "طنطا", "Al Gharbiyah", "Egypt", "Saudi Arabia", "Kuwait", "UAE"],
-      "description": "منظومة متكاملة تجمع بين إدارة حملات الميديا باينج (Meta Ads)، التسويق والدعاية، وبرمجة سيستم CRM ومواقع الشركات لتحويل ميزانية الإعلانات إلى مبيعات فعلية."
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://amrwaled.vercel.app/solutions.html#service",
+          "serviceType": "Digital Marketing, Media Buying, Advertising & Custom CRM Systems Development",
+          "name": "خدمات التسويق الرقمي، الميديا باينج، وبناء أنظمة CRM — عمرو وليد (Amr Waled)",
+          "provider": {
+            "@type": "Person",
+            "@id": "https://amrwaled.vercel.app/#person",
+            "name": "Amr Waled",
+            "alternateName": "عمرو وليد",
+            "jobTitle": "Marketing Manager, Media Buyer & Custom CRM Developer",
+            "telephone": "+201091642566",
+            "url": "https://amrwaled.vercel.app/",
+            "sameAs": [
+              "https://www.linkedin.com/in/amrwaledd/",
+              "https://github.com/Amr-Waled",
+              "https://en.wikipedia.org/wiki/Digital_marketing",
+              "https://en.wikipedia.org/wiki/Customer_relationship_management"
+            ]
+          },
+          "areaServed": ["Tanta", "طنطا", "Al Gharbiyah", "Egypt", "Saudi Arabia", "Kuwait", "UAE"],
+          "description": "منظومة متكاملة تجمع بين إدارة حملات الميديا باينج (Meta Ads)، التسويق والدعاية، وبرمجة سيستم CRM ومواقع الشركات لتحويل ميزانية الإعلانات إلى مبيعات فعلية."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://amrwaled.vercel.app/solutions.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "ما هي الخدمات والحلول الرئيسية التي يقدمها عمرو وليد للشركات؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "يقدم عمرو وليد 5 حلول رئيسية: 1. بناء أنظمة CRM مخصصة لمنع تسريب الليدات، 2. إدارة حملات الميديا باينج وتخفيض تكلفة العميل (CPL)، 3. تصميم وتطوير مواقع شركات سريعة للمبيعات، 4. كتابة اسكريبتات إعلانية إبداعية عالية التحويل، 5. أبحاث السوق ودراسات الجدوى التوسعية."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "كيف يضمن عمرو وليد تحويل الإعلانات إلى مبيعات فعلية؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "بربط الحملات الإعلانية الممولة بسيستم مبيعات CRM داخلي يوزع الليدات على فريق المبيعات خلال ثوانٍ معدودة، مع مؤقت زمني لسرعة الرد وأوتوميشن رسائل الواتساب، مما يمنع برود العميل ويضاعف نسب إغلاق الصفقات."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 

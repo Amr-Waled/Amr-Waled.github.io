@@ -79,12 +79,27 @@
 - **URL:** https://insight-clinic-public-website.vercel.app
 - **Features:** Schema.org LocalBusiness, map pack optimization for psychiatric therapy in Tanta.
 
-### 5. ELMODARAG Platform (منصة مُدَرَّج)
+### 5. Custom CRM Systems Architecture Portal
+- **Type:** Business Operations & Sales CRM Architecture
+- **URL:** https://amrwaled.vercel.app/crm-systems.html
+- **Features:** Detailed blueprint on preventing lead leakage, instantaneous sub-2-second lead dispatching, WhatsApp automation, and response-time tracking.
+
+### 6. Marketing & Media Buying in Tanta Guide
+- **Type:** Strategic Performance Marketing & Agency Alternative
+- **URL:** https://amrwaled.vercel.app/marketing-tanta.html
+- **Features:** Comprehensive comparison between traditional ad agencies and integrated performance marketing + sales CRM engineering in Tanta and the Delta.
+
+### 7. Insight Clinic Case Study Deep Dive
+- **Type:** Healthcare EMR & Local SEO Technical Whitepaper
+- **URL:** https://amrwaled.vercel.app/insight-clinic-case-study.html
+- **Features:** Technical documentation of encrypted EMR, 3-second realtime sync, and patient acquisition in Tanta.
+
+### 8. ELMODARAG Platform (منصة مُدَرَّج)
 - **Type:** EdTech SaaS & Academic AI Engine
 - **Stack:** Next.js 15, React 19, Supabase PostgreSQL, Custom RAG AI Pipeline
 - **Features:** RAG AI chat strictly bound to faculty regulations, predictive GPA simulator, smart attendance risk radar.
 
-### 6. Personal Portfolio Portal
+### 9. Personal Portfolio Portal
 - **URLs:** https://amrwaled.vercel.app | https://amr-waled.github.io
 - **Stack:** Tailwind CSS, AOS, FontAwesome 6, Obsidian & Deep Navy Slate UI.
 

@@ -29,7 +29,7 @@
             <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>
             <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>
         </image:image>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -58,61 +58,79 @@
             <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>
             <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>
         </image:image>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
+        <loc>https://amrwaled.vercel.app/crm-systems.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.96</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/marketing-tanta.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.96</priority>
+    </url>
+    <url>
         <loc>https://amrwaled.vercel.app/solutions.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/systems.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/engaz-case-study.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.90</priority>
+        <priority>0.92</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/insight-clinic-case-study.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.92</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/GEO_Amr_waled.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/vibe-coding-playbook.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.88</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/geo-2026.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/about.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/llms.txt</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/llms-full.txt</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -120,55 +138,73 @@
     <!-- Mirror Domain: GitHub Pages (https://amr-waled.github.io) -->
     <url>
         <loc>https://amr-waled.github.io/</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/en.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
+        <loc>https://amr-waled.github.io/crm-systems.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.91</priority>
+    </url>
+    <url>
+        <loc>https://amr-waled.github.io/marketing-tanta.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.91</priority>
+    </url>
+    <url>
         <loc>https://amr-waled.github.io/solutions.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/systems.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/engaz-case-study.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.87</priority>
+    </url>
+    <url>
+        <loc>https://amr-waled.github.io/insight-clinic-case-study.html</loc>
+        <lastmod>2026-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.87</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/GEO_Amr_waled.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/vibe-coding-playbook.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.83</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/geo-2026.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/about.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>

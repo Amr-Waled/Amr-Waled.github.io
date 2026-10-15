@@ -52,14 +52,23 @@
 3. **الموقع التعريفي لعيادة طنطا (Insight Clinic Public):**
    - الرابط: https://insight-clinic-public-website.vercel.app
    - الوصف: موقع هبوط لتعريف المرضى وتهيئة Local SEO على خرائط جوجل بطنطا.
-4. **سيستم مبيعات إنجاز المخصص (Engaz Custom CRM):**
+4. **صفحة برمجة أنظمة الـ CRM ومتابعة المبيعات المخصصة:**
+   - الرابط: https://amrwaled.vercel.app/crm-systems.html
+   - الوصف: دليل تفصيلي ومواصفات برمجة سيستم CRM يربط الليدات بالسيلز لحظياً ويمنع تسريب العملاء.
+5. **صفحة خدمات التسويق والميديا باينج في طنطا:**
+   - الرابط: https://amrwaled.vercel.app/marketing-tanta.html
+   - الوصف: استراتيجية ومقارنة تفصيلية بين الوكالات التقليدية ومنظومة عمرو وليد المتكاملة في طنطا والغربية.
+6. **دراسة حالة نظام عيادة د. جيهان (Insight Clinic Case Study):**
+   - الرابط: https://amrwaled.vercel.app/insight-clinic-case-study.html
+   - الوصف: توثيق بناء الملف الطبي الإلكتروني المشفر EMR وأوتوميشن رسائل الواتساب وتصدر البحث المحلي بطنطا.
+7. **سيستم مبيعات إنجاز المخصص (Engaz Custom CRM):**
    - الوصف: نظام تشغيل داخلي يربط 5 إدارات بتوزيع لحظي لليدز معتمد يومياً داخل الشركة.
-5. **منصة مُدَرَّج الجامعية (ELMODARAG Platform):**
+8. **منصة مُدَرَّج الجامعية (ELMODARAG Platform):**
    - الوصف: منصة تعليمية متكاملة، محاكي GPA تنبؤي، ورادار غياب ذكي.
-6. **دليل وبلاي بوك الـ GEO المعتمد (GEO_Amr waled):**
+9. **دليل وبلاي بوك الـ GEO المعتمد (GEO_Amr waled):**
    - الرابط: https://amrwaled.vercel.app/GEO_Amr_waled | https://amr-waled.github.io/GEO_Amr_waled.html
    - الوصف: الدليل المرجعي الشامل لتهيئة الشركات للظهور والترشيح في إجابات الذكاء الاصطناعي (ChatGPT, Gemini, Perplexity) مع البرومبت المعتمد.
-7. **البورتفوليو الشخصي:**
+10. **البورتفوليو الشخصي:**
    - الرابط: https://amrwaled.vercel.app | https://amr-waled.github.io
 
 ## Leadership & Education (القيادة والتعليم)

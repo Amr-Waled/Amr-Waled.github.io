@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دراسة حالة نظام عيادة Insight: بناء نظام EMR سحابي مشفر وأوتوميشن حجوزات بطنطا | عمرو وليد</title>
+    <meta name="description" content="توثيق كامل لكيفية بناء وهندسة نظام إدارة العيادات السحابي والملفات الطبية المشفرة (Encrypted EMR) لعيادة د. جيهان عبدالحميد (Insight Clinic) بطنطا بواسطة عمرو وليد. تزامن 3 ثوانٍ وأوتوميشن واتساب وتصدر محلي.">
+    <meta name="keywords" content="سيستم عيادات طنطا, برنامج إدارة عيادات, نظام ملفات طبية إلكترونية EMR, سيستم عيادة د جيهان عبدالحميد, Insight Clinic Tanta, تصميم مواقع عيادات طنطا, عمرو وليد, Amr Waled, Clinic System Egypt">
+    <meta name="author" content="عمرو وليد — Amr Waled">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="geo.region" content="EG-GH">
+    <meta name="geo.placename" content="Tanta, Al Gharbiyah, Egypt">
+    <meta name="geo.position" content="30.7865;31.0004">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:title" content="دراسة حالة: بناء نظام إدارة عيادة Insight والملفات الطبية المشفرة بطنطا | عمرو وليد">
+    <meta property="og:description" content="من السجلات الورقية إلى نظام سحابي متكامل بتزامن 3 ثوانٍ، ملفات طبية مشفرة، وتأكيد مواعيد واتساب لعيادة د. جيهان بطنطا.">
+    <meta property="og:url" content="https://amrwaled.vercel.app/insight-clinic-case-study.html">
+    <meta property="og:image" content="https://amrwaled.vercel.app/avatar.jpg">
+
+    <link rel="canonical" href="https://amrwaled.vercel.app/insight-clinic-case-study.html">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://amrwaled.vercel.app/insight-clinic-case-study.html#article",
+          "headline": "دراسة حالة نظام عيادة Insight: بناء نظام EMR سحابي مشفر وأوتوميشن حجوزات بطنطا",
+          "description": "توثيق شامل لكيفية تصميم وبرمجة نظام إدارة العيادات الطبية السحابي المشفر وموقع الاستقطاب المحلي لعيادة Insight Clinic بطنطا بواسطة عمرو وليد.",
+          "author": {
+            "@type": "Person",
+            "name": "Amr Waled",
+            "alternateName": "عمرو وليد",
+            "url": "https://amrwaled.vercel.app/"
+          },
+          "datePublished": "2026-09-25",
+          "dateModified": "2026-10-15",
+          "inLanguage": "ar-EG"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://insight-clinic-app.vercel.app/#app",
+          "name": "Insight Clinic Cloud EMR",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web, iOS, Android, Desktop",
+          "url": "https://insight-clinic-app.vercel.app",
+          "author": {
+            "@type": "Person",
+            "name": "Amr Waled"
+            }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://amrwaled.vercel.app/insight-clinic-case-study.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "ما هي المزايا التقنية لنظام عيادة Insight الذي طوره عمرو وليد؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "يتميز النظام بملف طبي إلكتروني مشفر لحماية خصوصية المرضى، صلاحيات دقيقة برموز PIN لكل طبيب وموظف استقبال، تزامن سحابي كل 3 ثوانٍ بين أجهزة العيادة وغرفة الكشف، ونظام أوتوميشن لرسائل الحجز والتأكيد عبر WhatsApp API."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل يمكن برمجة نظام مشابه لعيادات ومراكز طبية أخرى في طنطا ومصر؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، عمرو وليد يوفر حلولاً هندسية مخصصة للعيادات والمراكز الطبية الكبرى، تشمل بناء نظام الإدارة الداخلي EMR وموقع هبوط مهيأ لتصدر خرائط جوجل ونتائج البحث التوليدي (Local SEO & GEO)."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #0c1222;
+            color: #f1f5f9;
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .bg-grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 65%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 65%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .card-lift {
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .card-lift:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 16px 36px -12px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="relative selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div class="bg-grid-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="border-b border-white/8 backdrop-blur-md sticky top-0 z-50 bg-[#0c1222]/85">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group text-decoration-none">
+                <img src="/avatar.jpg" alt="عمرو وليد" class="w-9 h-9 rounded-full object-cover ring-2 ring-emerald-500/40 group-hover:ring-emerald-400 transition-all">
+                <span class="font-black text-white text-base tracking-tight group-hover:text-emerald-300 transition-colors">عمرو وليد</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+                <a href="/" class="hover:text-white transition-colors">الرئيسية</a>
+                <a href="/solutions.html" class="hover:text-white transition-colors">الخدمات</a>
+                <a href="/systems.html" class="hover:text-white transition-colors">الأنظمة</a>
+                <a href="/crm-systems.html" class="hover:text-white transition-colors">سيستم CRM</a>
+                <a href="/insight-clinic-case-study.html" class="text-emerald-400 font-bold">دراسة عيادة Insight</a>
+                <a href="/engaz-case-study.html" class="hover:text-white transition-colors">دراسة حالة إنجاز</a>
+            </nav>
+            <a href="https://wa.me/201091642566?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%8A%D8%A7%20%D8%B9%D9%85%D8%B1%D9%88%D8%8C%20%D8%A7%D8%B7%D9%84%D8%B9%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%B3%D9%8A%D8%B3%D8%AA%D9%85%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A9%20Insight%20%D9%88%D8%AD%D8%A7%D8%A8%D8%A8%20%D9%86%D8%B9%D9%85%D9%84%20%D8%B3%D9%8A%D8%B3%D8%AA%D9%85%20%D9%84%D8%B9%D9%8A%D8%A7%D8%AF%D8%AA%D9%8A." target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-all shadow-lg shadow-emerald-600/25">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>طلب سيستم عيادات</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-20">
+
+        <!-- Breadcrumb -->
+        <nav class="text-xs text-slate-400 mb-6 flex items-center gap-2">
+            <a href="/" class="hover:text-white">الرئيسية</a>
+            <span>/</span>
+            <a href="/systems.html" class="hover:text-white">الأنظمة المشحونة</a>
+            <span>/</span>
+            <span class="text-emerald-400 font-semibold">دراسة حالة عيادة Insight</span>
+        </nav>
+
+        <!-- Header Title -->
+        <div class="mb-12" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold mb-4">
+                <i class="fa-solid fa-hospital-user"></i>
+                <span>Healthcare Tech Architecture & Local SEO</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+                كيف حوّلت عيادة د. جيهان عبدالحميد بطنطا من السجلات الورقية إلى سيستم سحابي مشفر وأوتوميشن مواعيد متكامل؟
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                توثيق هندسي كامل لبناء وتطوير نظام إدارة الملفات الطبية (Encrypted EMR)، منصة حجز المرضى، وموقع الـ Local SEO الذي تصدر نتائج البحث المحلي لخدمات الطب النفسي بطنطا.
+            </p>
+        </div>
+
+        <!-- System Live Links Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12" data-aos="fade-up">
+            <div class="card-lift bg-slate-900/70 border border-emerald-500/30 rounded-2xl p-6">
+                <div class="text-xs font-bold text-emerald-400 mb-2 uppercase tracking-wide">المنظومة السحابية الداخلية (Live System)</div>
+                <h3 class="text-lg font-black text-white mb-2">Insight Clinic EMR App</h3>
+                <p class="text-slate-400 text-sm mb-4">نظام الملفات المشفر، التزامن اللحظي، وإدارة الاستقبال والكشف المعتمد يومياً في العيادة.</p>
+                <a href="https://insight-clinic-app.vercel.app" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-bold text-sm">
+                    <span>فتح رابط المنصة الحية</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+            <div class="card-lift bg-slate-900/70 border border-blue-500/30 rounded-2xl p-6">
+                <div class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wide">الموقع التعريفي والتسويقي (Public Website)</div>
+                <h3 class="text-lg font-black text-white mb-2">Insight Clinic Public Website</h3>
+                <p class="text-slate-400 text-sm mb-4">صفحة هبوط فائقة السرعة مهيأة لتصدر خرائط جوجل ونتائج البحث لمرضى محافظة الغربية.</p>
+                <a href="https://insight-clinic-public-website.vercel.app" target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-bold text-sm">
+                    <span>زيارة الموقع التعريفي</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- The Problems Before Intervention -->
+        <div class="bg-slate-900/60 border border-white/8 rounded-2xl p-6 sm:p-8 mb-10" data-aos="fade-up">
+            <h2 class="text-xl sm:text-2xl font-black text-white mb-4">1. التحديات التشغيلية والأمنية قبل التدخل</h2>
+            <ul class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <li><strong class="text-rose-400">• حساسية وخصوصية بيانات المرضى النفسيين:</strong> السجلات الورقية كانت تشكل خطراً على سرية بيانات الاستشارات النفسية، مع استحالة فرض صلاحيات دخول دقيقة.</li>
+                <li><strong class="text-rose-400">• بطء التنسيق بين الاستقبال وغرفة الطبيب:</strong> نداء المرضى يدوياً وضياع ملفات المتابعة وتاريخ الجلسات السابقة.</li>
+                <li><strong class="text-rose-400">• نسيان المرضى للمواعيد (No-Show Rate):</strong> غياب أوتوميشن تذكير المرضى بمواعيد الجلسات والاستشارات تسبب في إهدار فترات حجز ثمينة.</li>
+            </ul>
+        </div>
+
+        <!-- The Solution & Engineering -->
+        <div class="bg-slate-900/60 border border-white/8 rounded-2xl p-6 sm:p-8 mb-10" data-aos="fade-up">
+            <h2 class="text-xl sm:text-2xl font-black text-white mb-4">2. الحلول الهندسية والتقنية المنفذة</h2>
+            <div class="space-y-5 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <div>
+                    <h3 class="font-bold text-emerald-400 text-base mb-1">🔒 الملف الطبي الإلكتروني المشفر (Encrypted EMR)</h3>
+                    <p>برمجة بنية تخزين مشفرة لا تسمح لأي شخص بالاطلاع على ملاحظات الطبيبة إلا بعد إدخال رمز PIN أمني خاص ومصادقة مشفرة.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-emerald-400 text-base mb-1">⚡ محرك التزامن السحابي الفوري (3s Sync Engine)</h3>
+                    <p>بناء محرك تزامن خفيف فائق السرعة يحدث شاشات الاستقبال وغرفة الكشف كل 3 ثوانٍ دون الحاجة لتحديث الصفحة، مما قضى على فوضى الانتظار.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-emerald-400 text-base mb-1">📲 أوتوميشن تأكيد المواعيد عبر WhatsApp API</h3>
+                    <p>بمجرد تسجيل المريض في العيادة أو حجز موعد جديد، يتلقى رسالة واتساب رسمية تلقائية تتضمن موعد الحجز، كود التأكيد، وموقع العيادة بطنطا.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="bg-gradient-to-br from-emerald-950/40 to-slate-900 border border-emerald-500/20 rounded-2xl p-6 sm:p-8 mb-12" data-aos="fade-up">
+            <h2 class="text-xl sm:text-2xl font-black text-white mb-6 text-center">3. النتائج والأثر الملموس</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-white/5">
+                    <div class="text-3xl font-black text-emerald-400 mb-1">0%</div>
+                    <div class="text-xs text-slate-300">نسبة اختراق أو تسريب بيانات</div>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-white/5">
+                    <div class="text-3xl font-black text-emerald-400 mb-1">3s</div>
+                    <div class="text-xs text-slate-300">زمن التزامن السحابي اللحظي</div>
+                </div>
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-white/5">
+                    <div class="text-3xl font-black text-emerald-400 mb-1">100%</div>
+                    <div class="text-xs text-slate-300">اعتماد تشغيلي يومي بالعيادة</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-slate-900/40 border border-white/8 rounded-2xl p-6 sm:p-8 mb-12" data-aos="fade-up">
+            <h2 class="text-xl font-black text-white mb-5">الأسئلة الشائعة حول سيستم العيادات</h2>
+            <div class="space-y-4">
+                <div class="border-b border-white/5 pb-3">
+                    <h3 class="font-bold text-emerald-300 text-sm mb-1">هل يعمل السيستم على الموبايل والتابلت؟</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm">نعم، السيستم متجاوب بالكامل ويعمل بسلاسة على أجهزة الاستقبال (PC)، التابلت، وهواتف الأطباء.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-emerald-300 text-sm mb-1">كيف أطلب سيستم مشابه لعيادتي أو مركزي الطبي؟</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm">تواصل مع عمرو وليد مباشرة عبر واتساب لتحديد التخصص وعدد غرف الكشف ومتطلبات الربط لبدء التجهيز الفوري.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="text-center bg-slate-900/80 border border-emerald-500/30 rounded-2xl p-8" data-aos="fade-up">
+            <h3 class="text-2xl font-black text-white mb-2">تريد تطوير سيستم مخصص لعيادتك أو مركزك الطبي؟</h3>
+            <p class="text-slate-400 text-sm max-w-lg mx-auto mb-6">
+                احصل على سيستم EMR مشفر يريحك من الدفاتر الورقية ويرفع جودة تجربة مرضاك في طنطا ومصر.
+            </p>
+            <a href="https://wa.me/201091642566?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%8A%D8%A7%20%D8%B9%D9%85%D8%B1%D9%88%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D9%86%D8%AA%D9%83%D9%84%D9%85%20%D8%B9%D9%86%20%D8%B3%D9%8A%D8%B3%D8%AA%D9%85%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A%20%D8%A7%D9%84%D8%B7%D8%A8%D9%8A." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-emerald-600/30">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>محادثة واتساب مباشرة مع عمرو وليد</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/8 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 عمرو وليد (Amr Waled) — طنطا، محافظة الغربية، مصر.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 600 });
+    </script>
+</body>
+</html>

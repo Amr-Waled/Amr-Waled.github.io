@@ -16,16 +16,65 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "سابقة أعمال الأنظمة والمواقع وسيستم CRM المشحونة — عمرو وليد (Amr Waled)",
-      "url": "https://amrwaled.vercel.app/systems.html",
-      "description": "أنظمة CRM مخصصة، مواقع شركات، ومنصات سحابية لإدارة المبيعات والعيادات والعقارات من تطوير عمرو وليد في طنطا ومصر.",
-      "author": {
-        "@type": "Person",
-        "name": "Amr Waled",
-        "alternateName": "عمرو وليد",
-        "url": "https://amrwaled.vercel.app/"
-      }
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://amrwaled.vercel.app/systems.html#page",
+          "name": "سابقة أعمال الأنظمة والمواقع وسيستم CRM المشحونة — عمرو وليد (Amr Waled)",
+          "url": "https://amrwaled.vercel.app/systems.html",
+          "description": "أنظمة CRM مخصصة، مواقع شركات، ومنصات سحابية لإدارة المبيعات والعيادات والعقارات من تطوير عمرو وليد في طنطا ومصر.",
+          "author": {
+            "@type": "Person",
+            "@id": "https://amrwaled.vercel.app/#person",
+            "name": "Amr Waled",
+            "alternateName": "عمرو وليد",
+            "url": "https://amrwaled.vercel.app/"
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "موقع شركة إنجاز الرسمي (EngazDevelopments.com)",
+                "url": "https://engazdevelopments.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "نظام عيادة Insight Clinic السحابي (Insight Clinic App)",
+                "url": "https://insight-clinic-app.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "الموقع التعريفي لعيادة طنطا (Insight Clinic Public)",
+                "url": "https://insight-clinic-public-website.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "سيستم مبيعات إنجاز الداخلي (Engaz Custom CRM)",
+                "url": "https://amrwaled.vercel.app/crm-systems.html"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://amrwaled.vercel.app/systems.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "ما هي الأنظمة البرمجية المشحونة التي بناها عمرو وليد وتعمل حالياً في الإنتاج؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "تشمل سابقة الأعمال الحية: 1. موقع شركة إنجاز للتطوير العقاري (EngazDevelopments.com)، 2. سيستم مبيعات إنجاز المخصص CRM المربوط بـ 5 إدارات وتطبيق ديسكتوب، 3. نظام عيادة د. جيهان السحابي EMR المشفر (insight-clinic-app.vercel.app)، 4. موقع عيادة طنطا التعريفي المحلي، 5. منصة مدرج الجامعية."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 

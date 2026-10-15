@@ -4,6 +4,9 @@
   "description": "",
   "main": "fix_encoding.js",
   "scripts": {
+    "seo": "node seo-automation.js",
+    "seo:push": "node seo-automation.js --push",
+    "eval:geo": "node geo-evaluator.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

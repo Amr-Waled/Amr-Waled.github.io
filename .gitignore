@@ -9,6 +9,7 @@ venv/
 analytics_extracted/
 analytics_temp.zip
 lighthouse-report.json
+geo-benchmark-report.json
 index.backup.html
 live.html
 vercel.html

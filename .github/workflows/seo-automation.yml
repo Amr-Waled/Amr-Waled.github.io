@@ -1,0 +1,45 @@
+name: Amr Waled SEO & GEO Continuous Engine
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # يعمل تلقائياً كل أسبوع يوم الأحد في منتصف الليل
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  seo-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci || npm install
+
+      - name: 🔍 Run SEO & GEO Automation Engine
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node seo-automation.js
+
+      - name: 🚀 Commit & Push Updates (If Changed)
+        run: |
+          git config --global user.name "AmrWaled-Bot"
+          git config --global user.email "seo-bot@amrwaled.vercel.app"
+          git add sitemap.xml en.html
+          if git diff --staged --quiet; then
+            echo "No changes in sitemap or SEO files."
+          else
+            git commit -m "chore(seo): automated sitemap and bilingual sync [skip ci]"
+            git push
+          fi
