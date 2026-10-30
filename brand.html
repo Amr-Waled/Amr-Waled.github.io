@@ -1875,7 +1875,7 @@
             // 1. Try serverless AI generation with timeout
             try {
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 7500);
+                const timeoutId = setTimeout(() => controller.abort(), 16000);
 
                 const response = await fetch('/api/generate-plan', {
                     method: 'POST',
