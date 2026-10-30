@@ -31,15 +31,15 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.GEMINI_API_KEY;
 
-  if (apiKey && apiKey.startsWith('AIzaSy')) {
+  if (apiKey && apiKey.length > 20) {
     try {
       const prompt = `أنت كبير مهندسي واستشاريي بناء البراند الشخصي والتموضع الاستراتيجي العالمي (Senior Executive Personal Branding & Positioning Architect).
-مهمتك: قراءة استبيان التشخيص وحفر القيمة، وتحليل السيرة الذاتية (CV / Portfolio) للشخص، وهندسة خطة براندينج شخصي شاملة ومتكاملة من الصفر (Complete Personal Brand Masterplan) بدون أي كلام معلب أو قوالب مكررة (Zero AI Fluff / 100% Customized).
+مهمتك: قراءة استبيان التشخيص وحفر القيمة، وتحليل السيرة الذاتية (CV / Portfolio) للشخص، وهندسة خطة براندينج شخصي شاملة ومتكاملة من الصفر (Complete Personal Brand Masterplan) بدون أي كلام معلب أو قوالب مكررة (Zero AI Fluff / 100% Tailored & Bespoke).
 
-⚠️ معايير حاسمة:
-- تحدث بلهجة مصرية عملية ذكية تجمع بين عقلية المهندس ونباهة مدير التسويق (Street-smart & Engineering mindset).
+⚠️ معايير حاسمة وصارمة:
+- تحدث بلهجة مصرية عملية ذكية تجمع بين دقة المهندس ونباهة مدير التسويق (Street-smart & Senior Engineering mindset).
 - إذا كان هناك نص سيرة ذاتية (CV)، قم باستخراج إنجازاته وخبراته الحقيقية ووظفها في الخطة.
-- ابنِ له تموضعاً منفرداً (Category of One) يخرجه من منافسة الأسعار تماماً.
+- ابنِ له تموضعاً منفرداً (Category of One) يخرجه من منافسة ومقارنة الأسعار تماماً.
 - وظف كابوس عميل أحلامه (${client_nightmare}) ومنافسيه (${competitors}) وأخطاء السوق (${market_bs}).
 
 بيانات العميل وسيرته الذاتية:
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
 - الهدف التجاري الأساسي: ${primary_goal}
 - نص السيرة الذاتية وخلفيته المهنية (CV/Portfolio):
 """
-${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد على إجابات الاستبيان الدقيقة').slice(0, 4000)}
+${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد على إجابات الاستبيان المباشرة').slice(0, 4000)}
 """
 
 المطلوب إخراج رد JSON حصراً وصارماً بهذا الهيكل الدقيق:
@@ -85,7 +85,7 @@ ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد 
     "contrarian_topics": ["موضوع خلافي قوي يضرب في ممارسات المنافسين", "تحليل منطقي لسبب فشل الطرق التقليدية"]
   },
   "pillar_3_proof_of_work": {
-    "title": "ركيزة سلطة الإثبات وتفكيك كابوس العميل (Proof & Nightmare Buster)",
+    "title": "ركيزة سلطة الإثبات وتفكيك كابوس العميل (Nightmare Buster)",
     "thesis": "كيف يستغل نتائجه (${proof_metrics}) لنسف مخاوف العميل من (${client_nightmare}) قبل الجلسة البيعية",
     "proof_assets": ["طريقة صياغة دراسة الحالة الأولى", "المؤشر المالي أو الرقمي الحاسم"]
   },
@@ -134,28 +134,37 @@ ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد 
   "strategic_verdict": "حكم استراتيجي وخلاصة حاسمة من سطرين ترسم خطته لمعركة السوق الشخصية"
 }`;
 
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: 'application/json'
-          }
-        })
-      });
+      // Cascade of supported models for high availability
+      const candidateModels = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.1-flash-lite', 'gemini-flash-latest'];
 
-      if (response.ok) {
-        const result = await response.json();
-        const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (text) {
-          const parsed = JSON.parse(text);
-          return res.status(200).json({ success: true, ai_generated: true, plan: parsed });
+      for (const model of candidateModels) {
+        try {
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                responseMimeType: 'application/json'
+              }
+            })
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            const text = result.candidates?.[0]?.content?.parts?.find(p => !p.thought)?.text || result.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              const cleanText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+              const parsed = JSON.parse(cleanText);
+              return res.status(200).json({ success: true, ai_generated: true, model_used: model, plan: parsed });
+            }
+          } else {
+            console.warn(`Model ${model} returned ${response.status}, trying next in cascade...`);
+          }
+        } catch (mErr) {
+          console.warn(`Model ${model} exception:`, mErr.message);
         }
-      } else {
-        const errorText = await response.text();
-        console.error('Gemini REST API error:', response.status, errorText);
       }
     } catch (err) {
       console.error('Gemini generate error:', err.message);
