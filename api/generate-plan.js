@@ -1,5 +1,3 @@
-import { GoogleGenAI } from '@google/genai';
-
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -34,7 +32,6 @@ export default async function handler(req, res) {
 
   if (apiKey && apiKey.startsWith('AIzaSy')) {
     try {
-      const ai = new GoogleGenAI({ apiKey });
       const prompt = `أنت كبير مهندسي التسويق والتموضع الاستراتيجي وبناء العلامات الشخصية (Senior Strategic Positioning & Personal Branding Architect).
 مهمتك: قراءة استبيان التشخيص وحفر القيمة (Diagnostic Audit) لشخص طموح، وهندسة الركائز التسويقية (Marketing Pillars) والتموضع المنفرد (Category of One) له.
 
@@ -94,21 +91,35 @@ export default async function handler(req, res) {
   "strategic_verdict": "حكم استراتيجي وخلاصة حاسمة من سطرين ترسم خطته لمعركة السوق"
 }`;
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json'
-        }
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            responseMimeType: 'application/json'
+          }
+        })
       });
 
-      const parsed = JSON.parse(response.text);
-      return res.status(200).json({ success: true, ai_generated: true, plan: parsed });
+      if (response.ok) {
+        const result = await response.json();
+        const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) {
+          const parsed = JSON.parse(text);
+          return res.status(200).json({ success: true, ai_generated: true, plan: parsed });
+        }
+      } else {
+        const errorText = await response.text();
+        console.error('Gemini REST API error:', response.status, errorText);
+      }
     } catch (err) {
       console.error('Gemini generate error:', err.message);
     }
   }
 
+  // Graceful fallback to client-side dynamic semantic engine
   return res.status(200).json({
     success: true,
     ai_generated: false,
