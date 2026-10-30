@@ -29,7 +29,9 @@ export default async function handler(req, res) {
     cv_text
   } = req.body || {};
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const rawKey = process.env.GEMINI_API_KEY || '';
+  const apiKey = rawKey.replace(/^["']|["']$/g, '').trim();
+  let lastError = null;
 
   if (apiKey && apiKey.length > 20) {
     try {
@@ -160,14 +162,18 @@ ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد 
               return res.status(200).json({ success: true, ai_generated: true, model_used: model, plan: parsed });
             }
           } else {
-            console.warn(`Model ${model} returned ${response.status}, trying next in cascade...`);
+            const errBody = await response.text();
+            lastError = `Model ${model} returned ${response.status}: ${errBody.slice(0, 150)}`;
+            console.warn(lastError);
           }
         } catch (mErr) {
-          console.warn(`Model ${model} exception:`, mErr.message);
+          lastError = `Model ${model} exception: ${mErr.message}`;
+          console.warn(lastError);
         }
       }
     } catch (err) {
-      console.error('Gemini generate error:', err.message);
+      lastError = `Gemini generate error: ${err.message}`;
+      console.error(lastError);
     }
   }
 
@@ -175,6 +181,11 @@ ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد 
   return res.status(200).json({
     success: true,
     ai_generated: false,
+    debug: {
+      has_key: !!apiKey,
+      key_len: apiKey ? apiKey.length : 0,
+      last_error: lastError
+    },
     message: 'Using client-side dynamic semantic engine'
   });
 }
