@@ -34,6 +34,8 @@ export default async function handler(req, res) {
       primary_goal: data.primary_goal || 'غير محدد',
       contact_info: data.contact_info || '',
       summary_cvp: data.summary_cvp || '',
+      has_cv: !!(data.cv_text && data.cv_text.trim().length > 20),
+      cv_snippet: (data.cv_text || '').slice(0, 400),
       created_at: timestamp,
       client_ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown'
     };
