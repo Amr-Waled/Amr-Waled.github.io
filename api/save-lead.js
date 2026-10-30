@@ -36,6 +36,8 @@ export default async function handler(req, res) {
       summary_cvp: data.summary_cvp || '',
       has_cv: !!(data.cv_text && data.cv_text.trim().length > 20),
       cv_snippet: (data.cv_text || '').slice(0, 400),
+      adaptive_rounds: (data.history || []).length,
+      history_summary: (data.history || []).map(h => `${h.question}: ${h.answer}`).join(' | ').slice(0, 800),
       created_at: timestamp,
       client_ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown'
     };

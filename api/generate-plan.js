@@ -26,7 +26,8 @@ export default async function handler(req, res) {
     weekly_hours,
     primary_goal,
     contact_info,
-    cv_text
+    cv_text,
+    history = []
   } = req.body || {};
 
   const rawKey = process.env.GEMINI_API_KEY || '';
@@ -61,6 +62,9 @@ export default async function handler(req, res) {
 """
 ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد على إجابات الاستبيان المباشرة').slice(0, 4000)}
 """
+
+جلسة التشخيص الاستراتيجي الحية وتفاصيل الحوار مع الذكاء الاصطناعي (Adaptive Interview Transcript):
+${history && history.length > 0 ? history.map((h, i) => `[المحطة ${i + 1}] س: ${h.question}\nج: ${h.answer}`).join('\n\n') : 'لا يوجد تاريخ محادثة إضافي'}
 
 المطلوب إخراج رد JSON حصراً وصارماً بهذا الهيكل الدقيق:
 {
