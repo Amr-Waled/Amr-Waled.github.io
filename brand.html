@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهندس الركائز التسويقية | عمرو وليد (Amr Waled) — Strategic Marketing Pillars</title>
-    <meta name="description" content="أداة استراتيجية ذكية من عمرو وليد لتشخيص مجالك، منافسيك، ومهاراتك الحصرية، واستخراج ركائزك التسويقية (Marketing Pillars) والتموضع المنفرد (Category of One) بدون كلام معلب.">
+    <title>تشريح الركائز التسويقية والتموضع المنفرد | عمرو وليد (Amr Waled)</title>
+    <meta name="description" content="أداة استراتيجية ذكية من عمرو وليد لتشخيص مجالك، منافسيك، مهاراتك الحصرية، وعميل أحلامك.. واستخراج ركائزك التسويقية الـ 5 (Marketing Pillars) بدون كلام معلب أو قوالب مكررة.">
     <meta name="keywords" content="Marketing Pillars, الركائز التسويقية, Personal Branding, التموضع التنافسي, عمرو وليد, Amr Waled, استشارات تسويق, تسويق طنطا">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="مهندس الركائز التسويقية للعلامة الشخصية | عمرو وليد">
-    <meta property="og:description" content="شخّص منافسيك، مهاراتك الحصرية، وعيوب السوق.. واستلم ركائزك التسويقية المخصصة (Marketing Pillars) فوراً.">
+    <meta property="og:title" content="تشريح الركائز التسويقية والتموضع المنفرد | عمرو وليد">
+    <meta property="og:description" content="استبيان تشخيص استراتيجي وحفر القيمة: شخّص منافسيك، مهاراتك الـ 95%، وعميل أحلامك.. واستلم ركائزك التسويقية المخصصة فوراً.">
     <meta property="og:url" content="https://amrwaled.vercel.app/brand">
     <meta property="og:image" content="https://amrwaled.vercel.app/amr_personal_branding_approved.jpg">
     <link rel="canonical" href="https://amrwaled.vercel.app/brand">
@@ -31,7 +31,6 @@
             --accent: #ea580c;
             --gold: #f5b324;
             --gold-light: #fde68a;
-            --red-alert: #ef4444;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --font-ar: 'Cairo', sans-serif;
@@ -61,7 +60,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Header */
         .site-header {
             width: 100%;
             border-bottom: 1px solid var(--border);
@@ -103,12 +101,6 @@
             font-weight: 800;
             font-size: 17px;
             letter-spacing: -0.3px;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .btn-outline {
@@ -154,9 +146,9 @@
         }
 
         .hero-title {
-            font-size: clamp(24px, 3.8vw, 40px);
+            font-size: clamp(24px, 3.8vw, 38px);
             font-weight: 900;
-            line-height: 1.3;
+            line-height: 1.35;
             margin-bottom: 14px;
             color: #ffffff;
         }
@@ -168,11 +160,11 @@
         .hero-subtitle {
             color: var(--text-muted);
             font-size: clamp(14px, 1.8vw, 16.5px);
-            max-width: 740px;
+            max-width: 760px;
             margin: 0 auto;
         }
 
-        /* Main Card */
+        /* App Box */
         .app-container {
             max-width: 880px;
             width: 100%;
@@ -232,7 +224,7 @@
             border-radius: 3px;
         }
 
-        /* Form Steps */
+        /* Step Panels */
         .step-panel {
             display: none;
             animation: fadeIn 0.3s ease forwards;
@@ -251,7 +243,7 @@
             font-size: clamp(18px, 2.3vw, 23px);
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -306,7 +298,7 @@
         }
 
         .textarea-input {
-            min-height: 105px;
+            min-height: 95px;
             resize: vertical;
             line-height: 1.7;
         }
@@ -370,7 +362,7 @@
             line-height: 1.5;
         }
 
-        /* Quick Inspiration Chips */
+        /* Chips */
         .chips-container {
             display: flex;
             flex-wrap: wrap;
@@ -465,7 +457,7 @@
             box-shadow: none;
         }
 
-        /* Loading Screen */
+        /* Loading */
         .loading-state {
             display: none;
             text-align: center;
@@ -482,9 +474,7 @@
             animation: spin 0.8s linear infinite;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .loading-title {
             font-size: 21px;
@@ -498,7 +488,7 @@
             font-size: 14.5px;
         }
 
-        /* Results Display (Marketing Pillars Dossier) */
+        /* Results View */
         .result-panel {
             display: none;
             animation: fadeIn 0.4s ease forwards;
@@ -536,7 +526,6 @@
             font-weight: 700;
         }
 
-        /* Strategic Pillar Cards */
         .pillar-card {
             background: var(--bg-card-inner);
             border: 1.5px solid var(--border);
@@ -611,7 +600,6 @@
             font-size: 13px;
         }
 
-        /* Killer Hooks */
         .hooks-container {
             display: flex;
             flex-direction: column;
@@ -638,7 +626,6 @@
             flex-shrink: 0;
         }
 
-        /* Verdict Banner */
         .verdict-banner {
             background: rgba(234, 88, 12, 0.1);
             border: 1px solid rgba(234, 88, 12, 0.3);
@@ -664,7 +651,6 @@
             line-height: 1.7;
         }
 
-        /* Direct Connect Card */
         .connect-cta-card {
             background: linear-gradient(135deg, #111a33 0%, #1c142b 100%);
             border: 1.5px solid var(--gold);
@@ -776,28 +762,28 @@
         </div>
     </header>
 
-    <!-- Hero Introduction -->
+    <!-- Hero -->
     <section class="hero-section">
         <div class="badge-pill">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>تشريح التموضع وبناء النفوذ التنافسي</span>
+            <i class="fa-solid fa-crosshairs"></i>
+            <span>جلسة تشخيص حفر القيمة والتموضع (Diagnostic Audit)</span>
         </div>
         <h1 class="hero-title">
             هندسة <span class="highlight">الركائز التسويقية</span> والتموضع المنفرد لمجالك
         </h1>
         <p class="hero-subtitle">
-            بدون جداول محتوى معلبة أو كلام إنشائي.. أجب عن أسئلة التشريح التنافسي، واستخرج ركائزك التسويقية الـ 5 (Marketing Pillars) التي تكسر منافسيك وتجعلك البديل الحتمي في سوقك.
+            جاوب على أسئلة التشريح الواقعية دي بدون تنظير أو كليشيهات.. وهنطلعلك ركائزك التسويقية الـ 5 (Marketing Pillars) وتموضعك المضاد لمنافسيك عشان تخرج برة حرق الأسعار.
         </p>
     </section>
 
-    <!-- Main Container -->
+    <!-- App Container -->
     <main class="app-container">
         <div class="planner-card">
 
             <!-- Progress Bar -->
             <div class="progress-container" id="progressContainer">
                 <div class="progress-meta">
-                    <span id="stepCounter">الخطوة 1 من 7</span>
+                    <span id="stepCounter">المحطة 1 من 7</span>
                     <span class="progress-step-text" id="progressPercent">14%</span>
                 </div>
                 <div class="progress-track">
@@ -808,27 +794,27 @@
             <!-- Form Wizard -->
             <form id="brandForm" onsubmit="return false;">
 
-                <!-- STEP 1: Niche / Field -->
+                <!-- المحطة 1: ملعبك وتخصصك -->
                 <div class="step-panel active" id="step1">
                     <div class="step-question">
                         <span class="q-num">1</span>
-                        <span>ما هو مجالك أو النيش (Niche) الذي تعمل به؟</span>
+                        <span>ملعبك وتخصصك إيه بالظبط في السوق؟</span>
                     </div>
-                    <p class="step-hint">اختر من القطاعات السريعة أو اكتب مجالك بدقة:</p>
+                    <p class="step-hint">اختار من المجالات السريعة دي أو اكتب نيشك وتخصصك الدقيق بإيدك:</p>
 
                     <div class="chips-container">
-                        <button type="button" class="chip-btn" data-niche="دكتور / عيادة ومجال طبي">🏥 دكتور وعيادة طبية</button>
-                        <button type="button" class="chip-btn" data-niche="تطوير عقاري ووساطة عقارية ومقاولات">🏢 عقارات واستثمار</button>
-                        <button type="button" class="chip-btn" data-niche="برمجة، ذكاء اصطناعي وتكنولوجيا">💻 برمجة وتكنولوجيا</button>
-                        <button type="button" class="chip-btn" data-niche="ميديا باينج وتسويق رقمي وإعلانات">📈 ميديا باير وماركتير</button>
-                        <button type="button" class="chip-btn" data-niche="تجارة إلكترونية وبراندات">🛍️ تجارة إلكترونية</button>
+                        <button type="button" class="chip-btn" data-niche="دكتور وعيادة طبية متخصصة">🏥 دكتور وعيادة طبية</button>
+                        <button type="button" class="chip-btn" data-niche="تطوير عقاري ووساطة ومقاولات">🏢 عقارات واستثمار</button>
+                        <button type="button" class="chip-btn" data-niche="برمجة وهندسة برمجيات وأنظمة">💻 برمجة وتكنولوجيا</button>
+                        <button type="button" class="chip-btn" data-niche="ميديا باينج وإعلانات ممولة وماركتينج">📈 ميديا باير وماركتير</button>
+                        <button type="button" class="chip-btn" data-niche="تجارة إلكترونية وبراندات">🛍️ تجارة إلكترونية (E-com)</button>
                         <button type="button" class="chip-btn" data-niche="استشارات قانونية ومحاماة / مالية">⚖️ استشارات ومحاماة</button>
                         <button type="button" class="chip-btn" data-niche="تصميم وفنون بصرية ومونتاج">🎨 تصميم وصناعة محتوى</button>
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="nicheInput">مجالك وتخصصك الدقيق:</label>
-                        <input type="text" id="nicheInput" class="text-input" placeholder="مثال: مهندس برمجيات، خبير تسويق عقاري، دكتور أسنان...">
+                        <label class="input-label" for="nicheInput">تخصصك بدقة:</label>
+                        <input type="text" id="nicheInput" class="text-input" placeholder="مثال: مهندس ميكانيكا، استشاري سلاسل إمداد، ميديا باير عقارات...">
                     </div>
 
                     <div class="step-footer">
@@ -840,22 +826,22 @@
                     </div>
                 </div>
 
-                <!-- STEP 2: Name and Age -->
+                <!-- المحطة 2: هويتك وسنك -->
                 <div class="step-panel" id="step2">
                     <div class="step-question">
                         <span class="q-num">2</span>
-                        <span>الاسم والسن المهني</span>
+                        <span>نتعرف بيك.. اسمك وسنك كام سنة؟</span>
                     </div>
-                    <p class="step-hint">السن يساعدنا في معايرة نبرة الخطاب ومرحلة التأثير في السوق:</p>
+                    <p class="step-hint">السن بيساعدنا نحدد نبرة الخطاب الصح ومرحلة بناء الهيبة في مجالك:</p>
 
                     <div class="input-group">
-                        <label class="input-label" for="nameInput">الاسم بالكامل (أو الاسم المهني المعتمد):</label>
+                        <label class="input-label" for="nameInput">اسمك بالكامل (أو الاسم اللي الناس بتعرفك بيه):</label>
                         <input type="text" id="nameInput" class="text-input" placeholder="مثال: أحمد مصطفى">
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="ageInput">السن (بالسنوات):</label>
-                        <input type="number" id="ageInput" class="text-input" placeholder="مثال: 26" min="16" max="90">
+                        <label class="input-label" for="ageInput">سنك كام سنة؟</label>
+                        <input type="number" id="ageInput" class="text-input" placeholder="مثال: 27" min="16" max="90">
                     </div>
 
                     <div class="step-footer">
@@ -867,36 +853,36 @@
                     </div>
                 </div>
 
-                <!-- STEP 3: Camera Preference -->
+                <!-- المحطة 3: علاقتك بالكاميرا والظهور -->
                 <div class="step-panel" id="step3">
                     <div class="step-question">
                         <span class="q-num">3</span>
-                        <span>ما هي علاقتك مع الكاميرا وصناعة الفيديو؟</span>
+                        <span>صريحاً كدة.. إيه علاقتك مع الكاميرا وصناعة الفيديو؟</span>
                     </div>
-                    <p class="step-hint">كن صريحاً؛ ركائز الانتشار ستُبنى بالكامل حول ما ترتاح له نفسياً وعملياً:</p>
+                    <p class="step-hint">مفيش إجابة صح وإجابة غلط؛ الخطة كلها هتتبني على اللي يريحك أنت مش اللي يفرضه عليك حد:</p>
 
                     <div class="options-grid">
                         <div class="option-card" data-val="video_lover">
                             <span class="option-icon">🎥</span>
                             <div class="option-details">
-                                <h4>جاهز ومستعد للظهور أمام الكاميرا</h4>
-                                <p>أحب تصوير الفيديوهات والريلز والمقابلات المصورة بدون تردد.</p>
+                                <h4>جاهز ومرتاح قدام الكاميرا</h4>
+                                <p>مستعد أصور ريلز وفيديوهات سريعة ومقابلات مصورة بدون أي إحراج.</p>
                             </div>
                         </div>
 
                         <div class="option-card" data-val="no_camera">
                             <span class="option-icon">✍️</span>
                             <div class="option-details">
-                                <h4>لا أحب الظهور إطلاقاً (بدون كاميرا)</h4>
-                                <p>أفضل الكتابة، الكاروسيل، المقالات العميقة، الإنفوجرافيكس، والصوت فقط.</p>
+                                <h4>مبحبش الظهور إطلاقاً (بدون كاميرا)</h4>
+                                <p>بفضل الكتابة العميقة، الكاروسيل، المقالات، الإنفوجرافيك، والصوت فقط.</p>
                             </div>
                         </div>
 
                         <div class="option-card" data-val="screen_record">
                             <span class="option-icon">💻</span>
                             <div class="option-details">
-                                <h4>تسجيل شاشة وصوت فقط (Screen Teardown)</h4>
-                                <p>أستطيع شرح أنظمة، أكواد، أو أرقام بتسجيل الشاشة وصوتي دون إظهار وجهي.</p>
+                                <h4>تسجيل شاشة وصوت بس (Screen Teardown)</h4>
+                                <p>أقدر أشرح أنظمة، كود، أو حسابات من شاشتي وصوتي طالع بدون إظهار وجهي.</p>
                             </div>
                         </div>
                     </div>
@@ -910,17 +896,22 @@
                     </div>
                 </div>
 
-                <!-- STEP 4: Top Competitors (Core Strategic Question) -->
+                <!-- المحطة 4: مهاراتك الـ 95% وموضوع شغفك -->
                 <div class="step-panel" id="step4">
                     <div class="step-question">
                         <span class="q-num">4</span>
-                        <span>مين أتقل وأشهر منافسينك في السوق؟</span>
+                        <span>لو جردناك من كل المسميات.. إيه اللي بتعمله أحسن من 95% من زمايلك؟</span>
                     </div>
-                    <p class="step-hint">اكتب 1 إلى 3 أسماء أو شركات أو فئات مسيطرة على مجالك، والعميل بيقارنك بيهم تلقائياً:</p>
+                    <p class="step-hint">انزع الشهادات والرتب الوظيفية.. إيه المهارة اللي بتعرف تنفذها بإيدك وتفهم تفاصيلها أحسن من أغلب اللي في السوق؟</p>
 
                     <div class="input-group">
-                        <label class="input-label" for="competitorsInput">أسماء أو أنواع المنافسين المسيطرين:</label>
-                        <textarea id="competitorsInput" class="textarea-input" placeholder="مثال: فلان الفلاني، شركة كذا، الوكالات التقليدية القديمة اللي بتبيع باقات جاهزة، فريلانسرز الهنود على فايفر..."></textarea>
+                        <label class="input-label" for="superpowerInput">مهارتك الحصرية (Your 95% Superpower):</label>
+                        <textarea id="superpowerInput" class="textarea-input" placeholder="مثال: بعرف أربط الميديا باينج ببرمجة سيستم CRM يمنع تسريب الليدات، أو دكتور بيفهم في الميكانيكا الحيوية المعقدة، أو مهندس بيصمم قواعد بيانات سريعة جداً..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="passionateTopicInput">إيه الموضوع اللي تقدر تتكلم فيه 45 دقيقة بدون أي تحضير وتكون مستمتع؟ (اختياري)</label>
+                        <input type="text" id="passionateTopicInput" class="text-input" placeholder="مثال: هندسة العروض البيعية، أمن المعلومات، كواليس إقناع العملاء...">
                     </div>
 
                     <div class="step-footer">
@@ -932,25 +923,22 @@
                     </div>
                 </div>
 
-                <!-- STEP 5: Unique Skills vs Competitors (Core Strategic Question) -->
+                <!-- المحطة 5: منافسينك وهبد السوق -->
                 <div class="step-panel" id="step5">
                     <div class="step-question">
                         <span class="q-num">5</span>
-                        <span>إيه المهارات اللي عندك ومش موجودة عند منافسينك؟</span>
+                        <span>مين أتقل منافسينك؟ وإيه الهبد اللي بتشوفهم بيعملوه ونفسك تعارضه؟</span>
                     </div>
-                    <p class="step-hint">ما هو الشيء الذي تفعله وتفهمه بعمق ويفشل منافسوك في مجاراتك فيه؟ (اضغط للإضافة السريعة أو اكتب بحرية):</p>
+                    <p class="step-hint">عشان نطلعك في فئة لوحدك (Category of One)، لازم نعرف مين اللي العميل بيقارنك بيهم، وإيه أخطاء السوق الشائعة:</p>
 
-                    <div class="chips-container" id="skillChips">
-                        <button type="button" class="chip-btn" data-skill="سرعة التنفيذ والتسليم القياسي">⚡ سرعة التنفيذ الفائقة</button>
-                        <button type="button" class="chip-btn" data-skill="الأتمتة والربط التقني بالذكاء الاصطناعي">🤖 الأتمتة والـ AI المتقدم</button>
-                        <button type="button" class="chip-btn" data-skill="فهم سيكولوجية البيع وإغلاق الصفقات">💼 فهم المبيعات والتفاوض</button>
-                        <button type="button" class="chip-btn" data-skill="تحليل الأرقام الدقيق وحساب العائد ROI">📊 دقة الأرقام والـ ROI</button>
-                        <button type="button" class="chip-btn" data-skill="خبرة تنفيذية سابقة بالعمل مع شركات كبرى">🏢 سوابق أعمال مع شركات كبرى</button>
+                    <div class="input-group">
+                        <label class="input-label" for="competitorsInput">مين أتقل 1-3 منافسين أو شركات في مجالك؟</label>
+                        <input type="text" id="competitorsInput" class="text-input" placeholder="مثال: شركة كذا، فلان الفلاني، الوكالات القديمة اللي بتبيع باقات سوشيال ميديا معلبة...">
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="uniqueSkillsInput">مهاراتك الحصرية بالتفصيل (Unfair Superpowers):</label>
-                        <textarea id="uniqueSkillsInput" class="textarea-input" placeholder="مثال: أنا ميديا باير بس ببرمج سيستم CRM يمنع تسريب الليدات، أو أنا دكتور بس بفهم في الميكانيكا الحيوية وأجهزة الليزر الحديثة..."></textarea>
+                        <label class="input-label" for="marketBsInput">إيه أكتر كلام نظري أو ممارسات فاشلة بيعملوها وشايف إنها بتضر العميل؟</label>
+                        <textarea id="marketBsInput" class="textarea-input" placeholder="مثال: حرق الأسعار وجودة رديئة، وعود خيالية وريتش كاذب بدون مبيعات في الخزينة، إهمال العميل التام بعد استلام الفلوس..."></textarea>
                     </div>
 
                     <div class="step-footer">
@@ -962,24 +950,22 @@
                     </div>
                 </div>
 
-                <!-- STEP 6: Competitor Flaws & Market Blindspots -->
+                <!-- المحطة 6: عميل أحلامك وكابوسه -->
                 <div class="step-panel" id="step6">
                     <div class="step-question">
                         <span class="q-num">6</span>
-                        <span>إيه العيب أو النقص الأكبر في شغل منافسينك وعايز تعارضه؟</span>
+                        <span>مين عميل أحلامك؟ وإيه أكبر كابوس مخليه خايف يدفعلك؟</span>
                     </div>
-                    <p class="step-hint">ما هي الممارسات السيئة أو الكلام النظري المنتشر في مجالك والذي تراه هراءً وتملك بديلاً عملياً له؟</p>
+                    <p class="step-hint">البراند الحقيقي بيتبني لخدمة بطل القصة (العميل).. لازم نحدد مين هو وإيه خوفه الأكبر عشان ننسفه في ركائزك:</p>
 
-                    <div class="chips-container" id="flawChips">
-                        <button type="button" class="chip-btn" data-flaw="حرق الأسعار مع تقديم جودة رديئة">📉 حرق الأسعار والجودة الرديئة</button>
-                        <button type="button" class="chip-btn" data-flaw="بيع كلام نظري وشعارات بدون أرقام مبيعات">🗣️ كلام نظري بدون أرقام مبيعات</button>
-                        <button type="button" class="chip-btn" data-flaw="البطء الشديد وإهمال العميل بعد استلام الفلوس">⏳ إهمال العميل بعد التعاقد</button>
-                        <button type="button" class="chip-btn" data-flaw="التعتيم وعدم إطلاع العميل على تفاصيل شغله">🔒 التعتيم وعدم الشفافية</button>
+                    <div class="input-group">
+                        <label class="input-label" for="dreamClientInput">مين العميل اللي لو جالك منه 3 مشاريع شهرياً هتكون في قمة السعادة والربحية؟</label>
+                        <input type="text" id="dreamClientInput" class="text-input" placeholder="مثال: أصحاب شركات التطوير العقاري، مديري التسويق في الخليج، دكاترة الأسنان...">
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="flawsInput">العيوب وأخطاء السوق التي تريد معارضتها علناً:</label>
-                        <textarea id="flawsInput" class="textarea-input" placeholder="مثال: المنافسين بيوعدوا العميل بأرقام خيالية وريتش كاذب بدون أي مبيعات حقيقية في الخزينة، وبيسيبوا الليدات تضيع بدون متابعة..."></textarea>
+                        <label class="input-label" for="clientNightmareInput">إيه أكبر كابوس يؤرق هذا العميل بخصوص مجالك ومش منيمه بالليل؟</label>
+                        <textarea id="clientNightmareInput" class="textarea-input" placeholder="مثال: خايف ميزانيته الإعلانية تتحرق ع الفاضي، خايف الليدات تضيع بدون متابعة، خايف يسلم مشروعه لحد يتأخر عليه..."></textarea>
                     </div>
 
                     <div class="step-footer">
@@ -991,50 +977,50 @@
                     </div>
                 </div>
 
-                <!-- STEP 7: Goal & Contact Confirmation -->
+                <!-- المحطة 7: الأرقام الحقيقية والالتزام والتواصل -->
                 <div class="step-panel" id="step7">
                     <div class="step-question">
                         <span class="q-num">7</span>
-                        <span>الهدف التجاري وحفظ التقرير الاستراتيجي</span>
+                        <span>أقوى أرقامك، وقتك، ورقم الواتساب</span>
                     </div>
-                    <p class="step-hint">الخطوة الأخيرة لهندسة ركائزك التسويقية:</p>
+                    <p class="step-hint">الخطوة الأخيرة لحفظ التقرير وإطلاق ركائزك التسويقية:</p>
 
-                    <div class="options-grid">
-                        <div class="option-card" data-val="inbound_clients">
-                            <span class="option-icon">💼</span>
-                            <div class="option-details">
-                                <h4>جلب عملاء واستشارات Inbound بأسعار عالية</h4>
-                                <p>أن يأتيني العملاء جاهزون للدفع دون الدخول في حرب أسعار.</p>
-                            </div>
-                        </div>
+                    <div class="input-group">
+                        <label class="input-label" for="proofMetricsInput">إيه أقوى رقم أو نتيجة حية عملتها قبل كدة تثبت إنك مش بياع كلام؟</label>
+                        <input type="text" id="proofMetricsInput" class="text-input" placeholder="مثال: حققت 2.5 مليون مبيعات بإعلان ألف جنيه، وفرت 40 ساعة تشغيل شهرياً، دربت 200 مهندس...">
+                    </div>
 
-                        <div class="option-card" data-val="global_job">
-                            <span class="option-icon">🌍</span>
-                            <div class="option-details">
-                                <h4>فرص توظيف دولية / ريموت براتب دولاري</h4>
-                                <p>جذب مديري التوظيف والشركات العالمية كخبير لا يمكن استبداله.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="digital_products">
-                            <span class="option-icon">📦</span>
-                            <div class="option-details">
-                                <h4>بيع منتجات رقمية، أنظمة، أو استشارات مؤتمتة</h4>
-                                <p>بناء أصول رقمية تدر دخلاً دون الحاجة لبيع الوقت بالساعة.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="authority">
-                            <span class="option-icon">🏛️</span>
-                            <div class="option-details">
-                                <h4>سلطة معرفية وشراكات استراتيجية كبرى</h4>
-                                <p>أن أكون المرجع الأول للبودكاست، المستثمرين، والمؤتمرات.</p>
-                            </div>
+                    <div class="input-group">
+                        <label class="input-label">مستعد تخصص كام ساعة أسبوعياً بانتظام لصناعة براندك؟</label>
+                        <div class="chips-container" id="hoursChips">
+                            <button type="button" class="chip-btn" data-hours="2-3 ساعات أسبوعياً (خفيفة)">2-3 ساعات (خفيفة)</button>
+                            <button type="button" class="chip-btn active" data-hours="4-6 ساعات أسبوعياً (تركيز جاد)">4-6 ساعات (تركيز جاد)</button>
+                            <button type="button" class="chip-btn" data-hours="+10 ساعات أسبوعياً (انطلاق سريع)">+10 ساعات (انطلاق سريع)</button>
                         </div>
                     </div>
 
-                    <div class="input-group" style="margin-top: 20px;">
-                        <label class="input-label" for="contactInput">رقم الواتساب أو الإيميل (لحفظ التقرير ومتابعة التحديثات):</label>
+                    <div class="input-group">
+                        <label class="input-label">هدفك التجاري الأساسي إيه؟</label>
+                        <div class="options-grid" style="margin-bottom: 16px;">
+                            <div class="option-card selected" data-val="inbound_clients">
+                                <span class="option-icon">💼</span>
+                                <div class="option-details">
+                                    <h4>جلب عملاء واستشارات تعاقدية Inbound</h4>
+                                    <p>العملاء يجولي جاهزين للدفع بدون فصال.</p>
+                                </div>
+                            </div>
+                            <div class="option-card" data-val="global_job">
+                                <span class="option-icon">🌍</span>
+                                <div class="option-details">
+                                    <h4>عقد دولي / ريموت براتب دولاري</h4>
+                                    <p>جذب مديري التوظيف والشركات العالمية كخبير نادر.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="contactInput">رقم الواتساب أو الإيميل (لحفظ التقرير وإرسال التنبيهات):</label>
                         <input type="text" id="contactInput" class="text-input" placeholder="010xxxxxxx أو yourname@example.com" required>
                     </div>
 
@@ -1049,17 +1035,17 @@
 
             </form>
 
-            <!-- Loading Screen -->
+            <!-- Loading State -->
             <div class="loading-state" id="loadingState">
                 <div class="spinner"></div>
-                <div class="loading-title">جاري تشريح المنافسين وهندسة الركائز التسويقية...</div>
-                <div class="loading-sub" id="loadingSub">تفكيك مهاراتك الحصرية ضد المنافسين وبناء التموضع المنفرد (Anti-Template Engine)</div>
+                <div class="loading-title">جاري تشريح البيانات وهندسة ركائزك التسويقية...</div>
+                <div class="loading-sub" id="loadingSub">تفكيك كابوس عميل أحلامك، وتوظيف مهارتك الـ 95%، وبناء التموضع المضاد لمنافسيك</div>
             </div>
 
-            <!-- RESULT VIEW (Strategic Marketing Pillars Dossier) -->
+            <!-- RESULT VIEW -->
             <div class="result-panel" id="resultPanel">
                 <div class="result-header">
-                    <span class="result-badge"><i class="fa-solid fa-shield-check"></i> تم استخراج الركائز التسويقية بنجاح</span>
+                    <span class="result-badge"><i class="fa-solid fa-shield-check"></i> تم استخراج ركائزك التسويقية بنجاح</span>
                     <h2 class="result-title" id="resNameTitle">الركائز التسويقية: أحمد مصطفى</h2>
                     <div class="result-person-meta" id="resMetaText">مجال: التسويق • التموضع المضاد لمنافسي السوق</div>
                 </div>
@@ -1071,7 +1057,7 @@
                         <h3 class="pillar-title">التموضع المنفرد ومعادلة الهجوم التنافسي (Category of One)</h3>
                     </div>
                     <div class="pillar-thesis" id="resCvpText">
-                        "أنا أساعد [العميل] عبر دمج [مهارتي الحصرية] لكسر مشاكل [المنافسين] بدون أي حرق ميزانيات..."
+                        "أنا أساعد [عميل أحلامك] على التخلص من [كابوسه الأكبر] عبر مهاراتي في [المهارة الـ 95%] كبديل مباشر لـ [المنافسين] وبدون أي حرق ميزانيات..."
                     </div>
                 </div>
 
@@ -1079,46 +1065,46 @@
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">PILLAR 1</span>
-                        <h3 class="pillar-title" id="resPillar1Title">ركيزة الحصن التنافسي (Your Unfair Advantage Moat)</h3>
+                        <h3 class="pillar-title" id="resPillar1Title">ركيزة الحصن التنافسي (Your 95% Superpower Moat)</h3>
                     </div>
                     <div class="pillar-thesis" id="resPillar1Thesis">
-                        تحويل مهاراتك الحصرية إلى عائق دخول يمنع استبدالك.
+                        تحويل مهارتك الحصرية إلى عائق دخول يجعل استنساخك مستحيلاً.
                     </div>
                     <ul class="pillar-points" id="resPillar1Points"></ul>
                 </div>
 
-                <!-- Pillar 2: Anti-Competitor -->
+                <!-- Pillar 2: Anti-BS -->
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">PILLAR 2</span>
-                        <h3 class="pillar-title" id="resPillar2Title">ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)</h3>
+                        <h3 class="pillar-title" id="resPillar2Title">ركيزة معارضة هبد السوق (Anti-BS & Industry Flaws)</h3>
                     </div>
                     <div class="pillar-thesis" id="resPillar2Thesis">
-                        استغلال الثغرات ونقاط ضعف المنافسين لبناء ولاء قطعي مع العميل.
+                        استغلال عيوب المنافسين لتكون صوت الحق الوحيد في عيون عميل أحلامك.
                     </div>
                     <ul class="pillar-points" id="resPillar2Points"></ul>
                 </div>
 
-                <!-- Pillar 3: Proof of Work -->
+                <!-- Pillar 3: Nightmare Buster & Proof -->
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">PILLAR 3</span>
-                        <h3 class="pillar-title" id="resPillar3Title">ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof of Work)</h3>
+                        <h3 class="pillar-title" id="resPillar3Title">ركيزة سلطة الإثبات وتفكيك كابوس العميل (Nightmare Buster)</h3>
                     </div>
                     <div class="pillar-thesis" id="resPillar3Thesis">
-                        الأدلة المادية والأرقام التي تقنع العميل قبل الاجتماع وتنهي الشك.
+                        استغلال سوابق أعمالك لنسف مخاوف عميلك قبل الجلسة البيعية.
                     </div>
                     <ul class="pillar-points" id="resPillar3Points"></ul>
                 </div>
 
-                <!-- Pillar 4: Offer Packaging -->
+                <!-- Pillar 4: Offer Architecture -->
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">PILLAR 4</span>
-                        <h3 class="pillar-title" id="resPillar4Title">ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)</h3>
+                        <h3 class="pillar-title" id="resPillar4Title">ركيزة العرض الذي لا يُقاوم لعميل أحلامك (Grand Slam Offer)</h3>
                     </div>
                     <div class="pillar-thesis" id="resPillar4Thesis">
-                        كيف تحزم مهاراتك كمنتج ونظام متكامل بدل بيع الوقت بالساعة.
+                        كيف تحزم خدماتك في باقة متكاملة تضمن إزالة كابوس العميل.
                     </div>
                     <ul class="pillar-points" id="resPillar4Points"></ul>
                 </div>
@@ -1127,10 +1113,10 @@
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">PILLAR 5</span>
-                        <h3 class="pillar-title" id="resPillar5Title">ركيزة الانتشار والنفوذ المتطابقة مع طبيعة ظهورك</h3>
+                        <h3 class="pillar-title" id="resPillar5Title">ركيزة الانتشار المتوافقة مع طبيعة ظهورك ووقتك</h3>
                     </div>
                     <div class="pillar-thesis" id="resPillar5Thesis">
-                        استراتيجية نشر مخصصة بنسبة 100% لا تجبرك على ما تكرهه.
+                        استراتيجية نشر مخصصة 100% لا تجبرك على ما تكرهه.
                     </div>
                     <ul class="pillar-points" id="resPillar5Points"></ul>
                 </div>
@@ -1139,7 +1125,7 @@
                 <div class="pillar-card">
                     <div class="pillar-header">
                         <span class="pillar-badge">HOOKS</span>
-                        <h3 class="pillar-title">3 هوكات استراتيجية شرسة لاختراق انتباه السوق</h3>
+                        <h3 class="pillar-title">3 هوكات استراتيجية شرسة لاختراق انتباه عميل أحلامك</h3>
                     </div>
                     <div class="hooks-container" id="resHooksList"></div>
                 </div>
@@ -1148,7 +1134,7 @@
                 <div class="verdict-banner">
                     <h4><i class="fa-solid fa-triangle-exclamation"></i> الحكم الاستراتيجي ومعركتك القادمة في السوق:</h4>
                     <p id="resVerdictText">
-                        معركتك ليست في زيادة عدد المنشورات، بل في الإصرار على مخاطبة شريحة تفهم قيمة مهارتك الحصرية وتكره أخطاء منافسيك التقليديين.
+                        معركتك في السوق ليست في كثرة البوستات، بل في التركيز على مخاطبة عميل أحلامك وإثبات أنك تملك الحل الهندسي الوحيد الذي يريحه من كابوس السوق.
                     </p>
                 </div>
 
@@ -1188,10 +1174,15 @@
             name: '',
             age: '',
             camera_preference: '',
+            superpower_95: '',
+            passionate_topic_45m: '',
             competitors: '',
-            unique_skills: '',
-            competitor_flaws: '',
-            primary_goal: '',
+            market_bs: '',
+            dream_client: '',
+            client_nightmare: '',
+            proof_metrics: '',
+            weekly_hours: '4-6 ساعات أسبوعياً (تركيز جاد)',
+            primary_goal: 'inbound_clients',
             contact_info: ''
         };
 
@@ -1199,9 +1190,13 @@
         const nicheInput = document.getElementById('nicheInput');
         const nameInput = document.getElementById('nameInput');
         const ageInput = document.getElementById('ageInput');
+        const superpowerInput = document.getElementById('superpowerInput');
+        const passionateTopicInput = document.getElementById('passionateTopicInput');
         const competitorsInput = document.getElementById('competitorsInput');
-        const uniqueSkillsInput = document.getElementById('uniqueSkillsInput');
-        const flawsInput = document.getElementById('flawsInput');
+        const marketBsInput = document.getElementById('marketBsInput');
+        const dreamClientInput = document.getElementById('dreamClientInput');
+        const clientNightmareInput = document.getElementById('clientNightmareInput');
+        const proofMetricsInput = document.getElementById('proofMetricsInput');
         const contactInput = document.getElementById('contactInput');
 
         // Buttons
@@ -1247,48 +1242,39 @@
             });
         });
 
-        // Step 4: Competitors
-        competitorsInput.addEventListener('input', (e) => {
-            state.competitors = e.target.value.trim();
-            btnNext4.disabled = state.competitors.length < 3;
+        // Step 4: 95% Superpower
+        superpowerInput.addEventListener('input', (e) => {
+            state.superpower_95 = e.target.value.trim();
+            btnNext4.disabled = state.superpower_95.length < 3;
         });
 
-        // Step 5: Unique Skills & Chips
-        document.querySelectorAll('#skillChips .chip-btn').forEach(btn => {
+        // Step 5: Competitors & BS
+        function validateStep5() {
+            state.competitors = competitorsInput.value.trim();
+            state.market_bs = marketBsInput.value.trim();
+            btnNext5.disabled = !(state.competitors.length >= 2 && state.market_bs.length >= 3);
+        }
+        competitorsInput.addEventListener('input', validateStep5);
+        marketBsInput.addEventListener('input', validateStep5);
+
+        // Step 6: Dream Client & Nightmare
+        function validateStep6() {
+            state.dream_client = dreamClientInput.value.trim();
+            state.client_nightmare = clientNightmareInput.value.trim();
+            btnNext6.disabled = !(state.dream_client.length >= 2 && state.client_nightmare.length >= 3);
+        }
+        dreamClientInput.addEventListener('input', validateStep6);
+        clientNightmareInput.addEventListener('input', validateStep6);
+
+        // Step 7: Proof, Hours, Goal
+        document.querySelectorAll('#hoursChips .chip-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
-                const selected = Array.from(document.querySelectorAll('#skillChips .chip-btn.active')).map(b => b.dataset.skill);
-                const currentText = uniqueSkillsInput.value.trim();
-                if (btn.classList.contains('active')) {
-                    uniqueSkillsInput.value = currentText ? `${currentText} + ${btn.dataset.skill}` : btn.dataset.skill;
-                }
-                state.unique_skills = uniqueSkillsInput.value.trim();
-                btnNext5.disabled = state.unique_skills.length < 3;
+                document.querySelectorAll('#hoursChips .chip-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.weekly_hours = btn.dataset.hours;
             });
         });
-        uniqueSkillsInput.addEventListener('input', (e) => {
-            state.unique_skills = e.target.value.trim();
-            btnNext5.disabled = state.unique_skills.length < 3;
-        });
 
-        // Step 6: Competitor Flaws & Chips
-        document.querySelectorAll('#flawChips .chip-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
-                if (btn.classList.contains('active')) {
-                    const currentText = flawsInput.value.trim();
-                    flawsInput.value = currentText ? `${currentText} + ${btn.dataset.flaw}` : btn.dataset.flaw;
-                }
-                state.competitor_flaws = flawsInput.value.trim();
-                btnNext6.disabled = state.competitor_flaws.length < 3;
-            });
-        });
-        flawsInput.addEventListener('input', (e) => {
-            state.competitor_flaws = e.target.value.trim();
-            btnNext6.disabled = state.competitor_flaws.length < 3;
-        });
-
-        // Step 7: Goal Cards
         document.querySelectorAll('#step7 .option-card').forEach(card => {
             card.addEventListener('click', () => {
                 document.querySelectorAll('#step7 .option-card').forEach(c => c.classList.remove('selected'));
@@ -1301,7 +1287,7 @@
         function updateProgressBar(step) {
             const pct = Math.round((step / 7) * 100);
             document.getElementById('progressBar').style.width = pct + '%';
-            document.getElementById('stepCounter').innerText = `الخطوة ${step} من 7`;
+            document.getElementById('stepCounter').innerText = `المحطة ${step} من 7`;
             document.getElementById('progressPercent').innerText = pct + '%';
         }
 
@@ -1322,16 +1308,19 @@
         });
         btnNext2.addEventListener('click', () => goToStep(3));
         btnNext3.addEventListener('click', () => goToStep(4));
-        btnNext4.addEventListener('click', () => goToStep(5));
+        btnNext4.addEventListener('click', () => {
+            state.superpower_95 = superpowerInput.value.trim();
+            state.passionate_topic_45m = passionateTopicInput.value.trim();
+            goToStep(5);
+        });
         btnNext5.addEventListener('click', () => goToStep(6));
         btnNext6.addEventListener('click', () => goToStep(7));
 
-        // Submit & Process Marketing Pillars
+        // Submit & Generate Pillars
         btnSubmit.addEventListener('click', async () => {
+            state.proof_metrics = proofMetricsInput.value.trim() || 'سوابق أعمال تنفيذية حقيقية';
             state.contact_info = contactInput.value.trim();
-            if (!state.primary_goal) {
-                state.primary_goal = 'inbound_clients';
-            }
+
             if (!state.contact_info) {
                 contactInput.focus();
                 contactInput.style.borderColor = '#ef4444';
@@ -1345,7 +1334,7 @@
 
             let resultPlan = null;
 
-            // 1. Try serverless AI generation with timeout fallback
+            // 1. Try serverless AI generation with 6.5s timeout
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 6500);
@@ -1368,9 +1357,9 @@
                 console.log('Using dynamic semantic engine fallback:', err.message);
             }
 
-            // 2. If AI is not configured or failed, use our Deep Dynamic Semantic Engine
+            // 2. Fallback to Deep Semantic Engine
             if (!resultPlan) {
-                resultPlan = buildDynamicSemanticPillars(state);
+                resultPlan = buildDeepDiagnosticPillars(state);
             }
 
             // 3. Save Lead Async to API & Supabase
@@ -1383,9 +1372,14 @@
                         age: state.age,
                         niche: state.niche,
                         camera_preference: state.camera_preference,
+                        superpower_95: state.superpower_95,
+                        passionate_topic_45m: state.passionate_topic_45m,
                         competitors: state.competitors,
-                        unique_skills: state.unique_skills,
-                        competitor_flaws: state.competitor_flaws,
+                        market_bs: state.market_bs,
+                        dream_client: state.dream_client,
+                        client_nightmare: state.client_nightmare,
+                        proof_metrics: state.proof_metrics,
+                        weekly_hours: state.weekly_hours,
                         primary_goal: state.primary_goal,
                         contact_info: state.contact_info,
                         summary_cvp: resultPlan.counter_positioning_cvp || resultPlan.cvp
@@ -1405,60 +1399,58 @@
             }, 800);
         });
 
-        // Deep Semantic Marketing Pillars Generator (Zero-fluff, Anti-Template)
-        function buildDynamicSemanticPillars(data) {
+        // Deep Diagnostic Semantic Pillars Engine
+        function buildDeepDiagnosticPillars(data) {
             const name = data.name || 'عزيزي المحترف';
             const age = data.age || '26';
             const niche = (data.niche && data.niche.trim().length > 0) ? data.niche.trim() : (nicheInput.value.trim() || 'مجالك وتخصصك');
             const camera_preference = data.camera_preference;
-            const competitors = data.competitors;
-            const unique_skills = data.unique_skills;
-            const competitor_flaws = data.competitor_flaws;
-            const primary_goal = data.primary_goal;
+            const superpower = (data.superpower_95 && data.superpower_95.trim().length > 0) ? data.superpower_95.trim() : 'مهارات التنفيذ الدقيقة والأتمتة';
+            const competitors = (data.competitors && data.competitors.trim().length > 0) ? data.competitors.trim() : 'المنافسين التقليديين في السوق';
+            const market_bs = (data.market_bs && data.market_bs.trim().length > 0) ? data.market_bs.trim() : 'الوعود النظرية وغياب الأرقام الحقيقية';
+            const dream_client = (data.dream_client && data.dream_client.trim().length > 0) ? data.dream_client.trim() : 'أصحاب الشركات وصناع القرار الجادين';
+            const client_nightmare = (data.client_nightmare && data.client_nightmare.trim().length > 0) ? data.client_nightmare.trim() : 'حرق الميزانية وتضييع الوقت بدون نتائج ملموسة';
+            const proof_metrics = data.proof_metrics || 'سوابق أعمال موثقة ونتائج حقيقية';
 
-            const safeComp = (competitors && competitors.trim().length > 0) ? competitors.trim() : 'المنافسين التقليديين في السوق';
-            const safeSkills = (unique_skills && unique_skills.trim().length > 0) ? unique_skills.trim() : 'الدقة التشغيلية والسرعة في التنفيذ';
-            const safeFlaws = (competitor_flaws && competitor_flaws.trim().length > 0) ? competitor_flaws.trim() : 'الوعود النظرية وغياب الأرقام الحقيقية';
-
-            const cvp = `أنا ${name}، أساعد العملاء في مجال (${niche}) على تحقيق أعلى نتائج ملموسة عبر توظيف (${safeSkills})، كبديل مباشر لأسلوب (${safeComp}) وبدون المعاناة من (${safeFlaws}).`;
+            const cvp = `أنا ${name}، أساعد (${dream_client}) على حل كابوس (${client_nightmare}) عبر تسخير مهارتي في (${superpower})، كبديل مباشر لأسلوب (${competitors}) وبدون أي معاناة من (${market_bs}).`;
 
             // Pillar 1: Moat
             const pillar1 = {
-                title: 'ركيزة الحصن التنافسي (Your Unfair Advantage Moat)',
-                thesis: `تحويل (${safeSkills}) من مجرد ميزة تقنية إلى حاجز دفاعي (Moat) يجعل منافسيك مثل (${safeComp}) عاجزين عن تقديم نفس الحل دون رفع تكاليفهم بنسبة 300%.`,
+                title: 'ركيزة الحصن التنافسي (Your 95% Superpower Moat)',
+                thesis: `تحويل (${superpower}) من مجرد مهارة في الـ CV إلى حاجز دفاعي صلب يمنع استبدالك، ويجعل منافسيك مثل (${competitors}) عاجزين عن تقديم نفس الحلول بنفس الجودة والدقة.`,
                 points: [
-                    `أثبت للعميل أن الجمع بين مهاراتك لا يمكن لشركة عادية استنساخه بشخص واحد.`,
-                    `اجعل التقرير أو المخرج الذي تسلمه للعميل يحتوي على طبقة من (${safeSkills}) بحيث تصبح هي المعيار الذي يحكم به العميل على جودة السوق.`
+                    `أثبت لـ (${dream_client}) أنك تجمع بين الفهم العميق لمهنتك والدقة في (${superpower})، وهو مزيج يستحيل على شركة عامة تكراره بدون فريق كامل.`,
+                    `اجعل المخرج أو التقرير الذي يراه العميل يحتوي على بصمتك الحصرية بـ (${superpower})، بحيث تصبح هي المعيار الوحيد الذي يقيس به نجاح أي مشروع.`
                 ]
             };
 
-            // Pillar 2: Anti-Competitor
+            // Pillar 2: Anti-BS
             const pillar2 = {
-                title: 'ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)',
-                thesis: `بناء المصداقية عبر تسليط الضوء على خطأ السوق الشائع (${safeFlaws}) الذي يرتكبه (${safeComp})، وتوضيح سبب فشل تلك الطرق التقليدية هندسياً وتجارياً.`,
+                title: 'ركيزة معارضة هبد السوق (Anti-BS & Industry Flaws)',
+                thesis: `بناء السلطة الأخلاقية والمهنية عبر فضح خطأ السوق الشائع (${market_bs}) الذي يمارسه (${competitors})، وتوضيح سبب فشل تلك الطرق بالأدلة الهندسية والتجارية.`,
                 points: [
-                    `تحدث علناً وبجرأة عن الأسباب التي تجعل العملاء يخسرون ميزانياتهم مع المنافسين الذين يمارسون (${safeFlaws}).`,
-                    `قدم للعميل قائمة فحص (Checklist) لاكتشاف تلاعب أو نقص المنافسين قبل أن يوقع معهم أي عقد.`
+                    `تحدث بصراحة وجرأة عما يفعله المنافسون من (${market_bs}) وكيف يؤدي ذلك إلى وقوع العميل في كابوس (${client_nightmare}).`,
+                    `قدم قائمة فحص عملية (Audit Checklist) تساعد (${dream_client}) على فحص شغله الحالي واكتشاف الثغرات بنفسه قبل أن يخسر أمواله.`
                 ]
             };
 
-            // Pillar 3: Proof of Work
+            // Pillar 3: Proof & Nightmare Buster
             const pillar3 = {
-                title: 'ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof & Friction Buster)',
-                thesis: `العميل يخشى دفع ماله وتكرار تجربة سيئة مع أسلوب (${safeComp})؛ تكسر هذا الخوف بنشر أدلة حية توضح كيف تضمن (${safeSkills}) سلامة النتيجة.`,
+                title: 'ركيزة سلطة الإثبات ونسف كابوس العميل (Nightmare Buster & Proof)',
+                thesis: `(${dream_client}) يخشى دفع ماله وتكرار تجربة سيئة مع أسلوب (${competitors})؛ وتنسف هذا الكابوس بنشر سوابق أعمالك الحية (${proof_metrics}) لتثبت أن أرقامك تتحدث قبل لسانك.`,
                 points: [
-                    `انشر دراسة حالة واحدة أسبوعياً تركز على: المشكلة ⬅️ التشخيص ⬅️ كواليس الحل بمهارتك ⬅️ النتيجة بالأرقام الملموسة.`,
-                    `وثق أخطاء وقعت فيها وتغلبت عليها لتثبت للعميل أنك مرشد خاض المعركة قبله ولديه خطة نجاة مجربة.`
+                    `انشر دراسة حالة واحدة أسبوعياً تعتمد معادلة: المشكلة ⬅️ التشخيص ⬅️ كواليس التدخل بـ (${superpower}) ⬅️ النتيجة بالأرقام الملموسة.`,
+                    `شارك تجارب ودروس حقيقية من السوق لتثبت لـ (${dream_client}) أنك مرشد مجرب في الميدان ولديك حلول لكل سيناريو معقد.`
                 ]
             };
 
-            // Pillar 4: Offer Packaging
+            // Pillar 4: Offer Architecture
             const pillar4 = {
-                title: 'ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)',
-                thesis: `التوقف التام عن تسعير خدماتك بالساعة أو الباقات المبتذلة، وصياغة عرض قائم على نتيجة نهائية محددة (Outcome-based Offer) يحل ألم (${safeFlaws}).`,
+                title: 'ركيزة العرض الذي لا يُقاوم لعميل أحلامك (Grand Slam Offer)',
+                thesis: `التوقف التام عن تسعير خدماتك بالساعة أو الباقات المبتذلة، وصياغة عرض متكامل (Productized Ecosystem) يضمن إزالة كابوس (${client_nightmare}) لـ (${dream_client}).`,
                 points: [
-                    `قدم للعميل ضماناً واضحاً أو خطة عمل مرحلية تلغي مخاطرة التجربة لديه.`,
-                    `اربط سعرك بالعائد الذي ستحققه له أو التكلفة التي ستوفرها عليه مقارنة بالخسارة مع المنافسين.`
+                    `صمم عرضاً يركز على النتيجة الصافية (Outcome-based Offer) مع ضمان أو مراحل تسليم واضحة تلغي المخاطرة تماماً على العميل.`,
+                    `اربط سعرك بالقيمة والأرباح التي ستحققها له بفضل (${superpower}) مقارنة بالخسائر التي كان سيتكبدها مع المنافسين.`
                 ]
             };
 
@@ -1466,39 +1458,39 @@
             let pillar5Thesis = '';
             let pillar5Points = [];
             if (camera_preference === 'no_camera') {
-                pillar5Thesis = `استراتيجية سلطة معرفية مكتوبة 100% بدون كاميرا: السيطرة على LinkedIn عبر مقالات تحليلية، كاروسيل PDF، وسوابق أعمال إكسيل ودراسات حالة لا تتطلب وجهك إطلاقاً.`;
+                pillar5Thesis = `استراتيجية نفوذ وسلطة مكتوبة 100% بدون كاميرا: السيطرة على LinkedIn عبر مقالات تحليلية، كاروسيل PDF، وسوابق أعمال إكسيل ودراسات حالة لا تتطلب وجهك إطلاقاً.`;
                 pillar5Points = [
-                    `انشر كل أسبوع 2 كاروسيل يفصل مشكلة (${safeFlaws}) وكيف تحلها تقنياً.`,
-                    `اكتب مقالاً طويلاً واحداً شهرياً (Playbook) يحمل اسمك ويصبح مرجعاً لصناع القرار في (${niche}).`
+                    `انشر كل أسبوع 2 كاروسيل يفصل كابوس (${client_nightmare}) وكيف تحله عملياً بـ (${superpower}).`,
+                    `اكتب مقالاً طويلاً واحداً شهرياً (Playbook) باسمك يستهدف صناع القرار من (${dream_client}).`
                 ];
             } else if (camera_preference === 'screen_record') {
-                pillar5Thesis = `استراتيجية تفكيك الأنظمة (Screen Teardown Authority): تسجيل لقطات من شاشتك بصوتك الواثق تشرح عيوب (${safeComp}) وتستعرض حلولك بـ (${safeSkills}).`;
+                pillar5Thesis = `استراتيجية تفكيك الأنظمة (Screen Teardown Authority): تسجيل لقطات من شاشتك بصوتك الواثق تشرح عيوب (${competitors}) وتستعرض حلولك بـ (${superpower}).`;
                 pillar5Points = [
                     `فيديوهات قصيرة 2-3 دقائق لشاشتك مع شرح صوتي تركز على خطوات حل المشكلات المعقدة.`,
-                    `مشاركة كواليس الملفات والأنظمة التي تبنيها للعملاء لإبهار صانع القرار بمهارتك الحية.`
+                    `مشاركة كواليس الملفات والأنظمة التي تبنيها للعملاء لإبهار (${dream_client}) بمهارتك الحية.`
                 ];
             } else {
-                pillar5Thesis = `استراتيجية الفيديو والخطافات السريعة (Short-form Authority): ريلز وتيك توك ولينكد إن فيديو مدتها 45-60 ثانية تكسر أخطاء (${safeComp}) وتبرز حضورك القوي.`;
+                pillar5Thesis = `استراتيجية الفيديو والخطافات السريعة (Short-form Authority): ريلز وتيك توك ولينكد إن فيديو مدتها 45-60 ثانية تكسر هبد (${market_bs}) وتبرز حضورك القوي.`;
                 pillar5Points = [
-                    `ابدأ الفيديو بسؤال صادم أو رقم غير متوقع يضرب في المفهوم الخاطئ (${safeFlaws}).`,
-                    `اظهر بثقة وهدوء واشرح كيف تفرق مهارتك (${safeSkills}) بين مشروع ينجح وآخر يفشل.`
+                    `ابدأ الفيديو بخطاف صادم يضرب مباشرة في كابوس (${client_nightmare}).`,
+                    `اظهر بثقة وهدوء واشرح كيف تفرق مهارتك (${superpower}) بين مشروع ينجح وآخر يخسر.`
                 ];
             }
 
             const pillar5 = {
-                title: 'ركيزة الانتشار والنفوذ المتطابقة مع طبيعة ظهورك',
+                title: 'ركيزة الانتشار المتوافقة مع طبيعة ظهورك والوقت المتاح',
                 thesis: pillar5Thesis,
                 points: pillar5Points
             };
 
             // Hooks
             const hooks = [
-                `ليه المقارنة بيني وبين (${safeComp}) مش في محلها أصلاً؟ (تحليل هندسي بسيط)`,
-                `أكبر كارثة بشوفها في مجال (${niche}) هي (${safeFlaws}).. وإليك السبب الحقيقي لضياع أرباح العملاء:`,
-                `لو بتدور على أرخص سعر في (${niche}) بلاش تيجي عندي.. لأن مهارتي في (${safeSkills}) بتوفرلك أضعاف اللي هتدفعه.`
+                `ليه المقارنة بيني وبين (${competitors}) مش في محلها أصلاً؟ (تحليل هندسي بسيط)`,
+                `أكبر كارثة بشوفها بتضيع فلوس (${dream_client}) هي (${market_bs}).. وإليك كواليس الحل:`,
+                `لو بتدور على أرخص سعر في (${niche}) بلاش تيجي عندي.. لأن مهارتي في (${superpower}) هتحميك من (${client_nightmare}) وتوفرلك أضعاف اللي هتدفعه.`
             ];
 
-            const verdict = `معركتك في سوق (${niche}) ليست في جذب أكبر عدد من المتابعين، بل في إقناع 5 إلى 10 عملاء مؤهلين بأنك الحل المتخصص الوحيد الذي يملك (${safeSkills}) ويحفظهم من كابوس (${safeFlaws}). تمسك بهذا التموضع وارفض التنافس كسلعة عادية.`;
+            const verdict = `معركتك في سوق (${niche}) ليست في جذب أكبر عدد من المتابعين، بل في إقناع 3 إلى 5 عملاء فقط من (${dream_client}) بأنك الحل المتخصص الوحيد الذي يملك (${superpower}) ويحفظهم من كابوس (${client_nightmare}). تمسك بهذا التموضع وارفض التنافس كسلعة عادية.`;
 
             return {
                 counter_positioning_cvp: cvp,
@@ -1604,7 +1596,7 @@
 
             // WhatsApp Button Link
             const waMsg = encodeURIComponent(
-                `أهلاً يا عمرو، أنا ${data.name} (${data.age} سنة). استخرجت الركائز التسويقية على موقعك لمجال: ${data.niche}.\n\nالمنافسين اللي قارنت نفسي بيهم: ${data.competitors}.\nمهارتي الحصرية: ${data.unique_skills}.\n\nحابب نناقش الركائز دي سوا ونشوف إزاي ننفذها بنظام عملي متكامل.`
+                `أهلاً يا عمرو، أنا ${data.name} (${data.age} سنة). عملت تشخيص الركائز التسويقية على موقعك لمجال: ${data.niche}.\n\nالمنافسين: ${data.competitors}.\nمهارتي الـ 95%: ${data.superpower_95}.\nعميل أحلامي: ${data.dream_client}.\n\nحابب نناقش الركائز دي سوا ونشوف إزاي ننفذها بنظام عملي متكامل.`
             );
             document.getElementById('btnWhatsAppDirect').href = `https://wa.me/201091642566?text=${waMsg}`;
 

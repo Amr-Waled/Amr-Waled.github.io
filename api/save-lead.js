@@ -23,9 +23,14 @@ export default async function handler(req, res) {
       age: data.age || 'غير محدد',
       niche: data.niche || 'غير محدد',
       camera_preference: data.camera_preference || 'غير محدد',
+      superpower_95: data.superpower_95 || 'غير محدد',
+      passionate_topic_45m: data.passionate_topic_45m || '',
       competitors: data.competitors || 'غير محدد',
-      unique_skills: data.unique_skills || 'غير محدد',
-      competitor_flaws: data.competitor_flaws || 'غير محدد',
+      market_bs: data.market_bs || 'غير محدد',
+      dream_client: data.dream_client || 'غير محدد',
+      client_nightmare: data.client_nightmare || 'غير محدد',
+      proof_metrics: data.proof_metrics || 'غير محدد',
+      weekly_hours: data.weekly_hours || 'غير محدد',
       primary_goal: data.primary_goal || 'غير محدد',
       contact_info: data.contact_info || '',
       summary_cvp: data.summary_cvp || '',
@@ -33,7 +38,7 @@ export default async function handler(req, res) {
       client_ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown'
     };
 
-    console.log('[LEAD RECEIVED - MARKETING PILLARS]', JSON.stringify(leadRecord));
+    console.log('[DIAGNOSTIC AUDIT LEAD RECEIVED]', JSON.stringify(leadRecord));
 
     // 1. Instant Telegram Alert
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -41,13 +46,16 @@ export default async function handler(req, res) {
 
     if (telegramToken && telegramChatId) {
       const cameraEmoji = leadRecord.camera_preference.includes('كاميرا') ? '🎥 بيحب الكاميرا' : '✍️ بدون ظهور';
-      const tgMsg = `🚨 *ليد استراتيجي جديد (Marketing Pillars)!*\n\n` +
+      const tgMsg = `🚨 *تشخيص استراتيجي جديد (Diagnostic Onboarding Audit)!*\n\n` +
         `👤 *الاسم:* ${leadRecord.name} (${leadRecord.age} سنة)\n` +
         `🎯 *النيش:* ${leadRecord.niche}\n` +
-        `📹 *الظهور:* ${cameraEmoji}\n` +
-        `⚔️ *المنافسين المذكورين:* ${leadRecord.competitors}\n` +
-        `⚡ *المهارات الحصرية:* ${leadRecord.unique_skills}\n` +
-        `💥 *عيوب المنافسين:* ${leadRecord.competitor_flaws}\n` +
+        `📹 *الظهور:* ${cameraEmoji} | ⏳ *الوقت:* ${leadRecord.weekly_hours}\n` +
+        `⚡ *المهارة الـ 95%:* ${leadRecord.superpower_95}\n` +
+        `⚔️ *المنافسين:* ${leadRecord.competitors}\n` +
+        `💥 *هبد السوق:* ${leadRecord.market_bs}\n` +
+        `👑 *عميل الأحلام:* ${leadRecord.dream_client}\n` +
+        `😱 *كابوس العميل:* ${leadRecord.client_nightmare}\n` +
+        `📊 *أقوى الأرقام:* ${leadRecord.proof_metrics}\n` +
         `🎯 *الهدف:* ${leadRecord.primary_goal}\n` +
         `📱 *التواصل:* ${leadRecord.contact_info || 'لم يُدخل رقم'}\n` +
         `💡 *التموضع المضاد:* ${leadRecord.summary_cvp}\n\n` +
@@ -64,7 +72,7 @@ export default async function handler(req, res) {
           })
         });
       } catch (tgErr) {
-        console.error('Telegram notification error:', tgErr.message);
+        console.error('Telegram alert note:', tgErr.message);
       }
     }
 
@@ -89,7 +97,7 @@ export default async function handler(req, res) {
           console.error('Supabase insert note:', errText);
         }
       } catch (sbErr) {
-        console.error('Supabase error:', sbErr.message);
+        console.error('Supabase note:', sbErr.message);
       }
     }
 
@@ -105,7 +113,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'Strategic lead saved successfully',
+      message: 'Diagnostic audit saved successfully',
       id: `lead_${Date.now()}`
     });
 

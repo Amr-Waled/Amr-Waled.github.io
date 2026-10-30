@@ -18,71 +18,80 @@ export default async function handler(req, res) {
     age,
     niche,
     camera_preference,
+    superpower_95,
+    passionate_topic_45m,
     competitors,
-    unique_skills,
-    competitor_flaws,
+    market_bs,
+    dream_client,
+    client_nightmare,
+    proof_metrics,
+    weekly_hours,
     primary_goal,
     contact_info
   } = req.body || {};
 
   const apiKey = process.env.GEMINI_API_KEY;
 
-  // If apiKey is a valid Google AI Studio key (starts with AIzaSy)
   if (apiKey && apiKey.startsWith('AIzaSy')) {
     try {
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `أنت كبير مهندسي التسويق وبناء النفوذ الشخصي (Strategic Personal Branding & Positioning Architect).
-مهمتك: هندسة الركائز التسويقية (Marketing Pillars) والتموضع الاستراتيجي المضاد (Counter-Positioning) لشخص محدد، بحيث تخرجه تماماً من فخ المقارنات وحرق الأسعار وتضعه في فئة منفردة (Category of One).
+      const prompt = `أنت كبير مهندسي التسويق والتموضع الاستراتيجي وبناء العلامات الشخصية (Senior Strategic Positioning & Personal Branding Architect).
+مهمتك: قراءة استبيان التشخيص وحفر القيمة (Diagnostic Audit) لشخص طموح، وهندسة الركائز التسويقية (Marketing Pillars) والتموضع المنفرد (Category of One) له.
 
-⚠️ تحذير صارم:
-- ممنوع منعاً باتاً كتابة "جدول محتوى روتيني" أو كلام إنشائي عام ينفع لأي شخص (Zero Fluff).
-- يجب تحليل ومهاجمة نقاط ضعف المنافسين المذكورين بالاسم واستغلال المهارات الحصرية المذكورة لصناعة خندق تنافسي (Competitive Moat).
-- صمم الاستراتيجية بدقة وفقاً لتفضيله للكاميرا (سواء كان يرفض الكاميرا أو يحبها).
+⚠️ معايير صارمة:
+- تحدث بلهجة مصرية عملية ذكية تجمع بين عقلية المهندس ونباهة مدير التسويق (Street-smart & Engineering mindset).
+- ممنوع تماماً الكلام المعلب أو جداول المحتوى الروتينية (Zero AI Fluff / No Generic Advice).
+- وظّف عميل أحلامه (${dream_client})، وكابوس العميل (${client_nightmare})، والمهارة اللي أفضل من 95% (${superpower_95})، ومنافسيه (${competitors}) لإنشاء استراتيجية فتاكة.
 
-البيانات التشخيصية للمستخدم:
-- الاسم: ${name} (${age} سنة)
+بيانات تشخيص العميل:
+- الاسم والسن: ${name} (${age} سنة)
 - المجال / النيش: ${niche}
-- أثقل المنافسين في مجاله: ${competitors || 'المنافسين التقليديين في السوق'}
-- المهارات الحصرية التي يمتلكها وتنقص منافسيه: ${unique_skills || 'غير محدد'}
-- العيوب وأخطاء السوق التي يراها عند منافسيه ويريد معارضتها: ${competitor_flaws || 'حرق الأسعار والوعود النظرية'}
-- علاقة المستخدم بالكاميرا والظهور: ${camera_preference}
+- علاقة الكاميرا والظهور: ${camera_preference}
+- المهارة التي يتقنها أفضل من 95% من أقرانه: ${superpower_95}
+- الموضوع الذي يتحدث فيه 45 دقيقة بدون تحضير: ${passionate_topic_45m || 'مجاله وتجاربه العملية'}
+- أثقل المنافسين في السوق: ${competitors}
+- الهبد وأخطاء السوق التي يعارضها: ${market_bs}
+- عميل أحلامه (صانع القرار المستهدف): ${dream_client}
+- كابوس العميل وخوفه الأكبر قبل الدفع: ${client_nightmare}
+- أقوى أرقام وسوابق أعمال حقيقية يمتلكها: ${proof_metrics || 'تجارب تنفيذية سابقة ونتائج عملية'}
+- الساعات المتاحة أسبوعياً: ${weekly_hours || '3-5 ساعات'}
 - الهدف التجاري المباشر: ${primary_goal}
 
-المطلوب: توليد رد JSON حصراً بنفس الهيكل التالي:
+المطلوب إخراج رد JSON حصراً بهذا الهيكل:
 {
-  "counter_positioning_cvp": "صياغة التموضع المضاد المباشر: كيف يعلن تفوقه على أسلوب (${competitors}) دون تجريح، ويقدم نفسه كبديل هندسي حتمي",
+  "counter_positioning_cvp": "صياغة التموضع المضاد الحاد: كيف يخدم (${dream_client}) بحل كابوس (${client_nightmare}) عبر (${superpower_95}) كبديل قطعي لـ (${competitors})",
   "pillar_1_moat": {
-    "title": "ركيزة الحصن التنافسي (Your Unfair Advantage Moat)",
-    "thesis": "كيف يدمج مهارته (${unique_skills}) ليجعل تقليده مستحيلاً على منافسيه",
-    "actionable_angles": ["زاوية إثبات 1", "زاوية إثبات 2"]
+    "title": "ركيزة الحصن التنافسي (Your 95% Superpower Moat)",
+    "thesis": "كيف يسلح مهارته (${superpower_95}) كحاجز دخول يستحيل على (${competitors}) منافسته فيه",
+    "actionable_angles": ["زاوية إثبات وتطبيق 1", "زاوية إثبات وتطبيق 2"]
   },
   "pillar_2_anti_competitor": {
-    "title": "ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)",
-    "thesis": "كيف يستغل خطأ المنافسين (${competitor_flaws}) لبناء ثقة حديدية لدى العميل المتردد",
-    "contrarian_topics": ["موضوع خلافي قوي 1", "موضوع خلافي قوي 2"]
+    "title": "ركيزة معارضة هبد السوق (Anti-BS & Flaws Pillar)",
+    "thesis": "كيف يهاجم خطأ السوق (${market_bs}) ليظهر كصوت الحق الوحيد في عيون (${dream_client})",
+    "contrarian_topics": ["موضوع خلافي قوي يضرب في الخطأ", "تحليل منطقي لسبب فشل الطرق القديمة"]
   },
   "pillar_3_proof_of_work": {
-    "title": "ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof & Friction Buster)",
-    "thesis": "ما هي الأدلة والأرقام وطريقة الشرح التي تثبت كفاءته وتقطع شك العميل",
-    "proof_assets": ["أصل إثبات 1", "أصل إثبات 2"]
+    "title": "ركيزة سلطة الإثبات وتفكيك كابوس العميل (Proof & Nightmare Buster)",
+    "thesis": "كيف يستغل نتائجه (${proof_metrics}) لنسف مخاوف العميل من (${client_nightmare}) قبل الجلسة البيعية",
+    "proof_assets": ["طريقة صياغة دراسة الحالة الأولى", "المؤشر المالي أو الرقمي الحاسم"]
   },
   "pillar_4_offer_architecture": {
-    "title": "ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)",
-    "thesis": "كيف يحزم خدماته كمنتج أو نظام متكامل (Productized Ecosystem) بدل بيع الوقت بالساعة",
-    "core_offer_idea": "فكرة العرض الأساسي المقترح"
+    "title": "ركيزة العرض الذي لا يُقاوم لعميل أحلامك (Grand Slam Offer)",
+    "thesis": "كيف يحزم خدماته في باقة حل متكامل تضمن إزالة (${client_nightmare}) لـ (${dream_client})",
+    "core_offer_idea": "فكرة العرض والضمان الاستراتيجي المقترح"
   },
   "pillar_5_distribution_matrix": {
-    "title": "ركيزة الانتشار المتطابقة مع طبيعة ظهوره",
-    "format_direction": "التوجيه الصارم بناءً على (${camera_preference})",
+    "title": "ركيزة الانتشار المتوافقة مع طبيعة ظهوره والوقت المتاح",
+    "format_direction": "استراتيجية تنفيذية تتطابق 100% مع (${camera_preference}) ووقت (${weekly_hours})",
     "primary_channels": ["منصة 1", "منصة 2"],
-    "execution_framework": "كيف ينفذ وينشر أسبوعياً دون حرق طاقته أو الضغط على نفسه بما يكره"
+    "execution_framework": "روتين النشر الواقعي أسبوعياً بدون إرهاق"
   },
   "killer_hooks": [
-    "خطاف تسويقي شرس يستهدف مشكلة السوق المذكورة",
-    "خطاف تسويقي يبرز المهارة التي تنقص المنافسين",
-    "خطاف يفكك خوف العميل الأكبر"
+    "خطاف تسويقي شرس يستهدف (${dream_client}) مباشرة",
+    "خطاف يهاجم خطأ (${market_bs}) بجرأة",
+    "خطاف يفكك خوف (${client_nightmare}) بالدليل"
   ],
-  "strategic_verdict": "حكم استراتيجي وخلاصة قاطعة من سطرين تلخص معركته القادمة في السوق"
+  "strategic_verdict": "حكم استراتيجي وخلاصة حاسمة من سطرين ترسم خطته لمعركة السوق"
 }`;
 
       const response = await ai.models.generateContent({
@@ -100,7 +109,6 @@ export default async function handler(req, res) {
     }
   }
 
-  // Graceful fallback response: signal client to use its built-in deep semantic engine
   return res.status(200).json({
     success: true,
     ai_generated: false,
