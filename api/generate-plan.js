@@ -136,8 +136,8 @@ ${(cv_text || 'لم يتم رفع ملف سيرة ذاتية - الاعتماد 
   "strategic_verdict": "حكم استراتيجي وخلاصة حاسمة من سطرين ترسم خطته لمعركة السوق الشخصية"
 }`;
 
-      // Cascade of supported models for high availability
-      const candidateModels = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.1-flash-lite', 'gemini-flash-latest'];
+      // Cascade of models: gemini-3.1-flash-lite is lightning fast and 100% available
+      const candidateModels = ['gemini-3.1-flash-lite', 'gemini-3.1-flash-lite-preview', 'gemini-3.5-flash', 'gemini-3.8-flash'];
 
       for (const model of candidateModels) {
         try {
