@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مخطط العلامة الشخصية التفاعلي | عمرو وليد (Amr Waled)</title>
+    <meta name="description" content="أداة تفاعلية ذكية من عمرو وليد لتشخيص مجالك، واستخراج تموضعك الفريد (Category of One)، وتوليد خطة Personal Branding مخصصة لـ 90 يوماً مبنية على أحدث المراجع العالمية.">
+    <meta name="keywords" content="Personal Branding, بناء العلامة الشخصية, خطة تسويق شخصي, عمرو وليد, Amr Waled, استشارات تسويق, تسويق طنطا, مدير تسويق">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="مخطط العلامة الشخصية التفاعلي | عمرو وليد (Amr Waled)">
+    <meta property="og:description" content="أجب عن 5 أسئلة استراتيجية لتشخيص مجالك واستلم خطة عمل مخصصة لـ 90 يوماً تضعك كمرجع موثوق في سوقك.">
+    <meta property="og:url" content="https://amrwaled.vercel.app/brand">
+    <meta property="og:image" content="https://amrwaled.vercel.app/amr_personal_branding_approved.jpg">
+    <link rel="canonical" href="https://amrwaled.vercel.app/brand">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: #0f1422;
+            --bg-card-inner: #151b2e;
+            --border: #1e263d;
+            --border-active: #f5b324;
+            --accent: #ea580c;
+            --gold: #f5b324;
+            --gold-light: #fde68a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --green: #10b981;
+            --font-ar: 'Cairo', sans-serif;
+            --font-en: 'Plus Jakarta Sans', sans-serif;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-ar);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navigation */
+        .site-header {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            background: rgba(7, 9, 14, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            color: #07090e;
+            font-family: var(--font-en);
+            font-weight: 900;
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: -0.3px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--text-main);
+            background: rgba(245, 179, 36, 0.05);
+        }
+
+        /* Hero Header */
+        .hero-section {
+            max-width: 900px;
+            margin: 36px auto 20px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(245, 179, 36, 0.1);
+            border: 1px solid rgba(245, 179, 36, 0.3);
+            color: var(--gold);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-size: clamp(26px, 4vw, 42px);
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+        .hero-title .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: clamp(14px, 1.8vw, 17px);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* App Main Box */
+        .app-container {
+            max-width: 860px;
+            width: 100%;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .planner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .planner-card {
+                padding: 24px 18px;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .progress-step-text {
+            color: var(--gold);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-card-inner);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 16.66%;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            transition: width 0.35s ease;
+            border-radius: 3px;
+        }
+
+        /* Form Steps */
+        .step-panel {
+            display: none;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .step-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-question {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-question .q-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-card-inner);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--gold);
+            font-size: 14px;
+            font-family: var(--font-en);
+            flex-shrink: 0;
+        }
+
+        .step-hint {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* Input Elements */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 8px;
+        }
+
+        .text-input {
+            width: 100%;
+            background: var(--bg-card-inner);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            color: #ffffff;
+            font-family: var(--font-ar);
+            font-size: 16px;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .text-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(245, 179, 36, 0.15);
+            background: #192036;
+        }
+
+        /* Option Cards (Selectable) */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .option-card {
+            background: var(--bg-card-inner);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            user-select: none;
+            position: relative;
+        }
+
+        .option-card:hover {
+            border-color: #3b4769;
+            transform: translateY(-2px);
+            background: #192138;
+        }
+
+        .option-card.selected {
+            border-color: var(--gold);
+            background: rgba(245, 179, 36, 0.08);
+            box-shadow: 0 4px 20px rgba(245, 179, 36, 0.1);
+        }
+
+        .option-icon {
+            font-size: 24px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .option-details h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .option-details p {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Chips for Niche Selection */
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .chip-btn {
+            background: var(--bg-card-inner);
+            border: 1px solid var(--border);
+            color: #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-ar);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip-btn:hover {
+            border-color: var(--gold);
+            color: #ffffff;
+            background: #1e2845;
+        }
+
+        .chip-btn.active {
+            background: var(--gold);
+            color: #07090e;
+            border-color: var(--gold);
+            font-weight: 900;
+        }
+
+        /* Nav Buttons */
+        .step-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-prev {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: var(--font-ar);
+            transition: var(--transition);
+        }
+
+        .btn-prev:hover {
+            color: #ffffff;
+            border-color: #4b5563;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, var(--gold), #ea580c);
+            border: none;
+            color: #07090e;
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            font-family: var(--font-ar);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 179, 36, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Loading Screen */
+        .loading-state {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .spinner {
+            width: 54px;
+            height: 54px;
+            border: 4px solid var(--border);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .loading-sub {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Result View */
+        .result-panel {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 4px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .result-title {
+            font-size: clamp(22px, 3.5vw, 32px);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .result-person-meta {
+            color: var(--gold);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* Result Cards */
+        .res-card {
+            background: var(--bg-card-inner);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px 22px;
+            margin-bottom: 20px;
+        }
+
+        .res-card-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .res-cvp-box {
+            background: #0b1120;
+            border-right: 4px solid var(--gold);
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #f1f5f9;
+            margin-bottom: 12px;
+        }
+
+        .res-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .stat-pill .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .stat-pill .val {
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        /* Hooks List */
+        .hooks-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hook-item {
+            background: #0b101c;
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 14.5px;
+            color: #f8fafc;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .hook-item .icon {
+            color: var(--gold);
+            font-size: 16px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* 90-Day Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .timeline-phase {
+            border-right: 3px solid var(--gold);
+            padding-right: 16px;
+        }
+
+        .timeline-phase h5 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .timeline-phase p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+
+        /* Direct Connect Card */
+        .connect-cta-card {
+            background: linear-gradient(135deg, #111a33 0%, #1e1329 100%);
+            border: 1.5px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            text-align: center;
+            margin-top: 32px;
+            box-shadow: 0 10px 40px rgba(245, 179, 36, 0.15);
+        }
+
+        .consultant-avatar {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            object-fit: cover;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .connect-cta-card h3 {
+            font-size: 21px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .connect-cta-card p {
+            color: #cbd5e1;
+            font-size: 14.5px;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .action-buttons-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-whatsapp-direct {
+            background: #25D366;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp-direct:hover {
+            background: #1eb857;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-print {
+            background: var(--bg-card-inner);
+            color: #ffffff;
+            border: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-print:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Print styles */
+        @media print {
+            .site-header, .btn-print, .btn-prev, .step-footer, .chips-container, .badge-pill, .btn-whatsapp-direct {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .planner-card, .res-card {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                background: white !important;
+                color: black !important;
+            }
+            .res-cvp-box {
+                background: #f1f5f9 !important;
+                color: black !important;
+                border-right-color: #333 !important;
+            }
+            .res-card-title, .result-title, .result-person-meta {
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="brand-logo">
+                <span class="logo-badge">AW</span>
+                <span class="logo-text">عمرو وليد | Personal Brand OS</span>
+            </a>
+            <div class="header-actions">
+                <a href="/" class="btn-outline">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Introduction -->
+    <section class="hero-section">
+        <div class="badge-pill">
+            <i class="fa-solid fa-bolt"></i>
+            <span>أداة تشخيص وبناء العلامة الشخصية</span>
+        </div>
+        <h1 class="hero-title">
+            صمم خطة الـ <span class="highlight">Personal Branding</span> لمجالك في دقيقتين
+        </h1>
+        <p class="hero-subtitle">
+            أجب عن 5 أسئلة استراتيجية، واحصل فوراً على خطة عمل مفصلة لـ 90 يوماً تضعك كفئة منفردة (Category of One) في تخصصك، مبنية على خلاصة أحدث 7 مراجع عالمية.
+        </p>
+    </section>
+
+    <!-- Main Planner Container -->
+    <main class="app-container">
+        <div class="planner-card">
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-meta">
+                    <span id="stepCounter">الخطوة 1 من 6</span>
+                    <span class="progress-step-text" id="progressPercent">16%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <!-- Form Wizard -->
+            <form id="brandForm" onsubmit="return false;">
+
+                <!-- STEP 1: Niche / Industry -->
+                <div class="step-panel active" id="step1">
+                    <div class="step-question">
+                        <span class="q-num">1</span>
+                        <span>ما هو مجالك أو النيش (Niche) الذي تعمل به؟</span>
+                    </div>
+                    <p class="step-hint">اختر مجالك من الخيارات السريعة، أو اكتب تخصصك الدقيق في المربع أدناه:</p>
+
+                    <div class="chips-container">
+                        <button type="button" class="chip-btn" data-niche="دكتور / عيادة ومجال طبي">🏥 دكتور / عيادة ومجال طبي</button>
+                        <button type="button" class="chip-btn" data-niche="تطوير عقاري، مقاولات ووساطة عقارية">🏢 عقارات ومقاولات</button>
+                        <button type="button" class="chip-btn" data-niche="برمجة، تقنية وهندسة برمجيات">💻 برمجة وتقنية</button>
+                        <button type="button" class="chip-btn" data-niche="ميديا باينج، تسويق رقمي وإعلانات ممولة">📈 ميديا باير وماركتير</button>
+                        <button type="button" class="chip-btn" data-niche="تجارة إلكترونية وبراندات تجارية">🛍️ تجارة إلكترونية (E-com)</button>
+                        <button type="button" class="chip-btn" data-niche="استشارات قانونية ومحاماة / محاسبة">⚖️ محاماة واستشارات مالية</button>
+                        <button type="button" class="chip-btn" data-niche="تصميم جرافيك ومونتاج وصناعة محتوى">🎨 تصميم وفنون بصرية</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="nicheInput">أو اكتب مجالك / تخصصك بالتحديد:</label>
+                        <input type="text" id="nicheInput" class="text-input" placeholder="مثال: مهندس ميكانيكا، مدرب لياقة بدنية، استشاري سلاسل إمداد...">
+                    </div>
+
+                    <div class="step-footer">
+                        <div></div>
+                        <button type="button" class="btn-next" id="btnNext1" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Name and Age -->
+                <div class="step-panel" id="step2">
+                    <div class="step-question">
+                        <span class="q-num">2</span>
+                        <span>بياناتك الأساسية (الاسم والسن)</span>
+                    </div>
+                    <p class="step-hint">السن يساعدنا في تحديد نبرة الخطاب المناسبة، ومرحلة الـ Career والتأثير:</p>
+
+                    <div class="input-group">
+                        <label class="input-label" for="nameInput">الاسم بالكامل (أو الاسم المهني المعتمد):</label>
+                        <input type="text" id="nameInput" class="text-input" placeholder="مثال: أحمد مصطفى">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="ageInput">السن (بالسنوات):</label>
+                        <input type="number" id="ageInput" class="text-input" placeholder="مثال: 27" min="16" max="90">
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(1)">السابق</button>
+                        <button type="button" class="btn-next" id="btnNext2" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Camera & Content Format (Critical Question) -->
+                <div class="step-panel" id="step3">
+                    <div class="step-question">
+                        <span class="q-num">3</span>
+                        <span>ما هي علاقتك مع الكاميرا وصناعة الفيديو؟</span>
+                    </div>
+                    <p class="step-hint">كن صريحاً تماماً؛ لأن الخطة ستُبنى بالكامل حول ما يناسبك دون إجبارك على ما تكرهه:</p>
+
+                    <div class="options-grid">
+                        <div class="option-card" data-val="video_lover">
+                            <span class="option-icon">🎥</span>
+                            <div class="option-details">
+                                <h4>جاهز ومستعد للظهور أمام الكاميرا</h4>
+                                <p>أحب تصوير الريلز، الفيديوهات القصيرة، والمقابلات المصورة بدون حرج.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="no_camera">
+                            <span class="option-icon">✍️</span>
+                            <div class="option-details">
+                                <h4>لا أحب الظهور إطلاقاً (بدون كاميرا)</h4>
+                                <p>أفضل الكتابة، الكاروسيل، المقالات العميقة، الإنفوجرافيكس، والصوت فقط.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="screen_record">
+                            <span class="option-icon">💻</span>
+                            <div class="option-details">
+                                <h4>تسجيل شاشة وصوت فقط (Screen Teardown)</h4>
+                                <p>أستطيع شرح أنظمة، أكواد، أو تصاميم بتسجيل الشاشة وصوتي دون إظهار وجهي.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(2)">السابق</button>
+                        <button type="button" class="btn-next" id="btnNext3" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Experience Level -->
+                <div class="step-panel" id="step4">
+                    <div class="step-question">
+                        <span class="q-num">4</span>
+                        <span>ما هو مستوى خبرتك وسوابق أعمالك في هذا المجال؟</span>
+                    </div>
+                    <p class="step-hint">نحدد من خلالها نموذج المصداقية (Show Your Work vs. Key Person of Influence):</p>
+
+                    <div class="options-grid">
+                        <div class="option-card" data-val="beginner">
+                            <span class="option-icon">🌱</span>
+                            <div class="option-details">
+                                <h4>مبتدئ / في البداية (أقل من سنة)</h4>
+                                <p>أتعلم المهارة حالياً وليس لدي سوابق أعمال قوية أستند إليها.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="intermediate">
+                            <span class="option-icon">⚡</span>
+                            <div class="option-details">
+                                <h4>ممارس نشط (من 1 إلى 3 سنوات)</h4>
+                                <p>لدي مشاريع ونتائج حقيقية حققتها لعملاء أو في شركات سابقة.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="expert">
+                            <span class="option-icon">👑</span>
+                            <div class="option-details">
+                                <h4>خبير / صاحب بيزنس (+4 سنوات)</h4>
+                                <p>لدي رصيد خبرة عميق وأريد تحويله إلى نفوذ واستشارات بأسعار مرتفعة.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(3)">السابق</button>
+                        <button type="button" class="btn-next" id="btnNext4" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 5: Primary Commercial Goal -->
+                <div class="step-panel" id="step5">
+                    <div class="step-question">
+                        <span class="q-num">5</span>
+                        <span>ما هو هدفك التجاري الأساسي من بناء البراند؟</span>
+                    </div>
+                    <p class="step-hint">البراندينج ليس للشهرة المجردة؛ أين تريد أن ترى العائد المالي أولاً؟</p>
+
+                    <div class="options-grid">
+                        <div class="option-card" data-val="inbound_clients">
+                            <span class="option-icon">💼</span>
+                            <div class="option-details">
+                                <h4>جلب عملاء واستشارات تعاقدية (Inbound)</h4>
+                                <p>أن يأتيني العملاء وأصحاب الشركات مستعدين للدفع دون مساومة.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="global_job">
+                            <span class="option-icon">🌍</span>
+                            <div class="option-details">
+                                <h4>فرص توظيف دولية / ريموت براتب دولاري</h4>
+                                <p>جذب مسؤولي التوظيف والمديرين لتقديم عروض عمل راقية.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="digital_products">
+                            <span class="option-icon">📦</span>
+                            <div class="option-details">
+                                <h4>بيع منتجات رقمية، كورسات أو قوالب</h4>
+                                <p>بناء جمهور يشتري مني حلولاً مؤتمتة ومحتوى مدفوع.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="authority">
+                            <span class="option-icon">🏛️</span>
+                            <div class="option-details">
+                                <h4>بناء سمعة وسلطة معرفية لمشاريع قادمة</h4>
+                                <p>جذب شركاء، مستثمرين، ودعوات للمؤتمرات وبودكاست المجال.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(4)">السابق</button>
+                        <button type="button" class="btn-next" id="btnNext5" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 6: Unfair Advantage & Contact info -->
+                <div class="step-panel" id="step6">
+                    <div class="step-question">
+                        <span class="q-num">6</span>
+                        <span>الميزة الإضافية وتأكيد الاستلام</span>
+                    </div>
+                    <p class="step-hint">الخطوة الأخيرة لصياغة تموضعك المنفرد (Category of One):</p>
+
+                    <div class="input-group">
+                        <label class="input-label" for="advantageInput">هل لديك مهارة سابقة أو خلفية أخرى تميزك؟ (اختياري)</label>
+                        <input type="text" id="advantageInput" class="text-input" placeholder="مثال: خلفية في المبيعات، لغات أجنبية، خبرة في العقارات، دراسة هندسة...">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="contactInput">رقم الواتساب أو الإيميل (لحفظ خطتك وإرسال التحديثات):</label>
+                        <input type="text" id="contactInput" class="text-input" placeholder="010xxxxxxx أو email@example.com" required>
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(5)">السابق</button>
+                        <button type="button" class="btn-next" id="btnSubmit">
+                            <span>توليد الخطة الاستراتيجية الآن</span>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState">
+                <div class="spinner"></div>
+                <div class="loading-title">جاري تشريح البيانات وهندسة الخطة...</div>
+                <div class="loading-sub" id="loadingSub">تحديد معادلة الـ CVP ومطابقة تفضيلات الظهور مع قنوات النشر</div>
+            </div>
+
+            <!-- RESULT VIEW -->
+            <div class="result-panel" id="resultPanel">
+                <div class="result-header">
+                    <span class="result-badge"><i class="fa-solid fa-check-circle"></i> تم إعداد خطتك بنجاح</span>
+                    <h2 class="result-title" id="resNameTitle">خطة العلامة الشخصية: أحمد مصطفى</h2>
+                    <div class="result-person-meta" id="resMetaText">مجال: التسويق • 27 سنة • استراتيجية محتوى مكتوب</div>
+                </div>
+
+                <!-- Card 1: Positioning & CVP -->
+                <div class="res-card">
+                    <div class="res-card-title">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <span>1. التموضع المنفرد ومعادلة القيمة (Your Category of One)</span>
+                    </div>
+                    <div class="res-cvp-box" id="resCvpText">
+                        "أنا بساعد [الفئة] على تحقيق [الهدف] عبر [المنهجية] بدون [الألم]..."
+                    </div>
+                    <div class="res-grid-2">
+                        <div class="stat-pill">
+                            <div class="label">النموذج المقترح (Brand Archetype)</div>
+                            <div class="val" id="resArchetype">الممارس الباني (The Builder)</div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="label">القوة التنافسية المحورية (Unfair Advantage)</div>
+                            <div class="val" id="resUnfairAdv">دمج المهارة الفنية مع خلفية المبيعات</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Custom Content Strategy -->
+                <div class="res-card">
+                    <div class="res-card-title">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <span>2. استراتيجية المحتوى المفصلة على نوع ظهورك</span>
+                    </div>
+                    <p id="resFormatStrategy" style="color: #cbd5e1; font-size: 14.5px; margin-bottom: 14px;">
+                        بناءً على تفضيلك، خطتك تعتمد كلياً على المحتوى المقروء والكاروسيل، بدون الحاجة للوقوف أمام كاميرا.
+                    </p>
+                    <div class="res-grid-2">
+                        <div class="stat-pill">
+                            <div class="label">المنصات الأساسية الموصى بها</div>
+                            <div class="val" id="resPlatforms">LinkedIn + نشرة بريدية (Newsletter)</div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="label">قاعدة التوزيع (معادلة 70 / 20 / 10)</div>
+                            <div class="val">70% حلول عملية • 20% كواليس • 10% مواقف قيادية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Instant Hooks -->
+                <div class="res-card">
+                    <div class="res-card-title">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>3. أول 3 أفكار وهوكات تبدأ بنشرها غداً</span>
+                    </div>
+                    <ul class="hooks-list" id="resHooksList">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Card 4: 90-Day Roadmap -->
+                <div class="res-card">
+                    <div class="res-card-title">
+                        <i class="fa-solid fa-route"></i>
+                        <span>4. خارطة طريق الـ 90 يوماً خطوة بخطوة</span>
+                    </div>
+                    <div class="timeline" id="resTimeline">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Card 5: Direct Amr Waled Consultation & Action -->
+                <div class="connect-cta-card">
+                    <img src="amr_personal_branding_approved.jpg" alt="Amr Waled" class="consultant-avatar">
+                    <h3>تحتاج مراجعة مباشرة وتطبيق للخطة معي شخصياً؟</h3>
+                    <p>
+                        هذه الخطة هي الخطوة الأولى.. إذا كنت تريد مراجعتها بدقة، بناء منصتك الرقمية، أو تدشين نظام الـ CRM والميديا باينج مع عمرو وليد، تواصل معي الآن:
+                    </p>
+                    <div class="action-buttons-row">
+                        <a href="#" id="btnWhatsAppDirect" class="btn-whatsapp-direct" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>تحدث مع عمرو على واتساب</span>
+                        </a>
+                        <button type="button" class="btn-print" onclick="window.print()">
+                            <i class="fa-solid fa-print"></i>
+                            <span>طباعة أو حفظ الخطة (PDF)</span>
+                        </button>
+                        <button type="button" class="btn-prev" onclick="restartPlanner()">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>إعادة التقييم</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Interactive Engine Script -->
+    <script>
+        const state = {
+            step: 1,
+            niche: '',
+            name: '',
+            age: '',
+            camera_preference: '',
+            experience_level: '',
+            primary_goal: '',
+            unfair_advantage: '',
+            contact_info: ''
+        };
+
+        // DOM elements
+        const nicheInput = document.getElementById('nicheInput');
+        const nameInput = document.getElementById('nameInput');
+        const ageInput = document.getElementById('ageInput');
+        const advantageInput = document.getElementById('advantageInput');
+        const contactInput = document.getElementById('contactInput');
+
+        const btnNext1 = document.getElementById('btnNext1');
+        const btnNext2 = document.getElementById('btnNext2');
+        const btnNext3 = document.getElementById('btnNext3');
+        const btnNext4 = document.getElementById('btnNext4');
+        const btnNext5 = document.getElementById('btnNext5');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        // Setup Chip clicks in Step 1
+        document.querySelectorAll('.chip-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                nicheInput.value = btn.dataset.niche;
+                state.niche = btn.dataset.niche;
+                btnNext1.disabled = false;
+            });
+        });
+
+        nicheInput.addEventListener('input', (e) => {
+            state.niche = e.target.value.trim();
+            btnNext1.disabled = state.niche.length < 2;
+        });
+
+        // Step 2 inputs validation
+        function validateStep2() {
+            state.name = nameInput.value.trim();
+            state.age = ageInput.value.trim();
+            btnNext2.disabled = !(state.name.length >= 2 && state.age.length >= 1 && parseInt(state.age) > 10);
+        }
+        nameInput.addEventListener('input', validateStep2);
+        ageInput.addEventListener('input', validateStep2);
+
+        // Step 3 (Camera Option Cards)
+        document.querySelectorAll('#step3 .option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                state.camera_preference = card.dataset.val;
+                btnNext3.disabled = false;
+            });
+        });
+
+        // Step 4 (Experience Cards)
+        document.querySelectorAll('#step4 .option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('#step4 .option-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                state.experience_level = card.dataset.val;
+                btnNext4.disabled = false;
+            });
+        });
+
+        // Step 5 (Goal Cards)
+        document.querySelectorAll('#step5 .option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                state.primary_goal = card.dataset.val;
+                btnNext5.disabled = false;
+            });
+        });
+
+        // Step navigation
+        function updateProgressBar(step) {
+            const pct = Math.round((step / 6) * 100);
+            document.getElementById('progressBar').style.width = pct + '%';
+            document.getElementById('stepCounter').innerText = `الخطوة ${step} من 6`;
+            document.getElementById('progressPercent').innerText = pct + '%';
+        }
+
+        function goToStep(target) {
+            document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+            const targetPanel = document.getElementById(`step${target}`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                state.step = target;
+                updateProgressBar(target);
+                window.scrollTo({ top: targetPanel.offsetTop - 100, behavior: 'smooth' });
+            }
+        }
+
+        btnNext1.addEventListener('click', () => {
+            state.niche = nicheInput.value.trim() || state.niche;
+            goToStep(2);
+        });
+        btnNext2.addEventListener('click', () => goToStep(3));
+        btnNext3.addEventListener('click', () => goToStep(4));
+        btnNext4.addEventListener('click', () => goToStep(5));
+        btnNext5.addEventListener('click', () => goToStep(6));
+
+        // Submit and Generate Plan
+        btnSubmit.addEventListener('click', async () => {
+            state.unfair_advantage = advantageInput.value.trim();
+            state.contact_info = contactInput.value.trim();
+
+            if (!state.contact_info) {
+                contactInput.focus();
+                contactInput.style.borderColor = '#ef4444';
+                return;
+            }
+
+            // Switch to Loading State
+            document.getElementById('brandForm').style.display = 'none';
+            document.getElementById('progressContainer').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+
+            // Generate deterministic or AI plan
+            const generatedPlan = buildDeterministicPlan(state);
+
+            // Attempt async save to server API & Supabase
+            try {
+                fetch('/api/save-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: state.name,
+                        age: state.age,
+                        niche: state.niche,
+                        camera_preference: state.camera_preference,
+                        experience_level: state.experience_level,
+                        primary_goal: state.primary_goal,
+                        unfair_advantage: state.unfair_advantage,
+                        contact_info: state.contact_info,
+                        summary_cvp: generatedPlan.cvp
+                    })
+                }).catch(err => console.log('Lead save background note:', err));
+            } catch (e) {}
+
+            // Store in localStorage as backup
+            try {
+                localStorage.setItem('amr_brand_plan_last', JSON.stringify({ state, generatedPlan, date: new Date().toISOString() }));
+            } catch (e) {}
+
+            // Wait 1.4 seconds for organic feel
+            setTimeout(() => {
+                document.getElementById('loadingState').style.display = 'none';
+                renderResult(state, generatedPlan);
+            }, 1400);
+        });
+
+        // Deterministic Expert Marketing Engine
+        function buildDeterministicPlan(data) {
+            const name = data.name || 'عزيزي المحترف';
+            const age = data.age || '25';
+            const niche = data.niche || 'مجالك وتخصصك';
+            const camera_preference = data.camera_preference;
+            const experience_level = data.experience_level;
+            const primary_goal = data.primary_goal;
+            const unfair_advantage = data.unfair_advantage;
+
+            // Archetype determination
+            let archetype = 'الممارس الباني (The Builder & Practitioner)';
+            if (experience_level === 'expert') {
+                archetype = 'المرشد الاستراتيجي وصانع القرار (The Trusted Strategist)';
+            } else if (experience_level === 'beginner') {
+                archetype = 'المتعلم الموثق والباحث (The In-Public Scholar)';
+            }
+
+            // Format strategy & platforms
+            let formatText = '';
+            let platforms = '';
+            if (camera_preference === 'no_camera') {
+                formatText = `خطة خالصة 100% بدون كاميرا: تركيز كامل على مقالات LinkedIn التحليلية، الكاروسيل عالي القيمة (PDF Slides)، الثريدات، والـ Case Studies الموثقة بالأرقام وجداول الإكسيل. لن تحتاج لتصوير وجهك إطلاقاً لتحقيق أعلى درجات الثقة.`;
+                platforms = 'LinkedIn (المقالات والكاروسيل) + نشرة بريدية Substack';
+            } else if (camera_preference === 'screen_record') {
+                formatText = `خطة شروحات الشاشة والـ Teardowns: تسجيل لقطات من جهازك تشرح المشاكل والحلول والأنظمة عملياً، مع صوت واثق وهادئ. هذا الأسلوب يعطي أعلى معدل تحويل (Conversion) في الـ B2B لأنه يُظهر أسلوب عملك الحقيقي على الشاشة دون تشتيت بالوجه.`;
+                platforms = 'LinkedIn فيديو + قناة YouTube مخصصة للشروحات التقنية';
+            } else {
+                formatText = `خطة الفيديو السريع والـ Short-form Authority: ريلز وتيك توك ولينكد إن فيديو بمدد 45-60 ثانية تبدأ بخطافات صادمة (Pattern Interrupt)، مع مشاركة لقطات من بيئة العمل وحل مشاكل واقعية تواجه السوق.`;
+                platforms = 'LinkedIn Video + Instagram Reels + YouTube Shorts';
+            }
+
+            // CVP Construction
+            let cvp = '';
+            const advantageSnippet = unfair_advantage ? ` مع الاستفادة من خلفيتي في (${unfair_advantage})` : '';
+            if (primary_goal === 'inbound_clients') {
+                cvp = `أنا ${name}، أساعد أصحاب الشركات والعملاء في مجال (${niche}) على تحقيق أعلى عوائد وحل أعقد مشاكلهم عبر منهجية واضحة وموثقة بالأرقام${advantageSnippet}، بدون حرق ميزانيات أو الاعتماد على حلول تقليدية ضعيفة.`;
+            } else if (primary_goal === 'global_job') {
+                cvp = `أنا ${name}، أهندس حلولاً متقدمة في (${niche}) تركز على جودة التنفيذ والسرعة، لمساعدة الشركات العالمية على خفض التكاليف ورفع كفاءة الأنظمة.`;
+            } else {
+                cvp = `أنا ${name}، أبني وأشرح أفضل الممارسات الموثقة في (${niche}) لمساعدة المهتمين على تفادي أخطاء السوق والوصول لنتائج ملموسة في أسرع وقت.`;
+            }
+
+            // Hooks tailored to niche
+            const hooks = [
+                `ليه 80% من الناس اللي بتشتغل في (${niche}) بتخسر فلوسها ومجهودها في أول 6 شهور؟ (تحليل واقعي)`,
+                `التريند الجديد اللي نازل في (${niche}) شايف إنه بيضر البيزنس أكتر ما بيفيده.. وإليك البديل الهندسي الصح:`,
+                `من صفر نتائج إلى تحقيق نمو ملموس: الكواليس الحقيقية اللي مبيقولهالكش حد في مجال (${niche}).`
+            ];
+
+            // 90-Day Roadmap tailored
+            const roadmap = [
+                {
+                    phase: 'الشهر 1: التأسيس وحفر الهوية (Foundation Sprint)',
+                    desc: 'تجهيز وتوحيد حساباتك على المنصات الأساسية، كتابة الـ Headline والـ About وفق نموذج CVP، وصياغة أول 3 دراسات حالة (Case Studies) تعكس مهاراتك.'
+                },
+                {
+                    phase: 'الشهر 2: إطلاق محرك المحتوى (Content Machine)',
+                    desc: `نشر 3 منشورات مدروسة أسبوعياً بنمط (${camera_preference === 'no_camera' ? 'كاروسيل ومقالات عميقة' : 'فيديو قصير وريلز'}) وفق قاعدة 70% قيمة، 20% كواليس، 10% مواقف قيادية، وإطلاق أول دليل مجاني (Lead Magnet) باسمك.`
+                },
+                {
+                    phase: 'الشهر 3: تفعيل عروض التحويل (Monetization & Inbound)',
+                    desc: 'فتح باب الاستشارات والتعاقدات المباشرة، قياس جودة المتفاعلين، والتفاوض على صفقات وعقود بأسعار محترمة تعكس قيمة النفوذ الذي بنيته.'
+                }
+            ];
+
+            return { cvp, archetype, formatText, platforms, hooks, roadmap };
+        }
+
+        // Render Result Screen
+        function renderResult(data, plan) {
+            document.getElementById('resultPanel').style.display = 'block';
+            document.getElementById('resNameTitle').innerText = `خطة العلامة الشخصية: ${data.name}`;
+            document.getElementById('resMetaText').innerText = `المجال: ${data.niche} • السن: ${data.age} سنة • ${data.camera_preference === 'no_camera' ? 'استراتيجية بدون كاميرا' : 'استراتيجية فيديو وظهور'}`;
+
+            document.getElementById('resCvpText').innerText = `"${plan.cvp}"`;
+            document.getElementById('resArchetype').innerText = plan.archetype;
+            document.getElementById('resUnfairAdv').innerText = data.unfair_advantage || 'التركيز على عمق التجربة وسرعة التعلم';
+
+            document.getElementById('resFormatStrategy').innerText = plan.formatText;
+            document.getElementById('resPlatforms').innerText = plan.platforms;
+
+            // Hooks list
+            const hooksUl = document.getElementById('resHooksList');
+            hooksUl.innerHTML = '';
+            plan.hooks.forEach((h, idx) => {
+                const li = document.createElement('li');
+                li.className = 'hook-item';
+                li.innerHTML = `<i class="fa-solid fa-bolt icon"></i><span><strong>هوك #${idx + 1}:</strong> "${h}"</span>`;
+                hooksUl.appendChild(li);
+            });
+
+            // Timeline
+            const timelineDiv = document.getElementById('resTimeline');
+            timelineDiv.innerHTML = '';
+            plan.roadmap.forEach(r => {
+                const item = document.createElement('div');
+                item.className = 'timeline-phase';
+                item.innerHTML = `<h5>${r.phase}</h5><p>${r.desc}</p>`;
+                timelineDiv.appendChild(item);
+            });
+
+            // WhatsApp Button Link with pre-filled message
+            const waMsg = encodeURIComponent(
+                `أهلاً يا عمرو، أنا ${data.name} (${data.age} سنة). عملت تشخيص الـ Personal Branding على موقعك لمجال: ${data.niche}.\n\nالهدف الأساسي بتاعي: ${data.primary_goal}.\n\nحابب نناقش الخطة دي سوا ونشوف إزاي ننفذها عملياً ونطور السيستم التسويقي.`
+            );
+            document.getElementById('btnWhatsAppDirect').href = `https://wa.me/201091642566?text=${waMsg}`;
+
+            // Scroll smoothly to result
+            window.scrollTo({ top: document.getElementById('resultPanel').offsetTop - 80, behavior: 'smooth' });
+        }
+
+        function restartPlanner() {
+            document.getElementById('resultPanel').style.display = 'none';
+            document.getElementById('brandForm').style.display = 'block';
+            document.getElementById('progressContainer').style.display = 'block';
+            goToStep(1);
+        }
+    </script>
+
+</body>
+</html>

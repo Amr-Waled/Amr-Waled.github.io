@@ -42,6 +42,9 @@
     }
   ],
   "rewrites": [
+    { "source": "/brand", "destination": "/brand.html" },
+    { "source": "/plan", "destination": "/brand.html" },
+    { "source": "/personal-branding", "destination": "/brand.html" },
     { "source": "/en", "destination": "/en.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/systems", "destination": "/systems.html" },
