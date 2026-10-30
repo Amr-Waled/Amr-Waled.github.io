@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 export default async function handler(req, res) {
-  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -24,32 +23,34 @@ export default async function handler(req, res) {
       age: data.age || 'غير محدد',
       niche: data.niche || 'غير محدد',
       camera_preference: data.camera_preference || 'غير محدد',
-      experience_level: data.experience_level || 'غير محدد',
+      competitors: data.competitors || 'غير محدد',
+      unique_skills: data.unique_skills || 'غير محدد',
+      competitor_flaws: data.competitor_flaws || 'غير محدد',
       primary_goal: data.primary_goal || 'غير محدد',
-      unfair_advantage: data.unfair_advantage || '',
       contact_info: data.contact_info || '',
       summary_cvp: data.summary_cvp || '',
       created_at: timestamp,
       client_ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown'
     };
 
-    console.log('[LEAD RECEIVED]', JSON.stringify(leadRecord));
+    console.log('[LEAD RECEIVED - MARKETING PILLARS]', JSON.stringify(leadRecord));
 
-    // 1. Send Instant Telegram Alert if configured
+    // 1. Instant Telegram Alert
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
     const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 
     if (telegramToken && telegramChatId) {
       const cameraEmoji = leadRecord.camera_preference.includes('كاميرا') ? '🎥 بيحب الكاميرا' : '✍️ بدون ظهور';
-      const tgMsg = `🚨 *ليد جديد في أداة الـ Personal Branding!*\n\n` +
-        `👤 *الاسم:* ${leadRecord.name}\n` +
-        `🎂 *السن:* ${leadRecord.age} سنة\n` +
-        `🎯 *النيش / المجال:* ${leadRecord.niche}\n` +
+      const tgMsg = `🚨 *ليد استراتيجي جديد (Marketing Pillars)!*\n\n` +
+        `👤 *الاسم:* ${leadRecord.name} (${leadRecord.age} سنة)\n` +
+        `🎯 *النيش:* ${leadRecord.niche}\n` +
         `📹 *الظهور:* ${cameraEmoji}\n` +
-        `💼 *الخبرة:* ${leadRecord.experience_level}\n` +
+        `⚔️ *المنافسين المذكورين:* ${leadRecord.competitors}\n` +
+        `⚡ *المهارات الحصرية:* ${leadRecord.unique_skills}\n` +
+        `💥 *عيوب المنافسين:* ${leadRecord.competitor_flaws}\n` +
         `🎯 *الهدف:* ${leadRecord.primary_goal}\n` +
         `📱 *التواصل:* ${leadRecord.contact_info || 'لم يُدخل رقم'}\n` +
-        `💡 *الـ CVP المقترح:* ${leadRecord.summary_cvp || 'تم التوليد'}\n\n` +
+        `💡 *التموضع المضاد:* ${leadRecord.summary_cvp}\n\n` +
         `⏰ *التوقيت:* ${timestamp}`;
 
       try {
@@ -67,7 +68,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // 2. Insert into Supabase if configured
+    // 2. Supabase Insert
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -85,16 +86,14 @@ export default async function handler(req, res) {
         });
         if (!response.ok) {
           const errText = await response.text();
-          console.error('Supabase insert failed:', errText);
-        } else {
-          console.log('Successfully saved to Supabase table brand_leads');
+          console.error('Supabase insert note:', errText);
         }
       } catch (sbErr) {
         console.error('Supabase error:', sbErr.message);
       }
     }
 
-    // 3. Fallback Local File Storage (for local testing & dev)
+    // 3. Fallback Local File Storage
     try {
       const logDir = path.join(process.cwd(), 'data');
       if (!fs.existsSync(logDir)) {
@@ -102,18 +101,16 @@ export default async function handler(req, res) {
       }
       const logFile = path.join(logDir, 'leads.jsonl');
       fs.appendFileSync(logFile, JSON.stringify(leadRecord) + '\n', 'utf-8');
-    } catch (fsErr) {
-      // Vercel serverless is read-only at runtime outside /tmp, ignore gracefully
-    }
+    } catch (fsErr) {}
 
     return res.status(200).json({
       success: true,
-      message: 'Lead saved successfully',
+      message: 'Strategic lead saved successfully',
       id: `lead_${Date.now()}`
     });
 
   } catch (error) {
-    console.error('save-lead handler error:', error);
+    console.error('save-lead error:', error);
     return res.status(500).json({ success: false, error: error.message });
   }
 }

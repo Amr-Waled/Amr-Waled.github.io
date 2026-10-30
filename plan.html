@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مخطط العلامة الشخصية التفاعلي | عمرو وليد (Amr Waled)</title>
-    <meta name="description" content="أداة تفاعلية ذكية من عمرو وليد لتشخيص مجالك، واستخراج تموضعك الفريد (Category of One)، وتوليد خطة Personal Branding مخصصة لـ 90 يوماً مبنية على أحدث المراجع العالمية.">
-    <meta name="keywords" content="Personal Branding, بناء العلامة الشخصية, خطة تسويق شخصي, عمرو وليد, Amr Waled, استشارات تسويق, تسويق طنطا, مدير تسويق">
+    <title>مهندس الركائز التسويقية | عمرو وليد (Amr Waled) — Strategic Marketing Pillars</title>
+    <meta name="description" content="أداة استراتيجية ذكية من عمرو وليد لتشخيص مجالك، منافسيك، ومهاراتك الحصرية، واستخراج ركائزك التسويقية (Marketing Pillars) والتموضع المنفرد (Category of One) بدون كلام معلب.">
+    <meta name="keywords" content="Marketing Pillars, الركائز التسويقية, Personal Branding, التموضع التنافسي, عمرو وليد, Amr Waled, استشارات تسويق, تسويق طنطا">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="مخطط العلامة الشخصية التفاعلي | عمرو وليد (Amr Waled)">
-    <meta property="og:description" content="أجب عن 5 أسئلة استراتيجية لتشخيص مجالك واستلم خطة عمل مخصصة لـ 90 يوماً تضعك كمرجع موثوق في سوقك.">
+    <meta property="og:title" content="مهندس الركائز التسويقية للعلامة الشخصية | عمرو وليد">
+    <meta property="og:description" content="شخّص منافسيك، مهاراتك الحصرية، وعيوب السوق.. واستلم ركائزك التسويقية المخصصة (Marketing Pillars) فوراً.">
     <meta property="og:url" content="https://amrwaled.vercel.app/brand">
     <meta property="og:image" content="https://amrwaled.vercel.app/amr_personal_branding_approved.jpg">
     <link rel="canonical" href="https://amrwaled.vercel.app/brand">
@@ -18,7 +18,7 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -31,15 +31,15 @@
             --accent: #ea580c;
             --gold: #f5b324;
             --gold-light: #fde68a;
+            --red-alert: #ef4444;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --green: #10b981;
             --font-ar: 'Cairo', sans-serif;
             --font-en: 'Plus Jakarta Sans', sans-serif;
-            --radius-lg: 20px;
-            --radius-md: 12px;
+            --radius-lg: 22px;
+            --radius-md: 14px;
             --radius-sm: 8px;
-            --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.65);
             --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -61,11 +61,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Navigation */
+        /* Header */
         .site-header {
             width: 100%;
             border-bottom: 1px solid var(--border);
-            background: rgba(7, 9, 14, 0.85);
+            background: rgba(7, 9, 14, 0.88);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -131,9 +131,9 @@
             background: rgba(245, 179, 36, 0.05);
         }
 
-        /* Hero Header */
+        /* Hero */
         .hero-section {
-            max-width: 900px;
+            max-width: 920px;
             margin: 36px auto 20px;
             padding: 0 20px;
             text-align: center;
@@ -154,28 +154,27 @@
         }
 
         .hero-title {
-            font-size: clamp(26px, 4vw, 42px);
+            font-size: clamp(24px, 3.8vw, 40px);
             font-weight: 900;
-            line-height: 1.25;
+            line-height: 1.3;
             margin-bottom: 14px;
             color: #ffffff;
         }
 
         .hero-title .highlight {
             color: var(--gold);
-            position: relative;
         }
 
         .hero-subtitle {
             color: var(--text-muted);
-            font-size: clamp(14px, 1.8vw, 17px);
-            max-width: 720px;
+            font-size: clamp(14px, 1.8vw, 16.5px);
+            max-width: 740px;
             margin: 0 auto;
         }
 
-        /* App Main Box */
+        /* Main Card */
         .app-container {
-            max-width: 860px;
+            max-width: 880px;
             width: 100%;
             margin: 20px auto 60px;
             padding: 0 20px;
@@ -186,10 +185,9 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 36px 32px;
+            padding: 38px 34px;
             box-shadow: var(--shadow-card);
             position: relative;
-            overflow: hidden;
         }
 
         @media (max-width: 600px) {
@@ -200,7 +198,7 @@
 
         /* Progress Bar */
         .progress-container {
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .progress-meta {
@@ -215,6 +213,7 @@
 
         .progress-step-text {
             color: var(--gold);
+            font-family: var(--font-en);
         }
 
         .progress-track {
@@ -227,7 +226,7 @@
 
         .progress-bar {
             height: 100%;
-            width: 16.66%;
+            width: 14.2%;
             background: linear-gradient(90deg, var(--accent), var(--gold));
             transition: width 0.35s ease;
             border-radius: 3px;
@@ -249,13 +248,13 @@
         }
 
         .step-question {
-            font-size: clamp(18px, 2.5vw, 24px);
+            font-size: clamp(18px, 2.3vw, 23px);
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .step-question .q-num {
@@ -277,9 +276,10 @@
             color: var(--text-muted);
             font-size: 14px;
             margin-bottom: 24px;
+            line-height: 1.6;
         }
 
-        /* Input Elements */
+        /* Inputs */
         .input-group {
             margin-bottom: 20px;
         }
@@ -292,7 +292,7 @@
             margin-bottom: 8px;
         }
 
-        .text-input {
+        .text-input, .textarea-input {
             width: 100%;
             background: var(--bg-card-inner);
             border: 1.5px solid var(--border);
@@ -300,18 +300,24 @@
             padding: 14px 18px;
             color: #ffffff;
             font-family: var(--font-ar);
-            font-size: 16px;
+            font-size: 15.5px;
             transition: var(--transition);
             outline: none;
         }
 
-        .text-input:focus {
+        .textarea-input {
+            min-height: 105px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .text-input:focus, .textarea-input:focus {
             border-color: var(--gold);
             box-shadow: 0 0 0 3px rgba(245, 179, 36, 0.15);
             background: #192036;
         }
 
-        /* Option Cards (Selectable) */
+        /* Option Cards */
         .options-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -330,7 +336,6 @@
             align-items: flex-start;
             gap: 14px;
             user-select: none;
-            position: relative;
         }
 
         .option-card:hover {
@@ -365,7 +370,7 @@
             line-height: 1.5;
         }
 
-        /* Chips for Niche Selection */
+        /* Quick Inspiration Chips */
         .chips-container {
             display: flex;
             flex-wrap: wrap;
@@ -402,7 +407,7 @@
             font-weight: 900;
         }
 
-        /* Nav Buttons */
+        /* Step Footer Navigation */
         .step-footer {
             display: flex;
             justify-content: space-between;
@@ -468,8 +473,8 @@
         }
 
         .spinner {
-            width: 54px;
-            height: 54px;
+            width: 56px;
+            height: 56px;
             border: 4px solid var(--border);
             border-top-color: var(--gold);
             border-radius: 50%;
@@ -482,18 +487,18 @@
         }
 
         .loading-title {
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 21px;
+            font-weight: 900;
             margin-bottom: 8px;
             color: #ffffff;
         }
 
         .loading-sub {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 14.5px;
         }
 
-        /* Result View */
+        /* Results Display (Marketing Pillars Dossier) */
         .result-panel {
             display: none;
             animation: fadeIn 0.4s ease forwards;
@@ -501,25 +506,25 @@
 
         .result-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 34px;
             padding-bottom: 24px;
             border-bottom: 1px solid var(--border);
         }
 
         .result-badge {
             display: inline-block;
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 4px 16px;
+            background: rgba(245, 179, 36, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(245, 179, 36, 0.35);
+            padding: 4px 18px;
             border-radius: 999px;
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 800;
             margin-bottom: 12px;
         }
 
         .result-title {
-            font-size: clamp(22px, 3.5vw, 32px);
+            font-size: clamp(23px, 3.5vw, 34px);
             font-weight: 900;
             color: #ffffff;
             margin-bottom: 6px;
@@ -527,151 +532,172 @@
 
         .result-person-meta {
             color: var(--gold);
-            font-size: 15px;
+            font-size: 15.5px;
             font-weight: 700;
         }
 
-        /* Result Cards */
-        .res-card {
+        /* Strategic Pillar Cards */
+        .pillar-card {
             background: var(--bg-card-inner);
-            border: 1px solid var(--border);
+            border: 1.5px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 24px 22px;
-            margin-bottom: 20px;
+            padding: 26px 24px;
+            margin-bottom: 22px;
+            position: relative;
         }
 
-        .res-card-title {
-            font-size: 17px;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 14px;
+        .pillar-card.highlighted {
+            border-color: rgba(245, 179, 36, 0.4);
+            background: linear-gradient(180deg, rgba(245, 179, 36, 0.05) 0%, var(--bg-card-inner) 100%);
+        }
+
+        .pillar-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
-        .res-cvp-box {
-            background: #0b1120;
-            border-right: 4px solid var(--gold);
-            padding: 16px 20px;
-            border-radius: var(--radius-sm);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.8;
-            color: #f1f5f9;
-            margin-bottom: 12px;
-        }
-
-        .res-grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 14px;
-        }
-
-        .stat-pill {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-        }
-
-        .stat-pill .label {
+        .pillar-badge {
+            background: rgba(245, 179, 36, 0.12);
+            color: var(--gold);
+            font-family: var(--font-en);
+            font-weight: 900;
             font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(245, 179, 36, 0.3);
+            flex-shrink: 0;
         }
 
-        .stat-pill .val {
-            font-size: 14px;
+        .pillar-title {
+            font-size: 18px;
             font-weight: 800;
             color: #ffffff;
         }
 
-        /* Hooks List */
-        .hooks-list {
+        .pillar-thesis {
+            background: #090e1a;
+            border-right: 4px solid var(--gold);
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 15.5px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #f1f5f9;
+            margin-bottom: 16px;
+        }
+
+        .pillar-points {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .hook-item {
-            background: #0b101c;
-            border: 1px solid var(--border);
-            padding: 14px 18px;
-            border-radius: var(--radius-sm);
+        .pillar-points li {
             font-size: 14.5px;
-            color: #f8fafc;
+            color: #cbd5e1;
             display: flex;
             align-items: flex-start;
+            gap: 10px;
+            line-height: 1.6;
+        }
+
+        .pillar-points li i {
+            color: var(--gold);
+            margin-top: 4px;
+            flex-shrink: 0;
+            font-size: 13px;
+        }
+
+        /* Killer Hooks */
+        .hooks-container {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
         }
 
-        .hook-item .icon {
+        .hook-box {
+            background: #0a101d;
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .hook-box .fa-bolt {
             color: var(--gold);
-            font-size: 16px;
-            margin-top: 2px;
+            margin-top: 4px;
             flex-shrink: 0;
         }
 
-        /* 90-Day Timeline */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+        /* Verdict Banner */
+        .verdict-banner {
+            background: rgba(234, 88, 12, 0.1);
+            border: 1px solid rgba(234, 88, 12, 0.3);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-top: 24px;
+            margin-bottom: 24px;
         }
 
-        .timeline-phase {
-            border-right: 3px solid var(--gold);
-            padding-right: 16px;
-        }
-
-        .timeline-phase h5 {
-            font-size: 15px;
+        .verdict-banner h4 {
+            color: var(--accent);
+            font-size: 16px;
             font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .timeline-phase p {
-            font-size: 13.5px;
-            color: var(--text-muted);
+        .verdict-banner p {
+            color: #e2e8f0;
+            font-size: 14.5px;
+            line-height: 1.7;
         }
 
         /* Direct Connect Card */
         .connect-cta-card {
-            background: linear-gradient(135deg, #111a33 0%, #1e1329 100%);
+            background: linear-gradient(135deg, #111a33 0%, #1c142b 100%);
             border: 1.5px solid var(--gold);
             border-radius: var(--radius-lg);
-            padding: 28px;
+            padding: 30px;
             text-align: center;
             margin-top: 32px;
             box-shadow: 0 10px 40px rgba(245, 179, 36, 0.15);
         }
 
         .consultant-avatar {
-            width: 76px;
-            height: 76px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 3px solid var(--gold);
             object-fit: cover;
-            margin: 0 auto 12px;
+            margin: 0 auto 14px;
             display: block;
         }
 
         .connect-cta-card h3 {
-            font-size: 21px;
+            font-size: 22px;
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .connect-cta-card p {
             color: #cbd5e1;
             font-size: 14.5px;
-            max-width: 600px;
-            margin: 0 auto 20px;
+            max-width: 620px;
+            margin: 0 auto 22px;
+            line-height: 1.7;
         }
 
         .action-buttons-row {
@@ -686,7 +712,7 @@
             color: #ffffff;
             font-weight: 800;
             font-size: 15px;
-            padding: 12px 24px;
+            padding: 13px 26px;
             border-radius: 999px;
             text-decoration: none;
             display: inline-flex;
@@ -698,7 +724,7 @@
         .btn-whatsapp-direct:hover {
             background: #1eb857;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
         }
 
         .btn-print {
@@ -721,29 +747,14 @@
             color: var(--gold);
         }
 
-        /* Print styles */
         @media print {
             .site-header, .btn-print, .btn-prev, .step-footer, .chips-container, .badge-pill, .btn-whatsapp-direct {
                 display: none !important;
             }
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            .planner-card, .res-card {
-                border: 1px solid #ccc !important;
-                box-shadow: none !important;
-                background: white !important;
-                color: black !important;
-            }
-            .res-cvp-box {
-                background: #f1f5f9 !important;
-                color: black !important;
-                border-right-color: #333 !important;
-            }
-            .res-card-title, .result-title, .result-person-meta {
-                color: black !important;
-            }
+            body { background: white !important; color: black !important; }
+            .planner-card, .pillar-card { border: 1px solid #ddd !important; background: white !important; color: black !important; }
+            .pillar-thesis { background: #f8fafc !important; color: black !important; border-right-color: #000 !important; }
+            .pillar-title, .result-title { color: black !important; }
         }
     </style>
 </head>
@@ -754,7 +765,7 @@
         <div class="header-container">
             <a href="/" class="brand-logo">
                 <span class="logo-badge">AW</span>
-                <span class="logo-text">عمرو وليد | Personal Brand OS</span>
+                <span class="logo-text">عمرو وليد | Strategic Marketing Pillars</span>
             </a>
             <div class="header-actions">
                 <a href="/" class="btn-outline">
@@ -768,26 +779,26 @@
     <!-- Hero Introduction -->
     <section class="hero-section">
         <div class="badge-pill">
-            <i class="fa-solid fa-bolt"></i>
-            <span>أداة تشخيص وبناء العلامة الشخصية</span>
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>تشريح التموضع وبناء النفوذ التنافسي</span>
         </div>
         <h1 class="hero-title">
-            صمم خطة الـ <span class="highlight">Personal Branding</span> لمجالك في دقيقتين
+            هندسة <span class="highlight">الركائز التسويقية</span> والتموضع المنفرد لمجالك
         </h1>
         <p class="hero-subtitle">
-            أجب عن 5 أسئلة استراتيجية، واحصل فوراً على خطة عمل مفصلة لـ 90 يوماً تضعك كفئة منفردة (Category of One) في تخصصك، مبنية على خلاصة أحدث 7 مراجع عالمية.
+            بدون جداول محتوى معلبة أو كلام إنشائي.. أجب عن أسئلة التشريح التنافسي، واستخرج ركائزك التسويقية الـ 5 (Marketing Pillars) التي تكسر منافسيك وتجعلك البديل الحتمي في سوقك.
         </p>
     </section>
 
-    <!-- Main Planner Container -->
+    <!-- Main Container -->
     <main class="app-container">
         <div class="planner-card">
 
             <!-- Progress Bar -->
             <div class="progress-container" id="progressContainer">
                 <div class="progress-meta">
-                    <span id="stepCounter">الخطوة 1 من 6</span>
-                    <span class="progress-step-text" id="progressPercent">16%</span>
+                    <span id="stepCounter">الخطوة 1 من 7</span>
+                    <span class="progress-step-text" id="progressPercent">14%</span>
                 </div>
                 <div class="progress-track">
                     <div class="progress-bar" id="progressBar"></div>
@@ -797,27 +808,27 @@
             <!-- Form Wizard -->
             <form id="brandForm" onsubmit="return false;">
 
-                <!-- STEP 1: Niche / Industry -->
+                <!-- STEP 1: Niche / Field -->
                 <div class="step-panel active" id="step1">
                     <div class="step-question">
                         <span class="q-num">1</span>
                         <span>ما هو مجالك أو النيش (Niche) الذي تعمل به؟</span>
                     </div>
-                    <p class="step-hint">اختر مجالك من الخيارات السريعة، أو اكتب تخصصك الدقيق في المربع أدناه:</p>
+                    <p class="step-hint">اختر من القطاعات السريعة أو اكتب مجالك بدقة:</p>
 
                     <div class="chips-container">
-                        <button type="button" class="chip-btn" data-niche="دكتور / عيادة ومجال طبي">🏥 دكتور / عيادة ومجال طبي</button>
-                        <button type="button" class="chip-btn" data-niche="تطوير عقاري، مقاولات ووساطة عقارية">🏢 عقارات ومقاولات</button>
-                        <button type="button" class="chip-btn" data-niche="برمجة، تقنية وهندسة برمجيات">💻 برمجة وتقنية</button>
-                        <button type="button" class="chip-btn" data-niche="ميديا باينج، تسويق رقمي وإعلانات ممولة">📈 ميديا باير وماركتير</button>
-                        <button type="button" class="chip-btn" data-niche="تجارة إلكترونية وبراندات تجارية">🛍️ تجارة إلكترونية (E-com)</button>
-                        <button type="button" class="chip-btn" data-niche="استشارات قانونية ومحاماة / محاسبة">⚖️ محاماة واستشارات مالية</button>
-                        <button type="button" class="chip-btn" data-niche="تصميم جرافيك ومونتاج وصناعة محتوى">🎨 تصميم وفنون بصرية</button>
+                        <button type="button" class="chip-btn" data-niche="دكتور / عيادة ومجال طبي">🏥 دكتور وعيادة طبية</button>
+                        <button type="button" class="chip-btn" data-niche="تطوير عقاري ووساطة عقارية ومقاولات">🏢 عقارات واستثمار</button>
+                        <button type="button" class="chip-btn" data-niche="برمجة، ذكاء اصطناعي وتكنولوجيا">💻 برمجة وتكنولوجيا</button>
+                        <button type="button" class="chip-btn" data-niche="ميديا باينج وتسويق رقمي وإعلانات">📈 ميديا باير وماركتير</button>
+                        <button type="button" class="chip-btn" data-niche="تجارة إلكترونية وبراندات">🛍️ تجارة إلكترونية</button>
+                        <button type="button" class="chip-btn" data-niche="استشارات قانونية ومحاماة / مالية">⚖️ استشارات ومحاماة</button>
+                        <button type="button" class="chip-btn" data-niche="تصميم وفنون بصرية ومونتاج">🎨 تصميم وصناعة محتوى</button>
                     </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="nicheInput">أو اكتب مجالك / تخصصك بالتحديد:</label>
-                        <input type="text" id="nicheInput" class="text-input" placeholder="مثال: مهندس ميكانيكا، مدرب لياقة بدنية، استشاري سلاسل إمداد...">
+                        <label class="input-label" for="nicheInput">مجالك وتخصصك الدقيق:</label>
+                        <input type="text" id="nicheInput" class="text-input" placeholder="مثال: مهندس برمجيات، خبير تسويق عقاري، دكتور أسنان...">
                     </div>
 
                     <div class="step-footer">
@@ -833,9 +844,9 @@
                 <div class="step-panel" id="step2">
                     <div class="step-question">
                         <span class="q-num">2</span>
-                        <span>بياناتك الأساسية (الاسم والسن)</span>
+                        <span>الاسم والسن المهني</span>
                     </div>
-                    <p class="step-hint">السن يساعدنا في تحديد نبرة الخطاب المناسبة، ومرحلة الـ Career والتأثير:</p>
+                    <p class="step-hint">السن يساعدنا في معايرة نبرة الخطاب ومرحلة التأثير في السوق:</p>
 
                     <div class="input-group">
                         <label class="input-label" for="nameInput">الاسم بالكامل (أو الاسم المهني المعتمد):</label>
@@ -844,7 +855,7 @@
 
                     <div class="input-group">
                         <label class="input-label" for="ageInput">السن (بالسنوات):</label>
-                        <input type="number" id="ageInput" class="text-input" placeholder="مثال: 27" min="16" max="90">
+                        <input type="number" id="ageInput" class="text-input" placeholder="مثال: 26" min="16" max="90">
                     </div>
 
                     <div class="step-footer">
@@ -856,20 +867,20 @@
                     </div>
                 </div>
 
-                <!-- STEP 3: Camera & Content Format (Critical Question) -->
+                <!-- STEP 3: Camera Preference -->
                 <div class="step-panel" id="step3">
                     <div class="step-question">
                         <span class="q-num">3</span>
                         <span>ما هي علاقتك مع الكاميرا وصناعة الفيديو؟</span>
                     </div>
-                    <p class="step-hint">كن صريحاً تماماً؛ لأن الخطة ستُبنى بالكامل حول ما يناسبك دون إجبارك على ما تكرهه:</p>
+                    <p class="step-hint">كن صريحاً؛ ركائز الانتشار ستُبنى بالكامل حول ما ترتاح له نفسياً وعملياً:</p>
 
                     <div class="options-grid">
                         <div class="option-card" data-val="video_lover">
                             <span class="option-icon">🎥</span>
                             <div class="option-details">
                                 <h4>جاهز ومستعد للظهور أمام الكاميرا</h4>
-                                <p>أحب تصوير الريلز، الفيديوهات القصيرة، والمقابلات المصورة بدون حرج.</p>
+                                <p>أحب تصوير الفيديوهات والريلز والمقابلات المصورة بدون تردد.</p>
                             </div>
                         </div>
 
@@ -885,7 +896,7 @@
                             <span class="option-icon">💻</span>
                             <div class="option-details">
                                 <h4>تسجيل شاشة وصوت فقط (Screen Teardown)</h4>
-                                <p>أستطيع شرح أنظمة، أكواد، أو تصاميم بتسجيل الشاشة وصوتي دون إظهار وجهي.</p>
+                                <p>أستطيع شرح أنظمة، أكواد، أو أرقام بتسجيل الشاشة وصوتي دون إظهار وجهي.</p>
                             </div>
                         </div>
                     </div>
@@ -899,38 +910,17 @@
                     </div>
                 </div>
 
-                <!-- STEP 4: Experience Level -->
+                <!-- STEP 4: Top Competitors (Core Strategic Question) -->
                 <div class="step-panel" id="step4">
                     <div class="step-question">
                         <span class="q-num">4</span>
-                        <span>ما هو مستوى خبرتك وسوابق أعمالك في هذا المجال؟</span>
+                        <span>مين أتقل وأشهر منافسينك في السوق؟</span>
                     </div>
-                    <p class="step-hint">نحدد من خلالها نموذج المصداقية (Show Your Work vs. Key Person of Influence):</p>
+                    <p class="step-hint">اكتب 1 إلى 3 أسماء أو شركات أو فئات مسيطرة على مجالك، والعميل بيقارنك بيهم تلقائياً:</p>
 
-                    <div class="options-grid">
-                        <div class="option-card" data-val="beginner">
-                            <span class="option-icon">🌱</span>
-                            <div class="option-details">
-                                <h4>مبتدئ / في البداية (أقل من سنة)</h4>
-                                <p>أتعلم المهارة حالياً وليس لدي سوابق أعمال قوية أستند إليها.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="intermediate">
-                            <span class="option-icon">⚡</span>
-                            <div class="option-details">
-                                <h4>ممارس نشط (من 1 إلى 3 سنوات)</h4>
-                                <p>لدي مشاريع ونتائج حقيقية حققتها لعملاء أو في شركات سابقة.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="expert">
-                            <span class="option-icon">👑</span>
-                            <div class="option-details">
-                                <h4>خبير / صاحب بيزنس (+4 سنوات)</h4>
-                                <p>لدي رصيد خبرة عميق وأريد تحويله إلى نفوذ واستشارات بأسعار مرتفعة.</p>
-                            </div>
-                        </div>
+                    <div class="input-group">
+                        <label class="input-label" for="competitorsInput">أسماء أو أنواع المنافسين المسيطرين:</label>
+                        <textarea id="competitorsInput" class="textarea-input" placeholder="مثال: فلان الفلاني، شركة كذا، الوكالات التقليدية القديمة اللي بتبيع باقات جاهزة، فريلانسرز الهنود على فايفر..."></textarea>
                     </div>
 
                     <div class="step-footer">
@@ -942,46 +932,25 @@
                     </div>
                 </div>
 
-                <!-- STEP 5: Primary Commercial Goal -->
+                <!-- STEP 5: Unique Skills vs Competitors (Core Strategic Question) -->
                 <div class="step-panel" id="step5">
                     <div class="step-question">
                         <span class="q-num">5</span>
-                        <span>ما هو هدفك التجاري الأساسي من بناء البراند؟</span>
+                        <span>إيه المهارات اللي عندك ومش موجودة عند منافسينك؟</span>
                     </div>
-                    <p class="step-hint">البراندينج ليس للشهرة المجردة؛ أين تريد أن ترى العائد المالي أولاً؟</p>
+                    <p class="step-hint">ما هو الشيء الذي تفعله وتفهمه بعمق ويفشل منافسوك في مجاراتك فيه؟ (اضغط للإضافة السريعة أو اكتب بحرية):</p>
 
-                    <div class="options-grid">
-                        <div class="option-card" data-val="inbound_clients">
-                            <span class="option-icon">💼</span>
-                            <div class="option-details">
-                                <h4>جلب عملاء واستشارات تعاقدية (Inbound)</h4>
-                                <p>أن يأتيني العملاء وأصحاب الشركات مستعدين للدفع دون مساومة.</p>
-                            </div>
-                        </div>
+                    <div class="chips-container" id="skillChips">
+                        <button type="button" class="chip-btn" data-skill="سرعة التنفيذ والتسليم القياسي">⚡ سرعة التنفيذ الفائقة</button>
+                        <button type="button" class="chip-btn" data-skill="الأتمتة والربط التقني بالذكاء الاصطناعي">🤖 الأتمتة والـ AI المتقدم</button>
+                        <button type="button" class="chip-btn" data-skill="فهم سيكولوجية البيع وإغلاق الصفقات">💼 فهم المبيعات والتفاوض</button>
+                        <button type="button" class="chip-btn" data-skill="تحليل الأرقام الدقيق وحساب العائد ROI">📊 دقة الأرقام والـ ROI</button>
+                        <button type="button" class="chip-btn" data-skill="خبرة تنفيذية سابقة بالعمل مع شركات كبرى">🏢 سوابق أعمال مع شركات كبرى</button>
+                    </div>
 
-                        <div class="option-card" data-val="global_job">
-                            <span class="option-icon">🌍</span>
-                            <div class="option-details">
-                                <h4>فرص توظيف دولية / ريموت براتب دولاري</h4>
-                                <p>جذب مسؤولي التوظيف والمديرين لتقديم عروض عمل راقية.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="digital_products">
-                            <span class="option-icon">📦</span>
-                            <div class="option-details">
-                                <h4>بيع منتجات رقمية، كورسات أو قوالب</h4>
-                                <p>بناء جمهور يشتري مني حلولاً مؤتمتة ومحتوى مدفوع.</p>
-                            </div>
-                        </div>
-
-                        <div class="option-card" data-val="authority">
-                            <span class="option-icon">🏛️</span>
-                            <div class="option-details">
-                                <h4>بناء سمعة وسلطة معرفية لمشاريع قادمة</h4>
-                                <p>جذب شركاء، مستثمرين، ودعوات للمؤتمرات وبودكاست المجال.</p>
-                            </div>
-                        </div>
+                    <div class="input-group">
+                        <label class="input-label" for="uniqueSkillsInput">مهاراتك الحصرية بالتفصيل (Unfair Superpowers):</label>
+                        <textarea id="uniqueSkillsInput" class="textarea-input" placeholder="مثال: أنا ميديا باير بس ببرمج سيستم CRM يمنع تسريب الليدات، أو أنا دكتور بس بفهم في الميكانيكا الحيوية وأجهزة الليزر الحديثة..."></textarea>
                     </div>
 
                     <div class="step-footer">
@@ -993,28 +962,86 @@
                     </div>
                 </div>
 
-                <!-- STEP 6: Unfair Advantage & Contact info -->
+                <!-- STEP 6: Competitor Flaws & Market Blindspots -->
                 <div class="step-panel" id="step6">
                     <div class="step-question">
                         <span class="q-num">6</span>
-                        <span>الميزة الإضافية وتأكيد الاستلام</span>
+                        <span>إيه العيب أو النقص الأكبر في شغل منافسينك وعايز تعارضه؟</span>
                     </div>
-                    <p class="step-hint">الخطوة الأخيرة لصياغة تموضعك المنفرد (Category of One):</p>
+                    <p class="step-hint">ما هي الممارسات السيئة أو الكلام النظري المنتشر في مجالك والذي تراه هراءً وتملك بديلاً عملياً له؟</p>
+
+                    <div class="chips-container" id="flawChips">
+                        <button type="button" class="chip-btn" data-flaw="حرق الأسعار مع تقديم جودة رديئة">📉 حرق الأسعار والجودة الرديئة</button>
+                        <button type="button" class="chip-btn" data-flaw="بيع كلام نظري وشعارات بدون أرقام مبيعات">🗣️ كلام نظري بدون أرقام مبيعات</button>
+                        <button type="button" class="chip-btn" data-flaw="البطء الشديد وإهمال العميل بعد استلام الفلوس">⏳ إهمال العميل بعد التعاقد</button>
+                        <button type="button" class="chip-btn" data-flaw="التعتيم وعدم إطلاع العميل على تفاصيل شغله">🔒 التعتيم وعدم الشفافية</button>
+                    </div>
 
                     <div class="input-group">
-                        <label class="input-label" for="advantageInput">هل لديك مهارة سابقة أو خلفية أخرى تميزك؟ (اختياري)</label>
-                        <input type="text" id="advantageInput" class="text-input" placeholder="مثال: خلفية في المبيعات، لغات أجنبية، خبرة في العقارات، دراسة هندسة...">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label" for="contactInput">رقم الواتساب أو الإيميل (لحفظ خطتك وإرسال التحديثات):</label>
-                        <input type="text" id="contactInput" class="text-input" placeholder="010xxxxxxx أو email@example.com" required>
+                        <label class="input-label" for="flawsInput">العيوب وأخطاء السوق التي تريد معارضتها علناً:</label>
+                        <textarea id="flawsInput" class="textarea-input" placeholder="مثال: المنافسين بيوعدوا العميل بأرقام خيالية وريتش كاذب بدون أي مبيعات حقيقية في الخزينة، وبيسيبوا الليدات تضيع بدون متابعة..."></textarea>
                     </div>
 
                     <div class="step-footer">
                         <button type="button" class="btn-prev" onclick="goToStep(5)">السابق</button>
+                        <button type="button" class="btn-next" id="btnNext6" disabled>
+                            <span>التالي</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 7: Goal & Contact Confirmation -->
+                <div class="step-panel" id="step7">
+                    <div class="step-question">
+                        <span class="q-num">7</span>
+                        <span>الهدف التجاري وحفظ التقرير الاستراتيجي</span>
+                    </div>
+                    <p class="step-hint">الخطوة الأخيرة لهندسة ركائزك التسويقية:</p>
+
+                    <div class="options-grid">
+                        <div class="option-card" data-val="inbound_clients">
+                            <span class="option-icon">💼</span>
+                            <div class="option-details">
+                                <h4>جلب عملاء واستشارات Inbound بأسعار عالية</h4>
+                                <p>أن يأتيني العملاء جاهزون للدفع دون الدخول في حرب أسعار.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="global_job">
+                            <span class="option-icon">🌍</span>
+                            <div class="option-details">
+                                <h4>فرص توظيف دولية / ريموت براتب دولاري</h4>
+                                <p>جذب مديري التوظيف والشركات العالمية كخبير لا يمكن استبداله.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="digital_products">
+                            <span class="option-icon">📦</span>
+                            <div class="option-details">
+                                <h4>بيع منتجات رقمية، أنظمة، أو استشارات مؤتمتة</h4>
+                                <p>بناء أصول رقمية تدر دخلاً دون الحاجة لبيع الوقت بالساعة.</p>
+                            </div>
+                        </div>
+
+                        <div class="option-card" data-val="authority">
+                            <span class="option-icon">🏛️</span>
+                            <div class="option-details">
+                                <h4>سلطة معرفية وشراكات استراتيجية كبرى</h4>
+                                <p>أن أكون المرجع الأول للبودكاست، المستثمرين، والمؤتمرات.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-top: 20px;">
+                        <label class="input-label" for="contactInput">رقم الواتساب أو الإيميل (لحفظ التقرير ومتابعة التحديثات):</label>
+                        <input type="text" id="contactInput" class="text-input" placeholder="010xxxxxxx أو yourname@example.com" required>
+                    </div>
+
+                    <div class="step-footer">
+                        <button type="button" class="btn-prev" onclick="goToStep(6)">السابق</button>
                         <button type="button" class="btn-next" id="btnSubmit">
-                            <span>توليد الخطة الاستراتيجية الآن</span>
+                            <span>هندسة الركائز التسويقية الآن</span>
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
                         </button>
                     </div>
@@ -1022,91 +1049,115 @@
 
             </form>
 
-            <!-- Loading State -->
+            <!-- Loading Screen -->
             <div class="loading-state" id="loadingState">
                 <div class="spinner"></div>
-                <div class="loading-title">جاري تشريح البيانات وهندسة الخطة...</div>
-                <div class="loading-sub" id="loadingSub">تحديد معادلة الـ CVP ومطابقة تفضيلات الظهور مع قنوات النشر</div>
+                <div class="loading-title">جاري تشريح المنافسين وهندسة الركائز التسويقية...</div>
+                <div class="loading-sub" id="loadingSub">تفكيك مهاراتك الحصرية ضد المنافسين وبناء التموضع المنفرد (Anti-Template Engine)</div>
             </div>
 
-            <!-- RESULT VIEW -->
+            <!-- RESULT VIEW (Strategic Marketing Pillars Dossier) -->
             <div class="result-panel" id="resultPanel">
                 <div class="result-header">
-                    <span class="result-badge"><i class="fa-solid fa-check-circle"></i> تم إعداد خطتك بنجاح</span>
-                    <h2 class="result-title" id="resNameTitle">خطة العلامة الشخصية: أحمد مصطفى</h2>
-                    <div class="result-person-meta" id="resMetaText">مجال: التسويق • 27 سنة • استراتيجية محتوى مكتوب</div>
+                    <span class="result-badge"><i class="fa-solid fa-shield-check"></i> تم استخراج الركائز التسويقية بنجاح</span>
+                    <h2 class="result-title" id="resNameTitle">الركائز التسويقية: أحمد مصطفى</h2>
+                    <div class="result-person-meta" id="resMetaText">مجال: التسويق • التموضع المضاد لمنافسي السوق</div>
                 </div>
 
-                <!-- Card 1: Positioning & CVP -->
-                <div class="res-card">
-                    <div class="res-card-title">
-                        <i class="fa-solid fa-crosshairs"></i>
-                        <span>1. التموضع المنفرد ومعادلة القيمة (Your Category of One)</span>
+                <!-- CVP Box -->
+                <div class="pillar-card highlighted">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">CORE CVP</span>
+                        <h3 class="pillar-title">التموضع المنفرد ومعادلة الهجوم التنافسي (Category of One)</h3>
                     </div>
-                    <div class="res-cvp-box" id="resCvpText">
-                        "أنا بساعد [الفئة] على تحقيق [الهدف] عبر [المنهجية] بدون [الألم]..."
-                    </div>
-                    <div class="res-grid-2">
-                        <div class="stat-pill">
-                            <div class="label">النموذج المقترح (Brand Archetype)</div>
-                            <div class="val" id="resArchetype">الممارس الباني (The Builder)</div>
-                        </div>
-                        <div class="stat-pill">
-                            <div class="label">القوة التنافسية المحورية (Unfair Advantage)</div>
-                            <div class="val" id="resUnfairAdv">دمج المهارة الفنية مع خلفية المبيعات</div>
-                        </div>
+                    <div class="pillar-thesis" id="resCvpText">
+                        "أنا أساعد [العميل] عبر دمج [مهارتي الحصرية] لكسر مشاكل [المنافسين] بدون أي حرق ميزانيات..."
                     </div>
                 </div>
 
-                <!-- Card 2: Custom Content Strategy -->
-                <div class="res-card">
-                    <div class="res-card-title">
-                        <i class="fa-solid fa-bullhorn"></i>
-                        <span>2. استراتيجية المحتوى المفصلة على نوع ظهورك</span>
+                <!-- Pillar 1: Moat -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">PILLAR 1</span>
+                        <h3 class="pillar-title" id="resPillar1Title">ركيزة الحصن التنافسي (Your Unfair Advantage Moat)</h3>
                     </div>
-                    <p id="resFormatStrategy" style="color: #cbd5e1; font-size: 14.5px; margin-bottom: 14px;">
-                        بناءً على تفضيلك، خطتك تعتمد كلياً على المحتوى المقروء والكاروسيل، بدون الحاجة للوقوف أمام كاميرا.
+                    <div class="pillar-thesis" id="resPillar1Thesis">
+                        تحويل مهاراتك الحصرية إلى عائق دخول يمنع استبدالك.
+                    </div>
+                    <ul class="pillar-points" id="resPillar1Points"></ul>
+                </div>
+
+                <!-- Pillar 2: Anti-Competitor -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">PILLAR 2</span>
+                        <h3 class="pillar-title" id="resPillar2Title">ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)</h3>
+                    </div>
+                    <div class="pillar-thesis" id="resPillar2Thesis">
+                        استغلال الثغرات ونقاط ضعف المنافسين لبناء ولاء قطعي مع العميل.
+                    </div>
+                    <ul class="pillar-points" id="resPillar2Points"></ul>
+                </div>
+
+                <!-- Pillar 3: Proof of Work -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">PILLAR 3</span>
+                        <h3 class="pillar-title" id="resPillar3Title">ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof of Work)</h3>
+                    </div>
+                    <div class="pillar-thesis" id="resPillar3Thesis">
+                        الأدلة المادية والأرقام التي تقنع العميل قبل الاجتماع وتنهي الشك.
+                    </div>
+                    <ul class="pillar-points" id="resPillar3Points"></ul>
+                </div>
+
+                <!-- Pillar 4: Offer Packaging -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">PILLAR 4</span>
+                        <h3 class="pillar-title" id="resPillar4Title">ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)</h3>
+                    </div>
+                    <div class="pillar-thesis" id="resPillar4Thesis">
+                        كيف تحزم مهاراتك كمنتج ونظام متكامل بدل بيع الوقت بالساعة.
+                    </div>
+                    <ul class="pillar-points" id="resPillar4Points"></ul>
+                </div>
+
+                <!-- Pillar 5: Distribution Matched to Camera -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">PILLAR 5</span>
+                        <h3 class="pillar-title" id="resPillar5Title">ركيزة الانتشار والنفوذ المتطابقة مع طبيعة ظهورك</h3>
+                    </div>
+                    <div class="pillar-thesis" id="resPillar5Thesis">
+                        استراتيجية نشر مخصصة بنسبة 100% لا تجبرك على ما تكرهه.
+                    </div>
+                    <ul class="pillar-points" id="resPillar5Points"></ul>
+                </div>
+
+                <!-- Killer Hooks -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <span class="pillar-badge">HOOKS</span>
+                        <h3 class="pillar-title">3 هوكات استراتيجية شرسة لاختراق انتباه السوق</h3>
+                    </div>
+                    <div class="hooks-container" id="resHooksList"></div>
+                </div>
+
+                <!-- Verdict Banner -->
+                <div class="verdict-banner">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> الحكم الاستراتيجي ومعركتك القادمة في السوق:</h4>
+                    <p id="resVerdictText">
+                        معركتك ليست في زيادة عدد المنشورات، بل في الإصرار على مخاطبة شريحة تفهم قيمة مهارتك الحصرية وتكره أخطاء منافسيك التقليديين.
                     </p>
-                    <div class="res-grid-2">
-                        <div class="stat-pill">
-                            <div class="label">المنصات الأساسية الموصى بها</div>
-                            <div class="val" id="resPlatforms">LinkedIn + نشرة بريدية (Newsletter)</div>
-                        </div>
-                        <div class="stat-pill">
-                            <div class="label">قاعدة التوزيع (معادلة 70 / 20 / 10)</div>
-                            <div class="val">70% حلول عملية • 20% كواليس • 10% مواقف قيادية</div>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Card 3: Instant Hooks -->
-                <div class="res-card">
-                    <div class="res-card-title">
-                        <i class="fa-solid fa-fire"></i>
-                        <span>3. أول 3 أفكار وهوكات تبدأ بنشرها غداً</span>
-                    </div>
-                    <ul class="hooks-list" id="resHooksList">
-                        <!-- Populated dynamically -->
-                    </ul>
-                </div>
-
-                <!-- Card 4: 90-Day Roadmap -->
-                <div class="res-card">
-                    <div class="res-card-title">
-                        <i class="fa-solid fa-route"></i>
-                        <span>4. خارطة طريق الـ 90 يوماً خطوة بخطوة</span>
-                    </div>
-                    <div class="timeline" id="resTimeline">
-                        <!-- Populated dynamically -->
-                    </div>
-                </div>
-
-                <!-- Card 5: Direct Amr Waled Consultation & Action -->
+                <!-- Direct Amr Waled Consultation & Action -->
                 <div class="connect-cta-card">
                     <img src="amr_personal_branding_approved.jpg" alt="Amr Waled" class="consultant-avatar">
-                    <h3>تحتاج مراجعة مباشرة وتطبيق للخطة معي شخصياً؟</h3>
+                    <h3>جاهز لتطبيق هذه الركائز وبناء نظامك التسويقي معي شخصياً؟</h3>
                     <p>
-                        هذه الخطة هي الخطوة الأولى.. إذا كنت تريد مراجعتها بدقة، بناء منصتك الرقمية، أو تدشين نظام الـ CRM والميديا باينج مع عمرو وليد، تواصل معي الآن:
+                        هذه الركائز تضعك في مكانة مختلفة تماماً عن منافسيك.. إذا كنت تريد تدشين استراتيجيتك وبناء أنظمة الـ CRM والميديا باينج مع عمرو وليد، تواصل معي الآن:
                     </p>
                     <div class="action-buttons-row">
                         <a href="#" id="btnWhatsAppDirect" class="btn-whatsapp-direct" target="_blank">
@@ -1115,11 +1166,11 @@
                         </a>
                         <button type="button" class="btn-print" onclick="window.print()">
                             <i class="fa-solid fa-print"></i>
-                            <span>طباعة أو حفظ الخطة (PDF)</span>
+                            <span>طباعة أو حفظ التقرير (PDF)</span>
                         </button>
                         <button type="button" class="btn-prev" onclick="restartPlanner()">
                             <i class="fa-solid fa-rotate-right"></i>
-                            <span>إعادة التقييم</span>
+                            <span>إعادة التشخيص</span>
                         </button>
                     </div>
                 </div>
@@ -1129,7 +1180,7 @@
         </div>
     </main>
 
-    <!-- Interactive Engine Script -->
+    <!-- Strategic Engine Script -->
     <script>
         const state = {
             step: 1,
@@ -1137,52 +1188,56 @@
             name: '',
             age: '',
             camera_preference: '',
-            experience_level: '',
+            competitors: '',
+            unique_skills: '',
+            competitor_flaws: '',
             primary_goal: '',
-            unfair_advantage: '',
             contact_info: ''
         };
 
-        // DOM elements
+        // Inputs
         const nicheInput = document.getElementById('nicheInput');
         const nameInput = document.getElementById('nameInput');
         const ageInput = document.getElementById('ageInput');
-        const advantageInput = document.getElementById('advantageInput');
+        const competitorsInput = document.getElementById('competitorsInput');
+        const uniqueSkillsInput = document.getElementById('uniqueSkillsInput');
+        const flawsInput = document.getElementById('flawsInput');
         const contactInput = document.getElementById('contactInput');
 
+        // Buttons
         const btnNext1 = document.getElementById('btnNext1');
         const btnNext2 = document.getElementById('btnNext2');
         const btnNext3 = document.getElementById('btnNext3');
         const btnNext4 = document.getElementById('btnNext4');
         const btnNext5 = document.getElementById('btnNext5');
+        const btnNext6 = document.getElementById('btnNext6');
         const btnSubmit = document.getElementById('btnSubmit');
 
-        // Setup Chip clicks in Step 1
-        document.querySelectorAll('.chip-btn').forEach(btn => {
+        // Step 1: Niche Chips
+        document.querySelectorAll('#step1 .chip-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('#step1 .chip-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 nicheInput.value = btn.dataset.niche;
                 state.niche = btn.dataset.niche;
                 btnNext1.disabled = false;
             });
         });
-
         nicheInput.addEventListener('input', (e) => {
             state.niche = e.target.value.trim();
             btnNext1.disabled = state.niche.length < 2;
         });
 
-        // Step 2 inputs validation
+        // Step 2: Name & Age
         function validateStep2() {
             state.name = nameInput.value.trim();
             state.age = ageInput.value.trim();
-            btnNext2.disabled = !(state.name.length >= 2 && state.age.length >= 1 && parseInt(state.age) > 10);
+            btnNext2.disabled = !(state.name.length >= 2 && state.age.length >= 1 && parseInt(state.age) > 12);
         }
         nameInput.addEventListener('input', validateStep2);
         ageInput.addEventListener('input', validateStep2);
 
-        // Step 3 (Camera Option Cards)
+        // Step 3: Camera
         document.querySelectorAll('#step3 .option-card').forEach(card => {
             card.addEventListener('click', () => {
                 document.querySelectorAll('#step3 .option-card').forEach(c => c.classList.remove('selected'));
@@ -1192,31 +1247,61 @@
             });
         });
 
-        // Step 4 (Experience Cards)
-        document.querySelectorAll('#step4 .option-card').forEach(card => {
-            card.addEventListener('click', () => {
-                document.querySelectorAll('#step4 .option-card').forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-                state.experience_level = card.dataset.val;
-                btnNext4.disabled = false;
-            });
+        // Step 4: Competitors
+        competitorsInput.addEventListener('input', (e) => {
+            state.competitors = e.target.value.trim();
+            btnNext4.disabled = state.competitors.length < 3;
         });
 
-        // Step 5 (Goal Cards)
-        document.querySelectorAll('#step5 .option-card').forEach(card => {
+        // Step 5: Unique Skills & Chips
+        document.querySelectorAll('#skillChips .chip-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const selected = Array.from(document.querySelectorAll('#skillChips .chip-btn.active')).map(b => b.dataset.skill);
+                const currentText = uniqueSkillsInput.value.trim();
+                if (btn.classList.contains('active')) {
+                    uniqueSkillsInput.value = currentText ? `${currentText} + ${btn.dataset.skill}` : btn.dataset.skill;
+                }
+                state.unique_skills = uniqueSkillsInput.value.trim();
+                btnNext5.disabled = state.unique_skills.length < 3;
+            });
+        });
+        uniqueSkillsInput.addEventListener('input', (e) => {
+            state.unique_skills = e.target.value.trim();
+            btnNext5.disabled = state.unique_skills.length < 3;
+        });
+
+        // Step 6: Competitor Flaws & Chips
+        document.querySelectorAll('#flawChips .chip-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                if (btn.classList.contains('active')) {
+                    const currentText = flawsInput.value.trim();
+                    flawsInput.value = currentText ? `${currentText} + ${btn.dataset.flaw}` : btn.dataset.flaw;
+                }
+                state.competitor_flaws = flawsInput.value.trim();
+                btnNext6.disabled = state.competitor_flaws.length < 3;
+            });
+        });
+        flawsInput.addEventListener('input', (e) => {
+            state.competitor_flaws = e.target.value.trim();
+            btnNext6.disabled = state.competitor_flaws.length < 3;
+        });
+
+        // Step 7: Goal Cards
+        document.querySelectorAll('#step7 .option-card').forEach(card => {
             card.addEventListener('click', () => {
-                document.querySelectorAll('#step5 .option-card').forEach(c => c.classList.remove('selected'));
+                document.querySelectorAll('#step7 .option-card').forEach(c => c.classList.remove('selected'));
                 card.classList.add('selected');
                 state.primary_goal = card.dataset.val;
-                btnNext5.disabled = false;
             });
         });
 
-        // Step navigation
+        // Progress bar updater
         function updateProgressBar(step) {
-            const pct = Math.round((step / 6) * 100);
+            const pct = Math.round((step / 7) * 100);
             document.getElementById('progressBar').style.width = pct + '%';
-            document.getElementById('stepCounter').innerText = `الخطوة ${step} من 6`;
+            document.getElementById('stepCounter').innerText = `الخطوة ${step} من 7`;
             document.getElementById('progressPercent').innerText = pct + '%';
         }
 
@@ -1239,27 +1324,56 @@
         btnNext3.addEventListener('click', () => goToStep(4));
         btnNext4.addEventListener('click', () => goToStep(5));
         btnNext5.addEventListener('click', () => goToStep(6));
+        btnNext6.addEventListener('click', () => goToStep(7));
 
-        // Submit and Generate Plan
+        // Submit & Process Marketing Pillars
         btnSubmit.addEventListener('click', async () => {
-            state.unfair_advantage = advantageInput.value.trim();
             state.contact_info = contactInput.value.trim();
-
+            if (!state.primary_goal) {
+                state.primary_goal = 'inbound_clients';
+            }
             if (!state.contact_info) {
                 contactInput.focus();
                 contactInput.style.borderColor = '#ef4444';
                 return;
             }
 
-            // Switch to Loading State
+            // Hide form, show loading
             document.getElementById('brandForm').style.display = 'none';
             document.getElementById('progressContainer').style.display = 'none';
             document.getElementById('loadingState').style.display = 'block';
 
-            // Generate deterministic or AI plan
-            const generatedPlan = buildDeterministicPlan(state);
+            let resultPlan = null;
 
-            // Attempt async save to server API & Supabase
+            // 1. Try serverless AI generation with timeout fallback
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 6500);
+
+                const response = await fetch('/api/generate-plan', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    signal: controller.signal,
+                    body: JSON.stringify(state)
+                });
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success && data.ai_generated && data.plan) {
+                        resultPlan = data.plan;
+                    }
+                }
+            } catch (err) {
+                console.log('Using dynamic semantic engine fallback:', err.message);
+            }
+
+            // 2. If AI is not configured or failed, use our Deep Dynamic Semantic Engine
+            if (!resultPlan) {
+                resultPlan = buildDynamicSemanticPillars(state);
+            }
+
+            // 3. Save Lead Async to API & Supabase
             try {
                 fetch('/api/save-lead', {
                     method: 'POST',
@@ -1269,136 +1383,232 @@
                         age: state.age,
                         niche: state.niche,
                         camera_preference: state.camera_preference,
-                        experience_level: state.experience_level,
+                        competitors: state.competitors,
+                        unique_skills: state.unique_skills,
+                        competitor_flaws: state.competitor_flaws,
                         primary_goal: state.primary_goal,
-                        unfair_advantage: state.unfair_advantage,
                         contact_info: state.contact_info,
-                        summary_cvp: generatedPlan.cvp
+                        summary_cvp: resultPlan.counter_positioning_cvp || resultPlan.cvp
                     })
-                }).catch(err => console.log('Lead save background note:', err));
+                }).catch(e => console.log('Lead save background note:', e));
             } catch (e) {}
 
-            // Store in localStorage as backup
+            // Save in localStorage
             try {
-                localStorage.setItem('amr_brand_plan_last', JSON.stringify({ state, generatedPlan, date: new Date().toISOString() }));
+                localStorage.setItem('amr_marketing_pillars_last', JSON.stringify({ state, resultPlan, date: new Date().toISOString() }));
             } catch (e) {}
 
-            // Wait 1.4 seconds for organic feel
+            // Display result
             setTimeout(() => {
                 document.getElementById('loadingState').style.display = 'none';
-                renderResult(state, generatedPlan);
-            }, 1400);
+                renderMarketingPillars(state, resultPlan);
+            }, 800);
         });
 
-        // Deterministic Expert Marketing Engine
-        function buildDeterministicPlan(data) {
+        // Deep Semantic Marketing Pillars Generator (Zero-fluff, Anti-Template)
+        function buildDynamicSemanticPillars(data) {
             const name = data.name || 'عزيزي المحترف';
-            const age = data.age || '25';
-            const niche = data.niche || 'مجالك وتخصصك';
+            const age = data.age || '26';
+            const niche = (data.niche && data.niche.trim().length > 0) ? data.niche.trim() : (nicheInput.value.trim() || 'مجالك وتخصصك');
             const camera_preference = data.camera_preference;
-            const experience_level = data.experience_level;
+            const competitors = data.competitors;
+            const unique_skills = data.unique_skills;
+            const competitor_flaws = data.competitor_flaws;
             const primary_goal = data.primary_goal;
-            const unfair_advantage = data.unfair_advantage;
 
-            // Archetype determination
-            let archetype = 'الممارس الباني (The Builder & Practitioner)';
-            if (experience_level === 'expert') {
-                archetype = 'المرشد الاستراتيجي وصانع القرار (The Trusted Strategist)';
-            } else if (experience_level === 'beginner') {
-                archetype = 'المتعلم الموثق والباحث (The In-Public Scholar)';
-            }
+            const safeComp = (competitors && competitors.trim().length > 0) ? competitors.trim() : 'المنافسين التقليديين في السوق';
+            const safeSkills = (unique_skills && unique_skills.trim().length > 0) ? unique_skills.trim() : 'الدقة التشغيلية والسرعة في التنفيذ';
+            const safeFlaws = (competitor_flaws && competitor_flaws.trim().length > 0) ? competitor_flaws.trim() : 'الوعود النظرية وغياب الأرقام الحقيقية';
 
-            // Format strategy & platforms
-            let formatText = '';
-            let platforms = '';
+            const cvp = `أنا ${name}، أساعد العملاء في مجال (${niche}) على تحقيق أعلى نتائج ملموسة عبر توظيف (${safeSkills})، كبديل مباشر لأسلوب (${safeComp}) وبدون المعاناة من (${safeFlaws}).`;
+
+            // Pillar 1: Moat
+            const pillar1 = {
+                title: 'ركيزة الحصن التنافسي (Your Unfair Advantage Moat)',
+                thesis: `تحويل (${safeSkills}) من مجرد ميزة تقنية إلى حاجز دفاعي (Moat) يجعل منافسيك مثل (${safeComp}) عاجزين عن تقديم نفس الحل دون رفع تكاليفهم بنسبة 300%.`,
+                points: [
+                    `أثبت للعميل أن الجمع بين مهاراتك لا يمكن لشركة عادية استنساخه بشخص واحد.`,
+                    `اجعل التقرير أو المخرج الذي تسلمه للعميل يحتوي على طبقة من (${safeSkills}) بحيث تصبح هي المعيار الذي يحكم به العميل على جودة السوق.`
+                ]
+            };
+
+            // Pillar 2: Anti-Competitor
+            const pillar2 = {
+                title: 'ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)',
+                thesis: `بناء المصداقية عبر تسليط الضوء على خطأ السوق الشائع (${safeFlaws}) الذي يرتكبه (${safeComp})، وتوضيح سبب فشل تلك الطرق التقليدية هندسياً وتجارياً.`,
+                points: [
+                    `تحدث علناً وبجرأة عن الأسباب التي تجعل العملاء يخسرون ميزانياتهم مع المنافسين الذين يمارسون (${safeFlaws}).`,
+                    `قدم للعميل قائمة فحص (Checklist) لاكتشاف تلاعب أو نقص المنافسين قبل أن يوقع معهم أي عقد.`
+                ]
+            };
+
+            // Pillar 3: Proof of Work
+            const pillar3 = {
+                title: 'ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof & Friction Buster)',
+                thesis: `العميل يخشى دفع ماله وتكرار تجربة سيئة مع أسلوب (${safeComp})؛ تكسر هذا الخوف بنشر أدلة حية توضح كيف تضمن (${safeSkills}) سلامة النتيجة.`,
+                points: [
+                    `انشر دراسة حالة واحدة أسبوعياً تركز على: المشكلة ⬅️ التشخيص ⬅️ كواليس الحل بمهارتك ⬅️ النتيجة بالأرقام الملموسة.`,
+                    `وثق أخطاء وقعت فيها وتغلبت عليها لتثبت للعميل أنك مرشد خاض المعركة قبله ولديه خطة نجاة مجربة.`
+                ]
+            };
+
+            // Pillar 4: Offer Packaging
+            const pillar4 = {
+                title: 'ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)',
+                thesis: `التوقف التام عن تسعير خدماتك بالساعة أو الباقات المبتذلة، وصياغة عرض قائم على نتيجة نهائية محددة (Outcome-based Offer) يحل ألم (${safeFlaws}).`,
+                points: [
+                    `قدم للعميل ضماناً واضحاً أو خطة عمل مرحلية تلغي مخاطرة التجربة لديه.`,
+                    `اربط سعرك بالعائد الذي ستحققه له أو التكلفة التي ستوفرها عليه مقارنة بالخسارة مع المنافسين.`
+                ]
+            };
+
+            // Pillar 5: Distribution matched to camera
+            let pillar5Thesis = '';
+            let pillar5Points = [];
             if (camera_preference === 'no_camera') {
-                formatText = `خطة خالصة 100% بدون كاميرا: تركيز كامل على مقالات LinkedIn التحليلية، الكاروسيل عالي القيمة (PDF Slides)، الثريدات، والـ Case Studies الموثقة بالأرقام وجداول الإكسيل. لن تحتاج لتصوير وجهك إطلاقاً لتحقيق أعلى درجات الثقة.`;
-                platforms = 'LinkedIn (المقالات والكاروسيل) + نشرة بريدية Substack';
+                pillar5Thesis = `استراتيجية سلطة معرفية مكتوبة 100% بدون كاميرا: السيطرة على LinkedIn عبر مقالات تحليلية، كاروسيل PDF، وسوابق أعمال إكسيل ودراسات حالة لا تتطلب وجهك إطلاقاً.`;
+                pillar5Points = [
+                    `انشر كل أسبوع 2 كاروسيل يفصل مشكلة (${safeFlaws}) وكيف تحلها تقنياً.`,
+                    `اكتب مقالاً طويلاً واحداً شهرياً (Playbook) يحمل اسمك ويصبح مرجعاً لصناع القرار في (${niche}).`
+                ];
             } else if (camera_preference === 'screen_record') {
-                formatText = `خطة شروحات الشاشة والـ Teardowns: تسجيل لقطات من جهازك تشرح المشاكل والحلول والأنظمة عملياً، مع صوت واثق وهادئ. هذا الأسلوب يعطي أعلى معدل تحويل (Conversion) في الـ B2B لأنه يُظهر أسلوب عملك الحقيقي على الشاشة دون تشتيت بالوجه.`;
-                platforms = 'LinkedIn فيديو + قناة YouTube مخصصة للشروحات التقنية';
+                pillar5Thesis = `استراتيجية تفكيك الأنظمة (Screen Teardown Authority): تسجيل لقطات من شاشتك بصوتك الواثق تشرح عيوب (${safeComp}) وتستعرض حلولك بـ (${safeSkills}).`;
+                pillar5Points = [
+                    `فيديوهات قصيرة 2-3 دقائق لشاشتك مع شرح صوتي تركز على خطوات حل المشكلات المعقدة.`,
+                    `مشاركة كواليس الملفات والأنظمة التي تبنيها للعملاء لإبهار صانع القرار بمهارتك الحية.`
+                ];
             } else {
-                formatText = `خطة الفيديو السريع والـ Short-form Authority: ريلز وتيك توك ولينكد إن فيديو بمدد 45-60 ثانية تبدأ بخطافات صادمة (Pattern Interrupt)، مع مشاركة لقطات من بيئة العمل وحل مشاكل واقعية تواجه السوق.`;
-                platforms = 'LinkedIn Video + Instagram Reels + YouTube Shorts';
+                pillar5Thesis = `استراتيجية الفيديو والخطافات السريعة (Short-form Authority): ريلز وتيك توك ولينكد إن فيديو مدتها 45-60 ثانية تكسر أخطاء (${safeComp}) وتبرز حضورك القوي.`;
+                pillar5Points = [
+                    `ابدأ الفيديو بسؤال صادم أو رقم غير متوقع يضرب في المفهوم الخاطئ (${safeFlaws}).`,
+                    `اظهر بثقة وهدوء واشرح كيف تفرق مهارتك (${safeSkills}) بين مشروع ينجح وآخر يفشل.`
+                ];
             }
 
-            // CVP Construction
-            let cvp = '';
-            const advantageSnippet = unfair_advantage ? ` مع الاستفادة من خلفيتي في (${unfair_advantage})` : '';
-            if (primary_goal === 'inbound_clients') {
-                cvp = `أنا ${name}، أساعد أصحاب الشركات والعملاء في مجال (${niche}) على تحقيق أعلى عوائد وحل أعقد مشاكلهم عبر منهجية واضحة وموثقة بالأرقام${advantageSnippet}، بدون حرق ميزانيات أو الاعتماد على حلول تقليدية ضعيفة.`;
-            } else if (primary_goal === 'global_job') {
-                cvp = `أنا ${name}، أهندس حلولاً متقدمة في (${niche}) تركز على جودة التنفيذ والسرعة، لمساعدة الشركات العالمية على خفض التكاليف ورفع كفاءة الأنظمة.`;
-            } else {
-                cvp = `أنا ${name}، أبني وأشرح أفضل الممارسات الموثقة في (${niche}) لمساعدة المهتمين على تفادي أخطاء السوق والوصول لنتائج ملموسة في أسرع وقت.`;
-            }
+            const pillar5 = {
+                title: 'ركيزة الانتشار والنفوذ المتطابقة مع طبيعة ظهورك',
+                thesis: pillar5Thesis,
+                points: pillar5Points
+            };
 
-            // Hooks tailored to niche
+            // Hooks
             const hooks = [
-                `ليه 80% من الناس اللي بتشتغل في (${niche}) بتخسر فلوسها ومجهودها في أول 6 شهور؟ (تحليل واقعي)`,
-                `التريند الجديد اللي نازل في (${niche}) شايف إنه بيضر البيزنس أكتر ما بيفيده.. وإليك البديل الهندسي الصح:`,
-                `من صفر نتائج إلى تحقيق نمو ملموس: الكواليس الحقيقية اللي مبيقولهالكش حد في مجال (${niche}).`
+                `ليه المقارنة بيني وبين (${safeComp}) مش في محلها أصلاً؟ (تحليل هندسي بسيط)`,
+                `أكبر كارثة بشوفها في مجال (${niche}) هي (${safeFlaws}).. وإليك السبب الحقيقي لضياع أرباح العملاء:`,
+                `لو بتدور على أرخص سعر في (${niche}) بلاش تيجي عندي.. لأن مهارتي في (${safeSkills}) بتوفرلك أضعاف اللي هتدفعه.`
             ];
 
-            // 90-Day Roadmap tailored
-            const roadmap = [
-                {
-                    phase: 'الشهر 1: التأسيس وحفر الهوية (Foundation Sprint)',
-                    desc: 'تجهيز وتوحيد حساباتك على المنصات الأساسية، كتابة الـ Headline والـ About وفق نموذج CVP، وصياغة أول 3 دراسات حالة (Case Studies) تعكس مهاراتك.'
-                },
-                {
-                    phase: 'الشهر 2: إطلاق محرك المحتوى (Content Machine)',
-                    desc: `نشر 3 منشورات مدروسة أسبوعياً بنمط (${camera_preference === 'no_camera' ? 'كاروسيل ومقالات عميقة' : 'فيديو قصير وريلز'}) وفق قاعدة 70% قيمة، 20% كواليس، 10% مواقف قيادية، وإطلاق أول دليل مجاني (Lead Magnet) باسمك.`
-                },
-                {
-                    phase: 'الشهر 3: تفعيل عروض التحويل (Monetization & Inbound)',
-                    desc: 'فتح باب الاستشارات والتعاقدات المباشرة، قياس جودة المتفاعلين، والتفاوض على صفقات وعقود بأسعار محترمة تعكس قيمة النفوذ الذي بنيته.'
-                }
-            ];
+            const verdict = `معركتك في سوق (${niche}) ليست في جذب أكبر عدد من المتابعين، بل في إقناع 5 إلى 10 عملاء مؤهلين بأنك الحل المتخصص الوحيد الذي يملك (${safeSkills}) ويحفظهم من كابوس (${safeFlaws}). تمسك بهذا التموضع وارفض التنافس كسلعة عادية.`;
 
-            return { cvp, archetype, formatText, platforms, hooks, roadmap };
+            return {
+                counter_positioning_cvp: cvp,
+                pillar_1_moat: pillar1,
+                pillar_2_anti_competitor: pillar2,
+                pillar_3_proof_of_work: pillar3,
+                pillar_4_offer_architecture: pillar4,
+                pillar_5_distribution_matrix: pillar5,
+                killer_hooks: hooks,
+                strategic_verdict: verdict
+            };
         }
 
-        // Render Result Screen
-        function renderResult(data, plan) {
+        // Render Function
+        function renderMarketingPillars(data, plan) {
             document.getElementById('resultPanel').style.display = 'block';
-            document.getElementById('resNameTitle').innerText = `خطة العلامة الشخصية: ${data.name}`;
-            document.getElementById('resMetaText').innerText = `المجال: ${data.niche} • السن: ${data.age} سنة • ${data.camera_preference === 'no_camera' ? 'استراتيجية بدون كاميرا' : 'استراتيجية فيديو وظهور'}`;
+            document.getElementById('resNameTitle').innerText = `الركائز التسويقية: ${data.name}`;
+            document.getElementById('resMetaText').innerText = `المجال: ${data.niche} • السن: ${data.age} سنة • التموضع المضاد لـ (${data.competitors || 'المنافسين'})`;
 
-            document.getElementById('resCvpText').innerText = `"${plan.cvp}"`;
-            document.getElementById('resArchetype').innerText = plan.archetype;
-            document.getElementById('resUnfairAdv').innerText = data.unfair_advantage || 'التركيز على عمق التجربة وسرعة التعلم';
+            // CVP
+            document.getElementById('resCvpText').innerText = `"${plan.counter_positioning_cvp || plan.cvp}"`;
 
-            document.getElementById('resFormatStrategy').innerText = plan.formatText;
-            document.getElementById('resPlatforms').innerText = plan.platforms;
+            // Pillar 1
+            const p1 = plan.pillar_1_moat;
+            if (p1) {
+                document.getElementById('resPillar1Title').innerText = p1.title;
+                document.getElementById('resPillar1Thesis').innerText = p1.thesis;
+                const ul1 = document.getElementById('resPillar1Points');
+                ul1.innerHTML = '';
+                (p1.actionable_angles || p1.points || []).forEach(pt => {
+                    ul1.innerHTML += `<li><i class="fa-solid fa-chevron-left"></i><span>${pt}</span></li>`;
+                });
+            }
 
-            // Hooks list
-            const hooksUl = document.getElementById('resHooksList');
-            hooksUl.innerHTML = '';
-            plan.hooks.forEach((h, idx) => {
-                const li = document.createElement('li');
-                li.className = 'hook-item';
-                li.innerHTML = `<i class="fa-solid fa-bolt icon"></i><span><strong>هوك #${idx + 1}:</strong> "${h}"</span>`;
-                hooksUl.appendChild(li);
+            // Pillar 2
+            const p2 = plan.pillar_2_anti_competitor;
+            if (p2) {
+                document.getElementById('resPillar2Title').innerText = p2.title;
+                document.getElementById('resPillar2Thesis').innerText = p2.thesis;
+                const ul2 = document.getElementById('resPillar2Points');
+                ul2.innerHTML = '';
+                (p2.contrarian_topics || p2.points || []).forEach(pt => {
+                    ul2.innerHTML += `<li><i class="fa-solid fa-chevron-left"></i><span>${pt}</span></li>`;
+                });
+            }
+
+            // Pillar 3
+            const p3 = plan.pillar_3_proof_of_work;
+            if (p3) {
+                document.getElementById('resPillar3Title').innerText = p3.title;
+                document.getElementById('resPillar3Thesis').innerText = p3.thesis;
+                const ul3 = document.getElementById('resPillar3Points');
+                ul3.innerHTML = '';
+                (p3.proof_assets || p3.points || []).forEach(pt => {
+                    ul3.innerHTML += `<li><i class="fa-solid fa-chevron-left"></i><span>${pt}</span></li>`;
+                });
+            }
+
+            // Pillar 4
+            const p4 = plan.pillar_4_offer_architecture;
+            if (p4) {
+                document.getElementById('resPillar4Title').innerText = p4.title;
+                document.getElementById('resPillar4Thesis').innerText = p4.thesis;
+                const ul4 = document.getElementById('resPillar4Points');
+                ul4.innerHTML = '';
+                if (p4.core_offer_idea) {
+                    ul4.innerHTML += `<li><i class="fa-solid fa-gem"></i><span><strong>العرض المقترح:</strong> ${p4.core_offer_idea}</span></li>`;
+                }
+                (p4.points || []).forEach(pt => {
+                    ul4.innerHTML += `<li><i class="fa-solid fa-chevron-left"></i><span>${pt}</span></li>`;
+                });
+            }
+
+            // Pillar 5
+            const p5 = plan.pillar_5_distribution_matrix;
+            if (p5) {
+                document.getElementById('resPillar5Title').innerText = p5.title;
+                document.getElementById('resPillar5Thesis').innerText = p5.thesis || p5.format_direction;
+                const ul5 = document.getElementById('resPillar5Points');
+                ul5.innerHTML = '';
+                if (p5.primary_channels) {
+                    ul5.innerHTML += `<li><i class="fa-solid fa-share-nodes"></i><span><strong>المنصات الأساسية:</strong> ${p5.primary_channels.join(' • ')}</span></li>`;
+                }
+                (p5.points || []).forEach(pt => {
+                    ul5.innerHTML += `<li><i class="fa-solid fa-chevron-left"></i><span>${pt}</span></li>`;
+                });
+            }
+
+            // Hooks
+            const hooksBox = document.getElementById('resHooksList');
+            hooksBox.innerHTML = '';
+            (plan.killer_hooks || plan.hooks || []).forEach((h, idx) => {
+                hooksBox.innerHTML += `
+                    <div class="hook-box">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span><strong>هوك #${idx + 1}:</strong> "${h}"</span>
+                    </div>
+                `;
             });
 
-            // Timeline
-            const timelineDiv = document.getElementById('resTimeline');
-            timelineDiv.innerHTML = '';
-            plan.roadmap.forEach(r => {
-                const item = document.createElement('div');
-                item.className = 'timeline-phase';
-                item.innerHTML = `<h5>${r.phase}</h5><p>${r.desc}</p>`;
-                timelineDiv.appendChild(item);
-            });
+            // Verdict
+            document.getElementById('resVerdictText').innerText = plan.strategic_verdict || plan.golden_advice || 'معركتك القادمة هي التمسك بتموضعك الحصري ورفض مقارنة نفسك بالمنافسين التقليديين.';
 
-            // WhatsApp Button Link with pre-filled message
+            // WhatsApp Button Link
             const waMsg = encodeURIComponent(
-                `أهلاً يا عمرو، أنا ${data.name} (${data.age} سنة). عملت تشخيص الـ Personal Branding على موقعك لمجال: ${data.niche}.\n\nالهدف الأساسي بتاعي: ${data.primary_goal}.\n\nحابب نناقش الخطة دي سوا ونشوف إزاي ننفذها عملياً ونطور السيستم التسويقي.`
+                `أهلاً يا عمرو، أنا ${data.name} (${data.age} سنة). استخرجت الركائز التسويقية على موقعك لمجال: ${data.niche}.\n\nالمنافسين اللي قارنت نفسي بيهم: ${data.competitors}.\nمهارتي الحصرية: ${data.unique_skills}.\n\nحابب نناقش الركائز دي سوا ونشوف إزاي ننفذها بنظام عملي متكامل.`
             );
             document.getElementById('btnWhatsAppDirect').href = `https://wa.me/201091642566?text=${waMsg}`;
 
-            // Scroll smoothly to result
+            // Scroll to results
             window.scrollTo({ top: document.getElementById('resultPanel').offsetTop - 80, behavior: 'smooth' });
         }
 

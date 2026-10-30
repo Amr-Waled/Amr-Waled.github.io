@@ -13,46 +13,76 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, age, niche, camera_preference, experience_level, primary_goal, unfair_advantage } = req.body || {};
+  const {
+    name,
+    age,
+    niche,
+    camera_preference,
+    competitors,
+    unique_skills,
+    competitor_flaws,
+    primary_goal,
+    contact_info
+  } = req.body || {};
 
   const apiKey = process.env.GEMINI_API_KEY;
 
-  // If apiKey is valid AI Studio key (starts with AIzaSy)
+  // If apiKey is a valid Google AI Studio key (starts with AIzaSy)
   if (apiKey && apiKey.startsWith('AIzaSy')) {
     try {
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `أنت خبير استراتيجي في بناء العلامات الشخصية (Personal Branding) تعمل بمدرسة كبار المفكرين:
-(Daniel Priestley - Key Person of Influence, Mark Schaefer - KNOWN, Austin Kleon - Show Your Work, Donald Miller - StoryBrand, Naval Ravikant).
+      const prompt = `أنت كبير مهندسي التسويق وبناء النفوذ الشخصي (Strategic Personal Branding & Positioning Architect).
+مهمتك: هندسة الركائز التسويقية (Marketing Pillars) والتموضع الاستراتيجي المضاد (Counter-Positioning) لشخص محدد، بحيث تخرجه تماماً من فخ المقارنات وحرق الأسعار وتضعه في فئة منفردة (Category of One).
 
-المطلوب: توليد خطة استراتيجية شديدة العمق والذكاء بصيغة JSON للشخص التالي:
-- الاسم: ${name}
-- السن: ${age}
-- النيش / التخصص: ${niche}
-- تفضيل الكاميرا والظهور: ${camera_preference}
-- مستوى الخبرة وسوابق الأعمال: ${experience_level}
-- الهدف الأساسي: ${primary_goal}
-- الميزة التنافسية الإضافية (Unfair Advantage): ${unfair_advantage || 'لا يوجد'}
+⚠️ تحذير صارم:
+- ممنوع منعاً باتاً كتابة "جدول محتوى روتيني" أو كلام إنشائي عام ينفع لأي شخص (Zero Fluff).
+- يجب تحليل ومهاجمة نقاط ضعف المنافسين المذكورين بالاسم واستغلال المهارات الحصرية المذكورة لصناعة خندق تنافسي (Competitive Moat).
+- صمم الاستراتيجية بدقة وفقاً لتفضيله للكاميرا (سواء كان يرفض الكاميرا أو يحبها).
 
-يرجى الرد بصيغة JSON حصراً بالشكل التالي:
+البيانات التشخيصية للمستخدم:
+- الاسم: ${name} (${age} سنة)
+- المجال / النيش: ${niche}
+- أثقل المنافسين في مجاله: ${competitors || 'المنافسين التقليديين في السوق'}
+- المهارات الحصرية التي يمتلكها وتنقص منافسيه: ${unique_skills || 'غير محدد'}
+- العيوب وأخطاء السوق التي يراها عند منافسيه ويريد معارضتها: ${competitor_flaws || 'حرق الأسعار والوعود النظرية'}
+- علاقة المستخدم بالكاميرا والظهور: ${camera_preference}
+- الهدف التجاري المباشر: ${primary_goal}
+
+المطلوب: توليد رد JSON حصراً بنفس الهيكل التالي:
 {
-  "cvp": "صياغة الـ Category of One المباشرة (أنا أساعد فئة كذا لتحقيق كذا عبر كذا بدون كذا)",
-  "brand_archetype": "الممارس الباني / المرشد الاستراتيجي / المحلل والباحث",
-  "content_strategy": {
-    "format_direction": "توجيه نوع المحتوى بناءً على تفضيل الكاميرا",
-    "distribution_ratio": "70% قيمة تقنية، 20% كواليس وتجارب، 10% آراء حاسمة وتريندات",
-    "primary_channels": ["المنصة 1", "المنصة 2"]
+  "counter_positioning_cvp": "صياغة التموضع المضاد المباشر: كيف يعلن تفوقه على أسلوب (${competitors}) دون تجريح، ويقدم نفسه كبديل هندسي حتمي",
+  "pillar_1_moat": {
+    "title": "ركيزة الحصن التنافسي (Your Unfair Advantage Moat)",
+    "thesis": "كيف يدمج مهارته (${unique_skills}) ليجعل تقليده مستحيلاً على منافسيه",
+    "actionable_angles": ["زاوية إثبات 1", "زاوية إثبات 2"]
   },
-  "hooks": [
-    "خطاف قوي رقم 1",
-    "خطاف قوي رقم 2",
-    "خطاف قوي رقم 3"
+  "pillar_2_anti_competitor": {
+    "title": "ركيزة معارضة أخطاء السوق (Anti-BS & Industry Flaws)",
+    "thesis": "كيف يستغل خطأ المنافسين (${competitor_flaws}) لبناء ثقة حديدية لدى العميل المتردد",
+    "contrarian_topics": ["موضوع خلافي قوي 1", "موضوع خلافي قوي 2"]
+  },
+  "pillar_3_proof_of_work": {
+    "title": "ركيزة سلطة الإثبات وتفكيك مخاوف العميل (Proof & Friction Buster)",
+    "thesis": "ما هي الأدلة والأرقام وطريقة الشرح التي تثبت كفاءته وتقطع شك العميل",
+    "proof_assets": ["أصل إثبات 1", "أصل إثبات 2"]
+  },
+  "pillar_4_offer_architecture": {
+    "title": "ركيزة هندسة العرض والتسعير عالي القيمة (Grand Slam Offer)",
+    "thesis": "كيف يحزم خدماته كمنتج أو نظام متكامل (Productized Ecosystem) بدل بيع الوقت بالساعة",
+    "core_offer_idea": "فكرة العرض الأساسي المقترح"
+  },
+  "pillar_5_distribution_matrix": {
+    "title": "ركيزة الانتشار المتطابقة مع طبيعة ظهوره",
+    "format_direction": "التوجيه الصارم بناءً على (${camera_preference})",
+    "primary_channels": ["منصة 1", "منصة 2"],
+    "execution_framework": "كيف ينفذ وينشر أسبوعياً دون حرق طاقته أو الضغط على نفسه بما يكره"
+  },
+  "killer_hooks": [
+    "خطاف تسويقي شرس يستهدف مشكلة السوق المذكورة",
+    "خطاف تسويقي يبرز المهارة التي تنقص المنافسين",
+    "خطاف يفكك خوف العميل الأكبر"
   ],
-  "roadmap_90_days": {
-    "month_1": "مهام الشهر الأول في التأسيس والبنية",
-    "month_2": "مهام الشهر الثاني في ماكينة المحتوى والأصل الرئيسي",
-    "month_3": "مهام الشهر الثالث في التحويل والاستشارات والصفقات"
-  },
-  "golden_advice": "نصيحة ذهبية واحدة قاطعة مبنية على سنه ونشاطه وتفضيله للكاميرا"
+  "strategic_verdict": "حكم استراتيجي وخلاصة قاطعة من سطرين تلخص معركته القادمة في السوق"
 }`;
 
       const response = await ai.models.generateContent({
@@ -66,14 +96,14 @@ export default async function handler(req, res) {
       const parsed = JSON.parse(response.text);
       return res.status(200).json({ success: true, ai_generated: true, plan: parsed });
     } catch (err) {
-      console.error('Gemini generate error, falling back to deterministic:', err.message);
+      console.error('Gemini generate error:', err.message);
     }
   }
 
-  // Graceful fallback status: tell client to use its rich built-in decision engine
+  // Graceful fallback response: signal client to use its built-in deep semantic engine
   return res.status(200).json({
     success: true,
     ai_generated: false,
-    message: 'Using deterministic expert engine'
+    message: 'Using client-side dynamic semantic engine'
   });
 }
