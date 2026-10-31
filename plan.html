@@ -217,39 +217,75 @@
         }
 
         /* Progress Bar */
-        .progress-container {
+        /* Diagnostic Session Tracker */
+        .diagnostic-session-tracker {
+            background: linear-gradient(135deg, rgba(15, 20, 34, 0.95), rgba(21, 27, 46, 0.9));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
             margin-bottom: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
 
-        .progress-meta {
+        .session-tracker-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tracker-station-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tracker-live-pulse {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            color: #34d399;
             font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 8px;
         }
 
-        .progress-step-text {
+        .tracker-pillar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 179, 36, 0.1);
+            border: 1px solid rgba(245, 179, 36, 0.28);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
             color: var(--gold);
-            font-family: var(--font-en);
         }
 
-        .progress-track {
-            width: 100%;
-            height: 6px;
-            background: var(--bg-card-inner);
-            border-radius: 3px;
-            overflow: hidden;
+        .diagnostic-steps-strip {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 14px;
         }
 
-        .progress-bar {
-            height: 100%;
-            width: 15%;
-            background: linear-gradient(90deg, var(--accent), var(--gold));
-            transition: width 0.45s ease;
+        .strip-step-dot {
+            flex: 1;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .strip-step-dot.completed {
+            background: var(--gold);
+            box-shadow: 0 0 6px rgba(245, 179, 36, 0.45);
+        }
+
+        .strip-step-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(234, 88, 12, 0.7);
+            transform: scaleY(1.3);
         }
 
         /* Panels */
@@ -1006,14 +1042,20 @@
     <main class="app-container">
         <div class="planner-card">
 
-            <!-- Progress Bar -->
-            <div class="progress-container" id="progressContainer">
-                <div class="progress-meta">
-                    <span id="stepCounter">المحطة 1: ملفك وخلفيتك</span>
-                    <span class="progress-step-text" id="progressPercent">15%</span>
+            <!-- Live Diagnostic Session Tracker -->
+            <div class="diagnostic-session-tracker" id="progressContainer">
+                <div class="session-tracker-header">
+                    <div class="tracker-station-info">
+                        <span class="tracker-live-pulse"><i class="fa-solid fa-circle" style="color: #10b981; font-size: 8px;"></i> جلسة استشارية حية ومتكيفة (15 محطة تشخيصية)</span>
+                        <h4 id="stepCounter" style="font-size: 15px; font-weight: 800; color: #f8fafc; margin-top: 4px;">المحطة 1: الملف التأسيسي والسيرة الذاتية</h4>
+                    </div>
+                    <div class="tracker-pillar-badge" id="sessionPillarBadge">
+                        <i class="fa-solid fa-compass" style="color: var(--gold);"></i>
+                        <span id="currentPillarTitle">المحور: التأسيس وقراءة الـ CV</span>
+                    </div>
                 </div>
-                <div class="progress-track">
-                    <div class="progress-bar" id="progressBar"></div>
+                <div class="diagnostic-steps-strip" id="diagnosticStrip">
+                    <!-- 15 segments generated via JS -->
                 </div>
             </div>
 
@@ -1639,100 +1681,182 @@
             return getAdaptiveFallbackQuestion(state.profile, state.history, stepCount);
         }
 
+        function getPillarTitleByRound(round) {
+            if (round <= 4) return 'المحور الأول: الهوية والمهارات الدفينة';
+            if (round <= 7) return 'المحور الثاني: الجمهور وصناع القرار والكوابيس';
+            if (round <= 10) return 'المحور الثالث: التنافس والتموضع وهبد السوق';
+            if (round <= 12) return 'المحور الرابع: العرض والتسعير وسوابق الأعمال';
+            return 'المحور الخامس: الإمكانات والالتزام والهدف النهائي';
+        }
+
+        function updateDiagnosticStrip(currentRound, total = 15) {
+            const strip = document.getElementById('diagnosticStrip');
+            if (!strip) return;
+            strip.innerHTML = '';
+            for (let i = 1; i <= total; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'strip-step-dot';
+                if (i < currentRound) dot.classList.add('completed');
+                else if (i === currentRound) dot.classList.add('active');
+                strip.appendChild(dot);
+            }
+        }
+
         function getAdaptiveFallbackQuestion(profile, history, stepCount) {
             const niche = profile.niche || '';
-            const isTech = new RegExp('برمج|كود|أنظمة|tech|software|developer', 'i').test(niche);
-            const isRealEstate = new RegExp('عقار|تطوير|مقاولات|broker|real estate', 'i').test(niche);
-            const isDoctor = new RegExp('طبيب|دكتور|عيادة|طبي|clinic|doctor', 'i').test(niche);
-
-            if (stepCount === 2) {
-                if (isDoctor) {
+            switch (stepCount) {
+                case 2:
                     return {
-                        reflection: `طبيب في ${niche}، دي منطقة محتاجة بناء هيبة وثقة لا تتزعزع لأن المريض بيسلمك صحته.`,
-                        question_title: `إيه أكتر عملية أو حالة معقدة بتعملها بنتائج مذهلة ونادراً ما تلاقي دكتور بيعملها بنفس الدقة؟`,
-                        question_hint: `عايزين نحدد مهارة الـ 95% الجراحية أو العلاجية اللي تبرزك فوق كل العيادات التقليدية.`,
-                        placeholder: `مثال: جراحات بدون ألم، تقويم الحالات المستعصية، تشخيص الأمراض النادرة...`,
-                        suggested_chips: ['جراحات دقيقة بأقل فترة تعافي', 'تشخيص الحالات المعقدة التي فشل علاجها سابقاً', 'استخدام أحدث أجهزة وتقنيات الليزر في طنطا'],
-                        is_ready_for_plan: false,
-                        progress_pct: 35
+                        diagnostic_pillar: 'المحور الأول: الهوية والمهارات الدفينة',
+                        reflection: `استوعبت مجالك في (${niche})؛ أول خطوة هي حفر الميزة الفنية العميقة.`,
+                        question_title: `لو جردناك من كل مسمياتك وشهاداتك.. إيه المهارة الحصرية اللي بتعملها أفضل من 95% من أقرانك في مجالك؟`,
+                        question_hint: `عايزين نحدد المهارة اللي العميل لو جربك فيها، مستحيل يقارنك بأي حد تاني بالأسعار الرخيصة.`,
+                        placeholder: `مثال: تشخيص جذري سريع، حل الاختناقات التقنية، هندسة صفقات معقدة...`,
+                        suggested_chips: ['سرعة ودقة حل المشاكل المستعصية', 'الربط بين التقنية وعائد الخزينة المباشر', 'تنفيذ هندسي عالي الاعتمادية بدون أخطاء'],
+                        is_ready_for_plan: false
                     };
-                } else if (isRealEstate) {
+                case 3:
                     return {
-                        reflection: `سوق العقارات والوساطة في مصر والخليج مليان زحمة؛ التموضع الحاد هنا هو منجم ذهب حقيقي.`,
-                        question_title: `إيه الشريحة العقارية الأكثر ربحية ليك؟ ومين أتقل 1-2 منافسين بيضايقوك في السوق؟`,
-                        question_hint: `حدد المستثمرين وصناع القرار اللي لو قفلت معاهم 3 صفقات شهرياً هتكون في قمة الربحية.`,
-                        placeholder: `مثال: مطوري التجمع وزايد، مستثمري العاصمة الإدارية، المشترين التجاريين والإداريين...`,
-                        suggested_chips: ['مستثمري الوحدات التجارية والإدارية الكبرى', 'مشتري السكني الفاخر في زايد والتجمع', 'شركات التطوير العقاري الباحثة عن إغلاق مبيعات سريعة'],
-                        is_ready_for_plan: false,
-                        progress_pct: 35
+                        diagnostic_pillar: 'المحور الأول: الهوية والمهارات الدفينة',
+                        reflection: `نقطة قوة ممتازة؛ البراند القوي يحتاج منطقة شغف طبيعية تتدفق فيها أفكارك بسهولة.`,
+                        question_title: `إيه الموضوع في مجالك اللي تقدر ترتجل وتتكلم فيه لمدة 45 دقيقة بدون أي تحضير وتكون مستمتع؟`,
+                        question_hint: `الموضوع ده هو البوصلة اللي بتعكس خبرتك الدفينة وفلسفتك الحقيقية في الشغل.`,
+                        placeholder: `مثال: فلسفة إدارة الحملات، كواليس تصميم قواعد البيانات، أسرار إغلاق الصفقات...`,
+                        suggested_chips: ['تفكيك أخطاء السوق الشائعة ونماذج العمل الهشة', 'كواليس وطريقة التفكير الهندسية وراء النتائج', 'كيف تبني نظاماً يبيع بدون تدخل بشري دائم'],
+                        is_ready_for_plan: false
                     };
-                } else if (isTech) {
+                case 4:
                     return {
-                        reflection: `مجال التكنولوجيا والبرمجيات؛ التحدي الأكبر إن العميل دايماً مش فاهم الفرق بين كود هاوي ونظام enterprise.`,
-                        question_title: `إيه الـ Architecture أو الأنظمة المعقدة اللي بتصممها وتضمن استقرارها تحت ضغط عالي؟`,
-                        question_hint: `عايزين نثبت تموضعك كمهندس أنظمة استراتيجي مش مجرد مبرمج بينفذ طلبات رخيصة.`,
-                        placeholder: `مثال: أتمتة الـ CRM السحابي، قواعد بيانات serverless سريعة، ربط بوابات دفع وأنظمة مالية...`,
-                        suggested_chips: ['بناء أنظمة CRM سحابية مخصصة للشركات', 'معمارية قواعد بيانات تتحمل ملايين العمليات', 'ربط وأتمتة العمليات المعقدة بالذكاء الاصطناعي'],
-                        is_ready_for_plan: false,
-                        progress_pct: 35
+                        diagnostic_pillar: 'المحور الأول: الهوية والمهارات الدفينة',
+                        reflection: `رائع؛ الثقة وسلطة الخبير لا تبنى بالادعاءات الوردية، بل بالدروس المستفادة من التجارب القاسية.`,
+                        question_title: `ما هي أكبر سقطة أو فشل مهني مررت به في مجالك، وما الدرس الحاسم الذي غيّر طريقة عملك تماماً؟`,
+                        question_hint: `المصداقية تكتمل عندما تشرح كيف حمى هذا الدرس عملاءك الحاليين من الوقوع في نفس الخطأ.`,
+                        placeholder: `مثال: اعتمدت على فرضيات غير مختبرة وحرقت ميزانية، وثقت في نظام انهار تحت الضغط...`,
+                        suggested_chips: ['الاعتماد على افتراضات نظرية دون قياس ميداني صارم', 'عدم ربط الأداء بنتائج البيع الفعلية في الخزينة', 'تحمل مسؤولية كل شيء دون وجود نظام متابعة مؤتمت'],
+                        is_ready_for_plan: false
                     };
-                } else {
+                case 5:
                     return {
-                        reflection: `استوعبت مجالك (${niche})؛ الخطوة دي محتاجين نحفر في السلاح السري اللي بيميزك.`,
-                        question_title: `لو جردناك من مسمياتك.. إيه المهارة الحصرية اللي بتعملها أفضل من 95% من زمايلك؟`,
-                        question_hint: `المهارة اللي العميل لو جربها معاك مش هيعرف يستبدلك بأي منافس تاني.`,
-                        placeholder: `مثال: تحويل الميزانيات لمبيعات، تقليل الهدر التشغيلي، التفاوض الصعب...`,
-                        suggested_chips: ['سرعة ودقة التنفيذ مقارنة ببطء المنافسين', 'القدرة على تحقيق عائد استثماري مباشر قابل للقياس', 'حل المشاكل المعقدة التي استسلم فيها الآخرون'],
-                        is_ready_for_plan: false,
-                        progress_pct: 35
+                        diagnostic_pillar: 'المحور الثاني: الجمهور وصناع القرار',
+                        reflection: `درس عظيم يحميك ويحمي عميلك. الآن ننتقل للمحور الثاني: تحديد المشتري الأعلى ربحية.`,
+                        question_title: `من هو صانع القرار أو العميل المثالي الذي إذا تعاقدت معه على 3 مشاريع فقط شهرياً ستكون في غاية السعادة والربحية؟`,
+                        question_hint: `حدد بوضوح مسمى وظيفته، حجم بيزنزه، وطبيعة التحدي الذي يعيشه.`,
+                        placeholder: `مثال: مؤسس شركة ناشئة بعد التمويل، صاحب عيادة كبرى، مدير تسويق شركة عقارية...`,
+                        suggested_chips: ['أصحاب الشركات الخدمية والتقنية B2B', 'أصحاب العيادات والمراكز الطبية الكبرى', 'المطورون والوسطاء العقاريون الجادون'],
+                        is_ready_for_plan: false
                     };
-                }
+                case 6:
+                    return {
+                        diagnostic_pillar: 'المحور الثاني: الجمهور وصناع القرار',
+                        reflection: `استهداف ذكي؛ مفتاح إغلاق الصفقات مع هذا العميل هو تفكيك خوفه قبل أن ينطق به.`,
+                        question_title: `ما هو أكبر كابوس يؤرق هذا العميل ويفقده النوم ليلاً بخصوص مجالك وخدمتك تحديداً؟`,
+                        question_hint: `الخوف الأكبر ليس دفع الفلوس، بل النتيجة الكارثية إذا فشلت الخدمة.`,
+                        placeholder: `مثال: دفع ميزانية وضياعها، تسريب الليدات، شراء كود معيب لا يعمل...`,
+                        suggested_chips: ['إهدار الميزانية في وعود رنانة دون مبيعات حقيقية', 'فقدان العملاء وتشويه سمعة البراند في السوق', 'عدم الالتزام بالمواعيد والهروب وقت الأزمات'],
+                        is_ready_for_plan: false
+                    };
+                case 7:
+                    return {
+                        diagnostic_pillar: 'المحور الثاني: الجمهور وصناع القرار',
+                        reflection: `كابوس العميل ده هو السلاح اللي هنصمم عليه رسائل تموضعك وعرضك الذي لا يقاوم.`,
+                        question_title: `ما هي أكثر 3 أسئلة أو استفسارات متكررة يسألها لك الناس والعملاء في مجالك ويطلبون رأيك فيها؟`,
+                        question_hint: `هذه الأسئلة هي عينة حية لما يشغل عقل السوق في هذه اللحظة.`,
+                        placeholder: `مثال: ليه الإعلانات بتغلى ومبتبيعش؟ إزاي أربط الـ CRM بواتساب؟ إزاي أختار السعر المناسب؟`,
+                        suggested_chips: ['كيف نوقف نزيف تكلفة الاستحواذ على العملاء؟', 'كيف نتأكد من جودة النظام قبل إطلاق الحملات؟', 'ما الخطوة الأولى لبناء مسار مبيعات مضمون؟'],
+                        is_ready_for_plan: false
+                    };
+                case 8:
+                    return {
+                        diagnostic_pillar: 'المحور الثالث: التنافس والتموضع وهبد السوق',
+                        reflection: `ممتاز؛ ننتقل الآن لمحور التموضع المضاد (Contrarian Positioning) الذي يجعلك صوت الحق في السوق.`,
+                        question_title: `ما هو الشيء الشائع جداً في مجالك وتراه شخصياً "هراءً أو تضليلاً" وتريد معارضته علناً بالأدلة؟`,
+                        question_hint: `كل براند قيادي يملك زاوية هجوم صريحة على الممارسات الهشة التي يمارسها المنافسون.`,
+                        placeholder: `مثال: إن التسويق بوستات وتصميمات وبس، إن الكود الرخيص بيوفر، إن التخفيضات هي الحل...`,
+                        suggested_chips: ['الترويج للأرقام التجميلية (Vanity Metrics) وتجاهل صافي الربح', 'حرق الأسعار وتقديم جودة هشة لا تصمد شهراً', 'الاعتماد على قوالب معلبة وبيعها كحلول مخصصة'],
+                        is_ready_for_plan: false
+                    };
+                case 9:
+                    return {
+                        diagnostic_pillar: 'المحور الثالث: التموضع والمنافسون',
+                        reflection: `موقف استراتيجي حاد! الآن لنحدد أطراف المنافسة التي يراك العميل مقارناً بها.`,
+                        question_title: `من هم أثقل 2 إلى 3 منافسين تراهم في السوق، وما هي نقطة ضعفهم القاتلة التي يشتكي منها عملاؤهم؟`,
+                        question_hint: `الهدف ليس التقليل منهم، بل إيجاد الثغرة الصريحة التي تدخل منها كبديل لا يُقارن.`,
+                        placeholder: `مثال: الوكالات الكبرى البطيئة، المبرمجون المستقلون الذين يختفون، حارقو الأسعار...`,
+                        suggested_chips: ['البطء الشديد وغياب التواصل المباشر مع أصحاب القرار', 'غياب الفهم التقني العميق والاعتماد على السطحيات', 'تقديم خدمات جزئية دون تحمل مسؤولية النتيجة النهائية'],
+                        is_ready_for_plan: false
+                    };
+                case 10:
+                    return {
+                        diagnostic_pillar: 'المحور الثالث: التواجد الرقمي والسمعة',
+                        reflection: `تحليل تنافسي دقيق. خطوة حيوية لتقييم صورتك في أعين العميل قبل أن يتحدث معك:`,
+                        question_title: `لو كتب صانع القرار اسمك الشخصي أو اسم بيزنسك على جوجل الآن، ما الذي سيظهر له؟ وهل أنت راضٍ عن هذا الأثر؟`,
+                        question_hint: `فحص الحضور الرقمي (Digital Footprint & GEO) ضروري لبناء هيبة فورية تعزز ثقة العميل.`,
+                        placeholder: `مثال: تظهر حسابات قديمة غير مفعلة، يظهر موقعي الشخصي ومقالاتي، لا تظهر نتائج كافية...`,
+                        suggested_chips: ['يظهر موقعي الشخصي وبعض الأعمال لكني أحتاج تعزيز السلطة', 'التواجد الحالي ضعيف ولا يعكس أبداً حجم خبرتي الحقيقية', 'تظهر حسابات متفرقة غير متصلة بهوية موحدة'],
+                        is_ready_for_plan: false
+                    };
+                case 11:
+                    return {
+                        diagnostic_pillar: 'المحور الرابع: العرض والتسعير ونموذج العمل',
+                        reflection: `سنسد هذه الثغرة فوراً في الماستربلان. الآن نأتي للعصب المالي: طريقة البيع والتسعير.`,
+                        question_title: `كيف تسعر خدماتك حالياً؟ وهل تعاني من الفصال أو مقارنة أسعارك مع الآخرين؟ وما هو العرض الذي تحلم ببيعه؟`,
+                        question_hint: `التموضع الاستراتيجي وظيفته الأساسية تحويلك من بيع الساعات الرخيصة إلى بيع النتائج القيمة (Value Pricing).`,
+                        placeholder: `مثال: أسعر بالمشروع وأعاني من فصال العملاء، أسعر بالساعة وأريد التحول لعقود استشارية...`,
+                        suggested_chips: ['أريد التحول من تسعير المشاريع الرخيصة إلى استشارات شهرية رفيعة', 'أعاني من مقارنة أسعاري مع حارقي الأسعار الهواة', 'أريد باقة حل متكاملة لا يستطيع العميل تفكيك سعرها'],
+                        is_ready_for_plan: false
+                    };
+                case 12:
+                    return {
+                        diagnostic_pillar: 'المحور الرابع: الإثباتات وسوابق الأعمال',
+                        reflection: `هندسة العرض تتطلب سلاح إثبات واقعي. لنفحص ترسانة الإثباتات الحقيقية لديك.`,
+                        question_title: `ما هي أقوى الأدلة والأرقام وسوابق الأعمال الموثقة التي تمتلكها حالياً؟ (أو لو كنت بادئاً: ما أول مشروع تجريبي أو تدقيق واقعي تستطيع تنفيذه؟)`,
+                        question_hint: `نحن لا نخترع أرقاماً أبداً؛ نحدد بالضبط ما لديك، أو نضع خطة لبناء أول سابقة أعمال موثقة.`,
+                        placeholder: `مثال: أدرت ميزانيات مبيعات، بنيت نظاماً سرع الحجز، أو: مستعد لعمل تدقيق مجاني لموقع شركة...`,
+                        suggested_chips: ['أمتلك سوابق أعمال وأرقام مبيعات حقيقية تحتاج صياغة قوية', 'لدي مشاريع وأنظمة بنيتها بنفسي كدليل كفاءة فنية', 'مبتدئ بدون عملاء ومستعد لتنفيذ أول مشروع تدقيق لاكتساب الإثبات'],
+                        is_ready_for_plan: false
+                    };
+                case 13:
+                    return {
+                        diagnostic_pillar: 'المحور الخامس: الإمكانات والالتزام والهدف',
+                        reflection: `أمانة ومصداقية كاملة، وهذا ما يبني براند يستمر لسنوات. الآن نحدد وسيلة التعبير وصوتك في السوق:`,
+                        question_title: `ما هو نوع المحتوى الأسهل والأقرب لقلبك للتعبير عن خبرتك دون إجبار على الكاميرا؟`,
+                        question_hint: `(كتابة مقالات وتحليلات / تسجيل صوت وبودكاست / شروحات وتفكيك أنظمة من الشاشة / كاميرا وفيديو كامل)`,
+                        placeholder: `مثال: كتابة نصوص ودراسات حالة تفصيلية، تسجيل شاشتي وصوتي فقط، مرتاح قدام الكاميرا...`,
+                        suggested_chips: ['كتابة تحليلات عميقة ودراسات حالة وأدلة مقروءة', 'تسجيل شاشة وصوت لتفكيك الأنظمة والأخطاء (Screen Breakdown)', 'مزيج مرن يركز على المحتوى المكتوب مع بودكاست صوتي'],
+                        is_ready_for_plan: false
+                    };
+                case 14:
+                    return {
+                        diagnostic_pillar: 'المحور الخامس: الإمكانات والالتزام والهدف',
+                        reflection: `اختيار يضمن استمراريتك دون نفاد طاقتك. الآن نأتي لمعيار الالتزام الواقعي:`,
+                        question_title: `كم ساعة أسبوعياً مستعد لتخصيصها بانتظام دون انقطاع لتطوير وتطبيق استراتيجية براندك وعروضك؟`,
+                        question_hint: `كن صريحاً جداً؛ سنبني روتين التنفيذ ليطابق وقتك الفعلي حتى لا تصاب بالإحباط.`,
+                        placeholder: `مثال: ساعتان أسبوعياً، 4 إلى 5 ساعات، متفرغ 10 ساعات...`,
+                        suggested_chips: ['2-3 ساعات أسبوعياً مركزة على الخطوات الأساسية', '4-6 ساعات أسبوعياً لتنفيذ وبناء منظومة متكاملة', '+8 ساعات أسبوعياً للتوسع والسيطرة السريعة'],
+                        is_ready_for_plan: false
+                    };
+                case 15:
+                default:
+                    return {
+                        diagnostic_pillar: 'المحور الخامس: الهدف التجاري الحاسم والميزة غير العادلة',
+                        reflection: `وصلنا للمحطة الـ 15 الجوهرية! المحطة التي تحسم معركتك وتغلق ملف التشخيص بالكامل.`,
+                        question_title: `ما هو هدفك التجاري النهائي من البراند خلال سنة من الآن؟ وما هي "الميزة غير العادلة" التي يستحيل على منافسيك استنساخها؟`,
+                        question_hint: `(جلب عملاء استشارات رفيعة / عقد صفقات B2B كبرى / وظيفة C-level دولية) + سلاحك الذي لا يملكه أحد.`,
+                        placeholder: `مثال: جلب 3 عملاء استشارات شهرياً بعقود دولية، ميزتي هي الجمع بين البرمجة والتسويق...`,
+                        suggested_chips: ['جلب صفقات استشارات B2B عالية القيمة بدون منافسة أسعار', 'بناء سمعة كمرجع أول في مجالي يقصده صناع القرار', 'التحول من تقديم الخدمات اليدوية إلى بيع حلول واستشارات مؤتمتة'],
+                        is_ready_for_plan: true
+                    };
             }
-
-            if (stepCount === 3) {
-                return {
-                    reflection: `نقطة قوة ممتازة؛ الآن لازم نعرف مين العميل اللي هيدفعلك أعلى سعر بدون فصال.`,
-                    question_title: `مين صانع القرار (عميل أحلامك)؟ وإيه أكبر كابوس مخليه خايف يدفعلك أو يتعاقد معاك؟`,
-                    question_hint: `الخوف الأكبر هو المدخل السري لأي عرض استراتيجي ينسف التردد.`,
-                    placeholder: `مثال: خايف ميزانيته تضيع، خايف يسلم المشروع لحد يتأخر عليه، خايف من الجودة الرديئة...`,
-                    suggested_chips: ['خايف من حرق الميزانية بدون نتائج ملموسة', 'خايف من عدم الالتزام بالمواعيد والتسليم', 'خايف يدفع لخدمة معلبة مفيهاش متابعة واهتمام حقيقي'],
-                    is_ready_for_plan: false,
-                    progress_pct: 55
-                };
-            }
-
-            if (stepCount === 4) {
-                return {
-                    reflection: `كابوس العميل ده هو السلاح اللي هنصمم عليه عرضك الحصري ونهجم بيه على عيوب المنافسين.`,
-                    question_title: `إيه أكتر "هبدة أو كلام نظري فاشل" بتشوف منافسينك بيعملوه في مجالك وعايز تعارضه علناً؟`,
-                    question_hint: `التموضع المضاد (Contrarian Stance) هو اللي بيخليك صوت الحق الوحيد في السوق.`,
-                    placeholder: `مثال: حرق الأسعار وجودة رديئة، وعود خيالية وريتش كاذب، باقات سوشيال ميديا معلبة...`,
-                    suggested_chips: ['حرق الأسعار وتقديم جودة هشة لا تعيش', 'الوعود الخيالية التي لا تترجم لأرقام في الخزينة', 'بيع قوالب مكررة لكل العملاء بدون دراسة حقيقية لمشاكلهم'],
-                    is_ready_for_plan: false,
-                    progress_pct: 75
-                };
-            }
-
-            // Final Step: Proof & Commitment
-            return {
-                reflection: `رائع! جمعنا جوهر تموضعك؛ خطوة أخيرة لحسم أرقامك وساعات التزامك الأسبوعية.`,
-                question_title: `إيه أقوى رقم أو سابقة أعمال عملتها (أو مشروع تجريبي ناوي تعمله)؟ ومتاح كام ساعة أسبوعياً لبراندك؟`,
-                question_hint: `الهدف والالتزام الزمني لتفصيل روتين النشر وتجهيز الماستربلان.`,
-                placeholder: `مثال: حققت مبيعات ملموسة، وفرت 40 ساعة شهرياً، متاح 3 ساعات أسبوعياً...`,
-                suggested_chips: ['2-3 ساعات أسبوعياً مع التركيز على المحتوى المركز', '4-6 ساعات أسبوعياً مع سوابق أعمال موثقة', '+8 ساعات أسبوعياً للانتشار والتوسع السريع'],
-                is_ready_for_plan: true,
-                progress_pct: 95
-            };
         }
 
         function setDynamicLoading(loading) {
             if (loading) {
                 btnNextDynamic.disabled = true;
-                btnNextDynamicText.innerText = 'المستشار يحلل إجابتك ويجهز السؤال...';
+                btnNextDynamicText.innerText = 'المستشار يحلل إجابتك بدقة ويجهز السؤال الاستراتيجي...';
                 btnNextDynamicIcon.className = 'fa-solid fa-spinner fa-spin';
             } else {
                 btnNextDynamic.disabled = false;
-                btnNextDynamicText.innerText = 'التالي: تعمق أكثر';
+                btnNextDynamicText.innerText = 'التالي: المحطة الاستشارية القادمة';
                 btnNextDynamicIcon.className = 'fa-solid fa-arrow-left';
             }
         }
@@ -1741,11 +1865,11 @@
             state.currentQuestion = qData;
 
             // Reflection Bubble
-            dynamicReflectionText.innerText = qData.reflection || `ممتاز يا ${state.profile.name}، يلا نحدد تفاصيل تموضعك في ${state.profile.niche}.`;
+            dynamicReflectionText.innerText = qData.reflection || `ممتاز يا ${state.profile.name}، المستشار يحلل تفاصيل إجابتك بدقة في ${state.profile.niche}.`;
             dynamicReflectionBox.style.display = 'flex';
 
             // Meta & Question
-            stationRoundBadge.innerText = `محطة استشارية متكيفة ${state.round}`;
+            stationRoundBadge.innerText = `محطة استشارية ${state.round} من 15`;
             dynamicQNum.innerText = state.round;
             dynamicQuestionTitle.innerText = qData.question_title;
             dynamicQuestionHint.innerText = qData.question_hint;
@@ -1774,27 +1898,34 @@
                 dynamicChipsContainer.appendChild(btn);
             });
 
-            // Update Progress Bar
-            const pct = qData.progress_pct || Math.min(95, Math.round((state.round / 6) * 100));
-            document.getElementById('progressBar').style.width = pct + '%';
-            document.getElementById('stepCounter').innerText = `المحطة ${state.round} (جلسة استشارية متكيفة بالـ AI)`;
-            document.getElementById('progressPercent').innerText = pct + '%';
+            // Update Session Tracker (NO fixed percentages!)
+            document.getElementById('stepCounter').innerText = `المحطة الاستشارية ${state.round} من 15 محطة متعمقة`;
+            const pillarText = qData.diagnostic_pillar || getPillarTitleByRound(state.round);
+            const currentPillarTitleEl = document.getElementById('currentPillarTitle');
+            if (currentPillarTitleEl) currentPillarTitleEl.innerText = pillarText;
+            updateDiagnosticStrip(state.round, 15);
 
-            // Direct Generate Button (Allow early generation after 3 rounds)
-            if (state.round >= 4 || qData.is_ready_for_plan) {
+            // Direct Generate Button (Allow early generation only after 10 deep stations if user insists)
+            if (state.round >= 11) {
                 btnDirectGenerate.style.display = 'inline-flex';
-                finalFieldsContainer.style.display = 'block';
             } else {
                 btnDirectGenerate.style.display = 'none';
+            }
+
+            // Show final contact fields when approaching completion (station 14+)
+            if (state.round >= 14 || qData.is_ready_for_plan) {
+                finalFieldsContainer.style.display = 'block';
+            } else {
                 finalFieldsContainer.style.display = 'none';
             }
 
-            // If the AI explicitly marked as final round
-            if (qData.is_ready_for_plan && state.round >= 5) {
-                btnNextDynamicText.innerText = 'هندسة ماستربلان البراند الآن 🚀';
+            // If the AI explicitly marked as ready for plan (15+ stations)
+            if (state.round >= 15 || (qData.is_ready_for_plan && state.round >= 15)) {
+                btnNextDynamicText.innerText = 'هندسة ماستربلان التموضع الآن 🚀';
                 btnNextDynamicIcon.className = 'fa-solid fa-wand-magic-sparkles';
+                finalFieldsContainer.style.display = 'block';
             } else {
-                btnNextDynamicText.innerText = 'التالي: تعمق أكثر';
+                btnNextDynamicText.innerText = 'التالي: المحطة الاستشارية القادمة';
                 btnNextDynamicIcon.className = 'fa-solid fa-arrow-left';
             }
 
@@ -1819,8 +1950,8 @@
                 answer: answer
             });
 
-            // If ready for plan, trigger generate
-            if (state.currentQuestion && state.currentQuestion.is_ready_for_plan && state.round >= 5) {
+            // If ready for plan (at least 15 stations answered), trigger generate
+            if ((state.currentQuestion && state.currentQuestion.is_ready_for_plan && state.round >= 15) || state.round >= 16) {
                 await triggerMasterplanGeneration();
                 return;
             }
@@ -1852,9 +1983,11 @@
                 stepDynamic.classList.remove('active');
                 stepOnboarding.classList.add('active');
                 state.round = 1;
-                document.getElementById('progressBar').style.width = '15%';
-                document.getElementById('stepCounter').innerText = 'المحطة 1: ملفك وخلفيتك';
-                document.getElementById('progressPercent').innerText = '15%';
+                document.getElementById('stepCounter').innerText = 'المحطة 1: الملف التأسيسي والسيرة الذاتية';
+                if (document.getElementById('currentPillarTitle')) {
+                    document.getElementById('currentPillarTitle').innerText = 'المحور: التأسيس وقراءة الـ CV';
+                }
+                updateDiagnosticStrip(1, 15);
             }
         });
 
@@ -2253,10 +2386,15 @@
             state.round = 1;
             state.history = [];
             state.currentQuestion = null;
-            document.getElementById('progressBar').style.width = '15%';
-            document.getElementById('stepCounter').innerText = 'المحطة 1: ملفك وخلفيتك';
-            document.getElementById('progressPercent').innerText = '15%';
+            document.getElementById('stepCounter').innerText = 'المحطة 1: الملف التأسيسي والسيرة الذاتية';
+            if (document.getElementById('currentPillarTitle')) {
+                document.getElementById('currentPillarTitle').innerText = 'المحور: التأسيس وقراءة الـ CV';
+            }
+            updateDiagnosticStrip(1, 15);
         }
+
+        // Initialize diagnostic strip on load
+        updateDiagnosticStrip(1, 15);
     </script>
 </body>
 </html>
