@@ -1,3 +1,5 @@
+import { getBrandingPromptContext } from '../lib/branding-knowledge-base.js';
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -38,6 +40,8 @@ export default async function handler(req, res) {
     try {
       const prompt = `أنت كبير مهندسي واستشاريي بناء البراند الشخصي والتموضع الاستراتيجي العالمي (Senior Executive Personal Branding & Positioning Architect).
 مهمتك: قراءة استبيان التشخيص وحفر القيمة، وتحليل السيرة الذاتية (CV / Portfolio) للشخص، وهندسة خطة براندينج شخصي شاملة ومتكاملة من الصفر (Complete Personal Brand Masterplan) بدون أي كلام معلب أو قوالب مكررة (Zero AI Fluff / 100% Tailored & Bespoke).
+
+${getBrandingPromptContext()}
 
 ⚠️ معايير حاسمة وصارمة للمصداقية والنزاهة المهنية:
 - تحدث بلهجة مصرية عملية ذكية تجمع بين دقة المهندس ونباهة مدير التسويق (Street-smart & Senior Engineering mindset).

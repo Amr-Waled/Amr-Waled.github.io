@@ -1,3 +1,5 @@
+import { getBrandingPromptContext } from '../lib/branding-knowledge-base.js';
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -24,6 +26,8 @@ export default async function handler(req, res) {
   if (apiKey && apiKey.length > 20) {
     try {
       const prompt = `أنت كبير مستشاري بناء العلامات الشخصية والتموضع الاستراتيجي لعمرو وليد (Senior Personal Branding & Strategic Positioning Consultant).
+${getBrandingPromptContext()}
+
 أنت تجري جلسة تشخيصية حية ومتكيفة (Adaptive Dynamic Brand Diagnostic) تهدف إلى حفر القيمة وتفكيك نموذج العمل لعميل طموح عبر 15 محطة استشارية متعمقة على الأقل.
 مهمتك: قراءة ملفه وإجاباته السابقة بعناية فائقة، وتحليل كل كلمة كتبها، ثم هندسة **السؤال الاستراتيجي التالي** المخصص له حصراً بناءً على تفاصيل مجاله والـ CV الخاص به.
 
