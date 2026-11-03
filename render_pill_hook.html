@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Viral Hook Social Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 960px;
+            height: 1280px;
+            overflow: hidden;
+            background-color: #050505;
+            font-family: 'Cairo', sans-serif;
+            position: relative;
+        }
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 960px;
+            height: 1280px;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .badges-wrapper {
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+            z-index: 10;
+        }
+        .pill-black {
+            background-color: #0b0c0e;
+            color: #ffffff;
+            font-size: 74px;
+            font-weight: 900;
+            line-height: 1.2;
+            padding: 14px 54px;
+            border-radius: 38px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            direction: rtl;
+        }
+        .pill-red {
+            background: linear-gradient(135deg, #f02d2d, #d91438);
+            color: #ffffff;
+            font-size: 74px;
+            font-weight: 900;
+            line-height: 1.2;
+            padding: 14px 54px;
+            border-radius: 38px;
+            box-shadow: 0 18px 45px rgba(217, 20, 56, 0.55);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            direction: ltr;
+        }
+        .qmark {
+            font-family: 'Cairo', sans-serif;
+            font-size: 80px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <img src="file:///F:/Seo personal/amr_cafe_100_clean.png" class="bg-img" alt="Amr Waled">
+    <div class="badges-wrapper">
+        <div class="pill-black">
+            <span>الـ AI</span>
+            <span>لغى</span>
+        </div>
+        <div class="pill-red">
+            <span>Media Buying</span>
+            <span class="qmark">؟</span>
+        </div>
+    </div>
+</body>
+</html>

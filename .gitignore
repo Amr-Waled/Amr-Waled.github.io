@@ -5,7 +5,9 @@ gsc-credentials.json
 node_modules/
 venv/
 .kilo/
-.playwright-mcp/
+.playwright-cli/
+output/
+scripts/test*.js
 analytics_extracted/
 analytics_temp.zip
 lighthouse-report.json

@@ -70,9 +70,24 @@
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/marketing-tanta.html</loc>
-        <lastmod>2026-10-16</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.96</priority>
+        <image:image>
+            <image:loc>https://amrwaled.vercel.app/amr-waled-media-buyer.jpg</image:loc>
+            <image:title>عمرو وليد — أفضل ميديا باير في طنطا</image:title>
+            <image:caption>عمرو وليد Amr Waled — أفضل ميديا باير وخبير إعلانات ممولة وتسويق في طنطا ومحافظة الغربية</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://amrwaled.vercel.app/amr_media_buying_ai_approved.jpg</image:loc>
+            <image:title>ميديا باينج في طنطا والدلتا — عمرو وليد</image:title>
+            <image:caption>منظومة إدارة حملات الميديا باينج والإعلانات الممولة Meta Ads في طنطا — عمرو وليد</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://amrwaled.vercel.app/amr-waled-marketing-manager.jpg</image:loc>
+            <image:title>عمرو وليد — مدير تسويق في طنطا</image:title>
+            <image:caption>عمرو وليد Amr Waled — مدير تسويق وبديل شركات الدعاية والإعلان في طنطا</image:caption>
+        </image:image>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.98</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/solutions.html</loc>
@@ -156,9 +171,19 @@
     </url>
     <url>
         <loc>https://amr-waled.github.io/marketing-tanta.html</loc>
-        <lastmod>2026-10-16</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.91</priority>
+        <image:image>
+            <image:loc>https://amrwaled.vercel.app/amr-waled-media-buyer.jpg</image:loc>
+            <image:title>عمرو وليد — أفضل ميديا باير في طنطا</image:title>
+            <image:caption>عمرو وليد Amr Waled — أفضل ميديا باير وخبير إعلانات ممولة وتسويق في طنطا ومحافظة الغربية</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://amrwaled.vercel.app/amr_media_buying_ai_approved.jpg</image:loc>
+            <image:title>ميديا باينج في طنطا والدلتا — عمرو وليد</image:title>
+            <image:caption>منظومة إدارة حملات الميديا باينج والإعلانات الممولة Meta Ads في طنطا — عمرو وليد</image:caption>
+        </image:image>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.93</priority>
     </url>
     <url>
         <loc>https://amr-waled.github.io/solutions.html</loc>

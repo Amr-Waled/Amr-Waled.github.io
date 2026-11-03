@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خطة البيرسونال براندينج — التسويق للمبتدئين | عمرو وليد</title>
+<style>
+  :root {
+    --bg: #090d16;
+    --surface: #111827;
+    --surface-card: #161f33;
+    --border: #232f48;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --accent-light: #818cf8;
+    --emerald: #10b981;
+    --amber: #f59e0b;
+    --rose: #f43f5e;
+    --sky: #0284c7;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.8;
+    padding: 30px 20px 80px;
+  }
+  .container { max-width: 1040px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 60%, #0369a1 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 28px;
+    border: 1px solid #3730a3;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  }
+  .header-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid #6366f1;
+    color: #c7d2fe;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .header h1 { font-size: 32px; font-weight: 800; color: #ffffff; margin-bottom: 12px; line-height: 1.3; }
+  .header p { color: #cbd5e1; font-size: 16px; max-width: 800px; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .stat-card .val { font-size: 22px; font-weight: 700; color: #a5b4fc; }
+  .stat-card .lbl { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+  /* Navigation Tabs */
+  .tabs-wrapper {
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+    margin-bottom: 28px;
+    background: rgba(9, 13, 22, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+  .tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tab-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
+  .tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 4px 15px var(--accent-glow);
+  }
+
+  /* Content Sections */
+  .tab-content { display: none; animation: fadeIn 0.3s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .badge {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge.primary { background: #312e81; color: #c7d2fe; border: 1px solid #4338ca; }
+  .badge.green { background: #064e3b; color: #a7f3d0; border: 1px solid #059669; }
+  .badge.amber { background: #78350f; color: #fde68a; border: 1px solid #d97706; }
+
+  /* Pillars & Grids */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .pillar-box {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .pillar-box:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .pillar-box .icon { font-size: 28px; margin-bottom: 12px; }
+  .pillar-box h3 { font-size: 17px; margin-bottom: 8px; color: #e2e8f0; }
+  .pillar-box p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Scripts Presentation */
+  .script-container {
+    background: #0b1120;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .script-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .script-title { font-size: 18px; font-weight: 700; color: #38bdf8; }
+  .btn-copy {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-copy:hover { background: var(--accent); border-color: var(--accent); color: white; }
+  .btn-copy.copied { background: var(--emerald); border-color: var(--emerald); color: white; }
+
+  .script-body {
+    background: #070d18;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 2;
+    color: #e2e8f0;
+    white-space: pre-wrap;
+    max-height: 480px;
+    overflow-y: auto;
+  }
+  .script-part {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+  .script-part:last-child { border-bottom: none; }
+  .part-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .part-tag.hook { background: #831843; color: #fbcfe8; }
+  .part-tag.retain { background: #1e3a8a; color: #bfdbfe; }
+  .part-tag.body { background: #064e3b; color: #a7f3d0; }
+  .part-tag.cta { background: #78350f; color: #fef3c7; }
+
+  /* Curriculum Timeline */
+  .timeline { position: relative; padding-right: 24px; margin: 24px 0; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 7px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: -21px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg);
+  }
+  .timeline-content {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+  }
+  .timeline-title { font-size: 16px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
+  .timeline-desc { font-size: 14px; color: var(--text-muted); margin-top: 6px; line-height: 1.7; }
+  .timeline-hook { background: rgba(99, 102, 241, 0.08); border-right: 3px solid var(--accent); padding: 8px 12px; border-radius: 4px; margin-top: 10px; font-size: 13px; color: #c7d2fe; }
+
+  /* Repurposing Matrix Table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th { background: #1a2234; color: #a5b4fc; padding: 12px 16px; text-align: right; font-weight: 600; border-bottom: 2px solid var(--border); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Alert Callout */
+  .callout {
+    background: rgba(99, 102, 241, 0.07);
+    border-right: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .callout h4 { color: var(--accent-light); font-size: 15px; margin-bottom: 6px; }
+  .callout p { font-size: 14px; color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .header { padding: 24px; }
+    .header h1 { font-size: 24px; }
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">🚀 استراتيجية معتمدة من Codex CLI (GPT-6.1-Sol Ultra)</div>
+    <h1>التسويق كنظام | عمرو وليد</h1>
+    <p>المخطط التنفيذي المتكامل لبناء مرجع عربي لتعليم التسويق للمبتدئين من الصفر — مع تحويل المشاهدين والشركات الناشئة إلى عملاء High-Ticket لإدارة الميديا باينج والأنظمة الرقمية.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="val">12 حلقة</div>
+        <div class="lbl">منهج الموسم التأسيسي</div>
+      </div>
+      <div class="stat-card">
+        <div class="val">1 إلى 10</div>
+        <div class="lbl">معدل التوزيع لكل فيديو طويل</div>
+      </div>
+      <div class="stat-card">
+        <div class="val">Hybrid Funnel</div>
+        <div class="lbl">تعليم المبتدئ + صيد الشركات</div>
+      </div>
+      <div class="stat-card">
+        <div class="val">Triple Hook</div>
+        <div class="lbl">هندسة + واقع مصري + تفكيك حملات</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-brand')">🎯 الهوية والتموضع</button>
+      <button class="tab-btn" onclick="switchTab('tab-curriculum')">📚 منهج الـ 12 أسبوعاً</button>
+      <button class="tab-btn" onclick="switchTab('tab-scripts')">🎬 سكريبتات أول 3 حلقات</button>
+      <button class="tab-btn" onclick="switchTab('tab-repurpose')">⚡ محرك التوزيع الأسبوعي</button>
+      <button class="tab-btn" onclick="switchTab('tab-funnel')">💼 قمع تحويل العملاء</button>
+    </div>
+  </div>
+
+  <!-- TAB 1: Brand & Positioning -->
+  <div id="tab-brand" class="tab-content active">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🎯 وثيقة الهوية والتموضع (The Category of One)</div>
+        <span class="badge primary">Brand Bible</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="pillar-box">
+          <div class="icon">🏷️</div>
+          <h3>الشعار اللفظي والاسم</h3>
+          <p><strong>اسم السلسلة:</strong> التسويق كنظام — مع عمرو وليد<br>
+          <strong>الشعار (Slogan):</strong> افهم التسويق. احسب النتيجة.<br>
+          <strong>الـ Bio الموحد:</strong> بشرح التسويق من الصفر، وبربط الإعلان بالمبيعات والربح. ابدأ بخريطة أول بيعة.</p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">🧠</div>
+          <h3>نبرة الصوت (Tone of Voice)</h3>
+          <p>هادئة، تحليلية، مباشرة، خالية تماماً من الوعود الوردية والكلام التحفيزي الإنشائي. لغة مهندس يرى التسويق كـ "منظومة تدفق وقرارات" بالأرقام والتكلفة الحقيقية.</p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">🛡️</div>
+          <h3>القواعد الذهبية الصارمة</h3>
+          <p>• لا تُظهر نتائج عملاء بدون سياق وإذن.<br>• فرّق دائماً بين "المثال التعليمي" و"النتيجة الواقعية".<br>• لا تختصر التسويق في "منصة إعلانات".<br>• الـ 100 رسالة لا تعني 100 بيعة.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>استراتيجية حصان طروادة (The Trojan Horse Authority Strategy):</h4>
+        <p>أنت لا تشرح للمبتدئ لكي تصبح مجرد مدرس... أنت تشرح للمبتدئ بأعلى درجات التبسيط المعماري لأن <strong>صاحب البيزنس ومؤسس الشركة يراقب في صمت</strong>! عندما يرى أنك تفهم الربحية، مرتجعات الشحن، تكلفة الاستحواذ، ودور الـ CRM، سيقول تلقائياً: <em>"إذا كان هذا فهمه للمبتدئين، فأنا أريده شريكاً لإدارة مشروعي بأكمله!"</em></p>
+      </div>
+    </div>
+
+    <!-- The Triple Hook -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🔥 الثلاثية الفارقة لعمرو وليد (The Triple Hook)</div>
+      </div>
+      <div class="grid-3">
+        <div class="pillar-box">
+          <div class="icon">⚙️</div>
+          <h3>عقلية مهندس الأنظمة</h3>
+          <p>مدخلات، قيود، اختناقات، وربط الميديا باينج مباشرة بالـ CRM ومبيعات الأرض، وحساب اقتصاديات الوحدة الحقيقية (Unit Economics).</p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">🇪🇬</div>
+          <h3>الواقعية الميدانية الصادمة</h3>
+          <p>معاناة الدفع عند الاستلام (COD)، نسبة استلام الشحنات، عمولات إنستاباي، سلوك الزبون المصري اليومي، وسيولة التاجر الحقيقية.</p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">🔍</div>
+          <h3>تفكيك الحملات الإعلانية</h3>
+          <p>تشريح الحملات الناجحة والفاشلة في السوق برؤية نقدية مبنية على البيانات وعلم النفس، وليس مجرد انطباعات شكلية.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Curriculum -->
+  <div id="tab-curriculum" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📚 منهج الـ 12 أسبوعاً (Marketing from First Principles)</div>
+        <span class="badge green">الموسم التأسيسي الأول</span>
+      </div>
+      <p style="color:var(--text-muted); font-size:15px; margin-bottom:20px;">
+        تم بناء المنهج بالترتيب المنطقي الذي يحول المبتدئ من شخص مشتت بين الأدوات إلى مسوق يمتلك بوصلة استراتيجية وتشغيلية لا تتزعزع.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 1: يعني إيه تسويق؟ (والفرق بينه وبين المبيعات والإعلانات)</span>
+              <span class="badge primary">الأسبوع 1</span>
+            </div>
+            <div class="timeline-desc">الفصل الحاسم بين خلق الطلب، شراء الوصول، وإغلاق الصفقات. ومفهوم رحلة أول بيعة.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "لو عملت إعلان على فيسبوك وجابلك 100 رسالة ومحدش اشترى... مين فيهم اللي فشل: الإعلان ولا التسويق ولا المبيعات؟"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 2: سيكولوجية اتخاذ قرار الشراء</span>
+              <span class="badge primary">الأسبوع 2</span>
+            </div>
+            <div class="timeline-desc">كيف يشتري العميل؟ فهم الموقف الحياتي، الدافع الحقيقي، المخاطرة المدركة، وتقليل التردد.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "ليه العميل معجب جداً بمنتجك، ومعاه تمنه في جيبه، وبرضه مش بيشتري؟"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 3: هندسة العرض الذي لا يقاوم (Grand Slam Offer)</span>
+              <span class="badge primary">الأسبوع 3</span>
+            </div>
+            <div class="timeline-desc">معادلة القيمة: الحلم، احتمالية الوصول، وقت التحقيق، والجهد والتضحية. التسعير والشروط.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "المنتج حاجة... والعرض حاجة تانية خالص. إزاي تبيع نفس المنتج بضعف السعر والعميل يقولك شكراً؟"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 4: اقتصاديات الوحدة (CAC, LTV, Margin)</span>
+              <span class="badge primary">الأسبوع 4</span>
+            </div>
+            <div class="timeline-desc">الحسابات التي تجعلك مسوقاً محترفاً: تكلفة الاستحواذ، القيمة الدائمة للعميل، وهامش المساهمة بعد التكلفة.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "إعلانك ناجح وبتحقق مبيعات كل يوم... بس حسابك في البنك بينقص! اللغز اللي بيقفل 80% من مشاريع التجارة."</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 5: مسار العميل ومستويات الوعي الـ 5 لشوتز</span>
+              <span class="badge primary">الأسبوع 5</span>
+            </div>
+            <div class="timeline-desc">من العميل غير الواعي إطلاقاً حتى العميل الجاهز للشراء. اختيار الرسالة المناسبة لكل مستوى.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "أكبر غلطة بتضيع ميزانيات الإعلانات: إنك بتطلب الجواز في أول مقابلة!"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 6: كواليس السوق المصري (الدفع عند الاستلام وإنستاباي)</span>
+              <span class="badge primary">الأسبوع 6</span>
+            </div>
+            <div class="timeline-desc">تشريح واقع الـ E-commerce في مصر: نسبة الاستلام، تكلفة المرتجع، كاش إنستاباي، ودورة رأس المال.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "الدفع عند الاستلام ميزانية إضافية مش ميزة تنافسية مجانية! احسب نسبة استلامك صح قبل ما تفلس."</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 7: الميديا باينج كأداة توزيع وليس سحر</span>
+              <span class="badge primary">الأسبوع 7</span>
+            </div>
+            <div class="timeline-desc">الفرق بين الميديا باير الاستراتيجي وبين 'منفذ الأزرار'. هيكلة الحملات وخوارزميات المنصات.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "الخوارزمية مش ساحر! الإعلان بيعمل حاجة واحدة بس: بيضخم عرضك... لو عرضك ضعيف، الإعلان هيوصل ضعفك لناس أكتر!"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 8: دور الـ CRM وأنظمة المتابعة في إنقاذ الأرباح</span>
+              <span class="badge primary">الأسبوع 8</span>
+            </div>
+            <div class="timeline-desc">سرعة الرد (Speed to Lead)، تصنيف الليدز، أتمتة الواتساب، ومنع تسرب العملاء المحتملين.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "لو رديت على العميل بعد ساعة، أنت خسرت 60% من احتمالية إنه يشتري. إزاي الـ CRM بينقذ إعلاناتك؟"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 9: قراءة وتحليل الأرقام بدون خوف</span>
+              <span class="badge primary">الأسبوع 9</span>
+            </div>
+            <div class="timeline-desc">تحويل أرقام الداشبورد (CTR, CPC, CPA, ROAS) إلى قرارات بيزنس فورية وتشخيص مواضع الخلل.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "الـ ROAS العالي كدبة لو ما تعرفش هامش ربحك الصافي. الأرقام اللي لازم تبص عليها كل صباح."</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 10: تفكيك حملة إعلانية حقيقية خطوة بخطوة</span>
+              <span class="badge primary">الأسبوع 10</span>
+            </div>
+            <div class="timeline-desc">دراسة حالة تفصيلية لحملة مصرية: الفكرة، الكرييتيف، الهوك، العرض، النتائج، وما كان يمكن تحسينه.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "تعالوا ندخل سوا كواليس حملة حقيقية: صرفنا كام، وجابت كام، وليه الأرقام دي اتحققت؟"</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 11: كيف تبني أول خطة تسويقية لمشروع بميزانية محدودة</span>
+              <span class="badge primary">الأسبوع 11</span>
+            </div>
+            <div class="timeline-desc">تطبيق عملي: توزيع الميزانية، اختبار الفرضيات، تحديد القنوات، وقياس العائد بأبسط أدوات.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "معاك 10 آلاف جنيه وعايز تبدأ تسوق لمشروعك؟ ده التوزيع الهندسي الصح لكل قرش."</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>الحلقة 12: خارطة طريق الاحتراف للتحول لمسوق عالي القيمة</span>
+              <span class="badge primary">الأسبوع 12</span>
+            </div>
+            <div class="timeline-desc">كيف تخرج من فخ 'منفذ الأزرار' وتصبح شريك نمو (Growth Partner) تطلب الشركات التعاقد معه.</div>
+            <div class="timeline-hook"><strong>الهوك:</strong> "ليه فيه ميديا باير بيقبض 5 آلاف جنيه، وفيه مسوق تاني بياخد 50 ألف ونسبة من الأرباح؟"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Scripts -->
+  <div id="tab-scripts" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🎬 سكريبتات أول 3 حلقات جاهزة للتصوير الفوري</div>
+        <span class="badge amber">Ready to Record</span>
+      </div>
+      <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">
+        تمت كتابة هذه السكريبتات بنظام (Hook + Retain + 3 Rules + Golden Nugget + CTA)، مع تجهيز كل حلقة بتفريغاتها لريلز خاطفة (30-60 ثانية). اضغط على زر النسخ لاستخدامها في التيليبرومبتر مباشرة.
+      </p>
+
+      <!-- Script 1 -->
+      <div class="script-container">
+        <div class="script-top">
+          <div>
+            <div class="script-title">الحلقة 1: يعني إيه تسويق؟ (والفرق بينه وبين المبيعات والإعلانات)</div>
+            <span style="font-size:12px; color:var(--text-muted);">المدة المقترحة: 8-12 دقيقة (YouTube / TikTok Long)</span>
+          </div>
+          <button class="btn-copy" onclick="copyScript('script-1-text', this)">📋 نسخ السكريبت كاملاً</button>
+        </div>
+        <div class="script-body" id="script-1-text">
+<span class="part-tag hook">Hook (0-15 ثانية)</span>
+لو عملت إعلان على فيسبوك وجابلك 100 رسالة ومحدش اشترى... مين فيهم اللي فشل؟
+الإعلان؟ ولا التسويق؟ ولا مسؤول المبيعات اللي بيرد على الشات؟
+في الفيديو ده هنفكك اللخبطة دي لأول مرة، وهتفهم يعني إيه تسويق من غير كلام كتب معقد، وإزاي تبص على مشروعك كـ "نظام متكامل" يخليك تعرف بالضبط العيب فين لما المبيعات تقف!
+
+<span class="part-tag retain">Retain / قصة المشكلة</span>
+أغلب الناس اللي بتبدأ بيزنس أو بتبدأ تتعلم المجال، أول ما المبيعات تقل بيقولوا: "إحنا محتاجين إعلانات!"
+فيعمل إعلان بفلوس، تجيله رسائل، وبرضه مفيش مبيعات! فيرجع يقول: "الفيسبوك خربان، والمسوقين نصابين!"
+الحقيقة إن الإعلان بريء... الإعلان عمل وظيفته وجابلك ناس تبص عليك. المشكلة إنك خلطت بين 3 حاجات مختلفة تماماً: التسويق، والإعلان، والمبيعات!
+
+<span class="part-tag body">القاعدة الأولى: الإعلان وسيلة وصول (Traffic) وليس سحر</span>
+الإعلان وظيفته واحدة: يشتري انتباه ناس مهتمة ويجيبهم لحد باب دكانك الرقمي. لو يافطة المحل بتلمع والناس دخلت لقت البضاعة وحشة أو السعر مش منطقي، العيب مش في اليافطة!
+
+<span class="part-tag body">القاعدة الثانية: التسويق هو هندسة القرض والعلاقة قبل ما تدفع قرش</span>
+التسويق هو كل اللي بتعمله قبل ما تشغل الإعلان: فهمت مين العميل؟ مشكلته إيه؟ عملت له منتج يحل المشكلة؟ وسعرته صح؟ وقدمت عرض ميرفضوش؟
+لو التسويق صح، الإعلان هيجيب نتائج مذهلة. لو التسويق غلط، الإعلان هيوصل غلطك لأكبر عدد من الناس بأسرع وقت!
+
+<span class="part-tag body">القاعدة الثالثة: المبيعات هي إغلاق الصفقة وتسهيل القرار</span>
+لما العميل يبعت رسالة يقول "بكام؟"، دي بداية عملية البيع. هل رديت بسرعة؟ هل سألته عن احتياجه؟ هل طمنته بخصوص الشحن والدفع؟ ولا رديت بعد 6 ساعات بكلمة "تم الرد في الخاص"؟
+المبيعات هي اللي بتحول الاهتمام لكاش في الخزنة.
+
+<span class="part-tag cta">Golden Nugget & Call to Action</span>
+الـ 100 رسالة ما تساويش 100 بيعة، والطلب اللي اتسجل على الويبسايت مش فلوس في جيبك لحد ما يستلم ويدفع!
+عشان تطبق الكلام ده عملياً، عملتلك قالب مجاني اسمه "خريطة أول بيعة" بيلخص لك الـ 6 أسئلة اللي لازم تجاوب عليهم قبل ما تصرف جنيه في إعلان.
+حمل القالب من الرابط في البايو، واكتبلي في الكومنتات: في رأيك، إيه أكتر غلطة بيقع فيها أصحاب المشاريع في التلاتة دول؟
+        </div>
+
+        <!-- Reels 1 -->
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid #1e293b;">
+          <h4 style="color:#a5b4fc; font-size:14px; margin-bottom:8px;">📱 تفريغ الريلز الأول (30-45 ثانية): "مية رسالة مش مية بيعة"</h4>
+          <p style="font-size:13px; color:#cbd5e1; background:rgba(0,0,0,0.3); padding:12px; border-radius:8px;">
+            <strong>الهوك البصري:</strong> عمرو بيمسك الموبايل ويبص للكاميرا: "الإعلان جابلك 100 رسالة؟ مبروك... بس لسه ما عملتش ولا جنيه!"<br>
+            <strong>المتن:</strong> كم واحد طلب؟ كم طلب اتأكد تليفونياً؟ كم أوردر اتسلم والزبون مدفعش ومردش على مندوب الشحن؟<br>
+            الحكم على نجاح التسويق مش بعدد الرسائل ولا باللايكات... الحكم بالفلوس اللي دخلت حسابك بعد ما خصمت تكلفة المنتج والشحن والمرتجع والإعلانات!<br>
+            <strong>CTA:</strong> حمل قالب 'خريطة أول بيعة' من البايو عشان تحسب دورتك صح.
+          </p>
+        </div>
+      </div>
+
+      <!-- Script 2 -->
+      <div class="script-container">
+        <div class="script-top">
+          <div>
+            <div class="script-title">الحلقة 2: سيكولوجية اتخاذ قرار الشراء (ليه معجب ومبيشتريش؟)</div>
+            <span style="font-size:12px; color:var(--text-muted);">المدة المقترحة: 10-14 دقيقة</span>
+          </div>
+          <button class="btn-copy" onclick="copyScript('script-2-text', this)">📋 نسخ السكريبت كاملاً</button>
+        </div>
+        <div class="script-body" id="script-2-text">
+<span class="part-tag hook">Hook (0-15 ثانية)</span>
+العميل معجب بمنتجك، وداخل يعمل لاف وكومنت، ومعاه تمن الشنطة أو الكورس أو الخدمة في جيبه... وبرضه مبيشتريش! ليه؟
+في الفيديو ده هقولك على اللغز النفسي اللي بيخلي 90% من الزباين يختفوا في آخر ثانية، و3 قواعد عملية تخليه يدوس "تأكيد الطلب" وهو مطمن ومبسوط.
+
+<span class="part-tag retain">Retain / قصة منة وكريم</span>
+تخيل معايا براند بيبيع شنط لابتوب.
+دخلت "منة" اللي بتتنقل كل يوم بمواصلتين ومعاها لابتوب وشاحن وكتب، ومحتاجة شنطة تريح ضهرها وتحمي جهازها.
+ودخل "كريم" اللي بيشتغل من البيت وعنده شنطة قديمة كويسة.
+الاتنين عجبهم التصميم جداً... لكن منة عندها "موقف حياتي ضاغط"، وكريم عنده "إعجاب شكلي".
+صاحب البيزنس باعت للاثنين نفس الرسالة ونفس السعر! منة سألت: الشنطة تاخد لابتوب 15.6 بوصة؟ مردوش بتفاصيل واضحة... خافت ورجعت خطوة لورا!
+
+<span class="part-tag body">القاعدة الأولى: الموقف الحياتي هو المحرك، مش الوصف الديموغرافي</span>
+بطل تقول "جمهوري شباب من 20 لـ 35 سنة"!
+اسأل نفسك: إيه الموقف اللي حصل في يوم العميل خلاه يحس إنه مخنوق ومحتاج الحل ده دلوقتي؟
+لما تفهم الموقف، رسالتك الإعلانية هتلمس وجعه الحقيقي بدل الكلام الإنشائي.
+
+<span class="part-tag body">القاعدة الثانية: العميل لا يشتري المنتج... يشتري تخفيض المخاطرة (Risk Reversal)</span>
+العميل لما بيتردد، مش بيكون مستخسر الفلوس... بيكون خايف من الندم! خايف المقاس يطلع غلط، خايف الخامة تطلع رديئة، خايف الشحنة تتأخر.
+دورك في المحتوى وصفحة البيع مش تمدح في نفسك، دورك تشيل علامات الاستفهام وتقلل المخاطرة: وضح الأبعاد الحقيقية، صور الخامة من قريب، وقدم سياسة استبدال محترمة وسهلة.
+
+<span class="part-tag body">القاعدة الثالثة: الدليل الملموس يكسب الكلام المعسول</span>
+كلمة "خامة مستوردة وجودة عالية" مفيش زبون في مصر بيصدقها خلاص!
+وريله سستة الشنطة وهي بتفتح وتقفل 50 مرة، وريه اللابتوب وهو بيتحط جوه الجيب المبطن، وريه تجربة عميل حقيقي استلم المنتج الأسبوع اللي فات.
+
+<span class="part-tag cta">Golden Nugget & Call to Action</span>
+البيع مش إقناع بالعافية... البيع هو مساعدة العميل إنه ياخد قرار آمن يحل بيه مشكلته.
+لو بتبيع أونلاين، راجع شات خدمة العملاء بتاعك النهاردة: إيه السؤال اللي الزباين بيسألوه قبل ما يختفوا؟ هو ده مفتاح زيادة مبيعاتك!
+تابع السلسلة عشان الحلقة الجاية هنتعلم إزاي نبني 'عرض ميرفضوش' بالأرقام.
+        </div>
+      </div>
+
+      <!-- Script 3 -->
+      <div class="script-container">
+        <div class="script-top">
+          <div>
+            <div class="script-title">الحلقة 3: هندسة العرض الذي لا يقاوم (Grand Slam Offer)</div>
+            <span style="font-size:12px; color:var(--text-muted);">المدة المقترحة: 10-13 دقيقة</span>
+          </div>
+          <button class="btn-copy" onclick="copyScript('script-3-text', this)">📋 نسخ السكريبت كاملاً</button>
+        </div>
+        <div class="script-body" id="script-3-text">
+<span class="part-tag hook">Hook (0-15 ثانية)</span>
+إزاي شركتين يبيعوا نفس المنتج بالضبط، واحدة بتبيعه بـ 300 جنيه وبتخسر ومحدش بيشتري، والتانية بتبيعه بـ 800 جنيه وعليها طوابير؟
+السر مش في السحر ولا الحظ... السر في كلمة واحدة: "العرض" (The Offer)!
+تعال أقولك إزاي تركب عرض يخلي العميل يحس إنه غبي لو رفضه.
+
+<span class="part-tag retain">Retain / الفرق بين المنتج والعرض</span>
+المنتج هو الحذاء أو الشنطة أو الساعة.
+العرض هو: بتديني كام، وهتاخد إيه معاه، وضمانك إيه، وهيوصلك إزاي، وتجربتك عاملة إزاي!
+أغلب المسوقين في مصر بيعملوا إعلان على "منتج"... ولما ميبعش يعمل خصم! ولما ميبعش يقلل السعر تاني لحد ما يخسر!
+الشاطر مبيقللش السعر... الشاطر بيزود القيمة المدركة.
+
+<span class="part-tag body">معادلة القيمة لـ Alex Hormozi (نسخة السوق المصري)</span>
+القيمة بتساوي: (حجم النتيجة اللي بيحلم بيها العميل × ثقته إنك هتوصلهالها) ÷ (الوقت اللي هيستناه + التعب والمجهود اللي هيبذله).
+عايز تزود قيمة عرضك وتبيع بسعر أعلى؟
+1. زود النتيجة الواضحة.
+2. زود الثقة بأدلة وضمانات قوية.
+3. قلل وقت الانتظار والتوصيل.
+4. شيل أي مجهود وتعب من على كتافه.
+
+<span class="part-tag cta">Call to Action</span>
+في الحلقة الجاية هنشرح اقتصاديات الوحدة: إزاي تحسب تكلفة الإعلان مع المنتج والشحن والمرتجع وتعرف صافي ربحك الحقيقي في البنك.
+اشترك في القناة وشير الفيديو مع أي صاحب مشروع تعرفه بيعاني من قلة المبيعات!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: Repurposing Engine -->
+  <div id="tab-repurpose" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">⚡ محرك الإنتاج الأسبوعي وإعادة التدوير (1-to-10 Engine)</div>
+        <span class="badge primary">Weekly SOP</span>
+      </div>
+      <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">
+        كل حلقة طويلة واحدة (10-15 دقيقة) تسجلها أسبوعياً تتحول تلقائياً إلى 10 أصول محتوى رقمية تغطي كل المنصات بدون إعادة اختراع العجلة:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>الأصل الرقمي (Asset)</th>
+            <th>المنصة المستهدفة</th>
+            <th>الصيغة والهدف</th>
+            <th>التوقيت الأسبوعي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الفيديو الطويل الرئيسي</strong></td>
+            <td>YouTube + تيك توك طويل</td>
+            <td>10-15 دقيقة شرح مفاهيمي + أمثلة مصرية عملية</td>
+            <td>الأحد (الساعة 7 مساءً)</td>
+          </tr>
+          <tr>
+            <td><strong>ريلز خاطف 1 (The Big Hook)</strong></td>
+            <td>Instagram Reels + TikTok + Shorts</td>
+            <td>أقوى 45 ثانية من الحلقة تلفت الانتباه لصدمة الأرقام</td>
+            <td>الإثنين (الساعة 6 مساءً)</td>
+          </tr>
+          <tr>
+            <td><strong>بوست تحليلي مطول (Case Breakdown)</strong></td>
+            <td>LinkedIn + Facebook</td>
+            <td>تفكيك نصي معماري للقواعد الثلاثة مع ليد ماجنت في الكومنت</td>
+            <td>الثلاثاء (الساعة 12 ظهراً)</td>
+          </tr>
+          <tr>
+            <td><strong>ريلز خاطف 2 (Mistake & Fix)</strong></td>
+            <td>Instagram + Facebook Reels + TikTok</td>
+            <td>أكبر غلطة يقع فيها المبتدئ وصاحب البيزنس وكيفية تصحيحها</td>
+            <td>الأربعاء (الساعة 6 مساءً)</td>
+          </tr>
+          <tr>
+            <td><strong>كاروسيل إنفوجرافيك تعليمي</strong></td>
+            <td>LinkedIn + Instagram</td>
+            <td>شريحة تفكك المعادلة الحسابية أو خريطة أول بيعة بأسلوب بصري</td>
+            <td>الخميس (الساعة 1 ظهراً)</td>
+          </tr>
+          <tr>
+            <td><strong>ريلز خاطف 3 (The System Insight)</strong></td>
+            <td>TikTok + Shorts + Reels</td>
+            <td>رأي صادم ومباشر حول الـ CRM وسرعة الرد أو شركات الشحن</td>
+            <td>الجمعة (الساعة 5 مساءً)</td>
+          </tr>
+          <tr>
+            <td><strong>ستوريز تفاعلية وأسئلة الجمهور</strong></td>
+            <td>Instagram + Facebook Stories</td>
+            <td>استطلاعات رأي، إجابة استفسارات المتابعين، وتوجيه للاستشارة</td>
+            <td>السبت طوال اليوم</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>قالب بوست لينكد إن وفيسبوك المرافق للحلقة:</h4>
+        <p style="font-family:inherit; color:#cbd5e1; line-height:1.9;">
+          "90% من أصحاب الشركات اللي قابلتهم بيقولوا: 'صرفنا 10 آلاف جنيه على إعلانات فيسبوك وجالنا 200 رسالة ومحدش اشترى... التسويق أونلاين مبقاش شغال!'<br><br>
+          الحقيقة المرة اللي محدش بيقولهالك: الإعلان وظيفته واحدة: يجيبلك زوار لباب محلك.<br>
+          لو التسعير غلط، أو العرض مش مفهوم، أو خدمة العملاء بترد بعد 4 ساعات بكلمة 'تم الرد خاص'... الإعلان مش هو اللي فاشل، النظام هو اللي واقع!<br><br>
+          في الحلقة الأولى من سلسلة [التسويق كنظام] فككت الفرق الحقيقي بين: التسويق، والإعلانات، والمبيعات، وإزاي تحسب مسار 'أول بيعة' صح.<br><br>
+          👇 لينك الحلقة كاملة وقالب شيت حساب أول بيعة مجاناً في أول تعليق."
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: Hybrid Funnel -->
+  <div id="tab-funnel" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">💼 محرك تحويل المشاهدين لعملاء High-Ticket (The Hybrid Funnel)</div>
+        <span class="badge green">Conversion Engine</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="pillar-box">
+          <div class="icon">🎁</div>
+          <h3>1. الطعم عالي القيمة (Lead Magnet)</h3>
+          <p><strong>شيت إكسيل 'خريطة أول بيعة واقتصاديات الوحدة'</strong>: شيت بسيط يدخل فيه صاحب البيزنس أو المسوق أرقامه (سعر المنتج، تكلفة الشحن، نسبة المرتجع، ونسبة الرد) ليحسب له أوتوماتيكياً صافي أرباحه وهل إعلانه رابح أم خاسر!</p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">⚡</div>
+          <h3>2. الفلترة والتأهيل (The Stealth Filter)</h3>
+          <p>المبتدئ يستفيد من الشيت للتعلم... أما صاحب الشركة عندما يرى الشيت، يصدم من كمية الفلوس المهدرة في مشروعه، ويجد في أسفل الشيت زر: <em>"تريد أن نراجع نظامك التسويقي ونبني لك CRM متكامل لمشروعك؟ احجز جلسة تشخيص مجانية."</em></p>
+        </div>
+        <div class="pillar-box">
+          <div class="icon">🤝</div>
+          <h3>3. الإغلاق والتعاقد (High-Ticket Deal)</h3>
+          <p>مكالمة تشخيصية مدتها 20 دقيقة (Audit Call) تفكك فيها مشروعه أمام عينيه وتوضح له أين تتسرب المبيعات، ثم تعرض عليه باقة إدارة الميديا باينج مع نظام المتابعة والأتمتة بعقد شهري مجزٍ.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>السعة التشغيلية الذكية لعمرو وليد (Operational Capacity):</h4>
+        <p>لا تبع كل وقتك رخيصاً! القاعدة الذهبية للموسم الأول:<br>
+        • الحد الأقصى: <strong>2 إلى 3 عملاء إدارة ميديا باينج وأنظمة نشطين شهرياً</strong> بجودة فائقة وأسعار مجزية.<br>
+        • مشروع تأسيس CRM أو استشارة استراتيجية واحدة شهرياً.<br>
+        • عندما تمتلئ السعة، يتم وضع أي عميل جديد في <strong>قائمة انتظار (Waitlist)</strong> مع رفع الأسعار للدفعة القادمة، مما يضاعف من هيبتك وسلطتك في السوق.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    event.currentTarget.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  function copyScript(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✅ تم النسخ بنجاح!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2500);
+    });
+  }
+</script>
+
+</body>
+</html>
