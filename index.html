@@ -66,6 +66,57 @@
           "inLanguage": ["ar-EG", "en"]
         },
         {
+          "@type": "ProfilePage",
+          "@id": "https://amrwaled.vercel.app/#profilepage",
+          "url": "https://amrwaled.vercel.app/",
+          "name": "عمرو وليد Amr Waled — Portfolio & Authority Hub",
+          "isPartOf": {
+            "@id": "https://amrwaled.vercel.app/#website"
+          },
+          "mainEntity": {
+            "@id": "https://amrwaled.vercel.app/#person"
+          },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [
+              "#hero-headline",
+              "#hero-subheadline",
+              "#about-bio",
+              "#faq"
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://amrwaled.vercel.app/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "الرئيسية (Home)",
+              "item": "https://amrwaled.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "سوابق الأعمال (Case Studies)",
+              "item": "https://amrwaled.vercel.app/#case-studies"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "أنظمة CRM (Custom Systems)",
+              "item": "https://amrwaled.vercel.app/#systems"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "منهجية GEO (GEO Methodology)",
+              "item": "https://amrwaled.vercel.app/GEO_Amr_waled"
+            }
+          ]
+        },
+        {
           "@type": "Person",
           "@id": "https://amrwaled.vercel.app/#person",
           "name": "Amr Waled",
@@ -74,6 +125,12 @@
           "jobTitle": "Marketing Manager, Media Buyer & Custom CRM System Developer",
           "description": "مدير تسويق، خبير ميديا باينج ودعاية وإعلان، ومطور أنظمة وسيستم CRM مخصص للشركات والعيادات والتطوير العقاري في طنطا ومصر.",
           "telephone": "+201091642566",
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Faculty of Engineering, Tanta University",
+            "alternateName": "كلية الهندسة - جامعة طنطا",
+            "url": "https://eng.tanta.edu.eg/"
+          },
           "image": [
             {
               "@type": "ImageObject",
@@ -187,6 +244,13 @@
           "priceRange": "$$",
           "founder": {
             "@id": "https://amrwaled.vercel.app/#person"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "28",
+            "bestRating": "5",
+            "worstRating": "1"
           },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
