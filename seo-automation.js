@@ -1,12 +1,10 @@
 const { google } = require('googleapis');
-const { GoogleGenAI } = require('@google/genai');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 require('dotenv').config();
 
 const PRIMARY_DOMAIN = 'https://amrwaled.vercel.app';
-const MIRROR_DOMAIN = 'https://amr-waled.github.io';
 
 // مصفوفة الكلمات المفتاحية الاستراتيجية (عربي + إنجليزي) المستهدفة في محركات البحث
 const STRATEGIC_KEYWORD_CLUSTERS = [
@@ -30,23 +28,42 @@ const STRATEGIC_KEYWORD_CLUSTERS = [
     }
 ];
 
-// قائمة الصفحات المعتمدة للموقع والأولويات في Sitemap
+// قائمة الصفحات المعتمدة للموقع بمسارات نظيفة (Clean URLs بدون .html)
 const CORE_PAGES = [
     { file: 'index.html', urlPath: '/', priority: '1.0', changefreq: 'daily', bilingual: true },
-    { file: 'en.html', urlPath: '/en.html', priority: '0.95', changefreq: 'weekly', bilingual: true },
-    { file: 'crm-systems.html', urlPath: '/crm-systems.html', priority: '0.96', changefreq: 'weekly' },
-    { file: 'marketing-tanta.html', urlPath: '/marketing-tanta.html', priority: '0.96', changefreq: 'weekly' },
-    { file: 'solutions.html', urlPath: '/solutions.html', priority: '0.95', changefreq: 'weekly' },
-    { file: 'systems.html', urlPath: '/systems.html', priority: '0.95', changefreq: 'weekly' },
-    { file: 'engaz-case-study.html', urlPath: '/engaz-case-study.html', priority: '0.92', changefreq: 'monthly' },
-    { file: 'insight-clinic-case-study.html', urlPath: '/insight-clinic-case-study.html', priority: '0.92', changefreq: 'monthly' },
-    { file: 'GEO_Amr_waled.html', urlPath: '/GEO_Amr_waled.html', priority: '0.90', changefreq: 'weekly' },
-    { file: 'vibe-coding-playbook.html', urlPath: '/vibe-coding-playbook.html', priority: '0.88', changefreq: 'weekly' },
-    { file: 'geo-2026.html', urlPath: '/geo-2026.html', priority: '0.85', changefreq: 'monthly' },
-    { file: 'about.html', urlPath: '/about.html', priority: '0.85', changefreq: 'monthly' },
+    { file: 'en.html', urlPath: '/en', priority: '0.95', changefreq: 'weekly', bilingual: true },
+    { file: 'crm-systems.html', urlPath: '/crm-systems', priority: '0.96', changefreq: 'weekly' },
+    { file: 'marketing-tanta.html', urlPath: '/marketing-tanta', priority: '0.96', changefreq: 'weekly' },
+    { file: 'brand.html', urlPath: '/brand', priority: '0.95', changefreq: 'weekly' },
+    { file: 'solutions.html', urlPath: '/solutions', priority: '0.95', changefreq: 'weekly' },
+    { file: 'systems.html', urlPath: '/systems', priority: '0.95', changefreq: 'weekly' },
+    { file: 'engaz-case-study.html', urlPath: '/engaz-case-study', priority: '0.92', changefreq: 'monthly' },
+    { file: 'insight-clinic-case-study.html', urlPath: '/insight-clinic-case-study', priority: '0.92', changefreq: 'monthly' },
+    { file: 'GEO_Amr_waled.html', urlPath: '/GEO_Amr_waled', priority: '0.90', changefreq: 'weekly' },
+    { file: 'media-buyer-ai-playbook.html', urlPath: '/media-buyer-ai-playbook', priority: '0.90', changefreq: 'weekly' },
+    { file: 'vibe-coding-playbook.html', urlPath: '/vibe-coding-playbook', priority: '0.88', changefreq: 'weekly' },
+    { file: 'geo-2026.html', urlPath: '/geo-2026', priority: '0.85', changefreq: 'monthly' },
+    { file: 'about.html', urlPath: '/about', priority: '0.85', changefreq: 'monthly' },
     { file: 'llms.txt', urlPath: '/llms.txt', priority: '0.85', changefreq: 'weekly' },
     { file: 'llms-full.txt', urlPath: '/llms-full.txt', priority: '0.85', changefreq: 'weekly' }
 ];
+
+const CLEAN_LINK_MAP = {
+    'index.html': '/',
+    'en.html': '/en',
+    'crm-systems.html': '/crm-systems',
+    'marketing-tanta.html': '/marketing-tanta',
+    'brand.html': '/brand',
+    'solutions.html': '/solutions',
+    'systems.html': '/systems',
+    'engaz-case-study.html': '/engaz-case-study',
+    'insight-clinic-case-study.html': '/insight-clinic-case-study',
+    'GEO_Amr_waled.html': '/GEO_Amr_waled',
+    'media-buyer-ai-playbook.html': '/media-buyer-ai-playbook',
+    'vibe-coding-playbook.html': '/vibe-coding-playbook',
+    'geo-2026.html': '/geo-2026',
+    'about.html': '/about'
+};
 
 /**
  * 1. مزامنة النسخة الإنجليزية (en.html) تلقائياً من index.html بدون أي تشوه في الترميز (UTF-8)
@@ -65,7 +82,7 @@ function syncEnglishVersion() {
 
     html = html.replace(
         /<title>[\s\S]*?<\/title>/,
-        '<title>Amr Waled | Marketing Manager, Media Buyer, Advertising & Custom CRM Developer in Tanta, Egypt</title>'
+        '<title>Amr Waled | Marketing Manager, Media Buyer & Custom CRM Developer in Tanta, Egypt</title>'
     );
     html = html.replace(
         /<meta name="description" content="[^"]*">/,
@@ -73,15 +90,13 @@ function syncEnglishVersion() {
     );
     html = html.replace('<meta property="og:locale" content="ar_EG">', '<meta property="og:locale" content="en_US">');
     html = html.replace('<meta property="og:locale:alternate" content="en_US">', '<meta property="og:locale:alternate" content="ar_EG">');
-    html = html.replace('<meta property="og:url" content="https://amrwaled.vercel.app/">', '<meta property="og:url" content="https://amrwaled.vercel.app/en.html">');
-    html = html.replace('<link rel="canonical" href="https://amrwaled.vercel.app/">', '<link rel="canonical" href="https://amrwaled.vercel.app/en.html">');
+    html = html.replace('<meta property="og:url" content="https://amrwaled.vercel.app/">', '<meta property="og:url" content="https://amrwaled.vercel.app/en">');
+    html = html.replace('<link rel="canonical" href="https://amrwaled.vercel.app/">', '<link rel="canonical" href="https://amrwaled.vercel.app/en">');
 
     html = html.replace(
-        '<button id="btn-ar" class="active">AR</button>\n                    <button id="btn-en">EN</button>',
-        '<button id="btn-ar">AR</button>\n                    <button id="btn-en" class="active">EN</button>'
+        '<button type="button" id="btn-ar" class="active">AR</button>\n                    <button type="button" id="btn-en">EN</button>',
+        '<button type="button" id="btn-ar">AR</button>\n                    <button type="button" id="btn-en" class="active">EN</button>'
     );
-    html = html.replace("let saved = 'ar';", "let saved = 'en';");
-    html = html.replace("localStorage.getItem('amr-lang') || 'ar'", "localStorage.getItem('amr-lang') || 'en'");
 
     html = html.replace(/(<([a-zA-Z0-9]+)[^>]*\bdata-ar="([^"]*)"[^>]*\bdata-en="([^"]*)"[^>]*>)([\s\S]*?)(<\/\2>)/g, (match, openTag, tagName, arVal, enVal, inner, closeTag) => {
         if (!/<(?!br\b)[^>]+>/i.test(inner)) {
@@ -90,15 +105,19 @@ function syncEnglishVersion() {
         return match;
     });
 
+    html = html.replace(/(<input[^>]*\bdata-placeholder-ar="([^"]*)"[^>]*\bdata-placeholder-en="([^"]*)"[^>]*>)/g, (match, tag, arPh, enPh) => {
+        return tag.replace(/placeholder="[^"]*"/, `placeholder="${enPh}"`);
+    });
+
     fs.writeFileSync(enPath, html, 'utf8');
     console.log('✅ en.html synced and verified (UTF-8 clean).');
 }
 
 /**
- * 2. فحص وتصحيح Canonical Tags لجميع صفحات الموقع لضمان الفهرسة في Google Search Console
+ * 2. فحص وتصحيح Canonical Tags والروابط الداخلية لجميع صفحات الموقع لضمان الفهرسة بدون 308 Redirects
  */
 function auditAndFixCanonicals() {
-    console.log('🔍 Auditing HTML pages for Canonical URLs & SEO health...');
+    console.log('🔍 Auditing HTML pages for Clean Canonical URLs & Internal Links...');
     for (const page of CORE_PAGES) {
         if (!page.file.endsWith('.html')) continue;
         const filePath = path.join(__dirname, page.file);
@@ -107,7 +126,6 @@ function auditAndFixCanonicals() {
         let content = fs.readFileSync(filePath, 'utf8');
         const expectedCanonical = `${PRIMARY_DOMAIN}${page.urlPath}`;
 
-        // تصحيح أي canonical قديم يشير إلى github.io بدلاً من الدومين الأساسي على Vercel
         if (content.includes('<link rel="canonical"')) {
             content = content.replace(
                 /<link rel="canonical" href="[^"]*">/,
@@ -120,46 +138,81 @@ function auditAndFixCanonicals() {
             );
         }
 
+        if (content.includes('<meta property="og:url"')) {
+            content = content.replace(
+                /<meta property="og:url" content="[^"]*">/,
+                `<meta property="og:url" content="${expectedCanonical}">`
+            );
+        }
+
+        // إضافة favicon.svg إن لم يكن موجوداً لمنع أخطاء 404 في الكونسول
+        if (!content.includes('rel="icon"') && content.includes('<meta name="viewport"')) {
+            content = content.replace(
+                /(<meta name="viewport"[^>]*>)/,
+                `$1\n    <link rel="icon" type="image/svg+xml" href="/favicon.svg">`
+            );
+        }
+
+        // إضافة meta robots القياسي إن لم يكن موجوداً
+        if (!/<meta\s+name="robots"/i.test(content) && content.includes('</title>')) {
+            content = content.replace(
+                /<\/title>/i,
+                `</title>\n    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">`
+            );
+        }
+
+        // إضافة شبكة الربط الداخلي القياسية (Internal Authority Hub) في الصفحات الفرعية
+        if (page.file !== 'index.html' && page.file !== 'en.html' && !content.includes('Internal Authority & Cross-Linking Hub') && content.includes('</body>')) {
+            const hubBlock = `\n<!-- Internal Authority & Cross-Linking Hub -->\n<nav aria-label="روابط الموقع الرئيسية" style="max-width:1100px;margin:28px auto 18px;padding:18px 24px;border-top:1px solid rgba(148,163,184,0.2);display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:13px;font-weight:700;">\n  <a href="/" style="color:#ea580c;text-decoration:none;">الرئيسية (Amr Waled)</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/marketing-tanta" style="color:inherit;text-decoration:none;">تسويق وميديا باينج طنطا</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/crm-systems" style="color:inherit;text-decoration:none;">برمجة سيستم CRM للشركات</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/solutions" style="color:inherit;text-decoration:none;">الحلول والخدمات</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/systems" style="color:inherit;text-decoration:none;">الأنظمة المشحونة</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/engaz-case-study" style="color:inherit;text-decoration:none;">دراسة حالة إنجاز (+2.5M)</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/insight-clinic-case-study" style="color:inherit;text-decoration:none;">دراسة عيادة Insight</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/GEO_Amr_waled" style="color:inherit;text-decoration:none;">دليل الـ GEO 2026</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/media-buyer-ai-playbook" style="color:inherit;text-decoration:none;">AI Media Buyer Playbook</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/vibe-coding-playbook" style="color:inherit;text-decoration:none;">Vibe Coding Playbook</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/brand" style="color:inherit;text-decoration:none;">تشخيص البراند الشخصي AI</a>\n  <span style="opacity:0.4;">•</span>\n  <a href="/about" style="color:inherit;text-decoration:none;">من هو عمرو وليد؟</a>\n</nav>\n`;
+            content = content.replace(/<\/body>/i, `${hubBlock}</body>`);
+        }
+
+        // تنظيف الروابط الداخلية من امتداد .html لتفادي 308 Redirects
+        for (const [htmlFile, cleanPath] of Object.entries(CLEAN_LINK_MAP)) {
+            const escaped = htmlFile.replace('.', '\\.');
+            content = content.replace(new RegExp(`href="${escaped}"`, 'g'), `href="${cleanPath}"`);
+            content = content.replace(new RegExp(`href="https://amrwaled\\.vercel\\.app/${escaped}"`, 'g'), `href="https://amrwaled.vercel.app${cleanPath}"`);
+            content = content.replace(new RegExp(`href="https://amr-waled\\.github\\.io/${escaped}"`, 'g'), `href="https://amrwaled.vercel.app${cleanPath}"`);
+        }
+
         fs.writeFileSync(filePath, content, 'utf8');
     }
-    console.log('✅ All HTML pages audited and canonicalized to ' + PRIMARY_DOMAIN);
+    console.log('✅ All HTML pages audited and canonicalized to clean URLs on ' + PRIMARY_DOMAIN);
 }
 
 /**
- * 3. تحديث ملف sitemap.xml تلقائياً بتاريخ اليوم وجميع الصفحات
+ * 3. تحديث ملف sitemap.xml تلقائياً بتاريخ اليوم وجميع الصفحات (بدون ازدواجية دومين github.io)
  */
 function updateSitemap() {
     console.log('🗺️ Updating sitemap.xml...');
     const today = new Date().toISOString().split('T')[0];
 
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n\n    <!-- Primary Domain: Vercel (${PRIMARY_DOMAIN}) -->\n`;
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n\n    <!-- Canonical Domain: Vercel (${PRIMARY_DOMAIN}) -->\n`;
 
     for (const page of CORE_PAGES) {
         xml += `    <url>\n        <loc>${PRIMARY_DOMAIN}${page.urlPath}</loc>\n`;
         if (page.bilingual) {
             xml += `        <xhtml:link rel="alternate" hreflang="ar" href="${PRIMARY_DOMAIN}/"/>\n`;
-            xml += `        <xhtml:link rel="alternate" hreflang="en" href="${PRIMARY_DOMAIN}/en.html"/>\n`;
+            xml += `        <xhtml:link rel="alternate" hreflang="ar-EG" href="${PRIMARY_DOMAIN}/"/>\n`;
+            xml += `        <xhtml:link rel="alternate" hreflang="en" href="${PRIMARY_DOMAIN}/en"/>\n`;
             xml += `        <xhtml:link rel="alternate" hreflang="x-default" href="${PRIMARY_DOMAIN}/"/>\n`;
         }
-        if (page.urlPath === '/' || page.urlPath === '/en.html') {
+        if (page.urlPath === '/' || page.urlPath === '/en') {
             xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled.jpg</image:loc>\n            <image:title>عمرو وليد Amr Waled</image:title>\n            <image:caption>عمرو وليد Amr Waled — مدير تسويق ومطور سيستم CRM وأنظمة مبيعات الشركات في طنطا ومصر</image:caption>\n        </image:image>\n`;
             xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-crm-developer.jpg</image:loc>\n            <image:title>عمرو وليد — مطور سيستم CRM</image:title>\n            <image:caption>عمرو وليد Amr Waled — Custom CRM Developer in Tanta</image:caption>\n        </image:image>\n`;
             xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-marketing-manager.jpg</image:loc>\n            <image:title>عمرو وليد — مدير تسويق طنطا</image:title>\n            <image:caption>عمرو وليد Amr Waled — Marketing Manager &amp; Digital Marketing in Tanta</image:caption>\n        </image:image>\n`;
             xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-media-buyer.jpg</image:loc>\n            <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>\n            <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>\n        </image:image>\n`;
         }
+        if (page.urlPath === '/marketing-tanta') {
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr-waled-media-buyer.jpg</image:loc>\n            <image:title>عمرو وليد — خبير ميديا باينج في طنطا</image:title>\n            <image:caption>عمرو وليد Amr Waled — خبير ميديا باينج وإعلانات ممولة وتسويق في طنطا ومحافظة الغربية</image:caption>\n        </image:image>\n`;
+            xml += `        <image:image>\n            <image:loc>${PRIMARY_DOMAIN}/amr_media_buying_ai_approved.jpg</image:loc>\n            <image:title>ميديا باينج في طنطا والدلتا — عمرو وليد</image:title>\n            <image:caption>إدارة حملات ميديا باينج وإعلانات ميتا الممولة عالية العائد في طنطا ومصر</image:caption>\n        </image:image>\n`;
+        }
         xml += `        <lastmod>${today}</lastmod>\n        <changefreq>${page.changefreq}</changefreq>\n        <priority>${page.priority}</priority>\n    </url>\n`;
-    }
-
-    xml += `\n    <!-- Mirror Domain: GitHub Pages (${MIRROR_DOMAIN}) -->\n`;
-    for (const page of CORE_PAGES) {
-        if (page.file.endsWith('.txt')) continue;
-        const mirrorPriority = Math.max(0.80, (parseFloat(page.priority) - 0.05)).toFixed(2);
-        xml += `    <url>\n        <loc>${MIRROR_DOMAIN}${page.urlPath}</loc>\n        <lastmod>${today}</lastmod>\n        <changefreq>${page.changefreq}</changefreq>\n        <priority>${mirrorPriority}</priority>\n    </url>\n`;
     }
 
     xml += `\n</urlset>\n`;
     fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml, 'utf8');
-    console.log('✅ sitemap.xml updated with lastmod=' + today);
+    console.log('✅ sitemap.xml updated with ' + CORE_PAGES.length + ' clean canonical URLs (lastmod=' + today + ')');
 }
 
 /**
@@ -187,9 +240,7 @@ async function fetchGscInsights() {
 
         const urlsToTry = [
             'https://amrwaled.vercel.app/',
-            'sc-domain:amrwaled.vercel.app',
-            'https://amr-waled.github.io/',
-            'sc-domain:amr-waled.github.io'
+            'sc-domain:amrwaled.vercel.app'
         ];
 
         for (const url of urlsToTry) {
@@ -213,66 +264,14 @@ async function fetchGscInsights() {
         }
     } catch (err) {
         console.warn('⚠️ GSC API Notice:', err.message);
-        console.warn('💡 Tip: Because gsc-credentials.json was previously pushed to GitHub, Google Cloud automatically disabled its private key. Create a new JSON key in Google Cloud Console -> IAM -> Service Accounts (seo-auto@double-runway-496618-r1.iam.gserviceaccount.com) and save it as gsc-credentials.json (it is now protected in .gitignore!).');
     }
     return null;
 }
 
-/**
- * 5. رفع التحديثات الآمنة فقط إلى GitHub ليتم نشرها تلقائياً على Vercel
- */
-function pushSafeSeoFiles() {
-    const safeFiles = [
-        '.gitignore',
-        'index.html',
-        'en.html',
-        'solutions.html',
-        'systems.html',
-        'crm-systems.html',
-        'marketing-tanta.html',
-        'insight-clinic-case-study.html',
-        'about.html',
-        'engaz-case-study.html',
-        'GEO_Amr_waled.html',
-        'geo-2026.html',
-        'vibe-coding-playbook.html',
-        'sitemap.xml',
-        'robots.txt',
-        'llms.txt',
-        'llms-full.txt',
-        'vercel.json',
-        'package.json',
-        'geo-evaluator.js',
-        '.github/workflows/seo-automation.yml',
-        'seo-automation.js',
-        'amr-waled.jpg',
-        'amr-waled-crm-developer.jpg',
-        'amr-waled-marketing-manager.jpg',
-        'amr-waled-media-buyer.jpg'
-    ];
-
-    try {
-        const existingSafeFiles = safeFiles.filter(f => fs.existsSync(path.join(__dirname, f)));
-        execSync(`git add ${existingSafeFiles.map(f => `"${f}"`).join(' ')}`, { stdio: 'inherit' });
-
-        const status = execSync('git status --porcelain').toString().trim();
-        if (!status) {
-            console.log('✅ No new git changes to commit. Everything is up to date.');
-            return;
-        }
-
-        execSync('git commit -m "SEO Automation: Sync bilingual metadata, canonicals, FAQ schema, and sitemap"', { stdio: 'inherit' });
-        execSync('git push', { stdio: 'inherit' });
-        console.log('🚀 Pushed safely to GitHub (Vercel auto-deploy triggered)!');
-    } catch (gitErr) {
-        console.warn('⚠️ Git push note:', gitErr.message);
-    }
-}
-
 async function runSeoAutomation() {
     console.log('🚀 Starting Amr Waled SEO & GEO Automation Engine...');
-    auditAndFixCanonicals();
     syncEnglishVersion();
+    auditAndFixCanonicals();
     updateSitemap();
 
     const rows = await fetchGscInsights();
@@ -287,12 +286,7 @@ async function runSeoAutomation() {
             console.log(`   - ${c.keywordAr} | ${c.keywordEn}`);
         });
     }
-
-    if (process.argv.includes('--push')) {
-        pushSafeSeoFiles();
-    } else {
-        console.log('🎉 Local SEO synchronization complete! (Run with --push to commit & push to GitHub/Vercel)');
-    }
+    console.log('🎉 Local SEO synchronization complete!');
 }
 
 runSeoAutomation();

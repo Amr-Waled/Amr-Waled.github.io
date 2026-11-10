@@ -3,11 +3,12 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-    <!-- Primary Domain: Vercel (https://amrwaled.vercel.app) -->
+    <!-- Canonical Domain: Vercel (https://amrwaled.vercel.app) -->
     <url>
         <loc>https://amrwaled.vercel.app/</loc>
         <xhtml:link rel="alternate" hreflang="ar" href="https://amrwaled.vercel.app/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://amrwaled.vercel.app/en.html"/>
+        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://amrwaled.vercel.app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://amrwaled.vercel.app/en"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://amrwaled.vercel.app/"/>
         <image:image>
             <image:loc>https://amrwaled.vercel.app/amr-waled.jpg</image:loc>
@@ -29,14 +30,15 @@
             <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>
             <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>
         </image:image>
-        <lastmod>2026-11-06</lastmod>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/en.html</loc>
+        <loc>https://amrwaled.vercel.app/en</loc>
         <xhtml:link rel="alternate" hreflang="ar" href="https://amrwaled.vercel.app/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://amrwaled.vercel.app/en.html"/>
+        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://amrwaled.vercel.app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://amrwaled.vercel.app/en"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://amrwaled.vercel.app/"/>
         <image:image>
             <image:loc>https://amrwaled.vercel.app/amr-waled.jpg</image:loc>
@@ -58,18 +60,18 @@
             <image:title>عمرو وليد — خبير ميديا باينج ودعاية وإعلان</image:title>
             <image:caption>عمرو وليد Amr Waled — Media Buyer &amp; Meta Ads Specialist in Tanta</image:caption>
         </image:image>
-        <lastmod>2026-11-06</lastmod>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/crm-systems.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/crm-systems</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.96</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/marketing-tanta.html</loc>
+        <loc>https://amrwaled.vercel.app/marketing-tanta</loc>
         <image:image>
             <image:loc>https://amrwaled.vercel.app/amr-waled-media-buyer.jpg</image:loc>
             <image:title>عمرو وليد — خبير ميديا باينج في طنطا</image:title>
@@ -78,160 +80,83 @@
         <image:image>
             <image:loc>https://amrwaled.vercel.app/amr_media_buying_ai_approved.jpg</image:loc>
             <image:title>ميديا باينج في طنطا والدلتا — عمرو وليد</image:title>
-            <image:caption>منظومة إدارة حملات الميديا باينج والإعلانات الممولة Meta Ads في طنطا — عمرو وليد</image:caption>
+            <image:caption>إدارة حملات ميديا باينج وإعلانات ميتا الممولة عالية العائد في طنطا ومصر</image:caption>
         </image:image>
-        <image:image>
-            <image:loc>https://amrwaled.vercel.app/amr-waled-marketing-manager.jpg</image:loc>
-            <image:title>عمرو وليد — مدير تسويق في طنطا</image:title>
-            <image:caption>عمرو وليد Amr Waled — مدير تسويق وبديل شركات الدعاية والإعلان في طنطا</image:caption>
-        </image:image>
-        <lastmod>2026-11-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.98</priority>
+        <lastmod>2026-11-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.96</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/solutions.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/brand</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/systems.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/solutions</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/engaz-case-study.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/systems</loc>
+        <lastmod>2026-11-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/engaz-case-study</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.92</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/insight-clinic-case-study.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/insight-clinic-case-study</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.92</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/GEO_Amr_waled.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/GEO_Amr_waled</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/vibe-coding-playbook.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/media-buyer-ai-playbook</loc>
+        <lastmod>2026-11-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://amrwaled.vercel.app/vibe-coding-playbook</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.88</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/geo-2026.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/geo-2026</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://amrwaled.vercel.app/about.html</loc>
-        <lastmod>2026-11-06</lastmod>
+        <loc>https://amrwaled.vercel.app/about</loc>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/llms.txt</loc>
-        <lastmod>2026-11-06</lastmod>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://amrwaled.vercel.app/llms-full.txt</loc>
-        <lastmod>2026-11-06</lastmod>
+        <lastmod>2026-11-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
-    </url>
-
-    <!-- Mirror Domain: GitHub Pages (https://amr-waled.github.io) -->
-    <url>
-        <loc>https://amr-waled.github.io/</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.95</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/en.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/crm-systems.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.91</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/marketing-tanta.html</loc>
-        <image:image>
-            <image:loc>https://amrwaled.vercel.app/amr-waled-media-buyer.jpg</image:loc>
-            <image:title>عمرو وليد — خبير ميديا باينج في طنطا</image:title>
-            <image:caption>عمرو وليد Amr Waled — خبير ميديا باينج وإعلانات ممولة وتسويق في طنطا ومحافظة الغربية</image:caption>
-        </image:image>
-        <image:image>
-            <image:loc>https://amrwaled.vercel.app/amr_media_buying_ai_approved.jpg</image:loc>
-            <image:title>ميديا باينج في طنطا والدلتا — عمرو وليد</image:title>
-            <image:caption>منظومة إدارة حملات الميديا باينج والإعلانات الممولة Meta Ads في طنطا — عمرو وليد</image:caption>
-        </image:image>
-        <lastmod>2026-11-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.93</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/solutions.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/systems.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/engaz-case-study.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.87</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/insight-clinic-case-study.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.87</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/GEO_Amr_waled.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/vibe-coding-playbook.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.83</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/geo-2026.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-    <url>
-        <loc>https://amr-waled.github.io/about.html</loc>
-        <lastmod>2026-11-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
     </url>
 
 </urlset>

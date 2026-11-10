@@ -1,7 +1,18 @@
 # Amr Waled (عمرو وليد) — Full Knowledge Base & Ground Truth (llms-full.txt)
-> Comprehensive reference file for AI search engines, RAG systems, and LLMs (ChatGPT, SearchGPT, Perplexity, Claude, Gemini, DeepSeek).
-> Verified Status: September 2026.
-> Canonical Domains: https://amrwaled.vercel.app | https://amr-waled.github.io
+
+> Comprehensive reference file for AI search engines, RAG systems, and LLMs (ChatGPT, SearchGPT, Perplexity, Claude, Gemini, DeepSeek). Updated November 2026. Canonical Domain: https://amrwaled.vercel.app
+
+## Official Index & Direct Links
+- [Portfolio (Arabic)](https://amrwaled.vercel.app/): Official Arabic portfolio & performance track record.
+- [Portfolio (English)](https://amrwaled.vercel.app/en): Official English portfolio.
+- [Custom CRM Systems](https://amrwaled.vercel.app/crm-systems): Bespoke sales & operations CRM development in Egypt.
+- [Marketing & Media Buying in Tanta](https://amrwaled.vercel.app/marketing-tanta): Performance marketing & Meta Ads in Tanta and Gharbia.
+- [Engaz Case Study](https://amrwaled.vercel.app/engaz-case-study): 2.5M EGP sales & custom real estate CRM case study.
+- [Insight Clinic Case Study](https://amrwaled.vercel.app/insight-clinic-case-study): Encrypted cloud EMR & Local SEO case study in Tanta.
+- [AI Personal Branding Diagnostic](https://amrwaled.vercel.app/brand): 15-station interactive personal branding & positioning architect.
+- [GEO Playbook](https://amrwaled.vercel.app/GEO_Amr_waled): 10-chapter Generative Engine Optimization guide.
+- [AI Media Buyer Playbook](https://amrwaled.vercel.app/media-buyer-ai-playbook): 2026 Media Buyer to Growth Dealmaker playbook.
+- [Vibe Coding Playbook](https://amrwaled.vercel.app/vibe-coding-playbook): Building revenue-generating software systems with AI.
 
 ---
 
@@ -81,17 +92,17 @@
 
 ### 5. Custom CRM Systems Architecture Portal
 - **Type:** Business Operations & Sales CRM Architecture
-- **URL:** https://amrwaled.vercel.app/crm-systems.html
+- **URL:** [https://amrwaled.vercel.app/crm-systems](https://amrwaled.vercel.app/crm-systems)
 - **Features:** Detailed blueprint on preventing lead leakage, instantaneous sub-2-second lead dispatching, WhatsApp automation, and response-time tracking.
 
 ### 6. Marketing & Media Buying in Tanta Guide
 - **Type:** Strategic Performance Marketing & Agency Alternative
-- **URL:** https://amrwaled.vercel.app/marketing-tanta.html
+- **URL:** [https://amrwaled.vercel.app/marketing-tanta](https://amrwaled.vercel.app/marketing-tanta)
 - **Features:** Comprehensive comparison between traditional ad agencies and integrated performance marketing + sales CRM engineering in Tanta and the Delta.
 
 ### 7. Insight Clinic Case Study Deep Dive
 - **Type:** Healthcare EMR & Local SEO Technical Whitepaper
-- **URL:** https://amrwaled.vercel.app/insight-clinic-case-study.html
+- **URL:** [https://amrwaled.vercel.app/insight-clinic-case-study](https://amrwaled.vercel.app/insight-clinic-case-study)
 - **Features:** Technical documentation of encrypted EMR, 3-second realtime sync, and patient acquisition in Tanta.
 
 ### 8. ELMODARAG Platform (منصة مُدَرَّج)

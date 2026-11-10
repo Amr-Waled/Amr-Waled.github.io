@@ -8,21 +8,29 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "Cache-Control", "value": "public, max-age=0, stale-while-revalidate=86400" }
       ]
     },
     {
-      "source": "/(amr-waled.*|avatar|amr-.*)\\.(jpg|png|jpeg)",
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
         { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/sound-effects.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
       ]
     },
     {
       "source": "/Amr_Waled_CV.pdf",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"Amr_Waled_CV.pdf\"" }
+        { "key": "Content-Disposition", "value": "inline; filename=\"Amr_Waled_CV.pdf\"" }
       ]
     },
     {
@@ -42,26 +50,29 @@
     }
   ],
   "rewrites": [
-    { "source": "/brand", "destination": "/brand.html" },
-    { "source": "/plan", "destination": "/brand.html" },
-    { "source": "/personal-branding", "destination": "/brand.html" },
-    { "source": "/en", "destination": "/en.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/systems", "destination": "/systems.html" },
-    { "source": "/solutions", "destination": "/solutions.html" },
-    { "source": "/engaz", "destination": "/engaz-case-study.html" },
-    { "source": "/case-study", "destination": "/engaz-case-study.html" },
-    { "source": "/engaz-case-study", "destination": "/engaz-case-study.html" },
-    { "source": "/geo", "destination": "/geo-2026.html" },
-    { "source": "/geo-2026", "destination": "/geo-2026.html" },
-    { "source": "/playbook", "destination": "/GEO_Amr_waled.html" },
-    { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled.html" },
-    { "source": "/vibe-coding-playbook", "destination": "/vibe-coding-playbook.html" },
-    { "source": "/crm", "destination": "/crm-systems.html" },
-    { "source": "/crm-systems", "destination": "/crm-systems.html" },
-    { "source": "/clinic", "destination": "/insight-clinic-case-study.html" },
-    { "source": "/insight-clinic", "destination": "/insight-clinic-case-study.html" },
-    { "source": "/marketing-tanta", "destination": "/marketing-tanta.html" },
-    { "source": "/tanta", "destination": "/marketing-tanta.html" }
+    { "source": "/favicon.ico", "destination": "/favicon.svg" },
+    { "source": "/brand", "destination": "/brand" },
+    { "source": "/plan", "destination": "/brand" },
+    { "source": "/personal-branding", "destination": "/brand" },
+    { "source": "/en", "destination": "/en" },
+    { "source": "/about", "destination": "/about" },
+    { "source": "/systems", "destination": "/systems" },
+    { "source": "/solutions", "destination": "/solutions" },
+    { "source": "/engaz", "destination": "/engaz-case-study" },
+    { "source": "/case-study", "destination": "/engaz-case-study" },
+    { "source": "/engaz-case-study", "destination": "/engaz-case-study" },
+    { "source": "/geo", "destination": "/geo-2026" },
+    { "source": "/geo-2026", "destination": "/geo-2026" },
+    { "source": "/playbook", "destination": "/GEO_Amr_waled" },
+    { "source": "/GEO_Amr_waled", "destination": "/GEO_Amr_waled" },
+    { "source": "/vibe-coding-playbook", "destination": "/vibe-coding-playbook" },
+    { "source": "/media-buyer-ai-playbook", "destination": "/media-buyer-ai-playbook" },
+    { "source": "/crm", "destination": "/crm-systems" },
+    { "source": "/crm-systems", "destination": "/crm-systems" },
+    { "source": "/clinic", "destination": "/insight-clinic-case-study" },
+    { "source": "/insight-clinic", "destination": "/insight-clinic-case-study" },
+    { "source": "/insight-clinic-case-study", "destination": "/insight-clinic-case-study" },
+    { "source": "/marketing-tanta", "destination": "/marketing-tanta" },
+    { "source": "/tanta", "destination": "/marketing-tanta" }
   ]
 }

@@ -6,8 +6,10 @@ node_modules/
 venv/
 .kilo/
 .playwright-cli/
+.playwright-mcp/
 output/
-scripts/test*.js
+scripts/
+skills/
 analytics_extracted/
 analytics_temp.zip
 lighthouse-report.json
@@ -16,6 +18,19 @@ index.backup.html
 live.html
 vercel.html
 github.html
+plan.html
+playbook.html
+render_*.html
+amr-branding-plan.html
+amr-content-ready.html
+amr-marketing-beginners.html
+linkedin-cover.html
+SOL_6.1_MASTER_CONSULTATION.md
+ASTRA_6_MARKETING_STRATEGY.md
+AMR_PERSONAL_BRANDING_BEGINNERS.md
+AI_Media_Buying_Playbook.md
+Gulf_Acquisition_System_Playbook.md
+marketing-learning-sources-guide.md
 *.csv
 Invoice-*.pdf
 Receipt-*.pdf
@@ -26,6 +41,11 @@ search.pdf
 عملت موقع بال*
 ليه الشركة بتخسر العملا بتوعها*
 Screenshot*.png
+p_*.png
+page_*.png
+week_cover_*.png
+scratch_*.png
+scratch_*.jpg
 fix_*.js
 fix_*.py
 inject*.py
@@ -39,6 +59,9 @@ recreate_leads.py
 Elite_Lead_Generator.py
 audit_100_restaurants.py
 check_dom.py
+implement_popup.js
 optimize.ps1
 parse_excel.ps1
 read_excel.ps1
+run-seo.bat
+data/
