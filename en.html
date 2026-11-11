@@ -1343,6 +1343,7 @@
             .hero-headline { font-size: 36px; }
             body[lang="ar"] .hero-headline { font-size: 30px; }
             .nav-links { display: none; }
+            .mobile-nav-btn { display: inline-flex !important; }
 
             .section-row { grid-template-columns: 1fr; }
             .section-sidebar {
@@ -1358,11 +1359,92 @@
             .work-grid, .services-grid { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
             .case-card { grid-template-columns: 1fr; }
-            .case-visual { height: 160px; }
-            .record-item { grid-template-columns: 1fr auto; }
-            .record-desc { display: none; }
+            .case-visual { height: 180px; }
+            .record-item { grid-template-columns: 1fr auto; row-gap: 6px; }
+            .record-desc { display: block; grid-column: 1 / -1; font-size: 12.5px; opacity: 0.85; margin-top: 2px; }
 
             .site-footer { padding: 24px 26px; flex-direction: column; align-items: flex-start; gap: 14px; }
+        }
+
+        /* Mobile Drawer */
+        .mobile-nav-btn {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            color: var(--text-dark);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .mobile-nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .mobile-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 99998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .mobile-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: -320px;
+            width: 300px;
+            background: var(--bg-card);
+            border-left: 1px solid var(--border);
+            z-index: 99999;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+        }
+        html[dir="ltr"] .mobile-drawer {
+            right: auto;
+            left: -320px;
+            border-left: none;
+            border-right: 1px solid var(--border);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+        }
+        .mobile-drawer.active {
+            right: 0;
+        }
+        html[dir="ltr"] .mobile-drawer.active {
+            left: 0;
+        }
+        .mobile-drawer-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .mobile-drawer-link:hover {
+            background: var(--bg-surface);
+            border-color: var(--border);
+            color: var(--accent);
         }
 
         @media (max-width: 600px) {
@@ -1449,22 +1531,21 @@
 
             <ul class="nav-links">
                 <li><a href="#work" data-ar="أعمالي" data-en="Work">Work</a></li>
-                <li><a href="/marketing-tanta" data-ar="تسويق طنطا" data-en="Marketing Tanta" style="color:#fde68a;font-weight:800;">Marketing Tanta</a></li>
+                <li><a href="/marketing-tanta" data-ar="تسويق طنطا" data-en="Marketing Tanta">Marketing Tanta</a></li>
                 <li><a href="/crm-systems" data-ar="سيستم CRM" data-en="CRM Systems">CRM Systems</a></li>
                 <li><a href="#case-studies" data-ar="دراسات حالة" data-en="Case Studies">Case Studies</a></li>
                 <li><a href="#services" data-ar="خدماتي" data-en="Services">Services</a></li>
                 <li><a href="#track-record" data-ar="نتائج" data-en="Results">Results</a></li>
                 <li><a href="#blog" data-ar="مقالات" data-en="Blog">Blog</a></li>
-                <li><a href="/brand" style="color:#fde68a;font-weight:800;" data-ar="خطة البراندينج ✨" data-en="Brand Plan ✨">Brand Plan ✨</a></li>
                 <li class="nav-dropdown">
-                    <a href="#blog" class="shake-link" style="color:#fed7aa;font-weight:800;">
-                        <span data-ar="Playbooks 🔥" data-en="Playbooks 🔥">Playbooks 🔥</span>
+                    <a href="#blog">
+                        <span data-ar="الأدلة والبلاي بوكس" data-en="Playbooks">Playbooks</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/GEO_Amr_waled" style="color:#fb923c;font-weight:800;" data-ar="بلاي بوك الـ GEO ⚡" data-en="GEO Playbook ⚡">GEO Playbook ⚡</a></li>
-                        <li><a href="/vibe-coding-playbook" style="color:#fb923c;font-weight:800;" data-ar="بلاي بوك الـ Vibecoding 🚀" data-en="Vibecoding Playbook 🚀">Vibecoding Playbook 🚀</a></li>
-                        <li><a href="/brand" style="color:#f5b324;font-weight:800;" data-ar="مخطط الـ Personal Branding ✨" data-en="Personal Branding Planner ✨">Personal Branding Planner ✨</a></li>
-                        <li><a href="/media-buyer-ai-playbook" style="color:#fb923c;font-weight:800;" data-ar="بلاي بوك الـ AI للميديا باير 🎯" data-en="AI Media Buyer Playbook 🎯">AI Media Buyer Playbook 🎯</a></li>
+                        <li><a href="/GEO_Amr_waled" data-ar="بلاي بوك الـ GEO 2026" data-en="GEO Playbook 2026">GEO Playbook 2026</a></li>
+                        <li><a href="/vibe-coding-playbook" data-ar="بلاي بوك الـ Vibe Coding" data-en="Vibe Coding Playbook">Vibe Coding Playbook</a></li>
+                        <li><a href="/media-buyer-ai-playbook" data-ar="بلاي بوك ميديا باير الـ AI" data-en="AI Media Buyer Playbook">AI Media Buyer Playbook</a></li>
+                        <li><a href="/brand" data-ar="مخطط البراند الشخصي" data-en="Personal Branding Blueprint">Personal Branding Blueprint</a></li>
                     </ul>
                 </li>
             </ul>
@@ -1483,22 +1564,46 @@
                 </div>
 
                 <a href="https://wa.me/201091642566" target="_blank" rel="noopener" class="btn-contact" data-ar="تواصل معي" data-en="Contact Me">
-                    تواصل معي
+                    <span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="14" height="14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h12M10 4l6 6-6 6"/></svg>
                 </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button type="button" class="mobile-nav-btn" id="mobile-menu-btn" onclick="toggleMobileDrawer()" aria-label="فتح القائمة" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+                </button>
             </div>
         </nav>
+
+        <!-- Mobile Drawer Overlay & Content -->
+        <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileDrawer()"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                <span style="font-weight:800;font-size:16px;color:var(--text-dark);" data-ar="القائمة الرئيسية" data-en="Navigation">Navigation</span>
+                <button type="button" onclick="toggleMobileDrawer()" style="background:transparent;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;padding:4px;" aria-label="إغلاق">&times;</button>
+            </div>
+            <a href="#work" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="أبرز الأعمال" data-en="Work Showcase">أبرز الأعمال <span>&larr;</span></a>
+            <a href="/marketing-tanta" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="تسويق طنطا" data-en="Marketing Tanta">تسويق طنطا <span>&larr;</span></a>
+            <a href="/crm-systems" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="برمجة سيستم CRM" data-en="Custom CRM Systems">برمجة سيستم CRM <span>&larr;</span></a>
+            <a href="#case-studies" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="دراسات الحالة الموثقة" data-en="Case Studies">دراسات الحالة <span>&larr;</span></a>
+            <a href="#services" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="خدماتي المتخصصة" data-en="Services">خدماتي <span>&larr;</span></a>
+            <a href="#track-record" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="سجل النتائج" data-en="Track Record">سجل النتائج <span>&larr;</span></a>
+            <a href="#blog" class="mobile-drawer-link" onclick="toggleMobileDrawer()" data-ar="المقالات والبلاي بوكس" data-en="Articles & Playbooks">المقالات والبلاي بوكس <span>&larr;</span></a>
+            <a href="/GEO_Amr_waled" class="mobile-drawer-link" onclick="toggleMobileDrawer()" style="color:var(--accent);" data-ar="دليل الـ GEO 2026" data-en="GEO Playbook 2026">دليل الـ GEO 2026 <span>&larr;</span></a>
+            <a href="/vibe-coding-playbook" class="mobile-drawer-link" onclick="toggleMobileDrawer()" style="color:var(--accent);" data-ar="بلاي بوك الـ Vibe Coding" data-en="Vibe Coding Playbook">بلاي بوك Vibe Coding <span>&larr;</span></a>
+            <a href="#contact-audit" class="mobile-drawer-link" onclick="toggleMobileDrawer()" style="background:var(--accent);color:#fff;border-radius:12px;margin-top:10px;justify-content:center;" data-ar="طلب استشارة أو سيستم" data-en="Request Audit / System">Request Audit / System</a>
+        </div>
 
         <!-- PORTRAIT COMPOSITION -->
         <div class="hero-composition">
             <div class="photo-card p-left">
-                <img src="amr-waled-marketing-manager.jpg" width="400" height="533" decoding="async" alt="عمرو وليد Amr Waled — مدير تسويق وخبير ماركتينج في طنطا ومصر (Marketing Manager Tanta)" title="عمرو وليد Amr Waled — مدير تسويق في طنطا" loading="lazy">
+                <img src="amr-waled-marketing-manager.jpg" width="400" height="533" decoding="async" alt="عمرو وليد Amr Waled — مدير تسويق واستشاري نمو الشركات (Marketing Manager & Growth Consultant)" title="عمرو وليد Amr Waled — مدير تسويق واستشاري نمو" loading="lazy">
             </div>
             <div class="photo-card p-right">
-                <img src="amr-waled-media-buyer.jpg" width="400" height="533" decoding="async" alt="عمرو وليد Amr Waled — خبير ميديا باينج ودعاية وإعلان (Media Buyer & Advertising Tanta)" title="عمرو وليد Amr Waled — خبير ميديا باينج ودعاية وإعلان" loading="lazy">
+                <img src="amr-waled-media-buyer.jpg" width="400" height="533" decoding="async" alt="عمرو وليد Amr Waled — محاضر واستشاري تسويق في إكسبلور إيناكتس طنطا ومعهد تكنولوجيا المعلومات ITI" title="عمرو وليد Amr Waled — تدريب ومحاضرات التسويق" loading="lazy">
             </div>
             <div class="photo-card p-main">
-                <img src="amr-waled.jpg" width="500" height="667" decoding="async" alt="عمرو وليد Amr Waled — مدير تسويق ومطور سيستم CRM وأنظمة مبيعات الشركات في طنطا (Custom CRM Developer)" title="عمرو وليد Amr Waled — الصورة الرسمية" fetchpriority="high" itemprop="image">
+                <img src="amr-waled.jpg" width="500" height="667" decoding="async" alt="عمرو وليد Amr Waled — استشاري ميديا باينج ومطور سيستم CRM وأنظمة مبيعات الشركات (Custom CRM Developer)" title="عمرو وليد Amr Waled — الصورة الرسمية" fetchpriority="high" itemprop="image">
             </div>
         </div>
 
@@ -1543,68 +1648,42 @@
 
             <div class="work-grid">
 
-                <!-- Card 3: Delta City Mall -->
+                <!-- Card 3: Engaz Developments CRM & Marketing -->
                 <div class="work-card">
-                    <div class="work-mockup">
-                        <div class="work-mockup-inner">
-                            <div style="display:flex;gap:6px;margin-bottom:8px;">
-                                <div class="mockup-bar accent" style="width:30%;height:10px;border-radius:3px;"></div>
-                                <div class="mockup-bar" style="width:20%;height:10px;border-radius:3px;"></div>
-                            </div>
-                            <div class="mockup-grid">
-                                <div class="mockup-cell" style="grid-column:1/3;height:70px;background:rgba(234,88,12,0.08);border-color:rgba(234,88,12,0.15);"></div>
-                            </div>
-                            <div style="display:flex;gap:6px;margin-top:6px;">
-                                <div class="mockup-bar" style="width:45%;height:8px;border-radius:3px;"></div>
-                                <div class="mockup-bar accent" style="width:25%;height:8px;border-radius:3px;"></div>
-                            </div>
-                        </div>
+                    <div class="work-mockup" style="background:#0c1322;padding:0;overflow:hidden;height:180px;display:flex;align-items:center;justify-content:center;">
+                        <img src="engaz-crm-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="سيستم CRM ومتابعة مبيعات شركة إنجاز للتطوير العقاري" style="width:100%;height:100%;object-fit:cover;object-position:top;">
                     </div>
                     <div class="work-info">
-                        <span class="work-tag" data-ar="مدير تسويق | ميتا أدز" data-en="Marketing Manager | Meta Ads">Marketing Manager | Meta Ads</span>
-                        <h3 class="work-title" data-ar="إنجاز للتطوير العقاري — إدارة التسويق والحملات" data-en="Engaz Developments — Marketing Management & Campaigns">Engaz Developments — Marketing Management & Campaigns</h3>
-                        <p class="work-desc" data-ar="مدير تسويق في إنجاز — حملات Meta بـ CPL 11.7 جنيه، مليون+ مشاهدة، وإدارة كاملة لمنظومة التسويق الرقمي والأوفلاين." data-en="Marketing Manager at Engaz — Meta campaigns achieving 11.7 EGP CPL, 1M+ views, and full management of digital & offline marketing.">Marketing Manager at Engaz — Meta campaigns achieving 11.7 EGP CPL, 1M+ views, and full management of digital & offline marketing.</p>
-                        <a href="/engaz-case-study" class="btn-work" data-ar="اقرأ الدراسة ←" data-en="Read Case Study →">Read Case Study →</a>
+                        <span class="work-tag" data-ar="مدير تسويق | ميتا أدز | سيستم CRM" data-en="Marketing Director | Meta Ads | Custom CRM">Marketing Director | Meta Ads | Custom CRM</span>
+                        <h3 class="work-title" data-ar="إنجاز للتطوير العقاري — إدارة التسويق وبناء سيستم الـ CRM" data-en="Engaz Developments — Marketing Leadership & Proprietary CRM">Engaz Developments — Marketing Leadership & Proprietary CRM</h3>
+                        <p class="work-desc" data-ar="مدير تسويق في إنجاز — حملات Meta بـ CPL 11.7 جنيه، مليون+ مشاهدة، وسيستم CRM متكامل أوقف تسريب الليدات وحقق مبيعات 2.5 مليون جنيه." data-en="Marketing Director at Engaz — Meta campaigns at 11.7 EGP CPL, 1M+ views, and a proprietary CRM stopping lead leakage and driving 2.5M EGP sales.">Marketing Director at Engaz — Meta campaigns at 11.7 EGP CPL, 1M+ views, and a proprietary CRM stopping lead leakage and driving 2.5M EGP sales.</p>
+                        <a href="/engaz-case-study" class="btn-work" data-ar="اقرأ دراسة الحالة ←" data-en="Read Case Study →">Read Case Study →</a>
                     </div>
                 </div>
 
                 <!-- Card 4: Maqam -->
                 <div class="work-card">
-                    <div class="work-mockup">
-                        <div class="work-mockup-inner">
-                            <div class="mockup-bar accent" style="width:50%;"></div>
-                            <div class="mockup-grid" style="grid-template-rows:1fr 1fr;height:100%;">
-                                <div class="mockup-cell" style="grid-column:1/3;"></div>
-                                <div class="mockup-cell accent-cell"></div>
-                                <div class="mockup-cell"></div>
-                            </div>
-                        </div>
+                    <div class="work-mockup" style="background:#0b1b32;padding:0;overflow:hidden;height:180px;display:flex;align-items:center;justify-content:center;">
+                        <img src="maqam-media-buyer-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="هندسة حملات الميديا باينج وإعلانات ميتا لشركة مقام" style="width:100%;height:100%;object-fit:cover;object-position:center;">
                     </div>
                     <div class="work-info">
-                        <span class="work-tag" data-ar="ميديا باينج" data-en="Media Buying">Media Buying</span>
-                        <h3 class="work-title" data-ar="Media Buyer بـ Maqam" data-en="Media Buyer at Maqam">Media Buyer at Maqam</h3>
-                        <p class="work-desc" data-ar="إدارة حملات إعلانية احترافية (ميديا باينج) لشركة مقام عن بُعد، لتحقيق أقصى عائد على الإنفاق الإعلاني." data-en="Professional media buying and remote campaign management for Maqam, maximizing ROAS.">Professional media buying and remote campaign management for Maqam, maximizing ROAS.</p>
-                        <a href="#case-studies" class="btn-work" data-ar="المزيد" data-en="More Details">More Details</a>
+                        <span class="work-tag" data-ar="ميديا باينج متقدم" data-en="Performance Media Buying">Performance Media Buying</span>
+                        <h3 class="work-title" data-ar="هندسة الحملات والميديا باينج بـ Maqam" data-en="Performance Media Buying at Maqam">Performance Media Buying at Maqam</h3>
+                        <p class="work-desc" data-ar="إدارة حملات إعلانية ممولة (ميديا باينج) لشركة مقام عن بُعد، بهندسة شرائح دقيقة وتتبع التحويلات لتحقيق أقصى عائد على الإنفاق الإعلاني." data-en="Performance media buying and campaign architecture for Maqam, engineering precision audience funnels and maximizing ROAS.">Performance media buying and campaign architecture for Maqam, engineering precision audience funnels and maximizing ROAS.</p>
+                        <a href="/media-buyer-ai-playbook" class="btn-work" data-ar="بلاي بوك الحملات ←" data-en="Campaign Playbook →">Campaign Playbook →</a>
                     </div>
                 </div>
 
-                <!-- Card 5: Sally Selim -->
+                <!-- Card 5: Sally Salem -->
                 <div class="work-card">
-                    <div class="work-mockup">
-                        <div class="work-mockup-inner">
-                            <div class="mockup-bar accent" style="width:60%;"></div>
-                            <div class="mockup-grid" style="grid-template-columns:1fr 2fr;height:100%;">
-                                <div class="mockup-cell accent-cell"></div>
-                                <div class="mockup-cell"></div>
-                            </div>
-                            <div class="mockup-bar" style="width:40%;margin-top:6px;"></div>
-                        </div>
+                    <div class="work-mockup" style="background:#0d1117;padding:0;overflow:hidden;height:180px;display:flex;align-items:center;justify-content:center;">
+                        <img src="sally-salem-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="استراتيجية نمو وتصميم ريلز وكاروسيل د. سالي سالم" style="width:100%;height:100%;object-fit:cover;object-position:center;">
                     </div>
                     <div class="work-info">
-                        <span class="work-tag" data-ar="ديجيتال ماركتينج" data-en="Digital Marketing">Digital Marketing</span>
-                        <h3 class="work-title" data-ar="التسويق الرقمي مع د. سالي سالم" data-en="Digital Marketing with Dr. Sally Salem">Digital Marketing with Dr. Sally Salem</h3>
-                        <p class="work-desc" data-ar="إدارة استراتيجية التسويق الرقمي، محتوى الريلز، والأوتوميشن مع د. سالي سالم لتحقيق أهداف النمو والانتشار العضوي." data-en="Managing digital marketing strategy, Reels content, and automation with Dr. Sally Salem to drive organic reach and growth.">Managing digital marketing strategy, Reels content, and automation with Dr. Sally Salem to drive organic reach and growth.</p>
-                        <a href="#case-studies" class="btn-work" data-ar="المزيد" data-en="More Details">More Details</a>
+                        <span class="work-tag" data-ar="نمو مجتمعي | تيك توك وإنستجرام" data-en="Community Growth | TikTok & IG">Community Growth | TikTok & IG</span>
+                        <h3 class="work-title" data-ar="استراتيجية النمو العضوي مع د. سالي سالم" data-en="Organic Growth Strategy with Dr. Sally Salem">Organic Growth Strategy with Dr. Sally Salem</h3>
+                        <p class="work-desc" data-ar="إدارة استراتيجية السوشيال ميديا ومحتوى الريلز والكاروسيل، محققين 519 ألف+ مشاهدة ونمو بنسبة 235% ووصول 87% جمهور جديد." data-en="Social media growth strategy, Reels & carousel scripts, achieving 519k+ views, 235% growth, and 87% reach to non-followers.">Social media growth strategy, Reels & carousel scripts, achieving 519k+ views, 235% growth, and 87% reach to non-followers.</p>
+                        <a href="#case-studies" class="btn-work" data-ar="تفاصيل النتائج ←" data-en="Results Details →">Results Details →</a>
                     </div>
                 </div>
 
@@ -1632,8 +1711,8 @@
 
                 <!-- Case 1 -->
                 <div class="case-card">
-                    <div class="case-visual">
-                        <span class="case-emoji" style="display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></span>
+                    <div class="case-visual" style="height:200px;padding:0;overflow:hidden;background:#0d1117;">
+                        <img src="engaz-crm-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="دراسة حالة شركة إنجاز العقارية وسيستم الـ CRM" style="width:100%;height:100%;object-fit:cover;object-position:top;">
                     </div>
                     <div class="case-body">
                         <span class="case-tag" data-ar="عقارات | CRM | إعلانات" data-en="Real Estate | CRM | Ads">Real Estate | CRM | Ads</span>
@@ -1659,8 +1738,8 @@
 
                 <!-- Case 2 -->
                 <div class="case-card">
-                    <div class="case-visual">
-                        <span class="case-emoji" style="display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                    <div class="case-visual" style="height:200px;padding:0;overflow:hidden;background:#0d1117;">
+                        <img src="insight-clinic-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="دراسة حالة عيادة إنسايت وسيستم إدارة المرضى" style="width:100%;height:100%;object-fit:cover;object-position:center;">
                     </div>
                     <div class="case-body">
                         <span class="case-tag" data-ar="طب | سوشيال ميديا | اكتساب عملاء" data-en="Medical | Social Media | Acquisition">Medical | Social Media | Acquisition</span>
@@ -1685,12 +1764,8 @@
 
                 <!-- Case 3 -->
                 <div class="case-card">
-                    <div class="case-visual">
-                        <span class="case-emoji" style="display:flex;align-items:center;justify-content:center;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                            </svg>
-                        </span>
+                    <div class="case-visual" style="height:200px;padding:0;overflow:hidden;background:#0d1117;">
+                        <img src="sally-salem-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="دراسة حالة نمو حسابات د. سالي سالم على تيك توك وفيسبوك" style="width:100%;height:100%;object-fit:cover;object-position:center;">
                     </div>
                     <div class="case-body">
                         <span class="case-tag" data-ar="نمو مجتمعي | تيك توك | سوشيال ميديا" data-en="Community Growth | TikTok | Social Media">Community Growth | TikTok | Social Media</span>
@@ -1865,11 +1940,8 @@
             <div class="blog-grid">
 
                 <a href="/GEO_Amr_waled" class="blog-card" style="border: 2px solid #ea580c40;position:relative;overflow:hidden;">
-                    <div class="blog-thumb" style="background:linear-gradient(135deg,#18181b,#ea580c);">
-                        <div class="blog-thumb-placeholder" style="flex-direction:column;gap:6px;color:#ffffff;">
-                            <span style="font-size:26px;">⚡</span>
-                            <span style="font-size:10px;font-weight:800;letter-spacing:1px;background:#c2410c;color:#fff;padding:2px 8px;border-radius:4px;">PLAYBOOK 2026</span>
-                        </div>
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#18181b,#ea580c); padding: 0;">
+                        <img src="geo-playbook-preview.jpg" width="900" height="500" loading="lazy" decoding="async" alt="GEO Playbook 10 Chapters — عمرو وليد" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="blog-meta">
                         <p class="blog-date" style="color:var(--accent);font-weight:700;" data-ar="دليل مرجعي شامل + البرومبت المعتمد" data-en="Comprehensive Guide + Certified Mega-Prompt">Comprehensive Guide + Certified Mega-Prompt</p>
@@ -1902,12 +1974,9 @@
                     </div>
                 </a>
 
-                <a href="/geo-2026" class="blog-card">
-                    <div class="blog-thumb" style="background:linear-gradient(135deg,#1c1917,#451a03);">
-                        <div class="blog-thumb-placeholder" style="flex-direction:column;gap:8px;color:#fb923c;">
-                            <span style="font-size:24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span>
-                            <span style="font-size:10px;color:#fde68a;font-weight:700;letter-spacing:0.5px;">GEO & AI SEARCH</span>
-                        </div>
+                <a href="/geo-2026" class="blog-card" style="position:relative;overflow:hidden;">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#1c1917,#451a03); padding: 0;">
+                        <img src="geo-preview.jpg" width="900" height="500" loading="lazy" decoding="async" alt="GEO 2026 Playbook — عمرو وليد" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="blog-meta">
                         <p class="blog-date" data-ar="أكتوبر 2026" data-en="October 2026">October 2026</p>
@@ -1916,9 +1985,9 @@
                     </div>
                 </a>
 
-                <a href="/engaz-case-study" class="blog-card">
-                    <div class="blog-thumb" style="background:linear-gradient(135deg,#1e0902,#4c0519);">
-                        <div class="blog-thumb-placeholder" style="color:#fb923c;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+                <a href="/engaz-case-study" class="blog-card" style="position:relative;overflow:hidden;">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#1e0902,#4c0519); padding: 0;">
+                        <img src="engaz-crm-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="Engaz CRM Case Study — عمرو وليد" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="blog-meta">
                         <p class="blog-date">2025–2026</p>
@@ -1927,9 +1996,9 @@
                     </div>
                 </a>
 
-                <a href="/insight-clinic-case-study" class="blog-card">
-                    <div class="blog-thumb" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
-                        <div class="blog-thumb-placeholder" style="color:#60a5fa;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <a href="/insight-clinic-case-study" class="blog-card" style="position:relative;overflow:hidden;">
+                    <div class="blog-thumb" style="background:linear-gradient(135deg,#0f172a,#1e3a5f); padding: 0;">
+                        <img src="insight-clinic-preview.jpg" width="800" height="450" loading="lazy" decoding="async" alt="Insight Clinic EMR Case Study — عمرو وليد" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="blog-meta">
                         <p class="blog-date">2025–2026</p>
@@ -2121,6 +2190,35 @@
     };
     syncThemeIcons();
 
+    // Mobile Drawer Toggle
+    window.toggleMobileDrawer = function () {
+        const drawer = document.getElementById('mobileDrawer');
+        const overlay = document.getElementById('mobileDrawerOverlay');
+        const btn = document.getElementById('mobile-menu-btn');
+        if (!drawer || !overlay) return;
+        const isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+            drawer.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        } else {
+            drawer.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+        }
+    };
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            const drawer = document.getElementById('mobileDrawer');
+            if (drawer && drawer.classList.contains('active')) {
+                window.toggleMobileDrawer();
+            }
+        }
+    });
+
     function applyLang(lang, persist) {
         htmlEl.setAttribute('lang', lang);
         bodyEl.setAttribute('lang', lang);
@@ -2251,41 +2349,37 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer onload="if(window.AOS){AOS.init({ once: true, offset: 50 });}"></script>
 
 
-<!-- WhatsApp Floating Toast -->
+<!-- WhatsApp Contact Pill -->
 <style>
   .wa-toast {
     position: fixed;
-    bottom: -100px;
-    right: 24px;
-    background: white;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    gap: 16px;
-    z-index: 99999;
-    transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    opacity: 0;
-    max-width: 320px;
-    text-decoration: none;
-  }
-  .wa-toast.show {
     bottom: 24px;
-    opacity: 1;
-    animation: popupBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    right: 24px;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border, #e4e4e7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px 8px 10px;
+    gap: 12px;
+    z-index: 99999;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+    max-width: 340px;
   }
-  @keyframes popupBounce {
-    0% { transform: scale(0.9) translateY(20px); }
-    100% { transform: scale(1) translateY(0); }
+  [dir="rtl"] .wa-toast {
+    right: auto;
+    left: 24px;
+    padding: 8px 10px 8px 16px;
   }
-  .wa-toast-icon-wrapper {
-    position: relative;
-    display: flex;
+  .wa-toast:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.25);
   }
   .wa-toast-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
@@ -2293,69 +2387,68 @@
     align-items: center;
     flex-shrink: 0;
   }
-  .wa-badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    background: #ef4444;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    width: 18px;
-    height: 18px;
+  .wa-toast-icon svg { width: 22px; height: 22px; fill: white; }
+  .wa-toast-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 2px solid white;
+    flex-direction: column;
+    text-align: right;
   }
-  .wa-toast-icon svg { width: 28px; height: 28px; fill: white; }
-  .wa-toast-content h4 { margin: 0; font-size: 15px; color: #111; font-family: var(--font-en); font-weight: 700; }
-  .wa-toast-content p { margin: 4px 0 0; font-size: 13px; color: #666; font-family: var(--font-ar); }
+  [dir="ltr"] .wa-toast-content {
+    text-align: left;
+  }
+  .wa-toast-content h4 { margin: 0; font-size: 13px; color: var(--text-dark, #111); font-weight: 700; line-height: 1.3; }
+  .wa-toast-content p { margin: 2px 0 0; font-size: 11px; color: var(--text-muted, #666); line-height: 1.2; }
   .wa-toast-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
     background: none;
     border: none;
-    font-size: 18px;
-    color: #999;
+    font-size: 16px;
+    color: var(--text-muted, #999);
     cursor: pointer;
+    padding: 4px;
+    margin-right: -4px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  [dir="rtl"] .wa-toast-close {
+    margin-right: 0;
+    margin-left: -4px;
+  }
+  .wa-toast-close:hover {
+    color: var(--text-dark, #111);
   }
 </style>
 
-<a href="https://wa.me/201091642566" target="_blank" class="wa-toast" id="waToast">
-  <span class="wa-toast-close" id="waClose" role="button" aria-label="إغلاق">&times;</span>
-  <div class="wa-toast-icon-wrapper">
-    <div class="wa-toast-icon">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 21.828V21.83h-.002c-1.636 0-3.236-.44-4.636-1.272l-.333-.198-3.447.904.921-3.361-.217-.346C3.41 16.143 2.96 14.103 2.96 12c0-4.962 4.045-9 9.04-9 4.996 0 9.04 4.038 9.04 9s-4.044 9-9.04 9.828zM12 1.045C5.955 1.045 1.04 5.96 1.04 12c0 1.932.505 3.81 1.465 5.467L1 23l5.654-1.482c1.58.88 3.394 1.346 5.346 1.346 6.045 0 10.96-4.915 10.96-10.96S18.045 1.045 12 1.045z"/></svg>
-    </div>
-    <span class="wa-badge">1</span>
+<a href="https://wa.me/201091642566" target="_blank" rel="noopener noreferrer" class="wa-toast" id="waToast" aria-label="تواصل مع عمرو وليد عبر واتساب">
+  <div class="wa-toast-icon">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 21.828V21.83h-.002c-1.636 0-3.236-.44-4.636-1.272l-.333-.198-3.447.904.921-3.361-.217-.346C3.41 16.143 2.96 14.103 2.96 12c0-4.962 4.045-9 9.04-9 4.996 0 9.04 4.038 9.04 9s-4.044 9-9.04 9.828zM12 1.045C5.955 1.045 1.04 5.96 1.04 12c0 1.932.505 3.81 1.465 5.467L1 23l5.654-1.482c1.58.88 3.394 1.346 5.346 1.346 6.045 0 10.96-4.915 10.96-10.96S18.045 1.045 12 1.045z"/></svg>
   </div>
   <div class="wa-toast-content">
-    <h4 data-en="Amr Waled" data-ar="Amr Waled">Amr Waled</h4>
-    <p data-en="Need a marketing expert? Let's chat!" data-ar="يلا بينا نتكلم على الواتساب وندردش في البيزنس بتاعك.">يلا بينا نتكلم على الواتساب وندردش في البيزنس بتاعك.</p>
+    <h4 data-en="Chat with Amr Waled" data-ar="تواصل واتساب مع عمرو وليد">تواصل واتساب مع عمرو وليد</h4>
+    <p data-en="Direct Business & Consulting Inquiry" data-ar="استشارة تسويق أو سيستم CRM مباشر">استشارة تسويق أو سيستم CRM مباشر</p>
   </div>
+  <button type="button" class="wa-toast-close" id="waClose" aria-label="إغلاق">&times;</button>
 </a>
 <script>
-  setTimeout(() => {
-    const toast = document.getElementById('waToast');
-    if (toast) {
-      toast.classList.add('show');
-      try {
-        if (window.AmrSFX) window.AmrSFX.notification();
-      } catch(e) {}
+  (function() {
+    const waToast = document.getElementById('waToast');
+    const waClose = document.getElementById('waClose');
+    if (sessionStorage.getItem('wa_dismissed') === '1' && waToast) {
+      waToast.style.display = 'none';
+      return;
     }
-  }, 10000);
-  const waClose = document.getElementById('waClose');
-  if (waClose) {
-    waClose.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const toast = document.getElementById('waToast');
-      if (toast) toast.classList.remove('show');
-    });
-  }
+    if (waClose && waToast) {
+      waClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        waToast.style.opacity = '0';
+        waToast.style.transform = 'translateY(20px)';
+        setTimeout(() => { waToast.style.display = 'none'; }, 300);
+        try { sessionStorage.setItem('wa_dismissed', '1'); } catch(_) {}
+      });
+    }
+  })();
 </script>
 <script src="sound-effects.js" defer></script>
 </body>
