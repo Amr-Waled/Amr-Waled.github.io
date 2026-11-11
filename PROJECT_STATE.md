@@ -24,3 +24,35 @@
    - تحميل الخطوط و `aos.css` بشكل غير حاجب للرسم، وإزالة `data-aos` من الهيرو، وإضافة `<link rel="preload">` للصورة الرئيسية.
    - إضافة زر تبديل الوضع الليلي والنهاري (**Dark / Light Mode Toggle**) بدون وميض، وإضافة وسم `<main>`، وإصلاح تباين الألوان (`WCAG AA Contrast`).
    - إضافة قسم **طلب استشارة أو سيستم سريع (`#contact-audit`)** في الصفحة الرئيسية والنسخة الإنجليزية مربوط بـ `/api/save-lead` مع طابور حفظ محلي (`localStorage` Fail-Safe Queue) وتحويل فوري للواتساب في حال انقطاع الاتصال.
+
+5. **إزالة بصمات الذكاء الاصطناعي وترقية الهوية البصرية الحقيقية (Anti-AI Visual Upgrade):**
+   - **تنظيف وتأطير الصور الشخصية:**
+     - قص ومعالجة الصورة الرئيسية في الهيرو (`amr-waled.jpg`) بنسبة 3:4 سينمائية مركزة على وقفة القوة وساعة اليد، مع إزالة علبة البيبسي والمناديل والموبايل وخلفية الشارع تماماً.
+     - قص ومعالجة صورة الأفاتار (`avatar.jpg`) بنسبة 1:1 نقية وإلغاء الشيشة الخضراء في الكافيه بنسبة 100%.
+     - استبدال الصور المتكررة بصور حقيقية ذات هوية تنفيذية: صورة قيادة ندوة Enactus / ITI أمام 50 شخصاً في قاعة المحاضرات (`amr-waled-media-buyer.jpg`)، وصورة ليلية تنفيذية في الإسكندرية أمام العمارة الكلاسيكية (`amr-waled-marketing-manager.jpg`).
+   - **استبدال الصناديق الفارغة بسكرين شوتس حقيقية للأنظمة:**
+     - استبدال خطوط الـ CSS الوهمية (`.mockup-bar`, `.mockup-cell`) في معرض الأعمال (`#work`) بسكرين شوتس حقيقية من جهاز عمرو: لوحة تحكم سيستم إنجاز للتطوير العقاري (`engaz-crm-preview.jpg`)، أصول ميديا باينج شركة مقام (`maqam-media-buyer-preview.jpg`)، وتصميمات نمو د. سالي سالم (`sally-salem-preview.jpg`).
+     - استبدال الصناديق السوداء الفارغة بحجم 200px في دراسات الحالة الموثقة (`#case-studies`) وكروت المقالات بالصور الحقيقية لسيستم إنجاز، وسيستم EMR عيادة Insight Clinic مع تقييم Google Business 5.0 نجوم.
+     - إنشاء بنرات تنفيذية داكنة فائقة الحدة لدليل الـ GEO ودليل البحث الذكي بالذكاء الاصطناعي (`geo-playbook-preview.jpg`, `geo-preview.jpg`).
+   - **تطوير القائمة الجانبية للشاشات الصغيرة (Mobile Drawer Navigation):**
+     - إضافة زر همبرغر متجاوب (`#mobile-menu-btn`) وقائمة جانبية كاملة (`#mobileDrawer`) تنزلق بسلاسة في شاشات الموبايل مع طبقة تظليل خلفية (`#mobileDrawerOverlay`) ودعم إغلاق فوري عند الضغط على الروابط أو مفتاح `Escape`.
+   - **ترقية ودجت الواتساب العائم (WhatsApp Contact Pill):**
+     - إزالة الشارة الحمراء الوهمية غير المقروءة (`.wa-badge`) وإلغاء الصوت المزعج (`notification beep`) وتحويل الودجت إلى زر عائم فاخر ومتجاوب مع الوضعين الليلي والنهاري.
+
+---
+
+## 🌐 2. نتائج الفحص والتحقق التجريبي على الدومين الحي (`https://amrwaled.vercel.app`)
+- `HTTP 200 OK` على الصفحة الرئيسية `/` والنسخة الإنجليزية `/en`.
+- `HTTP 200 OK` على كافة المسارات النظيفة: `/crm-systems`, `/marketing-tanta`, `/GEO_Amr_waled`, `/vibe-coding-playbook`, `/engaz-case-study`, `/insight-clinic-case-study`.
+- `HTTP 200 OK` على كافة الصور الشخصية وصور المعاينات الجديدة:
+  - `amr-waled.jpg` (200 OK)
+  - `avatar.jpg` (200 OK)
+  - `amr-waled-marketing-manager.jpg` (200 OK)
+  - `amr-waled-media-buyer.jpg` (200 OK)
+  - `engaz-crm-preview.jpg` (200 OK)
+  - `insight-clinic-preview.jpg` (200 OK)
+  - `maqam-media-buyer-preview.jpg` (200 OK)
+  - `sally-salem-preview.jpg` (200 OK)
+  - `geo-playbook-preview.jpg` (200 OK)
+  - `geo-preview.jpg` (200 OK)
+  - `vibe_coding_playbook_banner_1791466373823.jpg` (200 OK)
